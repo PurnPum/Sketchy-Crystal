@@ -26,11 +26,14 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - Sketch should have the highest priority in the game, higher than protect. Also it has 2 PP now.
 
+- Changed Move Tutor so it only teaches Sketch
+
 ## TODO:
 
 - Make TM price increase with badges
 - Change enemy trainer teams so that they all use normal moves.
 - Change Potion on the PC to be a Sketch TM
+- Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
 ## See also
