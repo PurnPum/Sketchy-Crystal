@@ -12,7 +12,9 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - All Mons are now compatible with ALL TMs/HMs
 
-- Mons only learn Struggle at Level 1
+- Mons only learn Struggle at Level 1, egg moves still exist.
+
+- Odd Eggs no longer had a set moveset, its just Struggle.
 
 ## See also
 
