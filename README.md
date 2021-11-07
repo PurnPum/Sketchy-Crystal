@@ -10,7 +10,7 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## Changes so far:
 
-- Reduced TMs to only 2, Sketch and Rock Smash.
+- Reduced TMs to only 2, Sketch and Rock Smash. Sketch is worth 1250. Rock Smash is worth 10.
 
 - All Mons are now compatible with ALL TMs/HMs
 
@@ -19,8 +19,6 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 - Odd Eggs no longer had a set moveset, its just Struggle.
 
 - HM Moves no longer do anything in-battle (This includes the TM for Rock Smash)
-
-- HMs are all worth 1250 and all have Sketch.
 
 - All Shops sell TMs for Sketch. In GoldenRod and Cerulean you have to go to the actual TM floor. Rock Smash is still avaliable.
 
@@ -31,6 +29,7 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 - Make TM price increase with badges
 - Change enemy trainer teams so that they all use normal moves.
 - Change Potion on the PC to be a Sketch TM
+- Try to make Sketch a priority move.
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
 ## See also
