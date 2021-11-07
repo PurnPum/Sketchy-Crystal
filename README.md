@@ -12,6 +12,8 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - All Mons are now compatible with ALL TMs/HMs
 
+- Mons only learn Struggle at Level 1
+
 ## See also
 
 - [**FAQ**](FAQ.md)
