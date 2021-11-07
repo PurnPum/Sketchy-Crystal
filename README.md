@@ -24,12 +24,13 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - Gift Dratini no longer has moves other than Struggle.
 
+- Sketch should have the highest priority in the game, higher than protect. Also it has 2 PP now.
+
 ## TODO:
 
 - Make TM price increase with badges
 - Change enemy trainer teams so that they all use normal moves.
 - Change Potion on the PC to be a Sketch TM
-- Try to make Sketch a priority move.
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
 ## See also
