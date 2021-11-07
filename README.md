@@ -10,6 +10,8 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## Changes so far:
 
+- Reduced TMs to only 2, Sketch and Rock Smash.
+
 - All Mons are now compatible with ALL TMs/HMs
 
 - Mons only learn Struggle at Level 1, egg moves still exist.
@@ -18,9 +20,18 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - HM Moves no longer do anything in-battle (This includes the TM for Rock Smash)
 
-- HMs are all worth 1250 and all have Sketch. (TODO: Make cost increase with badges)
+- HMs are all worth 1250 and all have Sketch.
 
 - All Shops sell TMs for Sketch. In GoldenRod and Cerulean you have to go to the actual TM floor. Rock Smash is still avaliable.
+
+- Gift Dratini no longer has moves other than Struggle.
+
+## TODO:
+
+- Make TM price increase with badges
+- Change enemy trainer teams so that they all use normal moves.
+- Change Potion on the PC to be a Sketch TM
+- (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
 ## See also
 
