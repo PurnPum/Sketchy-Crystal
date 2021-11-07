@@ -16,6 +16,8 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - Odd Eggs no longer had a set moveset, its just Struggle.
 
+- HM Moves no longer do anything in-battle
+
 ## See also
 
 - [**FAQ**](FAQ.md)
