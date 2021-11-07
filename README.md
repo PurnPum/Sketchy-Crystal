@@ -16,7 +16,11 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - Odd Eggs no longer had a set moveset, its just Struggle.
 
-- HM Moves no longer do anything in-battle
+- HM Moves no longer do anything in-battle (This includes the TM for Rock Smash)
+
+- HMs are all worth 1250 and all have Sketch. (TODO: Make cost increase with badges)
+
+- All Shops sell TMs for Sketch. In GoldenRod and Cerulean you have to go to the actual TM floor. Rock Smash is still avaliable.
 
 ## See also
 
