@@ -566,6 +566,24 @@ ItemAttr_ReturnCarry:
 	scf
 	ret
 
+IncreaseSketchPrice:
+	ld a, TM_SKETCH
+	cp [wCurItem] ;Compare TM_Sketch with the current item being checked
+	ret nz ;If we're not checking the Sketch TM then just return to GetItemPrice
+	ld a, NUM_BADGES; Otherwise, load the number of badges that we have
+	ld hl, de ;Store 'de' in 'hl' (The previously calculated price)
+	cp $00 ;Compare 'a' to 0, if they match z becomes 1
+	jr z, .finishSketchOp ;Finish if z is 1, Otherwise:
+	
+.loopSketchOp
+	add hl,de ;Add 'de' to 'hl', effectively multiplying it by 'a' when the loop is over.
+	dec a ;Decrease 'a' by 1 and thus change 'z' to 0 unless 'a' decreased to 0, then 'z' would become 1.
+	jr nz, .loopSketchOp ;Jump back to the beggining of the loop until 'z' becomes 1
+
+.finishSketchOp
+	ld de, hl ;Save the end result in de, which is now the new price for the TM
+	ret ;Return to GetItemPrice with the data at 'de' updated
+	
 GetItemPrice:
 ; Return the price of wCurItem in de.
 	push hl
@@ -576,6 +594,7 @@ GetItemPrice:
 	ld a, ITEMATTR_PRICE_HI
 	call GetItemAttr
 	ld d, a
+	call IncreaseSketchPrice
 	pop bc
 	pop hl
 	ret
