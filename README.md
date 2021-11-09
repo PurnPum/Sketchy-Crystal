@@ -28,11 +28,12 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - Changed Move Tutor so it only teaches Sketch
 
+- Make TM price increase with badges. Every badge increases its price by 1250, so to calculate
+	the price at certain point just do 1250 + 1250*AmountOfBadges
+
 ## TODO:
 
-- Make TM price increase with badges
 - Change enemy trainer teams so that they all use normal moves.
-- Change Potion on the PC to be a Sketch TM
 - Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
