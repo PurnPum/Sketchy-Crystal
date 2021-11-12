@@ -33,7 +33,7 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## TODO:
 
-- Change enemy trainer teams so that they all use normal moves.
+- Change enemy trainer teams so that they all use their usual moves. (Most important TODO)
 - Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
