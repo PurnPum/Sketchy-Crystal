@@ -66,9 +66,9 @@ BlackthornGymClairScript:
 	iftrue .GotTM24
 	writetext BlackthornGymClairText_YouKeptMeWaiting
 	promptbutton
-	giveitem TM_DRAGONBREATH
+	giveitem TM_SKETCH
 	iffalse .BagFull
-	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
+	getitemname STRING_BUFFER_3, TM_SKETCH
 	writetext BlackthornGymText_ReceivedTM24
 	playsound SFX_ITEM
 	waitsfx
@@ -231,16 +231,16 @@ BlackthornGymClairText_YouKeptMeWaiting:
 
 BlackthornGymText_ReceivedTM24:
 	text "<PLAYER> received"
-	line "TM24."
+	line "TM01."
 	done
 
 BlackthornGymClairText_DescribeTM24:
 	text "That contains"
-	line "DRAGONBREATH."
+	line "SKETCH."
 
 	para "No, it doesn't"
 	line "have anything to"
-	cont "do with my breath."
+	cont "do with paintings."
 
 	para "If you don't want"
 	line "it, you don't have"

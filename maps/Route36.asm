@@ -491,7 +491,7 @@ RockSmashGuyText2:
 
 Text_ReceivedTM08: ; unreferenced
 	text "<PLAYER> received"
-	line "TM08."
+	line "TM08. Suprisingly."
 	done
 
 RockSmashGuyText3:
@@ -507,6 +507,13 @@ RockSmashGuyText3:
 	para "If any rocks are"
 	line "in your way, just"
 	cont "smash 'em up!"
+	
+	para "Sadly it won't"
+	line "work in battles."
+	
+	para "Why are you look-"
+	line "int at me like"
+	cont "that??…"
 	done
 
 UnusedOddTreeText: ; unreferenced

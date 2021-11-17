@@ -41,7 +41,7 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
 	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
-	verbosegiveitem TM_FURY_CUTTER
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForFuryCutter
 	setevent EVENT_GOT_TM49_FURY_CUTTER
 	writetext BugsyText_FuryCutterSpeech
@@ -204,16 +204,12 @@ BugsyText_HiveBadgeSpeech:
 	done
 
 BugsyText_FuryCutterSpeech:
-	text "TM49 contains"
-	line "FURY CUTTER."
+	text "TM01 contains"
+	line "SKETCH."
 
-	para "If you don't miss,"
-	line "it gets stronger"
-	cont "every turn."
-
-	para "The longer your"
-	line "battle goes, the"
-	cont "better it gets."
+	para "This move will"
+	line "be used even"
+	cont "before Protect."
 
 	para "Isn't that great?"
 	line "I discovered it!"

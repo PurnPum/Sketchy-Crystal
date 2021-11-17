@@ -38,7 +38,7 @@ CeladonGymErikaScript:
 	iftrue .GotGigaDrain
 	writetext ErikaExplainTMText
 	promptbutton
-	verbosegiveitem TM_GIGA_DRAIN
+	verbosegiveitem TM_SKETCH
 	iffalse .GotGigaDrain
 	setevent EVENT_GOT_TM19_GIGA_DRAIN
 .GotGigaDrain:
@@ -162,13 +162,13 @@ ErikaExplainTMText:
 	line "Please, I wish you"
 	cont "to have this TM."
 
-	para "It is GIGA DRAIN."
+	para "It is SKETCH."
 
 	para "It is a wonderful"
 	line "move that drains"
 
-	para "half the damage it"
-	line "inflicts to heal"
+	para "the whole concept"
+	line "of the move onto"
 	cont "your #MON."
 
 	para "Please use it if"

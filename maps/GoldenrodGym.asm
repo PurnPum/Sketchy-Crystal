@@ -64,7 +64,7 @@ GoldenrodGymWhitneyScript:
 .GotPlainBadge:
 	writetext WhitneyPlainBadgeText
 	promptbutton
-	verbosegiveitem TM_ATTRACT
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
 	writetext WhitneyAttractText
@@ -249,15 +249,15 @@ WhitneyPlainBadgeText:
 	done
 
 WhitneyAttractText:
-	text "It's ATTRACT!"
+	text "It's SKETCH!"
 	line "It makes full use"
 
-	para "of a #MON's"
-	line "charm."
+	para "of a #MON's…"
+	line "…Painting skills?"
 
-	para "Isn't it just per-"
-	line "fect for a cutie"
-	cont "like me?"
+	para "The move has 2 PP"
+	line "so you can waste"
+	cont "your first turn."
 	done
 
 WhitneyGoodCryText:
