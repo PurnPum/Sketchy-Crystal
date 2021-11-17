@@ -58,7 +58,7 @@ CianwoodGymChuckScript:
 	setevent EVENT_BEAT_BLACKBELT_LUNG
 	writetext ChuckExplainBadgeText
 	promptbutton
-	verbosegiveitem TM_DYNAMICPUNCH
+	verbosegiveitem TM_SKETCH
 	iffalse .BagFull
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
 	writetext ChuckExplainTMText
@@ -216,15 +216,20 @@ ChuckExplainBadgeText:
 	done
 
 ChuckExplainTMText:
-	text "That is DYNAMIC-"
-	line "PUNCH."
+	text "That is SKETCH."
 
-	para "It doesn't always"
-	line "hit, but when it"
+	para "As you probably not-"
+	line "-iced, wild #MON"
+	cont "can only struggle."
 
-	para "does, it causes"
-	line "confusion!"
-	done
+	para "So you should know"
+	line "the moves that enemy"
+	cont "trainers will use"
+	
+	para "This way you can"
+	line "build your team"
+	cont "Optimally!"
+	done 
 
 ChuckAfterText:
 	text "WAHAHAH! I enjoyed"

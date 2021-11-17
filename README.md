@@ -31,10 +31,14 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 - Make TM price increase with badges. Every badge increases its price by 1250, so to calculate
 	the price at certain point just do 1250 + 1250*AmountOfBadges
 
+- Change enemy trainer teams so that they all use their usual moves.
+
+- Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
+
 ## TODO:
 
-- Change enemy trainer teams so that they all use their usual moves. (Most important TODO)
-- Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
+- Test the initial release.
+
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
 ## See also

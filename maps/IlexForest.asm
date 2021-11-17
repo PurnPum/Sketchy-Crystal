@@ -375,7 +375,7 @@ IlexForestHeadbuttGuyScript:
 	iftrue .AlreadyGotHeadbutt
 	writetext Text_HeadbuttIntro
 	promptbutton
-	verbosegiveitem TM_HEADBUTT
+	verbosegiveitem TM_SKETCH
 	iffalse .BagFull
 	setevent EVENT_GOT_TM02_HEADBUTT
 .AlreadyGotHeadbutt:
@@ -823,17 +823,23 @@ Text_HeadbuttIntro:
 	text "What am I doing?"
 
 	para "I'm shaking trees"
-	line "using HEADBUTT."
+	line "using SKETCH."
+	
+	para
+	line "Yes, you read me"
+	cont "right. Yes, it"
+	cont "is nonsensical."
 
-	para "It's fun. Here,"
-	line "you try it too!"
+	para "Just take it and"
+	line "leave before I"
+	cont "SKETCH you!"
 	done
 
 Text_HeadbuttOutro:
-	text "Rattle trees with"
-	line "HEADBUTT. Some-"
-	cont "times, sleeping"
-	cont "#MON fall out."
+	text "Just kidding, I"
+	line "sketched the move"
+	cont "HEADBUTT from a"
+	cont "trainer's slowpoke"
 	done
 
 Text_IlexForestLass:

@@ -73,7 +73,7 @@ GoldenrodDeptStore5FReceptionistScript:
 .VeryHappy:
 	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText
 	promptbutton
-	verbosegiveitem TM_RETURN
+	verbosegiveitem TM_SKETCH
 	iffalse .Done
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext
@@ -88,7 +88,7 @@ GoldenrodDeptStore5FReceptionistScript:
 .NotVeryHappy:
 	writetext GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText
 	promptbutton
-	verbosegiveitem TM_FRUSTRATION
+	verbosegiveitem TM_SKETCH
 	iffalse .Done
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext
@@ -150,24 +150,32 @@ GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
 	para "This move should"
 	line "be perfect for a"
 	cont "pair like you."
+	
+	para "Just kidding,"
+	line "Literally anything"
+	cont "can learn this."
 	done
 
 GoldenrodDeptStore5FReceptionistItsAdorableText:
 	text "It's adorable!"
 
 	para "You should teach"
-	line "it good TM moves."
+	line "it SKETCH. Maybe"
+	cont "make it explode."
 	done
 
 GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText:
-	text "It looks evil. How"
-	line "about this TM for"
-	cont "it?"
+	text "Whatever this is,"
+	line "it looks evil."
+	
+	para "Take this TM and"
+	line "get out before I"
+	cont "call security"
 	done
 
 GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText:
-	text "There are sure to"
-	line "be TMs that are"
+	text "There is sure to"
+	line "be one TM that is"
 
 	para "just perfect for"
 	line "your #MON."
@@ -193,7 +201,7 @@ GoldenrodDeptStore5FLassText:
 	cont "#MON."
 
 	para "She even gives"
-	line "away TMs!"
+	line "away Diss Tracks!"
 	done
 
 GoldenrodDeptStore5FPokefanMText:

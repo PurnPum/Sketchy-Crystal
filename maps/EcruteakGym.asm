@@ -53,7 +53,7 @@ EcruteakGymMortyScript:
 	setevent EVENT_BEAT_MEDIUM_GRACE
 	writetext MortyText_FogBadgeSpeech
 	promptbutton
-	verbosegiveitem TM_SHADOW_BALL
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForShadowBall
 	setevent EVENT_GOT_TM30_SHADOW_BALL
 	writetext MortyText_ShadowBallSpeech
@@ -249,14 +249,16 @@ MortyText_FogBadgeSpeech:
 	done
 
 MortyText_ShadowBallSpeech:
-	text "It's SHADOW BALL."
-	line "It causes damage"
+	text "It's SKETCH."
+	line "Of course it is."
 
-	para "and may reduce"
-	line "SPCL.DEF."
+	para "Would be cool to"
+	line "get Sacred Fire"
+	cont "with it."
 
-	para "Use it if it"
-	line "appeals to you."
+	para "So I don't have"
+	line "to climb this"
+	cont "stupid old tower"
 	done
 
 MortyFightDoneText:

@@ -32,7 +32,7 @@ OlivineGymJasmineScript:
 	iftrue .GotIronTail
 	writetext Jasmine_BadgeSpeech
 	promptbutton
-	verbosegiveitem TM_IRON_TAIL
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForIronTail
 	setevent EVENT_GOT_TM23_IRON_TAIL
 	writetext Jasmine_IronTailSpeech
@@ -153,7 +153,11 @@ Text_ReceivedTM09: ; unreferenced
 Jasmine_IronTailSpeech:
 	text "…You could use"
 	line "that TM to teach"
-	cont "IRON TAIL."
+	cont "SKETCH."
+	
+	para "You should start"
+	line "getting used"
+	cont "to this…"
 	done
 
 Jasmine_GoodLuck:

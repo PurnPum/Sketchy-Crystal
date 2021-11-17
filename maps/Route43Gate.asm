@@ -113,7 +113,7 @@ OfficerScript_GuardWithSludgeBomb:
 	iftrue .GotSludgeBomb
 	writetext OfficerText_FoundTM
 	promptbutton
-	verbosegiveitem TM_SLUDGE_BOMB
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForSludgeBomb
 	setevent EVENT_GOT_TM36_SLUDGE_BOMB
 	closetext
@@ -236,7 +236,7 @@ OfficerText_FoundTM:
 
 Text_ReceivedTM30: ; unreferenced
 	text "<PLAYER> received"
-	line "TM30."
+	line "TM01."
 	done
 
 OfficerText_AvoidGrass:

@@ -18,7 +18,7 @@ Celebrity:
 	iftrue .AlreadyGotItem
 	writetext CelebrityText1
 	promptbutton
-	verbosegiveitem TM_STEEL_WING
+	verbosegiveitem TM_SKETCH
 	iffalse .Done
 	setevent EVENT_GOT_TM47_STEEL_WING
 .Done:
@@ -42,26 +42,24 @@ CelebrityHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
 CelebrityText1:
-	text "Oh, dear."
+	text "Oh, wow."
 	line "You've found me."
 
-	para "Please don't tell"
-	line "anyone about me."
+	para "Please tell every-"
+	line "-one about me."
 
 	para "I'll give you this"
-	line "for keeping my"
-	cont "secret. Please?"
+	line "for giving me a"
+	cont "shotout."
 	done
 
 CelebrityText2:
-	text "It's tough being a"
-	line "top celebrity."
+	text "It's tough being"
+	line "an influencer."
 
 	para "Everywhere I go,"
-	line "people chase me."
-
-	para "I just want to be"
-	line "left alone…"
+	line "I must tweet"
+	cont "about it."
 	done
 
 CelebritysFearowText:

@@ -107,7 +107,7 @@ Route32RoarTMGuyScript:
 	iftrue .AlreadyHaveRoar
 	writetext Text_RoarIntro
 	promptbutton
-	verbosegiveitem TM_ROAR
+	verbosegiveitem TM_SKETCH
 	iffalse .Finish
 	setevent EVENT_GOT_TM05_ROAR
 .AlreadyHaveRoar:
@@ -840,7 +840,7 @@ Text_RoarIntro:
 	text "WROOOOAR!"
 	line "PEOPLE RUN WHEN I"
 
-	para "ROAR! BUT YOU"
+	para "SKETCH! BUT YOU"
 	line "CAME LOOKING!"
 
 	para "THAT PLEASES ME!"
@@ -848,11 +848,12 @@ Text_RoarIntro:
 	done
 
 Text_RoarOutro:
-	text "WROOOAR!"
-	line "IT'S ROAR!"
+	text "-Starts sketching-"
+	line "IT'S SKETCHY!"
 
 	para "EVEN #MON RUN"
-	line "FROM A GOOD ROAR!"
+	line "FROM A GOOD"
+	cont "SKETCH!"
 	done
 
 MeetFriedaText:
