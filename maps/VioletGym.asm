@@ -38,7 +38,7 @@ VioletGymFalknerScript:
 	specialphonecall SPECIALCALL_ASSISTANT
 	writetext FalknerZephyrBadgeText
 	promptbutton
-	verbosegiveitem TM_MUD_SLAP
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForMudSlap
 	setevent EVENT_GOT_TM31_MUD_SLAP
 	writetext FalknerTMMudSlapText
@@ -170,25 +170,19 @@ FalknerTMMudSlapText:
 	text "By using a TM, a"
 	line "#MON will"
 
-	para "instantly learn a"
-	line "new move."
+	para "instantly learn"
+	line "SKETCH."
 
 	para "Think before you"
-	line "act--a TM can be"
-	cont "used only once."
+	line "act. SKETCH TMs'"
+	cont "price rises as"
+	cont "you earn badges"
 
-	para "TM31 contains"
-	line "MUD-SLAP."
+	para "TM01 contains"
+	line "SKETCH."
 
-	para "It reduces the"
-	line "enemy's accuracy"
-
-	para "while it causes"
-	line "damage."
-
-	para "In other words, it"
-	line "is both defensive"
-	cont "and offensive."
+	para "Hey don't look"
+	line "at me like that!"
 	done
 
 FalknerFightDoneText:

@@ -48,7 +48,7 @@ FuchsiaGymJanineScript:
 	iftrue .AfterTM
 	writetext JanineText_ToxicSpeech
 	promptbutton
-	verbosegiveitem TM_TOXIC
+	verbosegiveitem TM_SKETCH
 	iffalse .AfterTM
 	setevent EVENT_GOT_TM06_TOXIC
 .AfterTM:
@@ -266,11 +266,12 @@ JanineText_ToxicSpeech:
 	line "tough! I have a"
 	cont "special gift!"
 
-	para "It's TOXIC, a pow-"
-	line "erful poison that"
+	para "It's SKETCH, a"
+	line "move that really"
 
-	para "steadily saps the"
-	line "victim's HP."
+	para "forces you to be"
+	line "original with"
+	cont "your movesets."
 	done
 
 JanineText_ApplyMyself:

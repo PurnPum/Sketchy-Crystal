@@ -13,7 +13,7 @@ HiddenPowerGuy:
 	iftrue .AlreadyGotItem
 	writetext HiddenPowerGuyText1
 	promptbutton
-	verbosegiveitem TM_HIDDEN_POWER
+	verbosegiveitem TM_SKETCH
 	iffalse .Done
 	setevent EVENT_GOT_TM10_HIDDEN_POWER
 	writetext HiddenPowerGuyText2
@@ -49,20 +49,31 @@ HiddenPowerGuyText1:
 
 HiddenPowerGuyText2:
 	text "Do you see it? It"
-	line "is HIDDEN POWER!"
+	line "is SKETCH!"
 
-	para "It draws out the"
-	line "power of #MON"
-	cont "for attacking."
-
-	para "Remember this: its"
-	line "type and power de-"
-	cont "pend on the #-"
-	cont "MON using it."
+	para "Wait what?"
+	
+	para "What do you mean"
+	line "that they sell"
+	cont "this in stores?"
+	
+	para "My whole life I've"
+	line "meditated here,"
+	cont "isolated from all"
+	cont "society…"
+	
+	para "And all for some-"
+	line "-thing that any-"
+	cont "-body can buy at"
+	cont "any shop anywhere?"
+	
+	para "I really need to"
+	line "reconsider some of"
+	cont "my life choices…"
 	done
 
 HiddenPowerGuyText3:
-	text "I am meditating…"
+	text "…"
 	done
 
 LakeOfRageHiddenPowerHouse_MapEvents:

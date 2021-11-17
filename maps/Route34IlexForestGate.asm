@@ -50,7 +50,7 @@ Route34IlexForestGateTeacherScript:
 	iftrue .GotSweetScent
 	writetext Route34IlexForestGateTeacherText
 	promptbutton
-	verbosegiveitem TM_SWEET_SCENT
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoom
 	setevent EVENT_GOT_TM12_SWEET_SCENT
 .GotSweetScent:
@@ -89,23 +89,26 @@ Route34IlexForestGateTeacherReturnsMovement:
 
 Route34IlexForestGateTeacherText:
 	text "Oh, honey. You're"
-	line "making a #DEX?"
+	line "making a team?"
 
 	para "It must be hard if"
-	line "#MON won't"
+	line "you can't learn"
+	cont "any moves."
 
-	para "appear. Try using"
-	line "this TM."
+	para "Try using this"
+	line "TM."
 	done
 
 Route34IlexForestGateTeacher_GotSweetScent:
-	text "It's SWEET SCENT."
+	text "It's SKETCH."
 
-	para "Use it wherever"
-	line "#MON appear."
+	para "Use it whenever"
+	line "you fight an"
+	cont "enemy trainer."
 
-	para "#MON will be"
-	line "enticed by it."
+	para "Ideally you get a"
+	line "useful move for"
+	cont "your #MON."
 	done
 
 Route34IlexForestGateTeacher_ForestIsRestless:

@@ -13,7 +13,7 @@ MrPsychic:
 	iftrue .AlreadyGotItem
 	writetext MrPsychicText1
 	promptbutton
-	verbosegiveitem TM_PSYCHIC_M
+	verbosegiveitem TM_SKETCH
 	iffalse .Done
 	setevent EVENT_GOT_TM29_PSYCHIC
 .AlreadyGotItem:
@@ -39,10 +39,12 @@ MrPsychicText1:
 	done
 
 MrPsychicText2:
-	text "TM29 is PSYCHIC."
+	text "TM01 is SKETCH."
 
-	para "It may lower the"
-	line "target's SPCL.DEF."
+	para "Okay fine, this"
+	line "prediction was"
+	cont "trivial, but cut"
+	cont "me some slack."
 	done
 
 MrPsychicsHouse_MapEvents:

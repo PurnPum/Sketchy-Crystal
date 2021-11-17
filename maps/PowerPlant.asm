@@ -171,7 +171,7 @@ PowerPlantManager:
 	iftrue .GotZapCannon
 	writetext PowerPlantManagerTakeThisTMText
 	promptbutton
-	verbosegiveitem TM_ZAP_CANNON
+	verbosegiveitem TM_SKETCH
 	iffalse .NoRoom
 	setevent EVENT_GOT_TM07_ZAP_CANNON
 	writetext PowerPlantManagerTM07IsZapCannonText
@@ -365,17 +365,18 @@ PowerPlantManagerTakeThisTMText:
 	done
 
 PowerPlantManagerTM07IsZapCannonText:
-	text "MANAGER: TM07 is"
-	line "my ZAP CANNON."
+	text "MANAGER: This is"
+	line "a SKETCH of the"
+	cont "generator!"
 
-	para "It's a powerful"
-	line "technique!"
+	para "Isn't it so"
+	line "beautiful?"
 
-	para "It's not what any-"
-	line "one would consider"
+	para "What? You have"
+	line "no interest on it?"
 
-	para "accurate, but it"
-	line "packs a wallop!"
+	para "Fine, take this TM"
+	line "then instead…"
 	done
 
 PowerPlantManagerMyBelovedGeneratorText:

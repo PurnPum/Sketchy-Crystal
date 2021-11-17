@@ -77,10 +77,10 @@ GoldenrodGameCornerTMVendor_LoopScript:
 .Thunder:
 	checkcoins GOLDENRODGAMECORNER_TM25_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
-	getitemname STRING_BUFFER_3, TM_THUNDER
+	getitemname STRING_BUFFER_3, TM_SKETCH
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_THUNDER
+	giveitem TM_SKETCH
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins GOLDENRODGAMECORNER_TM25_COINS
 	sjump GoldenrodGameCornerTMVendor_FinishScript
@@ -88,10 +88,10 @@ GoldenrodGameCornerTMVendor_LoopScript:
 .Blizzard:
 	checkcoins GOLDENRODGAMECORNER_TM14_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
-	getitemname STRING_BUFFER_3, TM_BLIZZARD
+	getitemname STRING_BUFFER_3, TM_SKETCH
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_BLIZZARD
+	giveitem TM_SKETCH
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins GOLDENRODGAMECORNER_TM14_COINS
 	sjump GoldenrodGameCornerTMVendor_FinishScript
@@ -99,10 +99,10 @@ GoldenrodGameCornerTMVendor_LoopScript:
 .FireBlast:
 	checkcoins GOLDENRODGAMECORNER_TM38_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
-	getitemname STRING_BUFFER_3, TM_FIRE_BLAST
+	getitemname STRING_BUFFER_3, TM_SKETCH
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
-	giveitem TM_FIRE_BLAST
+	giveitem TM_SKETCH
 	iffalse GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
 	takecoins GOLDENRODGAMECORNER_TM38_COINS
 	sjump GoldenrodGameCornerTMVendor_FinishScript
