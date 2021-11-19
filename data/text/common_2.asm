@@ -1543,7 +1543,33 @@ _OakText2::
 	line "habited by crea-"
 	cont "tures that we call"
 	cont "#MON.@"
-	text_end
+	
+	para "However, studies"
+	line "have shown that"
+	cont "these creatures"
+	cont "are rather… … …"
+	
+	para "Dysfunctional…"
+	
+	para "They appear to"
+	line "only be able to"
+	cont "struggle in battle."
+	
+	para "Moreover, highly"
+	line "skilled trainers"
+	cont "all around the"
+	cont "region have been"
+	cont "able to raise"
+	cont "these creatures"
+	cont "making them able"
+	cont "to fight."
+	
+	para "Regardless, there"
+	line "are some… sketchy"
+	cont "methods out there"
+	cont "to make your #MON"
+	cont "fit for battle."
+	prompt
 
 _OakText3::
 	text_promptbutton
