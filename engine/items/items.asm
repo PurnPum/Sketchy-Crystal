@@ -586,10 +586,8 @@ IncreaseSketchPrice:
 
 .finishSketchOp
 	add hl, de ;Lastly, hl's value is (de*a), so we add one last time to compensate for the 0 badges case.
-	ld a, h ;At this point a is equal to 0 so we can use it freely
-	ld d, a
-	ld a, l
-	ld e, a ;This basically equals to ld de, hl
+	ld d, h
+	ld e, l ;This basically equals to ld de, hl
 	ret ;Return to GetItemPrice with the data at 'de' updated
 	
 GetItemPrice:

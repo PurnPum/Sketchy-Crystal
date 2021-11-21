@@ -251,9 +251,7 @@ MACRO add_mt
 ENDM
 
 DEF MT01 EQU const_value
-	add_mt SKETCH
-	add_mt SKETCH
-	add_mt SKETCH
+	add_mt TELEPORT
 DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
