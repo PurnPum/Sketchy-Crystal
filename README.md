@@ -1,12 +1,30 @@
 # Pokémon Sketchy Crystal [![Build Status][ci-badge]][ci]
 
-This is a ROM Hack based off of the disassembly of Pokémon Crystal.
+This is a Challenge ROM Hack based off of the disassembly of Pokémon Crystal.
 
 It builds the following ROM:
 
 - Pokemon - sketchycrystal.gbc `sha256: a2eef0c0f2a992fb85f0adb03a276b3958da044bcd78aeab101561ea467f27f5`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
+
+## What's the challenge in this ROM?
+
+You have to build your team by stealing moves from enemy trainers, since wild pokemon
+only know struggle.
+
+You steal moves by teaching the move Sketch to your pokemon, by using the TMs that you find and buy
+as you continue your journey.
+
+HMs wont do anything in-battle, but every mon can learn them.
+
+As you gain badges, the price of the Sketch TM will rise, so plan ahead and manage your money well.
+
+Almost all teams are the same as in the original crystal, the only teams that are changed
+are teams that only have 1 pokemon repeated multiple times. Those teams will now have a single
+pokemon with a higher level. Rematches are also disabled.
+
+Good Luck!
 
 ## Changes so far:
 
