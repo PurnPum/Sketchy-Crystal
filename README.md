@@ -26,6 +26,11 @@ pokemon with a higher level. Rematches are also disabled.
 
 Good Luck!
 
+## Known issues:
+
+- Some trainers of the same class may be misplaced with incorrect teams, for example the birdkeeper at the
+end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that team.
+
 ## Changes so far:
 
 - Reduced TMs to only 2, Sketch and Rock Smash. Sketch is worth 1250. Rock Smash is worth 10.
