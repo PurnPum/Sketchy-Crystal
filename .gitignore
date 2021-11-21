@@ -57,6 +57,6 @@ used_space.png
 .DS_STORE
 
 # zip files
-.zip
-.rar
-.7z
+*.zip
+*.rar
+*.7z
