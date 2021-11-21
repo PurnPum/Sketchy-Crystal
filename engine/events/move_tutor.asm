@@ -40,7 +40,7 @@ MoveTutor:
 	cp MOVETUTOR_THUNDERBOLT
 	jr z, .thunderbolt
 	; MOVETUTOR_ICE_BEAM
-	ld a, MT03_MOVE ; SKETCH
+	ld a, MT01_MOVE ; SKETCH
 	ret
 
 .flamethrower
@@ -48,7 +48,7 @@ MoveTutor:
 	ret
 
 .thunderbolt
-	ld a, MT02_MOVE ; SKETCH
+	ld a, MT01_MOVE ; SKETCH
 	ret
 
 CheckCanLearnMoveTutorMove:
