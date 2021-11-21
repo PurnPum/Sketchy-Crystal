@@ -568,20 +568,28 @@ ItemAttr_ReturnCarry:
 
 IncreaseSketchPrice:
 	ld a, TM_SKETCH
-	cp [wCurItem] ;Compare TM_Sketch with the current item being checked
+	ld hl, wCurItem ;Store wCurItem in hl
+	cp [hl] ;Compare TM_Sketch with the current item being checked
 	ret nz ;If we're not checking the Sketch TM then just return to GetItemPrice
-	ld a, NUM_BADGES; Otherwise, load the number of badges that we have
-	ld hl, de ;Store 'de' in 'hl' (The previously calculated price)
+	ld hl, wBadges; Otherwise, load the number of badges that we have in a bitmap stored in a word of 2 bytes
+	ld b, 2 ;b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
+	call CountSetBits ;This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
+	ld a, [wNumSetBits] ;Load the amount of badges in a
+	ld hl, $0000 ;Set hl to 0
 	cp $00 ;Compare 'a' to 0, if they match z becomes 1
 	jr z, .finishSketchOp ;Finish if z is 1, Otherwise:
 	
 .loopSketchOp
-	add hl,de ;Add 'de' to 'hl', effectively multiplying it by 'a' when the loop is over.
+	add hl, de ;Add 'de' to 'hl', effectively multiplying it by 'a' when the loop is over.
 	dec a ;Decrease 'a' by 1 and thus change 'z' to 0 unless 'a' decreased to 0, then 'z' would become 1.
 	jr nz, .loopSketchOp ;Jump back to the beggining of the loop until 'z' becomes 1
 
 .finishSketchOp
-	ld de, hl ;Save the end result in de, which is now the new price for the TM
+	add hl, de ;Lastly, hl's value is (de*a), so we add one last time to compensate for the 0 badges case.
+	ld a, h ;At this point a is equal to 0 so we can use it freely
+	ld d, a
+	ld a, l
+	ld e, a ;This basically equals to ld de, hl
 	ret ;Return to GetItemPrice with the data at 'de' updated
 	
 GetItemPrice:
