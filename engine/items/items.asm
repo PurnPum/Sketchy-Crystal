@@ -573,20 +573,20 @@ IncreaseSketchPrice:
 	ret nz ;If we're not checking the Sketch TM then just return to GetItemPrice
 	ld hl, wBadges; Otherwise, load the number of badges that we have in a bitmap stored in a word of 2 bytes
 	ld b, 2 ;b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
+	push de
 	call CountSetBits ;This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
+	pop de
 	ld a, [wNumSetBits] ;Load the amount of badges in a
-	ld hl, $0000 ;Set hl to 0
+	ld h, d
+	ld l, e ;This basically equals to ld hl, de
 	cp $00 ;Compare 'a' to 0, if they match z becomes 1
-	jr z, .finishSketchOp ;Finish if z is 1, Otherwise:
+	ret z ;Return to GetItemPrice if z is 1, Otherwise:
 	
 .loopSketchOp
 	add hl, de ;Add 'de' to 'hl', effectively multiplying it by 'a' when the loop is over.
 	dec a ;Decrease 'a' by 1 and thus change 'z' to 0 unless 'a' decreased to 0, then 'z' would become 1.
 	jr nz, .loopSketchOp ;Jump back to the beggining of the loop until 'z' becomes 1
-
-.finishSketchOp
-	add hl, de ;Lastly, hl's value is (de*a), so we add one last time to compensate for the 0 badges case.
-	ld d, h
+	ld d, h ;Once the loop is over...
 	ld e, l ;This basically equals to ld de, hl
 	ret ;Return to GetItemPrice with the data at 'de' updated
 	
