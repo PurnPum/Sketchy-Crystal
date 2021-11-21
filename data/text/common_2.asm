@@ -1542,7 +1542,7 @@ _OakText2::
 	text "This world is in-"
 	line "habited by crea-"
 	cont "tures that we call"
-	cont "#MON.@"
+	cont "#MON."
 	
 	para "However, studies"
 	line "have shown that"
@@ -1551,24 +1551,24 @@ _OakText2::
 	
 	para "Dysfunctional…"
 	
-	para "They appear to"
-	line "only be able to"
-	cont "struggle in battle."
+	para "Apparently they"
+	line "can only struggle"
+	cont "during a battle."
 	
 	para "Moreover, highly"
 	line "skilled trainers"
-	cont "all around the"
-	cont "region have been"
-	cont "able to raise"
-	cont "these creatures"
+	cont "have raised these"
+	cont "creatures fitly,"
 	cont "making them able"
-	cont "to fight."
+	cont "to do more than"
+	cont "just struggle."
 	
 	para "Regardless, there"
 	line "are some… sketchy"
 	cont "methods out there"
-	cont "to make your #MON"
-	cont "fit for battle."
+	cont "to make your"
+	cont "#MON able to"
+	cont "battle."
 	prompt
 
 _OakText3::
@@ -1578,7 +1578,9 @@ _OakText3::
 	text_end ; unreferenced
 
 _OakText4::
-	text "People and #MON"
+	text "So, back on track…"
+	
+	para "People and #MON"
 	line "live together by"
 
 	para "supporting each"
