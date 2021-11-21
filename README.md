@@ -2,9 +2,9 @@
 
 This is a ROM Hack based off of the disassembly of Pokémon Crystal.
 
-It will eventually build the following ROM:
+It builds the following ROM:
 
-- Pokemon - Sketchy Crystal.gbc `sha1: TBD`
+- Pokemon - sketchycrystal.gbc `sha256: a2eef0c0f2a992fb85f0adb03a276b3958da044bcd78aeab101561ea467f27f5`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
@@ -26,18 +26,23 @@ To set up the repository, see [INSTALL.md](INSTALL.md).
 
 - Sketch should have the highest priority in the game, higher than protect. Also it has 2 PP now.
 
-- Changed Move Tutor so it only teaches Sketch
+- Changed Move Tutor so it only teaches Teleport
 
 - Make TM price increase with badges. Every badge increases its price by 1250, so to calculate
 	the price at certain point just do 1250 + 1250*AmountOfBadges
 
 - Change enemy trainer teams so that they all use their usual moves.
 
+	NOTE : 	- All rematches have been deleted
+			- Any team that consisted exclusively of one mon repeated multiple times is now a single pokemon with higher level.
+
 - Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
 
-## TODO:
+## CURRENTLY DOING:
 
-- Test the initial release.
+- Testing the initial release, looking for bugs.
+
+## TODO:
 
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
