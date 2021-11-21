@@ -54,3 +54,8 @@ used_space.png
 
 # macos files
 .DS_STORE
+
+# zip files
+.zip
+.rar
+.7z
