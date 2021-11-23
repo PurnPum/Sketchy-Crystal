@@ -4,7 +4,7 @@ This is a Challenge ROM Hack based off of the disassembly of Pokémon Crystal.
 
 It builds the following ROM:
 
-- Pokemon - sketchycrystal.gbc `sha256: a2eef0c0f2a992fb85f0adb03a276b3958da044bcd78aeab101561ea467f27f5`
+- Pokemon - sketchycrystal.gbc `sha256: 629398d3198cc5c2fdd537de2445a3e6d9f1f51f49779a010bee7b5622d8a03e`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
