@@ -1,7 +1,7 @@
 WadePhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, WADE1
-	checkflag ENGINE_WADE_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	;checkflag ENGINE_WADE_READY_FOR_REMATCH
+	;iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_WADE_TUESDAY_NIGHT
 	iftrue .NotTuesday
@@ -49,8 +49,8 @@ WadePhoneCallerScript:
 	ifequal SATURDAY, .ContestToday
 
 .NoContest:
-	checkflag ENGINE_WADE_READY_FOR_REMATCH
-	iftrue .next
+	;checkflag ENGINE_WADE_READY_FOR_REMATCH
+	;iftrue .next
 	checkflag ENGINE_WADE_TUESDAY_NIGHT
 	iftrue .next
 	checkflag ENGINE_WADE_HAS_ITEM
@@ -75,7 +75,7 @@ WadeTuesdayNight:
 
 WadeWantsBattle2:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
-	setflag ENGINE_WADE_READY_FOR_REMATCH
+	;setflag ENGINE_WADE_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 
 WadeFoundRare:
