@@ -60,3 +60,6 @@ used_space.png
 *.zip
 *.rar
 *.7z
+
+# IPS files
+*.ips
