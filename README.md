@@ -28,8 +28,8 @@ Good Luck!
 
 ## Known issues:
 
-- Some trainers of the same class may be misplaced with incorrect teams, for example the birdkeeper at the
-end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that team.
+~~- Some trainers of the same class may be misplaced with incorrect teams, for example the birdkeeper at the
+end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that team.~~
 
 ## Changes so far:
 
