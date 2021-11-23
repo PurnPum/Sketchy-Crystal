@@ -1,7 +1,7 @@
 TullyPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, FISHER, TULLY1
-	checkflag ENGINE_TULLY_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	;checkflag ENGINE_TULLY_READY_FOR_REMATCH
+	;iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_TULLY_SUNDAY_NIGHT
 	iftrue .NotSunday
@@ -26,8 +26,8 @@ TullyPhoneCalleeScript:
 TullyPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, FISHER, TULLY1
 	farscall PhoneScript_GreetPhone_Male
-	checkflag ENGINE_TULLY_READY_FOR_REMATCH
-	iftrue .Generic
+	;checkflag ENGINE_TULLY_READY_FOR_REMATCH
+	;iftrue .Generic
 	checkflag ENGINE_TULLY_SUNDAY_NIGHT
 	iftrue .Generic
 	checkflag ENGINE_TULLY_HAS_WATER_STONE
@@ -51,7 +51,7 @@ TullySundayNight:
 
 TullyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_42
-	setflag ENGINE_TULLY_READY_FOR_REMATCH
+	;setflag ENGINE_TULLY_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 
 TullyFoundWaterStone:

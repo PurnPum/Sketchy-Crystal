@@ -1,7 +1,7 @@
 AnthonyPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, HIKER, ANTHONY2
-	checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
-	iftrue .WantsBattle
+	;checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
+	;iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
 	checkflag ENGINE_ANTHONY_FRIDAY_NIGHT
 	iftrue .NotFriday
@@ -28,8 +28,8 @@ AnthonyPhoneCallerScript:
 	farscall PhoneScript_GreetPhone_Male
 	checkflag ENGINE_FLYPOINT_GOLDENROD
 	iffalse .TriesSwarm
-	checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
-	iftrue .TriesSwarm
+	;checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
+	;iftrue .TriesSwarm
 	checkflag ENGINE_ANTHONY_FRIDAY_NIGHT
 	iftrue .TriesSwarm
 	farscall PhoneScript_Random2
@@ -45,7 +45,7 @@ AnthonyFridayNight:
 
 AnthonyWantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_33
-	setflag ENGINE_ANTHONY_READY_FOR_REMATCH
+	;setflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	farsjump PhoneScript_WantsToBattle_Male
 
 AnthonyTriesDunsparceSwarm:
