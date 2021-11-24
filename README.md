@@ -29,7 +29,7 @@ Good Luck!
 ## Known issues:
 
 ~~- Some trainers of the same class may be misplaced with incorrect teams, for example the birdkeeper at the
-end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that team.~~
+end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that team.~~ Fixed in v0.1.0
 
 ## Changes so far:
 
@@ -66,6 +66,16 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 - Testing the initial release, looking for bugs.
 
 ## TODO:
+
+- Make Sketch not work in the Battle Tower
+
+- Remove Trade requirement for trade evolutions
+
+- Remove not being able to forget HM moves.
+
+- Add a move that replaces Surf that works in battles.
+
+- Remove 25% chance for the AI to miss.
 
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks
 
