@@ -265,4 +265,5 @@ Moves:
 	move ROCK_SMASH,   EFFECT_SPLASH,	           0, FIGHTING,     100,  1,   0
 	move WHIRLPOOL,    EFFECT_SPLASH,	           0, WATER,        100,  1,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            10, DARK,         100, 10,   0
+	move BATTLE_SURF,  EFFECT_NORMAL_HIT,		  95, WATER,		100, 15,   0
 	assert_table_length NUM_ATTACKS

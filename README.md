@@ -63,6 +63,8 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Make Sketch not work in the Battle Tower.
 
+- Add a move that replaces Surf that works in battles.
+
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
@@ -72,8 +74,6 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 - Remove Trade requirement for trade evolutions.
 
 - Remove not being able to forget HM moves.
-
-- Add a move that replaces Surf that works in battles.
 
 - Remove 25% chance for the AI to miss.
 
