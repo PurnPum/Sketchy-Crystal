@@ -3639,29 +3639,31 @@ BattleCommand_SleepTarget:
 
 .CheckAIRandomFail:
 	; Enemy turn
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .dont_fail
+	;ldh a, [hBattleTurn]
+	;and a
+	;jr z, .dont_fail
 
 	; Not in link battle
-	ld a, [wLinkMode]
-	and a
-	jr nz, .dont_fail
+	;ld a, [wLinkMode]
+	;and a
+	;jr nz, .dont_fail
 
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .dont_fail
+	;ld a, [wInBattleTowerBattle]
+	;and a
+	;jr nz, .dont_fail
 
 	; Not locked-on by the enemy
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .dont_fail
+	;ld a, [wPlayerSubStatus5]
+	;bit SUBSTATUS_LOCK_ON, a
+	;jr nz, .dont_fail
 
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	ret c
+	;call BattleRandom
+	;cp 25 percent + 1 ; 25% chance AI fails
+	;ret c
+	
+	;By Ignoring all this code we will always end up in .dont_fail, removing the 25% chance and speeding the code up a tiny bit.
 
-.dont_fail
+;.dont_fail
 	xor a
 	ret
 
@@ -3747,9 +3749,11 @@ BattleCommand_Poison:
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .dont_sample_failure
 
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .failed
+	;call BattleRandom
+	;cp 25 percent + 1 ; 25% chance AI fails
+	;jr c, .failed
+	
+	;By Ignoring this code we will end up in .dont_sample_failure, removing the 25% chance.
 
 .dont_sample_failure
 	call CheckSubstituteOpp
@@ -4350,32 +4354,34 @@ BattleCommand_StatDown:
 
 .ComputerMiss:
 ; Computer opponents have a 25% chance of failing.
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .DidntMiss
+	;ldh a, [hBattleTurn]
+	;and a
+	;jr z, .DidntMiss
 
-	ld a, [wLinkMode]
-	and a
-	jr nz, .DidntMiss
+	;ld a, [wLinkMode]
+	;and a
+	;jr nz, .DidntMiss
 
-	ld a, [wInBattleTowerBattle]
-	and a
-	jr nz, .DidntMiss
+	;ld a, [wInBattleTowerBattle]
+	;and a
+	;jr nz, .DidntMiss
 
 ; Lock-On still always works.
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .DidntMiss
+	;ld a, [wPlayerSubStatus5]
+	;bit SUBSTATUS_LOCK_ON, a
+	;jr nz, .DidntMiss
 
 ; Attacking moves that also lower accuracy are unaffected.
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_ACCURACY_DOWN_HIT
-	jr z, .DidntMiss
+	;ld a, BATTLE_VARS_MOVE_EFFECT
+	;call GetBattleVar
+	;cp EFFECT_ACCURACY_DOWN_HIT
+	;jr z, .DidntMiss
 
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .Failed
+	;call BattleRandom
+	;cp 0 percent + 1 ; 0% chance AI fails
+	;jr c, .Failed
+	
+	;By Ignoring all this code we will always end up in .DidntMiss, removing the 25% chance and speeding the code up a tiny bit.
 
 .DidntMiss:
 	call CheckSubstituteOpp
@@ -5863,9 +5869,9 @@ BattleCommand_Paralyze:
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .dont_sample_failure
 
-	call BattleRandom
-	cp 25 percent + 1 ; 25% chance AI fails
-	jr c, .failed
+	;call BattleRandom
+	;cp 25 percent + 1 ; 25% chance AI fails
+	;jr c, .failed
 
 .dont_sample_failure
 	ld a, BATTLE_VARS_STATUS_OPP
