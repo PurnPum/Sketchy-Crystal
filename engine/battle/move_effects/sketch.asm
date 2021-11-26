@@ -6,6 +6,10 @@ BattleCommand_Sketch:
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
+; Don't Sketch during a battle Tower battle.
+	ld a, [wInBattleTowerBattle]
+	and a
+	jr z, .not_linked
 	call AnimateFailedMove
 	jp PrintNothingHappened
 

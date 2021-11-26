@@ -61,15 +61,15 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
 
+- Make Sketch not work in the Battle Tower.
+
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
 
 ## TODO:
 
-- Make Sketch not work in the Battle Tower
-
-- Remove Trade requirement for trade evolutions
+- Remove Trade requirement for trade evolutions.
 
 - Remove not being able to forget HM moves.
 
@@ -77,7 +77,7 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Remove 25% chance for the AI to miss.
 
-- (Maybe) Add option to randomize encounters and/or trainer mons/attacks
+- (Maybe) Add option to randomize encounters and/or trainer mons/attacks.
 
 ## See also
 
