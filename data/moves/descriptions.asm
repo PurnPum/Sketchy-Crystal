@@ -252,15 +252,14 @@ MoveDescriptions::
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
+	dw BattleSurfDescription
 	assert_table_length NUM_ATTACKS
-	dw MoveFCDescription
 	dw MoveFDDescription
 	dw MoveFEDescription
 	dw MoveFFDescription
 	dw Move00Description
 	assert_table_length $100
 
-MoveFCDescription:
 MoveFDDescription:
 MoveFEDescription:
 MoveFFDescription:
@@ -491,6 +490,7 @@ HydroPumpDescription:
 	db   "A powerful water-"
 	next "type attack.@"
 
+BattleSurfDescription:
 SurfDescription:
 	db   "A strong water-"
 	next "type attack.@"
