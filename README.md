@@ -4,7 +4,7 @@ This is a Challenge ROM Hack based off of the disassembly of Pokémon Crystal.
 
 It builds the following ROM:
 
-- Pokemon - sketchycrystal.gbc `sha256: 629398d3198cc5c2fdd537de2445a3e6d9f1f51f49779a010bee7b5622d8a03e`
+- Pokemon - sketchycrystal.gbc `sha256: eb23b53849f120ac499d8b44c4f232cb9834b9968247961452dede1007278ce1`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
@@ -56,8 +56,8 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Change enemy trainer teams so that they all use their usual moves.
 
-	NOTE : 	- All rematches have been deleted
-			- Any team that consisted exclusively of one mon repeated multiple times is now a single pokemon with higher level.
+	`All rematches have been deleted`
+	`Any team that consisted exclusively of one mon repeated multiple times is now a single pokemon with higher level.`
 
 - Make sure TMs found in the Overworld and given by Gym Leaders work properly and are all Sketch.
 
@@ -65,17 +65,36 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Add a move that replaces Surf that works in battles.
 
+- Remove 25% chance for the AI to miss.
+
+- Remove Trade requirement for trade evolutions.
+
+	`Kadabra now evolves at level 36`
+	`Machoke now evolves at level 42`
+	`Graveler now evolves at level 38`
+	`Haunter now evolves at level 40`
+	`Slowpoke evolves into Slowking when using the King's Rock on it.`
+	`Onix evolves when using the Metal Coat on it.`
+	`Seadra evolves when using the Dragon Scale on it.`
+	`Scyther evolves when using the Metal Coat on it.`
+	`Poliwhirl evolves into Politoed when using the King's Rock on it.`
+	`Porygon evolves when using the Up-Grade on it.`
+	
+- Increased the likehood to 25% (from typically 2%) of certain wild pokemon holding trade evolution items:
+
+	`Dratini, Dragonair, Dragonite, Horsea, Seadra and Kingdra holding a Dragon Scale`
+	`Magnemite, Magneton and Steelix holding a Metal Coat`
+	`Politoed, Poliwhirl, Poliwrath, Slowpoke, Slowbro and Slowking holding a King's Rock`
+	
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
 
 ## TODO:
 
-- Remove Trade requirement for trade evolutions.
-
 - Remove not being able to forget HM moves.
 
-- Remove 25% chance for the AI to miss.
+- Fix as many documented bugs from the original code as possible.
 
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks.
 
