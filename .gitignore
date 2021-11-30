@@ -63,3 +63,6 @@ used_space.png
 # IPS files
 *.ips
 *.log
+
+#Versions Folder
+Versions/*
