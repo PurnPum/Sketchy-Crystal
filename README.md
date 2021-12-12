@@ -104,6 +104,8 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 ## TODO:
 
+- Add a Hard mode
+
 - Remove not being able to forget HM moves.
 
 - Fix as many documented bugs from the original code as possible.

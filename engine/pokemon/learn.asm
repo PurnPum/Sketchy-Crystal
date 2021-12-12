@@ -184,7 +184,7 @@ ForgetMove:
 	pop bc
 	pop de
 	ld a, d
-	jr c, .hmmove
+	;jr c, .hmmove Never jump to .hmmove so hm moves can be overwritten
 	pop hl
 	add hl, bc
 	and a
