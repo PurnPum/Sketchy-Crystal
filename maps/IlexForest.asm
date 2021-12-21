@@ -825,9 +825,8 @@ Text_HeadbuttIntro:
 	para "I'm shaking trees"
 	line "using SKETCH."
 	
-	para
-	line "Yes, you read me"
-	cont "right. Yes, it"
+	para "Yes, you read me"
+	line "right. Yes, it"
 	cont "is nonsensical."
 
 	para "Just take it and"
