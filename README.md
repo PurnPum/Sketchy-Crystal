@@ -98,17 +98,26 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 	
 	`Politoed, Poliwhirl, Poliwrath, Slowpoke, Slowbro and Slowking holding a King's Rock`
 	
+- Removed not being able to forget HM moves anywhere.
+	
+- Changed the text speed options:
+
+	Originally you could choose between Fast, Mid and Slow; which had a 1, 3 and 5 frame delay between each letter respectively.
+	Now you can choose between Inst, Fast and Mid; which have a 0, 1 and 2 frame delay between each letter respectively.
+	
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
 
 ## TODO:
 
-- Add a Hard mode
+- Prevent the player from rematching te E4
 
-- Remove not being able to forget HM moves.
+- Make the Bug Contests avaliable every day.
 
 - Fix as many documented bugs from the original code as possible.
+
+- Add a Hard mode
 
 - (Maybe) Add option to randomize encounters and/or trainer mons/attacks.
 
