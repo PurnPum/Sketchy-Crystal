@@ -2,9 +2,9 @@ PrintLetterDelay::
 ; Wait before printing the next letter.
 
 ; The text speed setting in wOptions is actually a frame count:
-; 	fast: 1 frame
-; 	mid:  3 frames
-; 	slow: 5 frames
+; 	inst: 0 frames
+; 	fast: 1 frames
+; 	mid: 2 frames
 
 ; wTextboxFlags[!0] and A or B override text speed with a one-frame delay.
 ; wOptions[4] and wTextboxFlags[!1] disable the delay.
