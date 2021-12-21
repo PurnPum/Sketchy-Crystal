@@ -41,7 +41,7 @@ PrintLetterDelay::
 	jr .updatedelay
 
 .fast
-	ld a, TEXT_DELAY_FAST
+	ld a, TEXT_DELAY_INST
 
 .updatedelay
 	ld [wTextDelayFrames], a
