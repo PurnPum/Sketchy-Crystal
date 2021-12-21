@@ -1787,7 +1787,7 @@ wNumHits:: db
 
 wOptions::
 ; bit 0-2: number of frames to delay when printing text
-;   fast 1; mid 3; slow 5
+;   inst 0; fast 1; mid 2
 ; bit 3: ?
 ; bit 4: no text delay
 ; bit 5: stereo off/on
