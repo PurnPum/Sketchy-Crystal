@@ -5,6 +5,11 @@
 	const INDIGOPLATEAUPOKECENTER1F_RIVAL
 	const INDIGOPLATEAUPOKECENTER1F_GRAMPS
 	const INDIGOPLATEAUPOKECENTER1F_ABRA
+	const INDIGOPLATEAUPOKECENTER1F_LANCE
+	const INDIGOPLATEAUPOKECENTER1F_BRUNO
+	const INDIGOPLATEAUPOKECENTER1F_KAREN
+	const INDIGOPLATEAUPOKECENTER1F_WILL
+	const INDIGOPLATEAUPOKECENTER1F_KOGA
 
 IndigoPlateauPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -40,99 +45,6 @@ IndigoPlateauPokecenter1FPrepareElite4Callback:
 	clearevent EVENT_BEAT_CHAMPION_LANCE
 	setevent EVENT_LANCES_ROOM_OAK_AND_MARY
 	endcallback
-
-PlateauRivalBattle1:
-	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
-	iffalse PlateauRivalScriptDone
-	checkflag ENGINE_INDIGO_PLATEAU_RIVAL_FIGHT
-	iftrue PlateauRivalScriptDone
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, PlateauRivalScriptDone
-	ifequal TUESDAY, PlateauRivalScriptDone
-	ifequal THURSDAY, PlateauRivalScriptDone
-	ifequal FRIDAY, PlateauRivalScriptDone
-	ifequal SATURDAY, PlateauRivalScriptDone
-	moveobject INDIGOPLATEAUPOKECENTER1F_RIVAL, 17, 9
-	appear INDIGOPLATEAUPOKECENTER1F_RIVAL
-	turnobject PLAYER, DOWN
-	showemote EMOTE_SHOCK, PLAYER, 15
-	special FadeOutMusic
-	pause 15
-	applymovement INDIGOPLATEAUPOKECENTER1F_RIVAL, PlateauRivalMovement1
-	playmusic MUSIC_RIVAL_ENCOUNTER
-	turnobject PLAYER, RIGHT
-	sjump PlateauRivalBattleCommon
-
-PlateauRivalBattle2:
-	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON
-	iffalse PlateauRivalScriptDone
-	checkflag ENGINE_INDIGO_PLATEAU_RIVAL_FIGHT
-	iftrue PlateauRivalScriptDone
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, PlateauRivalScriptDone
-	ifequal TUESDAY, PlateauRivalScriptDone
-	ifequal THURSDAY, PlateauRivalScriptDone
-	ifequal FRIDAY, PlateauRivalScriptDone
-	ifequal SATURDAY, PlateauRivalScriptDone
-	appear INDIGOPLATEAUPOKECENTER1F_RIVAL
-	turnobject PLAYER, DOWN
-	showemote EMOTE_SHOCK, PLAYER, 15
-	special FadeOutMusic
-	pause 15
-	applymovement INDIGOPLATEAUPOKECENTER1F_RIVAL, PlateauRivalMovement2
-	playmusic MUSIC_RIVAL_ENCOUNTER
-	turnobject PLAYER, LEFT
-PlateauRivalBattleCommon:
-	opentext
-	writetext PlateauRivalText1
-	waitbutton
-	closetext
-	setevent EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
-	checkevent EVENT_GOT_TOTODILE_FROM_ELM
-	iftrue .Totodile
-	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
-	iftrue .Chikorita
-	; Cyndaquil
-	winlosstext PlateauRivalWinText, PlateauRivalLoseText
-	setlasttalked INDIGOPLATEAUPOKECENTER1F_RIVAL
-	loadtrainer RIVAL2, RIVAL2_2_TOTODILE
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	sjump PlateauRivalPostBattle
-
-.Totodile:
-	winlosstext PlateauRivalWinText, PlateauRivalLoseText
-	setlasttalked INDIGOPLATEAUPOKECENTER1F_RIVAL
-	loadtrainer RIVAL2, RIVAL2_2_CHIKORITA
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	sjump PlateauRivalPostBattle
-
-.Chikorita:
-	winlosstext PlateauRivalWinText, PlateauRivalLoseText
-	setlasttalked INDIGOPLATEAUPOKECENTER1F_RIVAL
-	loadtrainer RIVAL2, RIVAL2_2_CYNDAQUIL
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	sjump PlateauRivalPostBattle
-
-PlateauRivalPostBattle:
-	playmusic MUSIC_RIVAL_AFTER
-	opentext
-	writetext PlateauRivalText2
-	waitbutton
-	closetext
-	turnobject PLAYER, DOWN
-	applymovement INDIGOPLATEAUPOKECENTER1F_RIVAL, PlateauRivalLeavesMovement
-	disappear INDIGOPLATEAUPOKECENTER1F_RIVAL
-	setscene SCENE_INDIGOPLATEAUPOKECENTER1F_RIVAL_BATTLE
-	playmapmusic
-	setflag ENGINE_INDIGO_PLATEAU_RIVAL_FIGHT
-PlateauRivalScriptDone:
-	end
 
 IndigoPlateauPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
@@ -175,32 +87,266 @@ AbraScript:
 	closetext
 	end
 
-PlateauRivalMovement1:
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	turn_head LEFT
-	step_end
 
-PlateauRivalMovement2:
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	turn_head RIGHT
-	step_end
+LancePostGameScript:
+	opentext
+	writetext LancePostGameText
+	waitbutton
+	closetext
+	end
 
-PlateauRivalLeavesMovement:
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step_end
+BrunoPostGameScript:
+	opentext
+	writetext BrunoPostGameText
+	waitbutton
+	closetext
+	end
 
+KarenPostGameScript:
+	opentext
+	writetext KarenPostGameText
+	waitbutton
+	closetext
+	end
+	
+WillPostGameScript:
+	opentext
+	writetext WillPostGameText
+	waitbutton
+	closetext
+	end
+	
+KogaPostGameScript:
+	opentext
+	writetext KogaPostGameText
+	waitbutton
+	closetext
+	end
+
+LancePostGameText:
+	text "Oh, look who it is,"
+	line "our newest CHAMPION"
+	
+	para "Remember that, as"
+	line "the pokelaw states,"
+	line "if you're on duty"
+	line "you're obligated to"
+	line "own 3 full restores"
+	
+	para "The police never"
+	line "frisked me for them"
+	line "but personally I"
+	line "wouldn't risk it."
+	
+	para "Oh, what happened"
+	line "to Agatha?"
+	
+	para "Suprisingly age is"
+	line "not the reason she"
+	line "stepped down from"
+	line "her position."
+	
+	para "She actually grew"
+	line "tired of being on"
+	line "the same place"
+	line "for so long."
+	
+	para "So she moved on,"
+	line "to accomplish other"
+	line "life goals."
+	
+	para "Our time is limited"
+	line "and she has the"
+	line "experience to know"
+	line "it best."
+	done
+	
+BrunoPostGameText:
+	text "Hello CHAMPION."
+	
+	para "Hm?, you want to"
+	line "know what happened"
+	line "to the old members"
+	line "of the ELITE FOUR?"
+	
+	para "Well, my old friend"
+	line "LORELEI left to her"
+	line "hometown in the"
+	line "Sevii Islands."
+	
+	para "She left when Team"
+	line "Rocket started to"
+	line "cause trouble there"
+	
+	para "But eventually she"
+	line "decided to resign"
+	line "her position."
+	
+	para "Her showdown match"
+	line "against WILL was"
+	line "incredible, even"
+	line "though she lost."
+	done
+
+KarenPostGameText:
+	text "Welcome back,"
+	line "CHAMPION."
+	
+	para "It appears as if"
+	line "you look interested"
+	line "in what happened to"
+	line "the old ELITE FOUR."
+	
+	para "Agatha was actually"
+	line "my mentor for a"
+	line "long time."
+	
+	para "She fought for the"
+	line "recognition of the"
+	line "GHOST type as a"
+	line "legitimate type."
+	
+	para "Originally ghosts"
+	line "were taboo and also"
+	line "feared as something"
+	line "unnatural by almost"
+	line "everyone."
+	
+	para "But she believed"
+	line "in them and by pure"
+	line "strenght and perse-"
+	line "verance, the type"
+	line "was recogniced by"
+	line "the official league"
+	line "after she crushed"
+	line "everyone but LANCE."
+	
+	para "Funnily enough, the"
+	line "exact same thing"
+	line "happened with me."
+	
+	para "Dark types were"
+	line "considered nothing"
+	line "more than a pest."
+	
+	para "They were banished"
+	line "from cities and"
+	line "towns alike."
+	
+	para "And they were even"
+	line "hunted down almost"
+	line "to extinction."
+	
+	para "Thats why I stepped"
+	line "in, to do what my"
+	line "master taught me."
+	
+	para "After countless"
+	line "battles I was able"
+	line "to show the comple-"
+	line "-xity of the DARK"
+	line "type, and repeat"
+	line "history."
+	done
+	
+WillPostGameText:
+	text "Oh hi! Its our new"
+	line "official CHAMPION!"
+	
+	para "I am actually kinda"
+	line "new as an ELITE"
+	line "FOUR member."
+	
+	para "A few months ago I"
+	line "was able to beat"
+	line "the icy legend,"
+	line "LORELEI, and earn"
+	line "my position here."
+	
+	para "I am getting really"
+	line "close to beating"
+	line "KOGA and BRUNO but"
+	line "their experience is"
+	line "quite overwhelming."
+	
+	para "I come from SAFFRON"
+	line "city. SABRINA is my"
+	line "childhood rival."
+	
+	para "We both liked"
+	line "PSYCHIC type #MON"
+	line "a lot as kids!"
+	
+	para "Once she became a"
+	line "GYM LEADER I knew"
+	line "I had to push for-"
+	line "-ward."
+	
+	para "I travelled around"
+	line "the world for four"
+	line "years, increasing"
+	line "my knowledge and"
+	line "power."
+	
+	para "And now I am here"
+	line "And I think I got"
+	line "pretty far out!"
+	
+	para "I will go visit her"
+	line "soon. I would like"
+	line "to get an ABRA and"
+	line "she specializes in"
+	line "that species of"
+	line "#MON."
+	done
+
+KogaPostGameText:
+	text "Fwahahahaha!"
+	
+	para "Welcome back to the"
+	line "league, CHAMPION!"
+	
+	para "We gathered here to"
+	line "chat with LANCE"
+	line "before he leaves."
+	
+	para "He mentioned that"
+	line "he will travel to"
+	line "the Galar Region."
+	
+	para "Apparently there"
+	line "is a very important"
+	line "tournament that"
+	line "happens there."
+	
+	para "It reminds me of"
+	line "the time my comra-"
+	line "-des went to the"
+	line "UNOVA region to"
+	line "take part on the"
+	line "#MON World Champ-"
+	line "-ionship."
+	
+	para "Sadly I couldn't"
+	line "attend the event."
+	
+	para "I was too wrapped"
+	line "up with my child."
+	
+	para "We spent a lot of"
+	line "time training at"
+	line "the FUCHSIA city's"
+	line "GYM. But our fav-"
+	line "-ourite spot was"
+	line "the SAFARY ZONE."
+	
+	para "You will probably"
+	line "meet her if you"
+	line "haven't already."
+	
+	para "Don't hold back!"
+	done
+	
 IndigoPlateauPokecenter1FCooltrainerMText:
 	text "At the #MON"
 	line "LEAGUE, you'll get"
@@ -213,56 +359,6 @@ IndigoPlateauPokecenter1FCooltrainerMText:
 
 	para "lose, you have to"
 	line "start all over!"
-	done
-
-PlateauRivalText1:
-	text "Hold it."
-
-	para "You're going to"
-	line "take the #MON"
-
-	para "LEAGUE challenge"
-	line "now?"
-
-	para "That's not going"
-	line "to happen."
-
-	para "My super-well-"
-	line "trained #MON"
-
-	para "are going to pound"
-	line "you."
-
-	para "<PLAYER>!"
-	line "I challenge you!"
-	done
-
-PlateauRivalWinText:
-	text "…"
-
-	para "OK--I lost…"
-	done
-
-PlateauRivalText2:
-	text "…Darn… I still"
-	line "can't win…"
-
-	para "I… I have to think"
-	line "more about my"
-	cont "#MON…"
-
-	para "Humph! Try not to"
-	line "lose!"
-	done
-
-PlateauRivalLoseText:
-	text "…"
-
-	para "Whew…"
-	line "With my partners,"
-
-	para "I'm going to be"
-	line "the CHAMPION!"
 	done
 
 TeleportGuyText1:
@@ -310,8 +406,6 @@ IndigoPlateauPokecenter1F_MapEvents:
 	warp_event 14,  3, WILLS_ROOM, 1
 
 	def_coord_events
-	coord_event 16,  4, SCENE_INDIGOPLATEAUPOKECENTER1F_RIVAL_BATTLE, PlateauRivalBattle1
-	coord_event 17,  4, SCENE_INDIGOPLATEAUPOKECENTER1F_RIVAL_BATTLE, PlateauRivalBattle2
 
 	def_bg_events
 
@@ -319,6 +413,10 @@ IndigoPlateauPokecenter1F_MapEvents:
 	object_event  3,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FNurseScript, -1
 	object_event 11,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FClerkScript, -1
 	object_event 11, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FCooltrainerMScript, -1
-	object_event 16,  9, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	object_event  1,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TeleportGuyScript, EVENT_TELEPORT_GUY
 	object_event  0,  9, SPRITE_JYNX, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY
+	object_event  14, 9, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LancePostGameScript, EVENT_BEAT_ELITE_FOUR
+	object_event  16, 11, SPRITE_BRUNO, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BrunoPostGameScript, EVENT_BEAT_ELITE_FOUR
+	object_event  16, 9, SPRITE_KAREN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KarenPostGameScript, EVENT_BEAT_ELITE_FOUR
+	object_event  17, 10, SPRITE_WILL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WillPostGameScript, EVENT_BEAT_ELITE_FOUR
+	object_event  15, 11, SPRITE_KOGA, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KogaPostGameScript, EVENT_BEAT_ELITE_FOUR
