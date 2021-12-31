@@ -129,36 +129,36 @@ LancePostGameText:
 	
 	para "Remember that, as"
 	line "the pokelaw states,"
-	line "if you're on duty"
-	line "you're obligated to"
-	line "own 3 full restores"
+	cont "if you're on duty"
+	cont "you're obligated to"
+	cont "own 3 full restores"
 	
 	para "The police never"
 	line "frisked me for them"
-	line "but personally I"
-	line "wouldn't risk it."
+	cont "but personally I"
+	cont "wouldn't risk it."
 	
 	para "Oh, what happened"
 	line "to Agatha?"
 	
 	para "Suprisingly age is"
 	line "not the reason she"
-	line "stepped down from"
-	line "her position."
+	cont "stepped down from"
+	cont "her position."
 	
 	para "She actually grew"
 	line "tired of being on"
-	line "the same place"
-	line "for so long."
+	cont "the same place"
+	cont "for so long."
 	
 	para "So she moved on,"
 	line "to accomplish other"
-	line "life goals."
+	cont "life goals."
 	
 	para "Our time is limited"
 	line "and she has the"
-	line "experience to know"
-	line "it best."
+	cont "experience to know"
+	cont "it best."
 	done
 	
 BrunoPostGameText:
@@ -166,26 +166,26 @@ BrunoPostGameText:
 	
 	para "Hm?, you want to"
 	line "know what happened"
-	line "to the old members"
-	line "of the ELITE FOUR?"
+	cont "to the old members"
+	cont "of the ELITE FOUR?"
 	
 	para "Well, my old friend"
 	line "LORELEI left to her"
-	line "hometown in the"
-	line "Sevii Islands."
+	cont "hometown in the"
+	cont "Sevii Islands."
 	
 	para "She left when Team"
 	line "Rocket started to"
-	line "cause trouble there"
+	cont "cause trouble there"
 	
 	para "But eventually she"
 	line "decided to resign"
-	line "her position."
+	cont "her position."
 	
 	para "Her showdown match"
 	line "against WILL was"
-	line "incredible, even"
-	line "though she lost."
+	cont "incredible, even"
+	cont "though she lost."
 	done
 
 KarenPostGameText:
@@ -194,59 +194,59 @@ KarenPostGameText:
 	
 	para "It appears as if"
 	line "you look interested"
-	line "in what happened to"
-	line "the old ELITE FOUR."
+	cont "in what happened to"
+	cont "the old ELITE FOUR."
 	
 	para "Agatha was actually"
 	line "my mentor for a"
-	line "long time."
+	cont "long time."
 	
 	para "She fought for the"
 	line "recognition of the"
-	line "GHOST type as a"
-	line "legitimate type."
+	cont "GHOST type as a"
+	cont "legitimate type."
 	
 	para "Originally ghosts"
 	line "were taboo and also"
-	line "feared as something"
-	line "unnatural by almost"
-	line "everyone."
+	cont "feared as something"
+	cont "unnatural by almost"
+	cont "everyone."
 	
 	para "But she believed"
 	line "in them and by pure"
-	line "strenght and perse-"
-	line "verance, the type"
-	line "was recogniced by"
-	line "the official league"
-	line "after she crushed"
-	line "everyone but LANCE."
+	cont "strenght and perse-"
+	cont "verance, the type"
+	cont "was recogniced by"
+	cont "the official league"
+	cont "after she crushed"
+	cont "everyone but LANCE."
 	
 	para "Funnily enough, the"
 	line "exact same thing"
-	line "happened with me."
+	cont "happened with me."
 	
 	para "Dark types were"
 	line "considered nothing"
-	line "more than a pest."
+	cont "more than a pest."
 	
 	para "They were banished"
 	line "from cities and"
-	line "towns alike."
+	cont "towns alike."
 	
 	para "And they were even"
 	line "hunted down almost"
-	line "to extinction."
+	cont "to extinction."
 	
 	para "Thats why I stepped"
 	line "in, to do what my"
-	line "master taught me."
+	cont "master taught me."
 	
 	para "After countless"
 	line "battles I was able"
-	line "to show the comple-"
-	line "-xity of the DARK"
-	line "type, and repeat"
-	line "history."
+	cont "to show the comple-"
+	cont "-xity of the DARK"
+	cont "type, and repeat"
+	cont "history."
 	done
 	
 WillPostGameText:
@@ -255,49 +255,49 @@ WillPostGameText:
 	
 	para "I am actually kinda"
 	line "new as an ELITE"
-	line "FOUR member."
+	cont "FOUR member."
 	
 	para "A few months ago I"
 	line "was able to beat"
-	line "the icy legend,"
-	line "LORELEI, and earn"
-	line "my position here."
+	cont "the icy legend,"
+	cont "LORELEI, and earn"
+	cont "my position here."
 	
 	para "I am getting really"
 	line "close to beating"
-	line "KOGA and BRUNO but"
-	line "their experience is"
-	line "quite overwhelming."
+	cont "KOGA and BRUNO but"
+	cont "their experience is"
+	cont "quite overwhelming."
 	
 	para "I come from SAFFRON"
 	line "city. SABRINA is my"
-	line "childhood rival."
+	cont "childhood rival."
 	
 	para "We both liked"
 	line "PSYCHIC type #MON"
-	line "a lot as kids!"
+	cont "a lot as kids!"
 	
 	para "Once she became a"
 	line "GYM LEADER I knew"
-	line "I had to push for-"
-	line "-ward."
+	cont "I had to push for-"
+	cont "-ward."
 	
 	para "I travelled around"
 	line "the world for four"
-	line "years, increasing"
-	line "my knowledge and"
-	line "power."
+	cont "years, increasing"
+	cont "my knowledge and"
+	cont "power."
 	
 	para "And now I am here"
 	line "And I think I got"
-	line "pretty far out!"
+	cont "pretty far out!"
 	
 	para "I will go visit her"
 	line "soon. I would like"
-	line "to get an ABRA and"
-	line "she specializes in"
-	line "that species of"
-	line "#MON."
+	cont "to get an ABRA and"
+	cont "she specializes in"
+	cont "that species of"
+	cont "#MON."
 	done
 
 KogaPostGameText:
@@ -308,24 +308,24 @@ KogaPostGameText:
 	
 	para "We gathered here to"
 	line "chat with LANCE"
-	line "before he leaves."
+	cont "before he leaves."
 	
 	para "He mentioned that"
 	line "he will travel to"
-	line "the Galar Region."
+	cont "the Galar Region."
 	
 	para "Apparently there"
 	line "is a very important"
-	line "tournament that"
-	line "happens there."
+	cont "tournament that"
+	cont "happens there."
 	
 	para "It reminds me of"
 	line "the time my comra-"
-	line "-des went to the"
-	line "UNOVA region to"
-	line "take part on the"
-	line "#MON World Champ-"
-	line "-ionship."
+	cont "-des went to the"
+	cont "UNOVA region to"
+	cont "take part on the"
+	cont "#MON World Champ-"
+	cont "-ionship."
 	
 	para "Sadly I couldn't"
 	line "attend the event."
@@ -335,14 +335,14 @@ KogaPostGameText:
 	
 	para "We spent a lot of"
 	line "time training at"
-	line "the FUCHSIA city's"
-	line "GYM. But our fav-"
-	line "-ourite spot was"
-	line "the SAFARY ZONE."
+	cont "the FUCHSIA city's"
+	cont "GYM. But our fav-"
+	cont "-ourite spot was"
+	cont "the SAFARY ZONE."
 	
 	para "You will probably"
 	line "meet her if you"
-	line "haven't already."
+	cont "haven't already."
 	
 	para "Don't hold back!"
 	done
