@@ -121,6 +121,8 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Add option to randomize encounters and/or trainer mons/attacks.
 
+- Overhaul the options menu when there isn't a saved game.
+
 ## See also
 
 - [**FAQ**](FAQ.md)
