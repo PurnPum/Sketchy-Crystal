@@ -49,6 +49,10 @@ Route36NationalParkGateCheckIfContestAvailableCallback:
 	ifequal TUESDAY, .SetContestOfficer
 	ifequal THURSDAY, .SetContestOfficer
 	ifequal SATURDAY, .SetContestOfficer
+	ifequal MONDAY, .SetContestOfficer
+	ifequal WEDNESDAY, .SetContestOfficer
+	ifequal SUNDAY, .SetContestOfficer
+	ifequal FRIDAY, .SetContestOfficer
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue .SetContestOfficer
 	disappear ROUTE36NATIONALPARKGATE_OFFICER1
@@ -139,11 +143,6 @@ Route36NationalParkGateLeavingContestEarlyScript:
 	end
 
 Route36OfficerScriptContest:
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, _ContestNotOn
-	ifequal MONDAY, _ContestNotOn
-	ifequal WEDNESDAY, _ContestNotOn
-	ifequal FRIDAY, _ContestNotOn
 	faceplayer
 	opentext
 	checkflag ENGINE_DAILY_BUG_CONTEST
@@ -474,13 +473,10 @@ Route36NationalParkGatePlayerWaitWithContestantsMovement:
 	step_end
 
 Route36NationalParkGateOfficer1AskToParticipateText:
-	text "Today's @"
-	text_ram wStringBuffer3
-	text "."
-	line "That means the"
-
-	para "Bug-Catching Con-"
-	line "test is on today."
+	text "Hi! Do you want to"
+	line "participate on the"
+	cont "Bug-Catching"
+	cont "contest?"
 
 	para "The rules are sim-"
 	line "ple."
@@ -810,10 +806,9 @@ UnusedSilphScope2Text: ; unreferenced
 UnusedBugCatchingContestExplanationText:
 ; duplicate of BugCatchingContestExplanationText in Route35NationalParkGate.asm
 	text "The Bug-Catching"
-	line "Contest is held on"
+	line "Contest is held"
 
-	para "Tuesday, Thursday"
-	line "and Saturday."
+	para "every single day!"
 
 	para "Not only do you"
 	line "earn a prize just"
