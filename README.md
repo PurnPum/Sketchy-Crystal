@@ -4,7 +4,7 @@ This is a Challenge ROM Hack based off of the disassembly of Pokémon Crystal.
 
 It builds the following ROM:
 
-- Pokemon - sketchycrystal.gbc `sha256: eb23b53849f120ac499d8b44c4f232cb9834b9968247961452dede1007278ce1`
+- Pokemon - sketchycrystal.gbc `sha256: 6649D061BD4093E2F404076E1D74BD2FA32FF485E3FE25E0DA7DE67B90CE5A83`
 
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
@@ -112,6 +112,8 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
+
+- Working on Ranzomizer on a different branch.
 
 ## TODO:
 
