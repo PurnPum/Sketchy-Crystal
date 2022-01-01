@@ -105,9 +105,9 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 	Originally you could choose between Fast, Mid and Slow; which had a 1, 3 and 5 frame delay between each letter respectively.
 	Now you can choose between Inst, Fast and Mid; which have a 0, 1 and 2 frame delay between each letter respectively.
 	
-- Prevent the player from rematching the E4.
+- Prevented the player from rematching the E4.
 
-- Make the Bug Contests avaliable every day.
+- Made the Bug Contests avaliable every day.
 
 ## CURRENTLY DOING:
 
