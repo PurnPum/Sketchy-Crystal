@@ -115,6 +115,7 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Testing the initial release, looking for bugs.
 
+
 - Working on the hard mode on a different branch.
 
 ## TODO:
