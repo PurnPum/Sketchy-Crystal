@@ -109,23 +109,21 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Made the Bug Contests avaliable every day.
 
-- Ability to randomize trainer parties and wild pokemon (Needs further testing).
-
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
 
-- Working on the hard mode on a different branch.
+- Working on Randomizer on a different branch.
 
 ## TODO:
 
-- Fix as many documented bugs from the original code as possible (low priority).
+- Fix as many documented bugs from the original code as possible.
 
-- Add a Hard mode (WIP)
+- Add a Hard mode
 
-- Change the options menu to allow the player to customize the game (with randomization and hard mode).
+- Add option to randomize encounters and/or trainer mons/attacks.
 
-- Document all changes that players will need (new teams, encounters, etc)
+- Overhaul the options menu when there isn't a saved game.
 
 ## See also
 
