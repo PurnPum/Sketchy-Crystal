@@ -392,45 +392,45 @@ IncompleteCopyNameFunction: ; unreferenced
 	pop de
 	ret
 
-PRandomizeTrainerMon: ; Will use the seed, Pokemon ID to prandomize (will be in registry 'a'), level of the Pkmn to prandomize,
-;Trainer ID and trainer class of the enemy trainer.
-;The new ID will be returned in the registry 'a'
+PRandomizeTrainerMon: 			;Will use the seed, Pokemon ID to prandomize (will be in registry 'a'), level of the Pkmn to prandomize,
+								;Trainer ID and trainer class of the enemy trainer.
+								;The new ID will be returned in the registry 'a'
 	push bc
 	push hl
 	push de
 .start
-	ld b, a ;Save a's value into b
-	ld a, [wOtherTrainerClass] ; Load the trainer class in 'a'
-	bit 0, a ;Check the last bit of 'a'
-	jp z, .even ;If the class ID was an even number, jump
-	srl b ;If its odd, do a SRL operation on b
-	jp .next
+	ld b, a 					;Save a's value into b
+	ld a, [wOtherTrainerClass] 	;Load the trainer class in 'a'
+	bit 0, a 					;Check the last bit of 'a'
+	jr z, .even 				;If the class ID was an even number, jump
+	srl b 						;If its odd, do a SRL operation on b
+	jr .next
 .even
-	sla b ;If its even, do a SLA operation on b
+	sla b 						;If its even, do a SLA operation on b
 .next
-	ld a, [wCurPartyLevel] ;Load the level in 'a'
-	xor b ;Do a xor between b (the prandom value calculated so far) and a, storing it in 'a'
-	ld b, a ;Save a's value into b
-	ld a, [wOtherTrainerID] ;Load the trainer ID in 'a'
-	ld hl, wPlayerID ;TODO, Until we implement the generation of a seed, use the player ID as a seed
-	bit 0, a ;Check the last bit of 'a'
-	ld a, [hli] ;Insert the playerID into 'de'
-	ld e, a ;Save a's value into e
-	ld d, [hl] ;Do it backwards since the bytes are flipped in the RAM
-	jp z, .sum ;If the ID was an even number, jump
-	sub d ;Substract d to a (the value that was in e) and save it to a
-	jp .finish
+	ld a, [wCurPartyLevel] 		;Load the level in 'a'
+	xor b 						;Do a xor between b (the prandom value calculated so far) and a, storing it in 'a'
+	ld b, a 					;Save a's value into b
+	ld a, [wOtherTrainerID] 	;Load the trainer ID in 'a'
+	ld hl, wPlayerID 			;TODO, Until we implement the generation of a seed, use the player ID as a seed
+	bit 0, a 					;Check the last bit of 'a'
+	ld a, [hli] 				;Insert the playerID into 'de'
+	ld e, a 					;Save a's value into e
+	ld d, [hl] 					;Do it backwards since the bytes are flipped in the RAM
+	jr z, .sum 					;If the ID was an even number, jump
+	sub d 						;Substract d to a (the value that was in e) and save it to a
+	jr .finish
 .sum
-	add d ;Add d to a (the value that was in e) and save it to a
+	add d 						;Add d to a (the value that was in e) and save it to a
 .finish
-	xor b ;Do a xor between b (the prandom value calculated so far) and a, storing it in 'a'
-	cp $00 ;If the result is 0, retry from the start ('a' and 'b' should be different)
-	jp z, .start
-	cp $FD ;If the result is 253 or higher, retry from the start ('a' and 'b' should be different)
-	jp nc, .start
-	pop bc
-	pop hl
+	xor b 						;Do a xor between b (the prandom value calculated so far) and a, storing it in 'a'
+	cp $00 						;If the result is 0, retry from the start ('a' and 'b' should be different)
+	jr z, .start
+	cp $FD 						;If the result is 253 or higher, retry from the start ('a' and 'b' should be different)
+	jr nc, .start
 	pop de
+	pop hl
+	pop bc
 	ret
 	
 INCLUDE "data/trainers/parties.asm"

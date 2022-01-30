@@ -480,7 +480,7 @@ FillMoves:
 	push hl
 	push de
 	push bc
-	ld hl, EvosAttacksPointers
+	ld hl, EvosAttacksPointers2
 	ld b, 0
 	ld a, [wCurPartySpecies]
 	dec a

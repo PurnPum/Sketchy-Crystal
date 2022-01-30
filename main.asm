@@ -174,6 +174,9 @@ INCLUDE "engine/events/fruit_trees.asm"
 INCLUDE "engine/battle/ai/move.asm"
 INCLUDE "engine/pokedex/pokedex_2.asm"
 INCLUDE "engine/pokemon/mail.asm"
+INCLUDE "data/pokemon/evos_attacks_pointers2.asm"
+INCLUDE "data/pokemon/evos_attacks2.asm"
+INCLUDE "engine/pokemon/fill_moves2.asm"
 
 
 SECTION "Crystal Features 1", ROMX
