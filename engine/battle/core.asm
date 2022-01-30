@@ -6320,7 +6320,7 @@ LoadEnemyMon:
 ; Are we in a trainer battle?
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
-	jr nz, .WildMoves
+	jr z, .WildMoves ;TODO
 ; Then copy moves from the party struct
 	ld hl, wOTPartyMon1Moves
 	ld a, [wCurPartyMon]
@@ -6340,7 +6340,7 @@ LoadEnemyMon:
 	ld [hl], a
 	ld [wSkipMovesBeforeLevelUp], a
 ; Fill moves based on level
-	predef FillMoves
+	predef FillMoves2
 
 .PP:
 ; Trainer battle?
