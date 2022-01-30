@@ -338,6 +338,7 @@ ChooseWildEncounter:
 
 .loadwildmon
 	ld a, b
+	call PRandomizeWildMon
 	ld [wTempWildMonSpecies], a
 
 .startwildbattle
@@ -960,6 +961,63 @@ RandomPhoneMon:
 	ld de, wStringBuffer4
 	ld bc, MON_NAME_LENGTH
 	jp CopyBytes
+
+PRandomizeWildMon: 			;Will use the seed, Pokemon ID to prandomize (will be in registry 'a' and 'b'), level of the Pkmn to prandomize,
+							;Map group and map number.
+							;The new ID will be returned in the registry 'a', level wont change.
+	push bc
+	push hl
+	push de
+.start 						;First we operate the level data, held in 'a'
+	ld a, [wCurPartyLevel]	;Load the pokemon's level in 'a', 'b' still holds the ID
+	bit 0, a 				;Check the last bit of 'a'
+	jr z, .even 			;If the level was an even number, jump
+	add b 					;If its odd, do 'a' = 'a' + 'b'
+	jr .next
+.even
+	sub b 					;If its even, do 'a' = 'a' - 'b'
+.next 						;Then we operate with Map data + seed
+	ld b, a					;Save a's value into b
+	call CopyCurrMapDE 		;Load the Map group and number on 'de'
+	ld hl, wPlayerID 		;TODO, Until we implement the generation of a seed, use the player ID as a seed
+	bit 0, e 				;Check the last bit of 'e'
+	jr z, .sum 				;If 'e' was an even number, jump
+.subhlde					;These 6 lines basically do "sub hl,de"
+	ld a, h					; a = h
+	sub d					; a = a - d
+	ld h, a					; h = a
+	ld a, l					; a = l
+	sub e					; a = a - e
+	ld l, a					; l = a
+	jr .last_step
+.sum
+	add hl,de 				;Add hl (player ID) and de (Map group+number). Save it to hl
+.last_step 					;Lastly we operate with the results and the pokemon ID
+	bit 0, d 				;Check the last bit of 'd'
+	jr z, .final_sub 		;If 'd' was an even number, jump
+.final_sum 					;In this case do b = b + (d - e)
+	ld a, d 				; a = d
+	sub e 					; a = a - e
+	add b 					; a = a + b
+	ld b, a 				;Store the calculated ID in 'b' incase we need to redo.
+	jr .finish				;Don't do final_sub if we did this
+.final_sub 					;In this case do b = b - (d + e)
+	ld a, d 				; a = d
+	add e 					; a = a + e	
+	ld d, b					; d = b
+	ld b, a					; b = a
+	ld a, d					; a = d
+	sub b 					; a = a - b -> This is basically b - a since we flipped 'a' and 'b' using 'd' to hold.
+	ld b, a 				;Store the calculated ID in 'b' incase we need to redo.
+.finish 					;now the PRandomized ID is in 'a'
+	cp $00 					;If the result is 0, retry from the start ('a' and 'b' should be different)
+	jr z, .start
+	cp $FD 					;If the result is 253 or higher, retry from the start ('a' and 'b' should be different)
+	jr nc, .start
+	pop de
+	pop hl
+	pop bc
+	ret
 
 INCLUDE "data/wild/johto_grass.asm"
 INCLUDE "data/wild/johto_water.asm"

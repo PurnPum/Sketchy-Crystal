@@ -35,6 +35,7 @@ PredefPointers::
 	add_predef GetEnemyMonFrontpic
 	add_predef LearnLevelMoves
 	add_predef FillMoves
+	add_predef FillMoves2
 	add_predef EvolveAfterBattle
 	add_predef TradeAnimationPlayer2
 	add_predef TradeAnimation
