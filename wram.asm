@@ -1801,6 +1801,11 @@ wMinutesSince:: db
 wHoursSince:: db
 wDaysSince:: db
 
+wExtraOptions:: db
+;To hold the randomizer and hardmode options
+;	bit 0: Randomize trainers?
+;	bit 1: Randomize wild pokemon?
+;	bit 2-7: TBD
 
 SECTION "WRAM 1", WRAMX
 
