@@ -558,7 +558,7 @@ CheckEncounterRoamMon:
 	dec hl
 	dec hl
 	ld a, [hli]
-	ld [wTempWildMonSpecies], a
+	ld [wTempWildMonSpecies], a ;TODO Check if I wanna leave this like such with randomization on
 	ld a, [hl]
 	ld [wCurPartyLevel], a
 	ld a, BATTLETYPE_ROAMING
