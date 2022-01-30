@@ -337,8 +337,10 @@ ChooseWildEncounter:
 	ret
 
 .loadwildmon
+	ld a, [wExtraOptions]
+	bit 1, a
 	ld a, b
-	call PRandomizeWildMon
+	call nz, PRandomizeWildMon ;Jump if z=0, which means the randomize wild mons flag is on
 	ld [wTempWildMonSpecies], a
 
 .startwildbattle
