@@ -95,10 +95,12 @@ TrainerType1:
 	ld a, [hli]
 	cp $ff
 	ret z
-
+	
 	ld [wCurPartyLevel], a
+	ld a, [wExtraOptions]
+	bit 0, a
 	ld a, [hli]
-	call PRandomizeTrainerMon
+	call nz, PRandomizeTrainerMon ;Jump if z=0, which means the randomize trainers flag is on
 	ld [wCurPartySpecies], a
 	ld a, OTPARTYMON
 	ld [wMonType], a
@@ -117,8 +119,10 @@ TrainerType2:
 	ret z
 
 	ld [wCurPartyLevel], a
+	ld a, [wExtraOptions]
+	bit 0, a
 	ld a, [hli]
-	call PRandomizeTrainerMon
+	call nz, PRandomizeTrainerMon ;Jump if z=0, which means the randomize trainers flag is on
 	ld [wCurPartySpecies], a
 	ld a, OTPARTYMON
 	ld [wMonType], a
@@ -194,8 +198,10 @@ TrainerType3:
 	ret z
 
 	ld [wCurPartyLevel], a
+	ld a, [wExtraOptions]
+	bit 0, a
 	ld a, [hli]
-	call PRandomizeTrainerMon
+	call nz, PRandomizeTrainerMon ;Jump if z=0, which means the randomize trainers flag is on
 	ld [wCurPartySpecies], a
 	ld a, OTPARTYMON
 	ld [wMonType], a
@@ -223,8 +229,10 @@ TrainerType4:
 	ret z
 
 	ld [wCurPartyLevel], a
+	ld a, [wExtraOptions]
+	bit 0, a
 	ld a, [hli]
-	call PRandomizeTrainerMon
+	call nz, PRandomizeTrainerMon ;Jump if z=0, which means the randomize trainers flag is on
 	ld [wCurPartySpecies], a
 
 	ld a, OTPARTYMON
@@ -303,7 +311,7 @@ TrainerType4:
 .copied_pp
 
 	pop hl
-	jr .loop
+	jp .loop
 
 ComputeTrainerReward:
 	ld hl, hProduct
@@ -384,13 +392,13 @@ CopyTrainerName:
 	pop de
 	ret
 
-IncompleteCopyNameFunction: ; unreferenced
+;IncompleteCopyNameFunction: ; unreferenced
 ; Copy of CopyTrainerName but without "call CopyBytes"
-	ld de, wStringBuffer1
-	push de
-	ld bc, NAME_LENGTH
-	pop de
-	ret
+;	ld de, wStringBuffer1
+;	push de
+;	ld bc, NAME_LENGTH
+;	pop de
+;	ret
 
 PRandomizeTrainerMon: 			;Will use the seed, Pokemon ID to prandomize (will be in registry 'a'), level of the Pkmn to prandomize,
 								;Trainer ID and trainer class of the enemy trainer.
