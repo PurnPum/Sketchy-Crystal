@@ -120,6 +120,8 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 ## TODO:
 
+- Make Evo Stones more avaliable
+
 - Fix as many documented bugs from the original code as possible (low priority).
 
 - Add a Hard mode (WIP)
