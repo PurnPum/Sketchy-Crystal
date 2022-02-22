@@ -1,5 +1,5 @@
 	tilecoll WALL, WALL, WALL, WALL ; 00
-	tilecoll WALL, WALL, WALL, WALL ; 01
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 01
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 02
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 03
 	tilecoll WALL, UP_WALL, WALL, FLOOR ; 04
@@ -62,3 +62,6 @@
 	tilecoll WATER, WATER, WATER, WATER ; 3d
 	tilecoll WATER, WATER, WATER, WATER ; 3e
 	tilecoll FLOOR, FLOOR, PIT, FLOOR ; 3f
+	tilecoll WALL, FLOOR, WALL, WALL ; 40
+	tilecoll FLOOR, FLOOR, WALL, WALL ; 41
+	tilecoll FLOOR, FLOOR, WALL, WALL ; 42
