@@ -45,6 +45,9 @@ TilesetKantoAnim:
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
+	dw NULL,  AnimateGrassTile
+	dw NULL,  AnimateTreeTopLeftTile
+	dw NULL,  AnimateTreeTopRightTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
@@ -58,6 +61,9 @@ TilesetParkAnim:
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
+	dw NULL,  AnimateGrassTile
+	dw NULL,  AnimateTreeTopLeftTile
+	dw NULL,  AnimateTreeTopRightTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
@@ -72,6 +78,9 @@ TilesetForestAnim:
 	dw NULL,  ForestTreeLeftAnimation2
 	dw NULL,  ForestTreeRightAnimation2
 	dw NULL,  AnimateFlowerTile
+	dw NULL,  AnimateGrassTile
+	dw NULL,  AnimateTreeTopLeftTile
+	dw NULL,  AnimateTreeTopRightTile
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  StandingTileFrame8
@@ -84,6 +93,9 @@ TilesetJohtoAnim:
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
+	dw NULL,  AnimateGrassTile
+	dw NULL,  AnimateTreeTopLeftTile
+	dw NULL,  AnimateTreeTopRightTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
@@ -101,6 +113,9 @@ UnusedTilesetAnim1: ; unreferenced
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
+	dw NULL,  AnimateGrassTile
+	dw NULL,  AnimateTreeTopLeftTile
+	dw NULL,  AnimateTreeTopRightTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
@@ -661,6 +676,90 @@ GetForestTreeFrame:
 	xor a
 	ret
 
+AnimateGrassTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+; A cycle of 2 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	and %10
+
+; hl = .FlowerTileFrames + a * 8
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, .GrassTileFrames
+	add hl, de
+
+; Write the tile graphic from hl (now sp) to tile $03 (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $04
+	jp WriteTile
+
+.GrassTileFrames:
+	INCBIN "gfx/tilesets/grass/grass1.2bpp"
+	INCBIN "gfx/tilesets/grass/grass2.2bpp"
+
+AnimateTreeTopLeftTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+; A cycle of 2 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	and %10
+
+; hl = .TreeTopLeftTileFrames + a * 8
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, .TreeTopLeftTileFrames
+	add hl, de
+
+; Write the tile graphic from hl (now sp) to tile $1E (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $1E
+	jp WriteTile
+
+.TreeTopLeftTileFrames:
+	INCBIN "gfx/tilesets/forest-tree/1.2bpp"
+	INCBIN "gfx/tilesets/forest-tree/2.2bpp"
+	
+AnimateTreeTopRightTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+; A cycle of 2 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	and %10
+
+; hl = .TreeTopRightTileFrames + a * 8
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, .TreeTopRightTileFrames
+	add hl, de
+
+; Write the tile graphic from hl (now sp) to tile $1F (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $1F
+	jp WriteTile
+
+.TreeTopRightTileFrames:
+	INCBIN "gfx/tilesets/forest-tree/3.2bpp"
+	INCBIN "gfx/tilesets/forest-tree/4.2bpp"
+
 AnimateFlowerTile:
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
@@ -677,7 +776,7 @@ AnimateFlowerTile:
 	and 1
 	add e
 
-; hl = .FlowerTileFrames + a * 16
+; hl = .GrassTileFrames + a * 16
 	swap a
 	ld e, a
 	ld d, 0
