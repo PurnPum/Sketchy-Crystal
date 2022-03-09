@@ -193,11 +193,16 @@ UnusedTilesetAnim4: ; unreferenced
 
 TilesetCaveAnim:
 TilesetDarkCaveAnim:
-	dw NULL, AnimateWaveLeftTile
-	dw NULL, AnimateWaveRightTile
-	dw NULL, AnimateWaveDownTile
-	dw NULL, AnimateWaveLeftDeepTile
-	dw NULL, AnimateWaveDownDeepTile
+	dw vTiles2 tile $43, AnimateWaveLeftTile
+	dw vTiles2 tile $44, AnimateWaveDownTile
+	dw vTiles2 tile $45, AnimateWaveRightTile
+	dw vTiles2 tile $54, AnimateWaveLeftDeepTile
+	dw vTiles2 tile $55, AnimateWaveDownDeepTile
+	dw vTiles2 tile $56, AnimateWaveRightDeepTile
+	dw vTiles2 tile $50, AnimateWaveLeftDeepDarkTile
+	dw vTiles2 tile $51, AnimateWaveDownDeepDarkTile
+	dw vTiles2 tile $52, AnimateWaveRightDeepDarkTile
+	dw NULL, AnimateWaveRightDeepDarkTile
 	dw vTiles2 tile $14, ReadTileToAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw wTileAnimBuffer, ScrollTileRightLeft
@@ -215,6 +220,16 @@ TilesetDarkCaveAnim:
 	dw wTileAnimBuffer, ScrollTileDown
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw vTiles2 tile $40, WriteTileFromAnimBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw vTiles2 tile $53, ReadTileToAnimBuffer
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw wTileAnimBuffer, ScrollTileDown
+	dw NULL,  FlickeringCaveEntrancePalette
+	dw vTiles2 tile $53, WriteTileFromAnimBuffer
 	dw NULL,  FlickeringCaveEntrancePalette
 	dw NULL,  DoneTileAnimation
 
@@ -708,156 +723,414 @@ AnimateGrassTile:
 .GrassTileFrames:
 	INCBIN "gfx/tilesets/grass/grass1.2bpp"
 	INCBIN "gfx/tilesets/grass/grass2.2bpp"
-	
-AnimateWaveLeftTile:
-; Save the stack pointer in bc for WriteTile to restore
-	ld hl, sp+0
-	ld b, h
-	ld c, l
 
-; A cycle of 4 frames, updating every other tick
-	ld a, [wTileAnimationTimer]
-	and %110
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;WAVES;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; hl = .WaveLeftTileFrames + a * 8
-	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, .WaveLeftTileFrames
-	add hl, de
-
-; Write the tile graphic from hl (now sp) to tile $43 (now hl)
-	ld sp, hl
-	ld hl, vTiles2 tile $43
-	jp WriteTile
-
-.WaveLeftTileFrames:
-	INCBIN "gfx/tilesets/waves/waveleft1.2bpp"
-	INCBIN "gfx/tilesets/waves/waveleft2.2bpp"
-	INCBIN "gfx/tilesets/waves/waveleft3.2bpp"
-	INCBIN "gfx/tilesets/waves/waveleft4.2bpp"
-	
 AnimateWaveRightTile:
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
 	ld b, h
 	ld c, l
 
-; A cycle of 4 frames, updating every other tick
+	ld hl, .WaveRightTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
 	ld a, [wTileAnimationTimer]
-	and %110
+	and %111
 
-; hl = .WaveRightTileFrames + a * 8
+; hl = [.WaveRightTileFramesPointers + a * 2]
 	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, .WaveRightTileFrames
-	add hl, de
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 
-; Write the tile graphic from hl (now sp) to tile $45 (now hl)
+; Write the tile graphic from hl (now sp) to de (now hl)
 	ld sp, hl
-	ld hl, vTiles2 tile $45
+	ld l, e
+	ld h, d
 	jp WriteTile
 
-.WaveRightTileFrames:
-	INCBIN "gfx/tilesets/waves/waveright1.2bpp"
-	INCBIN "gfx/tilesets/waves/waveright2.2bpp"
-	INCBIN "gfx/tilesets/waves/waveright3.2bpp"
-	INCBIN "gfx/tilesets/waves/waveright4.2bpp"
-	
+.WaveRightTileFramesPointers:
+	dw .WaveRightTile1
+	dw .WaveRightTile2
+	dw .WaveRightTile3
+	dw .WaveRightTile4
+	dw .WaveRightTile1
+	dw .WaveRightTile2
+	dw .WaveRightTile3
+	dw .WaveRightTile4
+
+.WaveRightTile1: INCBIN "gfx/tilesets/waves/waveright1.2bpp"
+.WaveRightTile2: INCBIN "gfx/tilesets/waves/waveright2.2bpp"
+.WaveRightTile3: INCBIN "gfx/tilesets/waves/waveright3.2bpp"
+.WaveRightTile4: INCBIN "gfx/tilesets/waves/waveright4.2bpp"
+
 AnimateWaveDownTile:
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
 	ld b, h
 	ld c, l
 
-; A cycle of 4 frames, updating every other tick
+	ld hl, .WaveDownTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
 	ld a, [wTileAnimationTimer]
-	and %110
+	and %111
 
-; hl = .WaveDownTileFrames + a * 8
+; hl = [.WaveDownTileFramesPointers + a * 2]
 	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, .WaveDownTileFrames
-	add hl, de
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 
-; Write the tile graphic from hl (now sp) to tile $44 (now hl)
+; Write the tile graphic from hl (now sp) to de (now hl)
 	ld sp, hl
-	ld hl, vTiles2 tile $44
+	ld l, e
+	ld h, d
 	jp WriteTile
 
-.WaveDownTileFrames:
-	INCBIN "gfx/tilesets/waves/wavedown1.2bpp"
-	INCBIN "gfx/tilesets/waves/wavedown2.2bpp"
-	INCBIN "gfx/tilesets/waves/wavedown3.2bpp"
-	INCBIN "gfx/tilesets/waves/wavedown4.2bpp"
-	
-AnimateWaveLeftDeepTile:
+.WaveDownTileFramesPointers:
+	dw .WaveDownTile1
+	dw .WaveDownTile2
+	dw .WaveDownTile3
+	dw .WaveDownTile4
+	dw .WaveDownTile1
+	dw .WaveDownTile2
+	dw .WaveDownTile3
+	dw .WaveDownTile4
+
+.WaveDownTile1: INCBIN "gfx/tilesets/waves/wavedown1.2bpp"
+.WaveDownTile2: INCBIN "gfx/tilesets/waves/wavedown2.2bpp"
+.WaveDownTile3: INCBIN "gfx/tilesets/waves/wavedown3.2bpp"
+.WaveDownTile4: INCBIN "gfx/tilesets/waves/wavedown4.2bpp"
+
+AnimateWaveLeftTile:
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
 	ld b, h
 	ld c, l
 
-; A cycle of 4 frames, updating every other tick
+	ld hl, .WaveLeftTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
 	ld a, [wTileAnimationTimer]
-	and %110
+	and %111
 
-; hl = .WaveLeftDeepTileFrames + a * 8
+; hl = [.WaveLeftTileFramesPointers + a * 2]
 	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, .WaveLeftDeepTileFrames
-	add hl, de
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 
-; Write the tile graphic from hl (now sp) to tile $50 (now hl)
+; Write the tile graphic from hl (now sp) to de (now hl)
 	ld sp, hl
-	ld hl, vTiles2 tile $50
+	ld l, e
+	ld h, d
 	jp WriteTile
 
-.WaveLeftDeepTileFrames:
-	INCBIN "gfx/tilesets/waves/waveleftdeep1.2bpp"
-	INCBIN "gfx/tilesets/waves/waveleftdeep2.2bpp"
-	INCBIN "gfx/tilesets/waves/waveleftdeep3.2bpp"
-	INCBIN "gfx/tilesets/waves/waveleftdeep4.2bpp"
-	
+.WaveLeftTileFramesPointers:
+	dw .WaveLeftTile1
+	dw .WaveLeftTile2
+	dw .WaveLeftTile3
+	dw .WaveLeftTile4
+	dw .WaveLeftTile1
+	dw .WaveLeftTile2
+	dw .WaveLeftTile3
+	dw .WaveLeftTile4
+
+.WaveLeftTile1: INCBIN "gfx/tilesets/waves/waveleft1.2bpp"
+.WaveLeftTile2: INCBIN "gfx/tilesets/waves/waveleft2.2bpp"
+.WaveLeftTile3: INCBIN "gfx/tilesets/waves/waveleft3.2bpp"
+.WaveLeftTile4: INCBIN "gfx/tilesets/waves/waveleft4.2bpp"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;DEEP WAVES;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 AnimateWaveDownDeepTile:
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
 	ld b, h
 	ld c, l
 
-; A cycle of 4 frames, updating every other tick
+	ld hl, .WaveDownDeepTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
 	ld a, [wTileAnimationTimer]
-	and %110
+	and %111
 
-; hl = .WaveDownDeepTileFrames + a * 8
+; hl = [.WaveDownDeepTileFramesPointers + a * 2]
 	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, .WaveDownDeepTileFrames
-	add hl, de
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
 
-; Write the tile graphic from hl (now sp) to tile $51 (now hl)
+; Write the tile graphic from hl (now sp) to de (now hl)
 	ld sp, hl
-	ld hl, vTiles2 tile $51
+	ld l, e
+	ld h, d
 	jp WriteTile
 
-.WaveDownDeepTileFrames:
-	INCBIN "gfx/tilesets/waves/wavedowndeep1.2bpp"
-	INCBIN "gfx/tilesets/waves/wavedowndeep2.2bpp"
-	INCBIN "gfx/tilesets/waves/wavedowndeep3.2bpp"
-	INCBIN "gfx/tilesets/waves/wavedowndeep4.2bpp"
+.WaveDownDeepTileFramesPointers:
+	dw .WaveDownDeepTile1
+	dw .WaveDownDeepTile2
+	dw .WaveDownDeepTile3
+	dw .WaveDownDeepTile4
+	dw .WaveDownDeepTile1
+	dw .WaveDownDeepTile2
+	dw .WaveDownDeepTile3
+	dw .WaveDownDeepTile4
+
+.WaveDownDeepTile1: INCBIN "gfx/tilesets/waves/wavedowndeep1.2bpp"
+.WaveDownDeepTile2: INCBIN "gfx/tilesets/waves/wavedowndeep2.2bpp"
+.WaveDownDeepTile3: INCBIN "gfx/tilesets/waves/wavedowndeep3.2bpp"
+.WaveDownDeepTile4: INCBIN "gfx/tilesets/waves/wavedowndeep4.2bpp"
+
+AnimateWaveRightDeepTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .WaveRightDeepTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.WaveRightDeepTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.WaveRightDeepTileFramesPointers:
+	dw .WaveRightDeepTile1
+	dw .WaveRightDeepTile2
+	dw .WaveRightDeepTile3
+	dw .WaveRightDeepTile4
+	dw .WaveRightDeepTile1
+	dw .WaveRightDeepTile2
+	dw .WaveRightDeepTile3
+	dw .WaveRightDeepTile4
+
+.WaveRightDeepTile1: INCBIN "gfx/tilesets/waves/waverightdeep1.2bpp"
+.WaveRightDeepTile2: INCBIN "gfx/tilesets/waves/waverightdeep2.2bpp"
+.WaveRightDeepTile3: INCBIN "gfx/tilesets/waves/waverightdeep3.2bpp"
+.WaveRightDeepTile4: INCBIN "gfx/tilesets/waves/waverightdeep4.2bpp"
+
+AnimateWaveLeftDeepTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .WaveLeftDeepTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.WaveLeftDeepTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.WaveLeftDeepTileFramesPointers:
+	dw .WaveLeftDeepTile1
+	dw .WaveLeftDeepTile2
+	dw .WaveLeftDeepTile3
+	dw .WaveLeftDeepTile4
+	dw .WaveLeftDeepTile1
+	dw .WaveLeftDeepTile2
+	dw .WaveLeftDeepTile3
+	dw .WaveLeftDeepTile4
+
+.WaveLeftDeepTile1: INCBIN "gfx/tilesets/waves/waveleftdeep1.2bpp"
+.WaveLeftDeepTile2: INCBIN "gfx/tilesets/waves/waveleftdeep2.2bpp"
+.WaveLeftDeepTile3: INCBIN "gfx/tilesets/waves/waveleftdeep3.2bpp"
+.WaveLeftDeepTile4: INCBIN "gfx/tilesets/waves/waveleftdeep4.2bpp"
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;DEEP DARK WAVES;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+AnimateWaveDownDeepDarkTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .WaveDownDeepDarkTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.WaveDownDeepDarkTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.WaveDownDeepDarkTileFramesPointers:
+	dw .WaveDownDeepDarkTile1
+	dw .WaveDownDeepDarkTile2
+	dw .WaveDownDeepDarkTile3
+	dw .WaveDownDeepDarkTile4
+	dw .WaveDownDeepDarkTile1
+	dw .WaveDownDeepDarkTile2
+	dw .WaveDownDeepDarkTile3
+	dw .WaveDownDeepDarkTile4
+
+.WaveDownDeepDarkTile1: INCBIN "gfx/tilesets/waves/wavedowndeepdark1.2bpp"
+.WaveDownDeepDarkTile2: INCBIN "gfx/tilesets/waves/wavedowndeepdark2.2bpp"
+.WaveDownDeepDarkTile3: INCBIN "gfx/tilesets/waves/wavedowndeepdark3.2bpp"
+.WaveDownDeepDarkTile4: INCBIN "gfx/tilesets/waves/wavedowndeepdark4.2bpp"
+
+AnimateWaveRightDeepDarkTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .WaveRightDeepDarkTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.WaveRightDeepDarkTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.WaveRightDeepDarkTileFramesPointers:
+	dw .WaveRightDeepDarkTile1
+	dw .WaveRightDeepDarkTile2
+	dw .WaveRightDeepDarkTile3
+	dw .WaveRightDeepDarkTile4
+	dw .WaveRightDeepDarkTile1
+	dw .WaveRightDeepDarkTile2
+	dw .WaveRightDeepDarkTile3
+	dw .WaveRightDeepDarkTile4
+
+.WaveRightDeepDarkTile1: INCBIN "gfx/tilesets/waves/waverightdeepdark1.2bpp"
+.WaveRightDeepDarkTile2: INCBIN "gfx/tilesets/waves/waverightdeepdark2.2bpp"
+.WaveRightDeepDarkTile3: INCBIN "gfx/tilesets/waves/waverightdeepdark3.2bpp"
+.WaveRightDeepDarkTile4: INCBIN "gfx/tilesets/waves/waverightdeepdark4.2bpp"
+
+AnimateWaveLeftDeepDarkTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .WaveLeftDeepDarkTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.WaveLeftDeepDarkTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.WaveLeftDeepDarkTileFramesPointers:
+	dw .WaveLeftDeepDarkTile1
+	dw .WaveLeftDeepDarkTile2
+	dw .WaveLeftDeepDarkTile3
+	dw .WaveLeftDeepDarkTile4
+	dw .WaveLeftDeepDarkTile1
+	dw .WaveLeftDeepDarkTile2
+	dw .WaveLeftDeepDarkTile3
+	dw .WaveLeftDeepDarkTile4
+
+.WaveLeftDeepDarkTile1: INCBIN "gfx/tilesets/waves/waveleftdeepdark1.2bpp"
+.WaveLeftDeepDarkTile2: INCBIN "gfx/tilesets/waves/waveleftdeepdark2.2bpp"
+.WaveLeftDeepDarkTile3: INCBIN "gfx/tilesets/waves/waveleftdeepdark3.2bpp"
+.WaveLeftDeepDarkTile4: INCBIN "gfx/tilesets/waves/waveleftdeepdark4.2bpp"
 
 AnimateTreeTopLeftTile:
 ; Save the stack pointer in bc for WriteTile to restore
