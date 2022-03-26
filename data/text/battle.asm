@@ -1106,3 +1106,9 @@ BattleText_NoTimeLeftToday: ; unreferenced
 	text "There is no time"
 	line "left today!"
 	done
+
+BattleText_RainFallingAlready:
+	text "It is heavily"
+	line "raining!"
+	prompt
+	
