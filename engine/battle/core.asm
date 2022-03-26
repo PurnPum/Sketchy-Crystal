@@ -1,6 +1,18 @@
 ; Core components of the battle engine.
 
 DoBattle:
+.route_33_rain
+	ld a, [wMapGroup]
+	cp $08 ;AZALEA
+	jr nz, .move_on
+	ld a, [wMapNumber]
+	cp $06 ;ROUTE_33
+	jr nz, .move_on
+	ld a, WEATHER_RAIN
+	ld [wBattleWeather], a
+	ld a, $FF
+	ld [wWeatherCount], a
+.move_on
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
@@ -157,6 +169,23 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	ret
 
 BattleTurn:
+	ld a, [wMapGroup]
+	cp $08 ;AZALEA
+	jr nz, .loop
+	ld a, [wMapNumber]
+	cp $06 ;ROUTE_33
+	jr nz, .loop
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	jr nz, .loop
+	push de
+	push hl
+	ld de, RAIN_DANCE
+	call Call_PlayBattleAnim
+	ld hl, BattleText_RainFallingAlready
+	call StdBattleTextbox
+	pop hl
+	pop de
 .loop
 	call Stubbed_Increments5_a89a
 	call CheckContestBattleOver
