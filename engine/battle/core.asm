@@ -6344,7 +6344,7 @@ LoadEnemyMon:
 ; Are we in a trainer battle?
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
-	jr z, .WildMoves ;TODO
+	jr nz, .WildMoves
 ; Then copy moves from the party struct
 	ld hl, wOTPartyMon1Moves
 	ld a, [wCurPartyMon]
