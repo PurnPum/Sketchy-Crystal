@@ -133,3 +133,6 @@ MAIL_STRUCT_LENGTH EQU $2f ; mailmsg struct
 	const HELD_BRIGHTPOWDER
 	const_skip
 	const HELD_FOCUS_BAND
+	const HELD_EXTEND_RAIN
+	const HELD_EXTEND_SUN
+	const HELD_EXTEND_SANDSTORM

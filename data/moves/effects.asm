@@ -1524,6 +1524,7 @@ Sandstorm:
 	usedmovetext
 	doturn
 	startsandstorm
+	smoothrock
 	endmove
 
 Endure:
@@ -1811,6 +1812,7 @@ RainDance:
 	usedmovetext
 	doturn
 	startrain
+	damprock
 	endmove
 
 SunnyDay:
@@ -1818,6 +1820,7 @@ SunnyDay:
 	usedmovetext
 	doturn
 	startsun
+	heatrock
 	endmove
 
 FakeOut:

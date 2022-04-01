@@ -6689,6 +6689,66 @@ BattleCommand_SkipSunCharge:
 	ret nz
 	ld b, charge_command
 	jp SkipToBattleCommand
+	
+BattleCommand_DampRock:
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+
+	call GetUserItem
+	ld a, b
+	cp HELD_EXTEND_RAIN
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	ret nz
+	
+	ld a, [wWeatherCount]
+	inc a
+	inc a
+	inc a
+	ld [wWeatherCount], a
+	
+BattleCommand_HeatRock:
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+
+	call GetUserItem
+	ld a, b
+	cp HELD_EXTEND_SUN
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	ret nz
+	
+	ld a, [wWeatherCount]
+	inc a
+	inc a
+	inc a
+	ld [wWeatherCount], a
+
+BattleCommand_SmoothRock:
+	ld a, [wAttackMissed]
+	and a
+	ret nz
+
+	call GetUserItem
+	ld a, b
+	cp HELD_EXTEND_SANDSTORM
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	ret nz
+	
+	ld a, [wWeatherCount]
+	inc a
+	inc a
+	inc a
+	ld [wWeatherCount], a
 
 INCLUDE "engine/battle/move_effects/future_sight.asm"
 

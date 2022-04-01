@@ -74,9 +74,9 @@ MartViolet:
 MartAzalea:
 	db 10 ; # items
 	db CHARCOAL
-	db POKE_BALL
-	db POTION
-	db SUPER_POTION
+	db DAMP_ROCK
+	db HEAT_ROCK
+	db SMOOTH_ROCK
 	db ESCAPE_ROPE
 	db REPEL
 	db ANTIDOTE
