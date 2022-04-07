@@ -72,13 +72,16 @@ TilesetParkAnim:
 TilesetForestAnim:
 	dw NULL,  ForestTreeLeftAnimation
 	dw NULL,  ForestTreeRightAnimation
+	dw NULL,  ForestTreeLeftAnimationNC
+	dw NULL,  ForestTreeRightAnimationNC
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  ForestTreeLeftAnimation2
 	dw NULL,  ForestTreeRightAnimation2
+	dw NULL,  ForestTreeLeftAnimation2NC
+	dw NULL,  ForestTreeRightAnimation2NC
 	dw NULL,  AnimateFlowerTile
-	dw NULL,  AnimateGrassTile
 	dw NULL,  AnimateTreeTopLeftTile
 	dw NULL,  AnimateTreeTopRightTile
 	dw vTiles2 tile $14, AnimateWaterTile
@@ -692,6 +695,132 @@ ForestTreeRightAnimation2:
 ; Write the tile graphic from hl (now sp) to tile $0f (now hl)
 	ld sp, hl
 	ld hl, vTiles2 tile $0f
+	jp WriteTile
+
+ForestTreeLeftAnimationNC:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+.do_animation
+; A cycle of 2 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	call GetForestTreeFrame
+
+; hl = ForestTreeLeftFrames + a * 8
+; (a was pre-multiplied by 2 from GetForestTreeFrame)
+	add a
+	add a
+	add a
+	add LOW(ForestTreeLeftFrames)
+	ld l, a
+	ld a, 0
+	adc HIGH(ForestTreeLeftFrames)
+	ld h, a
+
+.got_frames
+; Write the tile graphic from hl (now sp) to tile $0c (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $43
+	jp WriteTile
+
+ForestTreeRightAnimationNC:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+.do_animation
+; A cycle of 2 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	call GetForestTreeFrame
+
+; hl = ForestTreeRightFrames + a * 8
+; (a was pre-multiplied by 2 from GetForestTreeFrame)
+	add a
+	add a
+	add a
+	add LOW(ForestTreeLeftFrames)
+	ld l, a
+	ld a, 0
+	adc HIGH(ForestTreeLeftFrames)
+	ld h, a
+	push bc
+	ld bc, ForestTreeRightFrames - ForestTreeLeftFrames
+	add hl, bc
+	pop bc
+
+.got_frames
+; Write the tile graphic from hl (now sp) to tile $0f (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $44
+	jp WriteTile
+
+ForestTreeLeftAnimation2NC:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+.do_animation
+; A cycle of 2 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	call GetForestTreeFrame
+
+; Offset by 1 frame from ForestTreeLeftAnimation
+	xor %10
+
+; hl = ForestTreeLeftFrames + a * 8
+; (a was pre-multiplied by 2 from GetForestTreeFrame)
+	add a
+	add a
+	add a
+	add LOW(ForestTreeLeftFrames)
+	ld l, a
+	ld a, 0
+	adc HIGH(ForestTreeLeftFrames)
+	ld h, a
+
+.got_frames
+; Write the tile graphic from hl (now sp) to tile $0c (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $43
+	jp WriteTile
+
+ForestTreeRightAnimation2NC:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+.do_animation
+; A cycle of 2 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	call GetForestTreeFrame
+
+; Offset by 1 frame from ForestTreeRightAnimation
+	xor %10
+
+; hl = ForestTreeRightFrames + a * 8
+; (a was pre-multiplied by 2 from GetForestTreeFrame)
+	add a
+	add a
+	add a
+	add LOW(ForestTreeLeftFrames)
+	ld l, a
+	ld a, 0
+	adc HIGH(ForestTreeLeftFrames)
+	ld h, a
+	push bc
+	ld bc, ForestTreeRightFrames - ForestTreeLeftFrames
+	add hl, bc
+	pop bc
+
+.got_frames
+; Write the tile graphic from hl (now sp) to tile $0f (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $44
 	jp WriteTile
 
 GetForestTreeFrame:
