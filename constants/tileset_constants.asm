@@ -1,7 +1,7 @@
 ; Tilesets indexes (see data/tilesets.asm)
 	const_def 1
 	const TILESET_JOHTO                ; 01
-	const TILESET_JOHTO_MODERN         ; 02
+	const TILESET_JOHTO_GOLDENROD      ; 02
 	const TILESET_KANTO                ; 03
 	const TILESET_BATTLE_TOWER_OUTSIDE ; 04
 	const TILESET_HOUSE                ; 05
@@ -36,6 +36,8 @@
 	const TILESET_KABUTO_WORD_ROOM     ; 22
 	const TILESET_OMANYTE_WORD_ROOM    ; 23
 	const TILESET_AERODACTYL_WORD_ROOM ; 24
+	const TILESET_JOHTO_ECRUTEAK	   ; 25
+	const TILESET_JOHTO_OLIVINE		   ; 26
 DEF NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size

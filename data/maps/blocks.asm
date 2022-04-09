@@ -1,20 +1,5 @@
 SECTION "Map Blocks 1", ROMX
 
-Route32_Blocks:
-	INCBIN "maps/Route32.blk"
-
-Route40_Blocks:
-	INCBIN "maps/Route40.blk"
-
-Route36_Blocks:
-	INCBIN "maps/Route36.blk"
-
-Route44_Blocks:
-	INCBIN "maps/Route44.blk"
-
-Route28_Blocks:
-	INCBIN "maps/Route28.blk"
-
 BetaPlayersHouse2F_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaPlayersHouse2F.blk"
 
@@ -66,21 +51,6 @@ CeladonPokecenter2FBeta_Blocks:
 ViridianPokecenter2FBeta_Blocks:
 SaffronPokecenter2FBeta_Blocks:
 	INCBIN "maps/Pokecenter2F.blk"
-
-Route41_Blocks:
-	INCBIN "maps/Route41.blk"
-
-Route33_Blocks:
-	INCBIN "maps/Route33.blk"
-
-Route45_Blocks:
-	INCBIN "maps/Route45.blk"
-
-Route29_Blocks:
-	INCBIN "maps/Route29.blk"
-
-Route37_Blocks:
-	INCBIN "maps/Route37.blk"
 
 LavenderTown_Blocks:
 	INCBIN "maps/LavenderTown.blk"
@@ -778,6 +748,36 @@ OlivineLighthouse6F_Blocks:
 
 
 SECTION "Map Blocks 3", ROMX
+
+Route41_Blocks:
+	INCBIN "maps/Route41.blk"
+
+Route33_Blocks:
+	INCBIN "maps/Route33.blk"
+
+Route45_Blocks:
+	INCBIN "maps/Route45.blk"
+
+Route29_Blocks:
+	INCBIN "maps/Route29.blk"
+
+Route37_Blocks:
+	INCBIN "maps/Route37.blk"
+
+Route32_Blocks:
+	INCBIN "maps/Route32.blk"
+
+Route40_Blocks:
+	INCBIN "maps/Route40.blk"
+
+Route36_Blocks:
+	INCBIN "maps/Route36.blk"
+
+Route44_Blocks:
+	INCBIN "maps/Route44.blk"
+
+Route28_Blocks:
+	INCBIN "maps/Route28.blk"
 
 BetaSlowpokeWell1F_Blocks: ; unreferenced
 	INCBIN "maps/unused/BetaSlowpokeWell1F.blk"

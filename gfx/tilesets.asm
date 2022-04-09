@@ -287,30 +287,8 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 TilesetAerodactylWordRoomMeta::
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
 
-Tileset0GFX::
-TilesetJohtoGFX::
-INCBIN "gfx/tilesets/johto.2bpp.lz"
-
-Tileset0Meta::
-TilesetJohtoMeta::
-INCBIN "data/tilesets/johto_metatiles.bin"
-
-Tileset0Coll::
-TilesetJohtoColl::
-INCLUDE "data/tilesets/johto_collision.asm"
-
 
 SECTION "Tileset Data 9", ROMX
-
-TilesetJohtoModernGFX::
-TilesetBattleTowerOutsideGFX::
-INCBIN "gfx/tilesets/johto_modern.2bpp.lz"
-
-TilesetJohtoModernMeta::
-INCBIN "data/tilesets/johto_modern_metatiles.bin"
-
-TilesetJohtoModernColl::
-INCLUDE "data/tilesets/johto_modern_collision.asm"
 
 TilesetParkGFX::
 INCBIN "gfx/tilesets/park.2bpp.lz"
@@ -338,3 +316,48 @@ INCBIN "data/tilesets/mansion_metatiles.bin"
 
 TilesetMansionColl::
 INCLUDE "data/tilesets/mansion_collision.asm"
+
+
+SECTION "Tileset Data 10", ROMX
+
+TilesetJohtoEcruteakGFX::
+INCBIN "gfx/tilesets/johto_ecruteak.2bpp.lz"
+
+TilesetJohtoEcruteakMeta::
+INCBIN "data/tilesets/johto_ecruteak_metatiles.bin"
+
+TilesetJohtoEcruteakColl::
+INCLUDE "data/tilesets/johto_ecruteak_collision.asm"
+
+Tileset0GFX::
+TilesetJohtoGFX::
+INCBIN "gfx/tilesets/johto.2bpp.lz"
+
+Tileset0Meta::
+TilesetJohtoMeta::
+INCBIN "data/tilesets/johto_metatiles.bin"
+
+Tileset0Coll::
+TilesetJohtoColl::
+INCLUDE "data/tilesets/johto_collision.asm"
+
+SECTION "Tileset Data 11", ROMX
+
+TilesetJohtoOlivineGFX::
+INCBIN "gfx/tilesets/johto_olivine.2bpp.lz"
+
+TilesetJohtoOlivineMeta::
+INCBIN "data/tilesets/johto_olivine_metatiles.bin"
+
+TilesetJohtoOlivineColl::
+INCLUDE "data/tilesets/johto_olivine_collision.asm"
+
+TilesetJohtoGoldenrodGFX::
+TilesetBattleTowerOutsideGFX::
+INCBIN "gfx/tilesets/johto_goldenrod.2bpp.lz"
+
+TilesetJohtoGoldenrodMeta::
+INCBIN "data/tilesets/johto_goldenrod_metatiles.bin"
+
+TilesetJohtoGoldenrodColl::
+INCLUDE "data/tilesets/johto_goldenrod_collision.asm"

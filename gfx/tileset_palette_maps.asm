@@ -15,8 +15,14 @@ Tileset0PalMap:
 TilesetJohtoPalMap:
 INCLUDE "gfx/tilesets/johto_palette_map.asm"
 
-TilesetJohtoModernPalMap:
-INCLUDE "gfx/tilesets/johto_modern_palette_map.asm"
+TilesetJohtoGoldenrodPalMap:
+INCLUDE "gfx/tilesets/johto_goldenrod_palette_map.asm"
+
+TilesetJohtoEcruteakPalMap:
+INCLUDE "gfx/tilesets/johto_ecruteak_palette_map.asm"
+
+TilesetJohtoOlivinePalMap:
+INCLUDE "gfx/tilesets/johto_olivine_palette_map.asm"
 
 TilesetHousePalMap:
 INCLUDE "gfx/tilesets/house_palette_map.asm"

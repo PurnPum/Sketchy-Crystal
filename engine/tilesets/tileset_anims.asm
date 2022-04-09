@@ -36,7 +36,7 @@ _AnimateTileset::
 	jp hl
 
 Tileset0Anim:
-TilesetJohtoModernAnim:
+TilesetJohtoGoldenrodAnim:
 TilesetKantoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
@@ -89,6 +89,8 @@ TilesetForestAnim:
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
 
+TilesetJohtoEcruteakAnim:
+TilesetJohtoOlivineAnim:
 TilesetJohtoAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
