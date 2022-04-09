@@ -171,5 +171,3 @@
 	tilecoll WATER, WATER, WATER, WATER ; aa
 	tilecoll BUOY, BUOY, WATER, WATER ; ab
 	tilecoll BUOY, BUOY, WATER, WATER ; ac
-	tilecoll WATER, WATER, WATER, WATER ; ad
-	tilecoll WATER, WATER, WATER, WATER ; ae

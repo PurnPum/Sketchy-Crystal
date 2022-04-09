@@ -15,7 +15,7 @@ Tilesets::
 	table_width TILESET_LENGTH, Tilesets
 	tileset Tileset0
 	tileset TilesetJohto
-	tileset TilesetJohtoModern
+	tileset TilesetJohtoGoldenrod
 	tileset TilesetKanto
 	tileset TilesetBattleTowerOutside
 	tileset TilesetHouse
@@ -50,4 +50,6 @@ Tilesets::
 	tileset TilesetKabutoWordRoom
 	tileset TilesetOmanyteWordRoom
 	tileset TilesetAerodactylWordRoom
+	tileset TilesetJohtoEcruteak
+	tileset TilesetJohtoOlivine
 	assert_table_length NUM_TILESETS + 1
