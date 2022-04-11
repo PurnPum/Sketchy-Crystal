@@ -2078,3 +2078,51 @@ DefenseCurl:
 	statupmessage
 	statupfailtext
 	endmove
+
+SelfAttackDown:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	switchturn
+	attackdown
+	statdownmessage
+	switchturn
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+	
+SelfSpecialAttackDown:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	switchturn
+	specialattackdown
+	statdownmessage
+	switchturn
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
