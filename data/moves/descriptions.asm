@@ -6,7 +6,7 @@ MoveDescriptions::
 	dw DoubleslapDescription
 	dw CometPunchDescription
 	dw MegaPunchDescription
-	dw PayDayDescription
+	dw LeafStormDescription
 	dw FirePunchDescription
 	dw IcePunchDescription
 	dw ThunderpunchDescription
@@ -286,9 +286,9 @@ MegaPunchDescription:
 	db   "A powerful punch"
 	next "thrown very hard.@"
 
-PayDayDescription:
-	db   "Throws coins. Gets"
-	next "them back later.@"
+LeafStormDescription:
+	db   "A storm of leaves."
+	next "Lowers Sp.Att by 1@"
 
 FirePunchDescription:
 	db   "A fiery punch. May"
