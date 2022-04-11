@@ -682,7 +682,7 @@ MeowthEvosAttacks2:
 	db 1, SCRATCH
 	db 1, GROWL
 	db 11, BITE
-	db 20, PAY_DAY
+	db 20, STRUGGLE
 	db 28, FAINT_ATTACK
 	db 35, SCREECH
 	db 41, FURY_SWIPES
@@ -695,7 +695,7 @@ PersianEvosAttacks2:
 	db 1, GROWL
 	db 1, BITE
 	db 11, BITE
-	db 20, PAY_DAY
+	db 20, STRUGGLE
 	db 29, FAINT_ATTACK
 	db 38, SCREECH
 	db 46, FURY_SWIPES

@@ -5,7 +5,7 @@ MoveNames::
 	li "DOUBLESLAP"
 	li "COMET PUNCH"
 	li "MEGA PUNCH"
-	li "PAY DAY"
+	li "LEAF STORM"
 	li "FIRE PUNCH"
 	li "ICE PUNCH"
 	li "THUNDERPUNCH"

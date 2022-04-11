@@ -7,7 +7,7 @@ BattleAnimations::
 	dw BattleAnim_Doubleslap
 	dw BattleAnim_CometPunch
 	dw BattleAnim_MegaPunch
-	dw BattleAnim_PayDay
+	dw BattleAnim_LeafStorm
 	dw BattleAnim_FirePunch
 	dw BattleAnim_IcePunch
 	dw BattleAnim_Thunderpunch
@@ -1005,10 +1005,10 @@ BattleAnim_IceBeam:
 	anim_ret
 
 BattleAnim_Blizzard:
-	anim_1gfx ANIM_GFX_ICE
+	anim_1gfx ANIM_GFX_PLANT
 .loop
 	anim_sound 6, 2, SFX_SHINE
-	anim_obj ANIM_OBJ_BLIZZARD, 64, 88, $63
+	anim_obj ANIM_OBJ_BLIZZARD, 64, 88, $63 
 	anim_wait 2
 	anim_sound 6, 2, SFX_SHINE
 	anim_obj ANIM_OBJ_BLIZZARD, 64, 80, $64
@@ -2382,14 +2382,38 @@ BattleAnim_Barrage:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_PayDay:
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_STATUS
-	anim_sound 0, 1, SFX_POUND
-	anim_obj ANIM_OBJ_HIT_YFIX, 128, 56, $0
-	anim_wait 16
-	anim_sound 0, 1, SFX_PAY_DAY
-	anim_obj ANIM_OBJ_PAY_DAY, 120, 76, $1
-	anim_wait 64
+BattleAnim_LeafStorm:
+	anim_1gfx ANIM_GFX_PLANT
+	anim_sound 0, 0, SFX_VINE_WHIP
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $28
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $5c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $10
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $e8
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $9c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $d0
+	anim_wait 72
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 88, $63 
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 82, $64
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 94, $63
+	anim_wait 8
+	anim_obj ANIM_OBJ_LEAVES_BUILDUP, 136, 74, $10
+.loop
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 88, $63 
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 82, $64
+	anim_wait 4
+	anim_sound 6, 2, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 94, $63
+	anim_wait 8
+	anim_loop 2, .loop
+	anim_wait 88
 	anim_ret
 
 BattleAnim_Mimic:

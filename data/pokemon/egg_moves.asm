@@ -577,7 +577,6 @@ HoppipEggMoves:
 	db DOUBLE_EDGE
 	db REFLECT
 	db AMNESIA
-	db PAY_DAY
 	db -1 ; end
 
 AipomEggMoves:
