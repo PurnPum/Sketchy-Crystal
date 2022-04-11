@@ -2391,15 +2391,21 @@ BattleAnim_LeafStorm:
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $e8
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $9c
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $d0
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $44
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $72
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $3c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $c4
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $82
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 48, 80, $bc
 	anim_wait 72
 	anim_sound 6, 2, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_LEAF_STORM, 64, 88, $63 
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 88, $60 
 	anim_wait 4
 	anim_sound 6, 2, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_LEAF_STORM, 64, 82, $64
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 82, $68
 	anim_wait 4
 	anim_sound 6, 2, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_LEAF_STORM, 64, 94, $63
+	anim_obj ANIM_OBJ_LEAF_STORM, 64, 94, $64
 	anim_wait 8
 	anim_obj ANIM_OBJ_LEAVES_BUILDUP, 136, 74, $10
 .loop
