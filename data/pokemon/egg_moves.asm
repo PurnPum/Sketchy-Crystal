@@ -61,7 +61,7 @@ SpearowEggMoves:
 
 EkansEggMoves:
 	db PURSUIT
-	db SLAM
+	db STRUGGLE
 	db SPITE
 	db BEAT_UP
 	db CRUNCH
@@ -112,7 +112,7 @@ ZubatEggMoves:
 	db -1 ; end
 
 OddishEggMoves:
-	db SWORDS_DANCE
+	db STRUGGLE
 	db RAZOR_LEAF
 	db FLAIL
 	db SYNTHESIS
@@ -199,7 +199,7 @@ MachopEggMoves:
 	db -1 ; end
 
 BellsproutEggMoves:
-	db SWORDS_DANCE
+	db STRUGGLE
 	db ENCORE
 	db REFLECT
 	db SYNTHESIS
@@ -256,7 +256,7 @@ SeelEggMoves:
 	db PERISH_SONG
 	db DISABLE
 	db PECK
-	db SLAM
+	db STRUGGLE
 	db ENCORE
 	db -1 ; end
 
@@ -295,7 +295,7 @@ KrabbyEggMoves:
 	db HAZE
 	db AMNESIA
 	db FLAIL
-	db SLAM
+	db STRUGGLE
 	db -1 ; end
 
 ExeggcuteEggMoves:
@@ -313,7 +313,7 @@ CuboneEggMoves:
 	db SCREECH
 	db SKULL_BASH
 	db PERISH_SONG
-	db SWORDS_DANCE
+	db STRUGGLE
 	db -1 ; end
 
 LickitungEggMoves:
@@ -410,7 +410,7 @@ EeveeEggMoves:
 OmanyteEggMoves:
 	db BUBBLEBEAM
 	db AURORA_BEAM
-	db SLAM
+	db STRUGGLE
 	db SUPERSONIC
 	db HAZE
 	db -1 ; end
@@ -446,7 +446,7 @@ ChikoritaEggMoves:
 	db COUNTER
 	db ANCIENTPOWER
 	db FLAIL
-	db SWORDS_DANCE
+	db STRUGGLE
 	db -1 ; end
 
 CyndaquilEggMoves:
@@ -582,7 +582,7 @@ AipomEggMoves:
 	db PURSUIT
 	db AGILITY
 	db SPITE
-	db SLAM
+	db STRUGGLE
 	db DOUBLESLAP
 	db BEAT_UP
 	db -1 ; end
@@ -728,7 +728,7 @@ MantineEggMoves:
 	db TWISTER
 	db HYDRO_PUMP
 	db HAZE
-	db SLAM
+	db STRUGGLE
 	db -1 ; end
 
 SkarmoryEggMoves:
