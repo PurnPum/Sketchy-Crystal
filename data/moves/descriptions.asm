@@ -12,16 +12,16 @@ MoveDescriptions::
 	dw ThunderpunchDescription
 	dw ScratchDescription
 	dw VicegripDescription
-	dw GuillotineDescription
+	dw BulldozeDescription
 	dw RazorWindDescription
-	dw SwordsDanceDescription
+	dw WildChargeDescription
 	dw CutDescription
 	dw GustDescription
 	dw WingAttackDescription
 	dw WhirlwindDescription
 	dw FlyDescription
 	dw BindDescription
-	dw SlamDescription
+	dw OverheatDescription
 	dw VineWhipDescription
 	dw StompDescription
 	dw DoubleKickDescription
@@ -310,17 +310,17 @@ VicegripDescription:
 	db   "Grips with power-"
 	next "ful pincers.@"
 
-GuillotineDescription:
-	db   "A one-hit KO,"
-	next "pincer attack.@"
+BulldozeDescription:
+	db   "A ground stomp that"
+	next "lowers speed.@"
 
 RazorWindDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
 
-SwordsDanceDescription:
-	db   "A dance that in-"
-	next "creases ATTACK.@"
+WildChargeDescription:
+	db   "A smashing electric"
+	next "hit with recoil.@"
 
 CutDescription:
 	db   "Cuts using claws,"
@@ -346,9 +346,9 @@ BindDescription:
 	db   "Binds the target"
 	next "for 2-5 turns.@"
 
-SlamDescription:
-	db   "Slams the foe with"
-	next "a tail, vine, etc.@"
+OverheatDescription:
+	db   "A full-power blast."
+	next "Lowers Sp.Att by 1@"
 
 VineWhipDescription:
 	db   "Whips the foe with"

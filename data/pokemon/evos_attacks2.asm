@@ -346,7 +346,7 @@ PikachuEvosAttacks2:
 	db 8, THUNDER_WAVE
 	db 11, QUICK_ATTACK
 	db 15, DOUBLE_TEAM
-	db 20, SLAM
+	db 20, STRUGGLE
 	db 26, THUNDERBOLT
 	db 33, AGILITY
 	db 41, THUNDER
@@ -916,7 +916,7 @@ BellsproutEvosAttacks2:
 	db 23, ACID
 	db 30, SWEET_SCENT
 	db 37, RAZOR_LEAF
-	db 45, SLAM
+	db 45, STRUGGLE
 	db 0 ; no more level-up moves
 
 WeepinbellEvosAttacks2:
@@ -933,7 +933,7 @@ WeepinbellEvosAttacks2:
 	db 24, ACID
 	db 33, SWEET_SCENT
 	db 42, RAZOR_LEAF
-	db 54, SLAM
+	db 54, STRUGGLE
 	db 0 ; no more level-up moves
 
 VictreebelEvosAttacks2:
@@ -1117,7 +1117,7 @@ FarfetchDEvosAttacks2:
 	db 7, SAND_ATTACK
 	db 13, LEER
 	db 19, FURY_ATTACK
-	db 25, SWORDS_DANCE
+	db 25, STRUGGLE
 	db 31, AGILITY
 	db 37, SLASH
 	db 44, FALSE_SWIPE
@@ -1280,7 +1280,7 @@ OnixEvosAttacks2:
 	db 23, HARDEN
 	db 27, RAGE
 	db 36, SANDSTORM
-	db 40, SLAM
+	db 40, STRUGGLE
 	db 0 ; no more level-up moves
 
 DrowzeeEvosAttacks2:
@@ -1322,7 +1322,7 @@ KrabbyEvosAttacks2:
 	db 12, VICEGRIP
 	db 16, HARDEN
 	db 23, STOMP
-	db 27, GUILLOTINE
+	db 27, STRUGGLE
 	db 34, PROTECT
 	db 41, CRABHAMMER
 	db 0 ; no more level-up moves
@@ -1336,7 +1336,7 @@ KinglerEvosAttacks2:
 	db 12, VICEGRIP
 	db 16, HARDEN
 	db 23, STOMP
-	db 27, GUILLOTINE
+	db 27, STRUGGLE
 	db 38, PROTECT
 	db 49, CRABHAMMER
 	db 0 ; no more level-up moves
@@ -1465,7 +1465,7 @@ LickitungEvosAttacks2:
 	db 19, STOMP
 	db 25, WRAP
 	db 31, DISABLE
-	db 37, SLAM
+	db 37, STRUGGLE
 	db 43, SCREECH
 	db 0 ; no more level-up moves
 
@@ -1551,7 +1551,7 @@ TangelaEvosAttacks2:
 	db 25, BIND
 	db 31, MEGA_DRAIN
 	db 34, STUN_SPORE
-	db 40, SLAM
+	db 40, STRUGGLE
 	db 46, GROWTH
 	db 0 ; no more level-up moves
 
@@ -1673,7 +1673,7 @@ ScytherEvosAttacks2:
 	db 24, AGILITY
 	db 30, WING_ATTACK
 	db 36, SLASH
-	db 42, SWORDS_DANCE
+	db 42, STRUGGLE
 	db 48, DOUBLE_TEAM
 	db 0 ; no more level-up moves
 
@@ -1729,9 +1729,9 @@ PinsirEvosAttacks2:
 	db 13, BIND
 	db 19, SEISMIC_TOSS
 	db 25, HARDEN
-	db 31, GUILLOTINE
+	db 31, STRUGGLE
 	db 37, SUBMISSION
-	db 43, SWORDS_DANCE
+	db 43, STRUGGLE
 	db 0 ; no more level-up moves
 
 TaurosEvosAttacks2:
@@ -1985,7 +1985,7 @@ DratiniEvosAttacks2:
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
-	db 29, SLAM
+	db 29, STRUGGLE
 	db 36, AGILITY
 	db 43, SAFEGUARD
 	db 50, OUTRAGE
@@ -2002,7 +2002,7 @@ DragonairEvosAttacks2:
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
-	db 29, SLAM
+	db 29, STRUGGLE
 	db 38, AGILITY
 	db 47, SAFEGUARD
 	db 56, OUTRAGE
@@ -2018,7 +2018,7 @@ DragoniteEvosAttacks2:
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
-	db 29, SLAM
+	db 29, STRUGGLE
 	db 38, AGILITY
 	db 47, SAFEGUARD
 	db 55, WING_ATTACK
@@ -2191,7 +2191,7 @@ SentretEvosAttacks2:
 	db 5, DEFENSE_CURL
 	db 11, QUICK_ATTACK
 	db 17, FURY_SWIPES
-	db 25, SLAM
+	db 25, STRUGGLE
 	db 33, REST
 	db 41, AMNESIA
 	db 0 ; no more level-up moves
@@ -2204,7 +2204,7 @@ FurretEvosAttacks2:
 	db 5, DEFENSE_CURL
 	db 11, QUICK_ATTACK
 	db 18, FURY_SWIPES
-	db 28, SLAM
+	db 28, STRUGGLE
 	db 38, REST
 	db 48, AMNESIA
 	db 0 ; no more level-up moves
@@ -2501,7 +2501,7 @@ SudowoodoEvosAttacks2:
 	db 19, LOW_KICK
 	db 28, ROCK_SLIDE
 	db 37, FAINT_ATTACK
-	db 46, SLAM
+	db 46, STRUGGLE
 	db 0 ; no more level-up moves
 
 PolitoedEvosAttacks2:
@@ -2616,7 +2616,7 @@ WooperEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
-	db 11, SLAM
+	db 11, STRUGGLE
 	db 21, AMNESIA
 	db 31, EARTHQUAKE
 	db 41, RAIN_DANCE
@@ -2628,7 +2628,7 @@ QuagsireEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
-	db 11, SLAM
+	db 11, STRUGGLE
 	db 23, AMNESIA
 	db 35, EARTHQUAKE
 	db 47, RAIN_DANCE
@@ -2774,7 +2774,7 @@ GligarEvosAttacks2:
 	db 28, FAINT_ATTACK
 	db 36, SLASH
 	db 44, SCREECH
-	db 52, GUILLOTINE
+	db 52, STRUGGLE
 	db 0 ; no more level-up moves
 
 SteelixEvosAttacks2:
@@ -2786,7 +2786,7 @@ SteelixEvosAttacks2:
 	db 23, HARDEN
 	db 27, RAGE
 	db 36, SANDSTORM
-	db 40, SLAM
+	db 40, STRUGGLE
 	db 49, CRUNCH
 	db 0 ; no more level-up moves
 
@@ -2840,7 +2840,7 @@ ScizorEvosAttacks2:
 	db 24, AGILITY
 	db 30, METAL_CLAW
 	db 36, SLASH
-	db 42, SWORDS_DANCE
+	db 42, STRUGGLE
 	db 48, DOUBLE_TEAM
 	db 0 ; no more level-up moves
 
