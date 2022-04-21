@@ -183,4 +183,5 @@ BattleCommandPointers:
 	dw BattleCommand_DampRock
 	dw BattleCommand_HeatRock
 	dw BattleCommand_SmoothRock
+	dw BattleCommand_UTurn
 	assert_table_length NUM_EFFECT_COMMANDS

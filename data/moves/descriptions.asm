@@ -28,11 +28,11 @@ MoveDescriptions::
 	dw MegaKickDescription
 	dw JumpKickDescription
 	dw RollingKickDescription
-	dw SandAttackDescription
+	dw LungeDescription
 	dw HeadbuttDescription
 	dw HornAttackDescription
 	dw FuryAttackDescription
-	dw HornDrillDescription
+	dw UTurnDescription
 	dw TackleDescription
 	dw BodySlamDescription
 	dw WrapDescription
@@ -47,7 +47,7 @@ MoveDescriptions::
 	dw BiteDescription
 	dw GrowlDescription
 	dw RoarDescription
-	dw SingDescription
+	dw DragonRushDescription
 	dw SupersonicDescription
 	dw SonicboomDescription
 	dw DisableDescription
@@ -374,9 +374,9 @@ RollingKickDescription:
 	db   "A fast, spinning"
 	next "kick.@"
 
-SandAttackDescription:
-	db   "Reduces accuracy"
-	next "by throwing sand.@"
+LungeDescription:
+	db   "Lowers foe's attack"
+	next "by making a lunge.@"
 
 HeadbuttDescription:
 	db   "An attack that may"
@@ -390,9 +390,9 @@ FuryAttackDescription:
 	db   "Jabs the target"
 	next "2-5 times.@"
 
-HornDrillDescription:
-	db   "A one-hit KO,"
-	next "drill attack.@"
+UTurnDescription:
+	db   "Hits the target,"
+	next "then switches out.@"
 
 TackleDescription:
 	db   "A full-body charge"
@@ -450,9 +450,9 @@ RoarDescription:
 	db   "Scares wild foes"
 	next "to end battle.@"
 
-SingDescription:
-	db   "May cause the foe"
-	next "to fall asleep.@"
+DragonRushDescription:
+	db   "A menacing tackle"
+	next "with some recoil.@"
 
 SupersonicDescription:
 	db   "Sound waves that"
