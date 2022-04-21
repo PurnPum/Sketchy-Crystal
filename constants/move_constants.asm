@@ -33,11 +33,11 @@
 	const MEGA_KICK    ; 19
 	const JUMP_KICK    ; 1a
 	const ROLLING_KICK ; 1b
-	const SAND_ATTACK  ; 1c
+	const LUNGE		   ; 1c
 	const HEADBUTT     ; 1d
 	const HORN_ATTACK  ; 1e
 	const FURY_ATTACK  ; 1f
-	const HORN_DRILL   ; 20
+	const UTURN		   ; 20
 	const TACKLE       ; 21
 	const BODY_SLAM    ; 22
 	const WRAP         ; 23
@@ -52,7 +52,7 @@
 	const BITE         ; 2c
 	const GROWL        ; 2d
 	const ROAR         ; 2e
-	const SING         ; 2f
+	const DRAGON_RUSH  ; 2f
 	const SUPERSONIC   ; 30
 	const SONICBOOM    ; 31
 	const DISABLE      ; 32

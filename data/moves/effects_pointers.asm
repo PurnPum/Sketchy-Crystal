@@ -160,4 +160,5 @@ MoveEffectsPointers:
 	dw DefenseCurl
 	dw SelfAttackDown
 	dw SelfSpecialAttackDown
+	dw UTurn
 	assert_table_length NUM_MOVE_EFECTS

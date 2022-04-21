@@ -2126,3 +2126,24 @@ SelfSpecialAttackDown:
 	buildopponentrage
 	kingsrock
 	endmove
+
+UTurn:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	uturn
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove

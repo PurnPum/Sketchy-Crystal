@@ -183,6 +183,7 @@ ENDM
 	command damprock				; b0
 	command heatrock				; b1
 	command smoothrock				; b2
+	command uturn					; b3
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

@@ -6749,6 +6749,8 @@ BattleCommand_SmoothRock:
 	inc a
 	inc a
 	ld [wWeatherCount], a
+	
+INCLUDE "engine/battle/move_effects/uturn.asm"
 
 INCLUDE "engine/battle/move_effects/future_sight.asm"
 
