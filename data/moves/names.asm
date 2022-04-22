@@ -73,7 +73,7 @@ MoveNames::
 	li "ABSORB"
 	li "MEGA DRAIN"
 	li "LEECH SEED"
-	li "GROWTH"
+	li "DRAGON CLAW"
 	li "RAZOR LEAF"
 	li "SOLARBEAM"
 	li "POISONPOWDER"

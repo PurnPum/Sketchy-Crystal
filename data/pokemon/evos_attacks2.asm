@@ -21,7 +21,7 @@ BulbasaurEvosAttacks2:
 	db 15, SLEEP_POWDER
 	db 20, RAZOR_LEAF
 	db 25, SWEET_SCENT
-	db 32, GROWTH
+	db 32, STRUGGLE
 	db 39, SYNTHESIS
 	db 46, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -39,7 +39,7 @@ IvysaurEvosAttacks2:
 	db 15, SLEEP_POWDER
 	db 22, RAZOR_LEAF
 	db 29, SWEET_SCENT
-	db 38, GROWTH
+	db 38, STRUGGLE
 	db 47, SYNTHESIS
 	db 56, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -57,7 +57,7 @@ VenusaurEvosAttacks2:
 	db 15, SLEEP_POWDER
 	db 22, RAZOR_LEAF
 	db 29, SWEET_SCENT
-	db 41, GROWTH
+	db 41, STRUGGLE
 	db 53, SYNTHESIS
 	db 65, SOLARBEAM
 	db 0 ; no more level-up moves
@@ -597,7 +597,7 @@ ParasEvosAttacks2:
 	db 19, LEECH_LIFE
 	db 25, SPORE
 	db 31, SLASH
-	db 37, GROWTH
+	db 37, STRUGGLE
 	db 43, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
@@ -611,7 +611,7 @@ ParasectEvosAttacks2:
 	db 19, LEECH_LIFE
 	db 28, SPORE
 	db 37, SLASH
-	db 46, GROWTH
+	db 46, STRUGGLE
 	db 55, GIGA_DRAIN
 	db 0 ; no more level-up moves
 
@@ -908,7 +908,7 @@ BellsproutEvosAttacks2:
 	db EVOLVE_LEVEL, 21, WEEPINBELL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
-	db 6, GROWTH
+	db 6, STRUGGLE
 	db 11, WRAP
 	db 15, SLEEP_POWDER
 	db 17, POISONPOWDER
@@ -923,9 +923,9 @@ WeepinbellEvosAttacks2:
 	db EVOLVE_ITEM, LEAF_STONE, VICTREEBEL
 	db 0 ; no more evolutions
 	db 1, VINE_WHIP
-	db 1, GROWTH
+	db 1, STRUGGLE
 	db 1, WRAP
-	db 6, GROWTH
+	db 6, STRUGGLE
 	db 11, WRAP
 	db 15, SLEEP_POWDER
 	db 17, POISONPOWDER
@@ -1552,7 +1552,7 @@ TangelaEvosAttacks2:
 	db 31, MEGA_DRAIN
 	db 34, STUN_SPORE
 	db 40, STRUGGLE
-	db 46, GROWTH
+	db 46, STRUGGLE
 	db 0 ; no more level-up moves
 
 KangaskhanEvosAttacks2:
@@ -2580,7 +2580,7 @@ SunkernEvosAttacks2:
 	db EVOLVE_ITEM, SUN_STONE, SUNFLORA
 	db 0 ; no more evolutions
 	db 1, ABSORB
-	db 4, GROWTH
+	db 4, STRUGGLE
 	db 10, MEGA_DRAIN
 	db 19, SUNNY_DAY
 	db 31, SYNTHESIS
@@ -2591,7 +2591,7 @@ SunfloraEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, ABSORB
 	db 1, POUND
-	db 4, GROWTH
+	db 4, STRUGGLE
 	db 10, RAZOR_LEAF
 	db 19, SUNNY_DAY
 	db 31, PETAL_DANCE
