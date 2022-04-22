@@ -161,4 +161,6 @@ MoveEffectsPointers:
 	dw SelfAttackDown
 	dw SelfSpecialAttackDown
 	dw UTurn
+	dw Hail
+	dw Blizzard
 	assert_table_length NUM_MOVE_EFECTS

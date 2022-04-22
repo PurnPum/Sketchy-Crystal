@@ -141,7 +141,7 @@ ItemDescriptions:
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
-	dw TeruSama12Desc
+	dw IcyRockDesc
 	dw TeruSama13Desc
 	dw MetalCoatDesc
 	dw DragonFangDesc
@@ -805,8 +805,9 @@ ScopeLensDesc:
 	db   "Raises critical"
 	next "hit ratio. (HOLD)@"
 
-TeruSama12Desc:
-	db   "?@"
+IcyRockDesc:
+	db   "A hail-extending"
+	next "rare rock. (HOLD)@"
 
 TeruSama13Desc:
 	db   "?@"

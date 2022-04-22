@@ -49,7 +49,7 @@ MoveDescriptions::
 	dw RoarDescription
 	dw DragonRushDescription
 	dw SupersonicDescription
-	dw SonicboomDescription
+	dw HailDescription
 	dw DisableDescription
 	dw AcidDescription
 	dw EmberDescription
@@ -458,9 +458,9 @@ SupersonicDescription:
 	db   "Sound waves that"
 	next "cause confusion.@"
 
-SonicboomDescription:
-	db   "Always inflicts"
-	next "20HP damage.@"
+HailDescription:
+	db   "Deals damage every"
+	next "turn bar ice types@"
 
 DisableDescription:
 	db   "Disables the foe's"

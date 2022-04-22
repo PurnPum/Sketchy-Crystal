@@ -34,6 +34,7 @@ AI_Redundant:
 	dbw EFFECT_FORESIGHT,    .Foresight
 	dbw EFFECT_PERISH_SONG,  .PerishSong
 	dbw EFFECT_SANDSTORM,    .Sandstorm
+	dbw EFFECT_HAIL,		 .Hail
 	dbw EFFECT_ATTRACT,      .Attract
 	dbw EFFECT_SAFEGUARD,    .Safeguard
 	dbw EFFECT_RAIN_DANCE,   .RainDance
@@ -137,6 +138,12 @@ AI_Redundant:
 .Sandstorm:
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
+	jr z, .Redundant
+	jr .NotRedundant
+	
+.Hail:
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
 	jr z, .Redundant
 	jr .NotRedundant
 

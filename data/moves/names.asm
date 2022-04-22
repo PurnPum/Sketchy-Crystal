@@ -48,7 +48,7 @@ MoveNames::
 	li "ROAR"
 	li "DRAGON RUSH"
 	li "SUPERSONIC"
-	li "SONICBOOM"
+	li "HAIL"
 	li "DISABLE"
 	li "ACID"
 	li "EMBER"

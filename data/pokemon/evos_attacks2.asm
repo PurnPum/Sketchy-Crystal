@@ -1087,7 +1087,7 @@ MagnemiteEvosAttacks2:
 	db 1, TACKLE
 	db 6, THUNDERSHOCK
 	db 11, SUPERSONIC
-	db 16, SONICBOOM
+	db 16, STRUGGLE
 	db 21, THUNDER_WAVE
 	db 27, LOCK_ON
 	db 33, SWIFT
@@ -1100,10 +1100,10 @@ MagnetonEvosAttacks2:
 	db 1, TACKLE
 	db 1, THUNDERSHOCK
 	db 1, SUPERSONIC
-	db 1, SONICBOOM
+	db 1, STRUGGLE
 	db 6, THUNDERSHOCK
 	db 11, SUPERSONIC
-	db 16, SONICBOOM
+	db 16, STRUGGLE
 	db 21, THUNDER_WAVE
 	db 27, LOCK_ON
 	db 35, TRI_ATTACK
@@ -1346,7 +1346,7 @@ VoltorbEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 9, SCREECH
-	db 17, SONICBOOM
+	db 17, STRUGGLE
 	db 23, SELFDESTRUCT
 	db 29, ROLLOUT
 	db 33, LIGHT_SCREEN
@@ -1359,10 +1359,10 @@ ElectrodeEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, SCREECH
-	db 1, SONICBOOM
+	db 1, STRUGGLE
 	db 1, SELFDESTRUCT
 	db 9, SCREECH
-	db 17, SONICBOOM
+	db 17, STRUGGLE
 	db 23, SELFDESTRUCT
 	db 29, ROLLOUT
 	db 34, LIGHT_SCREEN
@@ -2604,7 +2604,7 @@ YanmaEvosAttacks2:
 	db 1, FORESIGHT
 	db 7, QUICK_ATTACK
 	db 13, DOUBLE_TEAM
-	db 19, SONICBOOM
+	db 19, STRUGGLE
 	db 25, DETECT
 	db 31, SUPERSONIC
 	db 37, WING_ATTACK
