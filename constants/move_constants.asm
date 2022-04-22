@@ -79,7 +79,7 @@
 	const ABSORB       ; 47
 	const MEGA_DRAIN   ; 48
 	const LEECH_SEED   ; 49
-	const GROWTH       ; 4a
+	const DRAGON_CLAW  ; 4a
 	const RAZOR_LEAF   ; 4b
 	const SOLARBEAM    ; 4c
 	const POISONPOWDER ; 4d

@@ -74,7 +74,7 @@ MoveDescriptions::
 	dw AbsorbDescription
 	dw MegaDrainDescription
 	dw LeechSeedDescription
-	dw GrowthDescription
+	dw DragonClawDescription
 	dw RazorLeafDescription
 	dw SolarbeamDescription
 	dw PoisonpowderDescription
@@ -559,9 +559,9 @@ LeechSeedDescription:
 	db   "Steals HP from the"
 	next "foe on every turn.@"
 
-GrowthDescription:
-	db   "Raises the SPCL."
-	next "ATK rating.@"
+DragonClawDescription:
+	db   "Slashes the foe"
+	next "with sharp claws.@"
 
 RazorLeafDescription:
 	db   "Has a high criti-"

@@ -75,7 +75,7 @@ BattleAnimations::
 	dw BattleAnim_Absorb
 	dw BattleAnim_MegaDrain
 	dw BattleAnim_LeechSeed
-	dw BattleAnim_Growth
+	dw BattleAnim_DragonClaw
 	dw BattleAnim_RazorLeaf
 	dw BattleAnim_Solarbeam
 	dw BattleAnim_Poisonpowder
@@ -2815,19 +2815,23 @@ BattleAnim_Thrash:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Growth:
-	anim_bgeffect ANIM_BG_WHITE_HUES, $0, $8, $0
-	anim_1gfx ANIM_GFX_CHARGE
-	anim_sound 0, 0, SFX_SWORDS_DANCE
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $0
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $8
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $10
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $18
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $20
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $28
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $30
-	anim_obj ANIM_OBJ_GROWTH, 48, 108, $38
-	anim_wait 64
+BattleAnim_DragonClaw:
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_CUT
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_wait 72
+	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_call BattleAnim_ShowMon_0
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $3
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
+	anim_wait 32
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 118, 40, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 122, 36, $0
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Conversion2:

@@ -7,7 +7,6 @@ EncoreMoves:
 	db DISABLE
 	db MIST
 	db LEECH_SEED
-	db GROWTH
 	db POISONPOWDER
 	db STRING_SHOT
 	db TELEPORT
