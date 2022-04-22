@@ -1032,7 +1032,7 @@ CheckIfHPIsZero:
 ResidualDamage:
 ; Return z if the user fainted before
 ; or as a result of residual damage.
-; For Sandstorm damage, see HandleWeather.
+; For Sandstorm/Hail damage, see HandleWeather.
 
 	call HasUserFainted
 	ret z
@@ -1716,31 +1716,35 @@ HandleWeather:
 
 	ld hl, wWeatherCount
 	dec [hl]
-	jr z, .ended
+	jp z, .ended
 
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
-	ret nz
+	jr z, .proceed
+	cp WEATHER_HAIL
+	jr z, .proceed
+	ret 
 
+.proceed
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .enemy_first
 
 ; player first
 	call SetPlayerTurn
-	call .SandstormDamage
+	call .SandstormHailDamage
 	call SetEnemyTurn
-	jr .SandstormDamage
+	jr .SandstormHailDamage
 
 .enemy_first
 	call SetEnemyTurn
-	call .SandstormDamage
+	call .SandstormHailDamage
 	call SetPlayerTurn
 
-.SandstormDamage:
+.SandstormHailDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
@@ -1751,7 +1755,37 @@ HandleWeather:
 	and a
 	jr z, .ok
 	ld hl, wEnemyMonType1
+	
 .ok
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	jr z, .ok_sand
+	cp WEATHER_HAIL
+	jr z, .ok_hail
+	ret
+	
+.ok_hail
+	ld a, [hli]
+	cp ICE
+	ret z
+
+	ld a, [hl]
+	cp ICE
+	ret z
+
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	ld de, ANIM_IN_HAIL
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	call GetEighthMaxHP
+	call SubtractHPFromUser
+
+	ld hl, HailStormPeltsText
+	jp StdBattleTextbox
+	
+.ok_sand
 	ld a, [hli]
 	cp ROCK
 	ret z
@@ -1804,12 +1838,14 @@ HandleWeather:
 	dw BattleText_RainContinuesToFall
 	dw BattleText_TheSunlightIsStrong
 	dw BattleText_TheSandstormRages
+	dw BattleText_HailKeepsPeltering
 
 .WeatherEndedMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_TheRainStopped
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
+	dw BattleText_TheHailIsOver
 
 SubtractHPFromTarget:
 	call SubtractHP

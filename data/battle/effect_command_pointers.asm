@@ -180,8 +180,7 @@ BattleCommandPointers:
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
 	dw BattleCommand_Curl
-	dw BattleCommand_DampRock
-	dw BattleCommand_HeatRock
-	dw BattleCommand_SmoothRock
 	dw BattleCommand_UTurn
+	dw BattleCommand_StartHail
+	dw BattleCommand_BlizzardAccuracy
 	assert_table_length NUM_EFFECT_COMMANDS

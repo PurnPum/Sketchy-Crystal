@@ -180,10 +180,9 @@ ENDM
 	command supereffectivelooptext  ; ad
 	command startloop               ; ae
 	command curl                    ; af
-	command damprock				; b0
-	command heatrock				; b1
-	command smoothrock				; b2
 	command uturn					; b3
+	command starthail				; b5
+	command blizzardaccuracy		; b6
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

@@ -1526,7 +1526,6 @@ Sandstorm:
 	usedmovetext
 	doturn
 	startsandstorm
-	smoothrock
 	endmove
 
 Endure:
@@ -1814,7 +1813,6 @@ RainDance:
 	usedmovetext
 	doturn
 	startrain
-	damprock
 	endmove
 
 SunnyDay:
@@ -1822,7 +1820,6 @@ SunnyDay:
 	usedmovetext
 	doturn
 	startsun
-	heatrock
 	endmove
 
 FakeOut:
@@ -2148,4 +2145,33 @@ UTurn:
 	checkfaint
 	buildopponentrage
 	kingsrock
+	endmove
+	
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
+	endmove
+	
+Blizzard:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	blizzardaccuracy
+	checkhit
+	effectchance
+	stab
+	damagevariation
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	freezetarget
 	endmove

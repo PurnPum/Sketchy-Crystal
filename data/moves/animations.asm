@@ -50,7 +50,7 @@ BattleAnimations::
 	dw BattleAnim_Roar
 	dw BattleAnim_DragonRush
 	dw BattleAnim_Supersonic
-	dw BattleAnim_Sonicboom
+	dw BattleAnim_Hail
 	dw BattleAnim_Disable
 	dw BattleAnim_Acid
 	dw BattleAnim_Ember
@@ -272,6 +272,7 @@ BattleAnimations::
 	dw BattleAnim_Par
 	dw BattleAnim_InLove
 	dw BattleAnim_InSandstorm
+	dw BattleAnim_InHail
 	dw BattleAnim_InNightmare
 	dw BattleAnim_InWhirlpool
 	dw BattleAnim_Miss
@@ -578,6 +579,30 @@ BattleAnim_InSandstorm:
 	anim_obj ANIM_OBJ_SANDSTORM, 56, 0, $2
 .loop
 	anim_sound 0, 1, SFX_MENU
+	anim_wait 8
+	anim_loop 6, .loop
+	anim_wait 8
+	anim_ret
+	
+BattleAnim_InHail:
+	anim_1gfx ANIM_GFX_ICE
+	anim_obj ANIM_OBJ_HAIL, 88, 0, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 56, 0, $2
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 104, 0, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 40, 0, $1
+	anim_wait 6
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_HAIL, 24, 0, $2
+	anim_wait 6
+.loop
+	anim_sound 0, 1, SFX_SHINE
 	anim_wait 8
 	anim_loop 6, .loop
 	anim_wait 8
@@ -1005,7 +1030,7 @@ BattleAnim_IceBeam:
 	anim_ret
 
 BattleAnim_Blizzard:
-	anim_1gfx ANIM_GFX_PLANT
+	anim_1gfx ANIM_GFX_ICE
 .loop
 	anim_sound 6, 2, SFX_SHINE
 	anim_obj ANIM_OBJ_BLIZZARD, 64, 88, $63 
@@ -1318,32 +1343,7 @@ BattleAnim_RazorWind:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_Sonicboom_JP: ; unreferenced
-	anim_2gfx ANIM_GFX_WHIP, ANIM_GFX_HIT
-.loop
-	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 80, $3
-	anim_wait 8
-	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 88, $2
-	anim_wait 8
-	anim_sound 3, 0, SFX_RAZOR_WIND
-	anim_obj ANIM_OBJ_SONICBOOM_JP, 64, 96, $4
-	anim_wait 8
-	anim_loop 2, .loop
-	anim_wait 32
-	anim_incobj 1
-	anim_incobj 2
-	anim_incobj 3
-	anim_incobj 4
-	anim_incobj 5
-	anim_incobj 6
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
-	anim_wait 16
-	anim_ret
-
 BattleAnim_Gust:
-BattleAnim_Sonicboom:
 	anim_2gfx ANIM_GFX_WIND, ANIM_GFX_HIT
 .loop
 	anim_sound 0, 1, SFX_RAZOR_WIND
@@ -1354,6 +1354,30 @@ BattleAnim_Sonicboom:
 	anim_wait 8
 	anim_obj ANIM_OBJ_HIT_YFIX, 128, 32, $18
 	anim_wait 16
+	anim_ret
+	
+BattleAnim_Hail:
+	anim_1gfx ANIM_GFX_ICE
+	anim_obj ANIM_OBJ_HAIL, 88, 0, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 72, 0, $1
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 56, 0, $2
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 104, 0, $0
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 40, 0, $1
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 6
+	anim_obj ANIM_OBJ_HAIL, 24, 0, $2
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 6
+.loop
+	anim_sound 0, 1, SFX_SHINE
+	anim_wait 8
+	anim_loop 8, .loop
+	anim_wait 8
 	anim_ret
 
 BattleAnim_Selfdestruct:

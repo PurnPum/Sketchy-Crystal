@@ -2079,6 +2079,45 @@ AI_Smart_Sandstorm:
 	db STEEL
 	db -1 ; end
 
+AI_Smart_Hail:
+; Greatly discourage this move if the player is immune to Hail damage.
+	ld a, [wBattleMonType1]
+	push hl
+	ld hl, .HailImmuneTypes
+	ld de, 1
+	call IsInArray
+	pop hl
+	jr c, .greatly_discourage
+
+	ld a, [wBattleMonType2]
+	push hl
+	ld hl, .HailImmuneTypes
+	ld de, 1
+	call IsInArray
+	pop hl
+	jr c, .greatly_discourage
+
+; Discourage this move if player's HP is below 50%.
+	call AICheckPlayerHalfHP
+	jr nc, .discourage
+
+; 50% chance to encourage this move otherwise.
+	call AI_50_50
+	ret c
+
+	dec [hl]
+	ret
+
+.greatly_discourage
+	inc [hl]
+.discourage
+	inc [hl]
+	ret
+
+.HailImmuneTypes:
+	db ICE
+	db -1 ; end
+
 AI_Smart_Endure:
 ; Greatly discourage this move if the enemy already used Protect.
 	ld a, [wEnemyProtectCount]

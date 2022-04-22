@@ -1561,6 +1561,9 @@ BattleCommand_CheckHit:
 
 	call .ThunderRain
 	ret z
+	
+	call .BlizzardHail
+	ret z
 
 	call .XAccuracy
 	ret nz
@@ -1747,6 +1750,17 @@ BattleCommand_CheckHit:
 
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
+	ret
+	
+.BlizzardHail:
+; Return z if the current move always hits in hail, and it is hailing.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BLIZZARD
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
 	ret
 
 .XAccuracy:
@@ -6356,6 +6370,8 @@ INCLUDE "engine/battle/move_effects/perish_song.asm"
 
 INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
+INCLUDE "engine/battle/move_effects/hail.asm"
+
 INCLUDE "engine/battle/move_effects/rollout.asm"
 
 BattleCommand_Unused5D:
@@ -6545,71 +6561,13 @@ BattleCommand_SkipSunCharge:
 	ld b, charge_command
 	jp SkipToBattleCommand
 	
-BattleCommand_DampRock:
-	ld a, [wAttackMissed]
-	and a
-	ret nz
-
-	call GetUserItem
-	ld a, b
-	cp HELD_EXTEND_RAIN
-	ret nz
-
-	ld a, [wBattleWeather]
-	cp WEATHER_RAIN
-	ret nz
-	
-	ld a, [wWeatherCount]
-	inc a
-	inc a
-	inc a
-	ld [wWeatherCount], a
-	
-BattleCommand_HeatRock:
-	ld a, [wAttackMissed]
-	and a
-	ret nz
-
-	call GetUserItem
-	ld a, b
-	cp HELD_EXTEND_SUN
-	ret nz
-
-	ld a, [wBattleWeather]
-	cp WEATHER_SUN
-	ret nz
-	
-	ld a, [wWeatherCount]
-	inc a
-	inc a
-	inc a
-	ld [wWeatherCount], a
-
-BattleCommand_SmoothRock:
-	ld a, [wAttackMissed]
-	and a
-	ret nz
-
-	call GetUserItem
-	ld a, b
-	cp HELD_EXTEND_SANDSTORM
-	ret nz
-
-	ld a, [wBattleWeather]
-	cp WEATHER_SANDSTORM
-	ret nz
-	
-	ld a, [wWeatherCount]
-	inc a
-	inc a
-	inc a
-	ld [wWeatherCount], a
-	
 INCLUDE "engine/battle/move_effects/uturn.asm"
 
 INCLUDE "engine/battle/move_effects/future_sight.asm"
 
 INCLUDE "engine/battle/move_effects/thunder.asm"
+
+INCLUDE "engine/battle/move_effects/blizzard.asm"
 
 CheckHiddenOpponent:
 ; BUG: Lock-On and Mind Reader don't always bypass Fly and Dig (see docs/bugs_and_glitches.md)

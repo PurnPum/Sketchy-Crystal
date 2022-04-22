@@ -88,6 +88,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_RapidSpin
 	dw BattleAnimFunction_BetaPursuit
 	dw BattleAnimFunction_RainSandstorm
+	dw BattleAnimFunction_Hail
 	dw BattleAnimFunction_AnimObjB0
 	dw BattleAnimFunction_PsychUp
 	dw BattleAnimFunction_AncientPower
@@ -4140,6 +4141,78 @@ BattleAnimFunction_RainSandstorm:
 	ld a, [hl]
 	add $4
 	ld [hl], a
+	ret
+	
+BattleAnimFunction_Hail:
+; Object moves right 4 pixels at a time and down a variable distance
+; Obj Param: Defines variation in the movement
+;            $0: 1 pixels vertical movement
+;            $1: 4 pixels vertical movement
+;            $2: 2 pixels vertical movement
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+	dw .three
+
+.zero
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	add hl, bc
+	ld [hl], a
+	call BattleAnim_IncAnonJumptableIndex
+	ret
+
+.one ; Obj Param 0
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	cp $70
+	jr c, .dont_reset_x_offset_one
+	xor a
+.dont_reset_x_offset_one
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	inc [hl]
+	ret
+
+.two ; Obj Param 1
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	cp $70
+	jr c, .dont_reset_x_offset_two
+	xor a
+.dont_reset_x_offset_two
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	ld [hl], a
+	ret
+
+.three ; Obj Param 2
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	cp $70
+	jr c, .dont_reset_x_offset_three
+	xor a
+.dont_reset_x_offset_three
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	inc [hl]
 	ret
 
 BattleAnimFunction_AnimObjB0: ; unused
