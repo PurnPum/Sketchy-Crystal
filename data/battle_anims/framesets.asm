@@ -496,8 +496,7 @@ BattleAnimFrameData:
 	endanim
 
 .Frameset_28:
-	frame BATTLEANIMOAMSET_26,  8
-	frame BATTLEANIMOAMSET_27,  8
+	frame BATTLEANIMOAMSET_BE,  8
 	endanim
 
 .Frameset_29:

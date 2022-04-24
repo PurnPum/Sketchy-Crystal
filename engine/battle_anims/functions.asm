@@ -832,31 +832,31 @@ BattleAnimFunction_OutwardsCharge:
 	ret
 
 .one
-	; Flame that moves upward
+	; Orb that moves upward
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	dec [hl]
 	ret
 
 .four
-	; Flame that moves down and left
+	; Orb that moves down and left
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	inc [hl]
 .two
-	; Flame that moves left
+	; Orb that moves left
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	dec [hl]
 	ret
 
 .five
-	; Flame that moves down and right
+	; Orb that moves down and right
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	inc [hl]
 .three
-	; Flame that moves right
+	; Orb that moves right
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	inc [hl]
