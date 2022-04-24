@@ -102,7 +102,7 @@ Moves:
 	move THUNDER,      EFFECT_THUNDER,           120, ELECTRIC,      70, 10,  30
 	move ROCK_THROW,   EFFECT_NORMAL_HIT,         50, ROCK,          90, 15,   0
 	move EARTHQUAKE,   EFFECT_EARTHQUAKE,        100, GROUND,       100, 10,   0
-	move FISSURE,      EFFECT_OHKO,                1, GROUND,        30,  5,   0
+	move SHADOW_CLAW,  EFFECT_NORMAL_HIT,         70, GHOST,        100, 15,   0
 	move DIG,          EFFECT_FLY,                60, GROUND,       100, 10,   0
 	move TOXIC,        EFFECT_TOXIC,               0, POISON,        85, 10,   0
 	move CONFUSION,    EFFECT_CONFUSE_HIT,        50, PSYCHIC_TYPE, 100, 25,  10

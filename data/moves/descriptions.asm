@@ -90,7 +90,7 @@ MoveDescriptions::
 	dw ThunderDescription
 	dw RockThrowDescription
 	dw EarthquakeDescription
-	dw FissureDescription
+	dw ShadowClawDescription
 	dw DigDescription
 	dw ToxicDescription
 	dw ConfusionDescription
@@ -623,9 +623,9 @@ EarthquakeDescription:
 	db   "Tough but useless"
 	next "vs. flying foes.@"
 
-FissureDescription:
-	db   "A ground-type,"
-	next "one-hit KO attack.@"
+ShadowClawDescription:
+	db   "A shadowy high-"
+	next "crit slash.@"
 
 DigDescription:
 	db   "1st turn: Burrow"
