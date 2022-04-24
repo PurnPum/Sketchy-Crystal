@@ -80,7 +80,7 @@ BattleAnimations::
 	dw BattleAnim_Solarbeam
 	dw BattleAnim_Poisonpowder
 	dw BattleAnim_StunSpore
-	dw BattleAnim_SleepPowder
+	dw BattleAnim_EnergyBall
 	dw BattleAnim_PetalDance
 	dw BattleAnim_StringShot
 	dw BattleAnim_DragonRage
@@ -1490,7 +1490,6 @@ BattleAnim_DragonRush:
 	anim_ret
 
 BattleAnim_Poisonpowder:
-BattleAnim_SleepPowder:
 BattleAnim_Spore:
 BattleAnim_StunSpore:
 	anim_1gfx ANIM_GFX_POWDER
@@ -1512,6 +1511,38 @@ BattleAnim_StunSpore:
 	anim_wait 4
 	anim_loop 2, .loop
 	anim_wait 96
+	anim_ret
+
+BattleAnim_EnergyBall:
+	anim_2gfx ANIM_GFX_CHARGE, ANIM_GFX_PLANT
+	anim_sound 0, 0, SFX_CHARGE
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $0
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $8
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $10
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $18
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $20
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $28
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $30
+	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $38
+	anim_wait 24
+	anim_obj ANIM_OBJ_ABSORB_CENTER, 48, 84, $0
+	anim_wait 104
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_obj ANIM_OBJ_ENERGY_BALL, 46, 69, $1
+	anim_wait 4
+	anim_sound 0, 1, SFX_MASTER_BALL
+	anim_wait 44
+	anim_sound 1, 0, SFX_BALL_POOF
+	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $1
+	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $2
+	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $3
+	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $4
+	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $5
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $1c
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $50
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $dc
+	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $90
+	anim_wait 32
 	anim_ret
 
 BattleAnim_HyperBeam:
