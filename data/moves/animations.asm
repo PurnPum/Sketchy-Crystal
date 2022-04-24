@@ -3189,17 +3189,17 @@ BattleAnim_Overheat:
 	anim_wait 24
 	anim_loop 3, .loop
 	anim_wait 32
-	anim_obj ANIM_OBJ_FIRE_BLAST, 132, 48, $1
-	anim_obj ANIM_OBJ_FIRE_BLAST, 132, 48, $4
-	anim_obj ANIM_OBJ_FIRE_BLAST, 132, 48, $5
+	anim_obj ANIM_OBJ_BURNED, 132, 48, $10
 	anim_wait 8
 .loop2
 	anim_sound 0, 0, SFX_POWDER
 	anim_wait 16
-	anim_obj ANIM_OBJ_SMOKE, 132, 86, $0
-	anim_obj ANIM_OBJ_SMOKE, 48, 114, $0
-	anim_wait 8
-	anim_loop 3, .loop2
+	anim_obj ANIM_OBJ_SMOKE_UP, 112, 80, $1
+	anim_obj ANIM_OBJ_SMOKE_UP, 132, 86, $1
+	anim_obj ANIM_OBJ_SMOKE_UP, 152, 80, $1
+	anim_obj ANIM_OBJ_SMOKE_UP, 28, 108, $1
+	anim_obj ANIM_OBJ_SMOKE_UP, 48, 114, $1
+	anim_obj ANIM_OBJ_SMOKE_UP, 68, 108, $1
 	anim_wait 64
 	anim_ret
 

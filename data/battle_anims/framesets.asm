@@ -496,8 +496,7 @@ BattleAnimFrameData:
 	oamend
 
 .Frameset_28:
-	oamframe BATTLEANIMOAMSET_26,  8
-	oamframe BATTLEANIMOAMSET_27,  8
+	oamframe BATTLEANIMOAMSET_BE,  8
 	oamend
 
 .Frameset_29:
