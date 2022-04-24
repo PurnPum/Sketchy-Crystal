@@ -100,7 +100,7 @@
 	const TOXIC        ; 5c
 	const CONFUSION    ; 5d
 	const PSYCHIC_M    ; 5e
-	const HYPNOSIS     ; 5f
+	const EXTRASENSORY ; 5f
 	const MEDITATE     ; 60
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62

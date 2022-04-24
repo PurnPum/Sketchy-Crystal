@@ -95,7 +95,7 @@ MoveDescriptions::
 	dw ToxicDescription
 	dw ConfusionDescription
 	dw PsychicMDescription
-	dw HypnosisDescription
+	dw ExtrasensoryDescription
 	dw MeditateDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
@@ -643,9 +643,9 @@ PsychicMDescription:
 	db   "An attack that may"
 	next "lower SPCL.DEF.@"
 
-HypnosisDescription:
-	db   "May put the foe to"
-	next "sleep.@"
+ExtrasensoryDescription:
+	db   "An odd, unseeable"
+	next "power, may flinch.@"
 
 MeditateDescription:
 	db   "Raises the user's"

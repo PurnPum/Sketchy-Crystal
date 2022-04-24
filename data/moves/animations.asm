@@ -96,7 +96,7 @@ BattleAnimations::
 	dw BattleAnim_Toxic
 	dw BattleAnim_Confusion
 	dw BattleAnim_PsychicM
-	dw BattleAnim_Hypnosis
+	dw BattleAnim_Extrasensory
 	dw BattleAnim_Meditate
 	dw BattleAnim_Agility
 	dw BattleAnim_QuickAttack
@@ -2261,16 +2261,24 @@ BattleAnim_Whirlwind:
 .done
 	anim_ret
 
-BattleAnim_Hypnosis:
+BattleAnim_Extrasensory:
 	anim_1gfx ANIM_GFX_PSYCHIC
+	anim_call BattleAnim_UserObj_2Row
 .loop
-	anim_sound 6, 2, SFX_SUPERSONIC
+	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj ANIM_OBJ_WAVE, 64, 88, $2
+	anim_wait 8
+	anim_sound 6, 2, SFX_PSYCHIC
 	anim_obj ANIM_OBJ_WAVE, 56, 80, $2
 	anim_wait 8
 	anim_loop 3, .loop
-	anim_wait 56
+	anim_sound 6, 2, SFX_PSYCHIC
+	anim_bgeffect ANIM_BG_NIGHT_SHADE, $0, BG_EFFECT_TARGET, $8
+	anim_wait 128
+	anim_incbgeffect ANIM_BG_NIGHT_SHADE
+	anim_call BattleAnim_ShowMon_1
 	anim_ret
+
 
 BattleAnim_Haze:
 	anim_1gfx ANIM_GFX_HAZE
