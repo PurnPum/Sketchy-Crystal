@@ -24,6 +24,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_MoveFromUserToTargetSpinAround
 	dw BattleAnimFunction_Shake
 	dw BattleAnimFunction_FireBlast
+	dw BattleAnimFunction_OutwardsCharge
 	dw BattleAnimFunction_RazorLeaf
 	dw BattleAnimFunction_Bubble
 	dw BattleAnimFunction_Surf
@@ -809,6 +810,56 @@ BattleAnimFunction_FireBlast:
 	add hl, bc
 	inc [hl]
 .six
+	ret
+	
+BattleAnimFunction_OutwardsCharge:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+	dw .three
+	dw .four
+	dw .five
+	
+.zero
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	add hl, bc
+	ld [hl], a
+	ret
+
+.one
+	; Flame that moves upward
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	dec [hl]
+	ret
+
+.four
+	; Flame that moves down and left
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	inc [hl]
+.two
+	; Flame that moves left
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	dec [hl]
+	ret
+
+.five
+	; Flame that moves down and right
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	inc [hl]
+.three
+	; Flame that moves right
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	inc [hl]
 	ret
 
 BattleAnimFunction_RazorLeaf:

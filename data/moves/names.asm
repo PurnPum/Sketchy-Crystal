@@ -78,7 +78,7 @@ MoveNames::
 	li "SOLARBEAM"
 	li "POISONPOWDER"
 	li "STUN SPORE"
-	li "SLEEP POWDER"
+	li "ENERGY BALL"
 	li "PETAL DANCE"
 	li "STRING SHOT"
 	li "DRAGON RAGE"

@@ -84,7 +84,7 @@
 	const SOLARBEAM    ; 4c
 	const POISONPOWDER ; 4d
 	const STUN_SPORE   ; 4e
-	const SLEEP_POWDER ; 4f
+	const ENERGY_BALL  ; 4f
 	const PETAL_DANCE  ; 50
 	const STRING_SHOT  ; 51
 	const DRAGON_RAGE  ; 52

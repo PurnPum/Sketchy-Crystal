@@ -79,7 +79,7 @@ MoveDescriptions::
 	dw SolarbeamDescription
 	dw PoisonpowderDescription
 	dw StunSporeDescription
-	dw SleepPowderDescription
+	dw EnergyBallDescription
 	dw PetalDanceDescription
 	dw StringShotDescription
 	dw DragonRageDescription
@@ -579,9 +579,9 @@ StunSporeDescription:
 	db   "A move that may"
 	next "paralyze the foe.@"
 
-SleepPowderDescription:
-	db   "May cause the foe"
-	next "to fall asleep.@"
+EnergyBallDescription:
+	db   "A ball of natural"
+	next "energy is fired.@"
 
 PetalDanceDescription:
 	db   "Works 2-3 turns"
