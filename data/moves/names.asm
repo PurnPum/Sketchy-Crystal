@@ -94,7 +94,7 @@ MoveNames::
 	li "TOXIC"
 	li "CONFUSION"
 	li "PSYCHIC"
-	li "HYPNOSIS"
+	li "EXTRASENSORY"
 	li "MEDITATE"
 	li "AGILITY"
 	li "QUICK ATTACK"

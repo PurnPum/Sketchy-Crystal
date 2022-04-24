@@ -788,7 +788,7 @@ PoliwagEvosAttacks2:
 	db EVOLVE_LEVEL, 25, POLIWHIRL
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 7, HYPNOSIS
+	db 7, STRUGGLE
 	db 13, WATER_GUN
 	db 19, DOUBLESLAP
 	db 25, RAIN_DANCE
@@ -802,9 +802,9 @@ PoliwhirlEvosAttacks2:
 	db EVOLVE_TRADE, KINGS_ROCK, POLITOED
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, WATER_GUN
-	db 7, HYPNOSIS
+	db 7, STRUGGLE
 	db 13, WATER_GUN
 	db 19, DOUBLESLAP
 	db 27, RAIN_DANCE
@@ -816,7 +816,7 @@ PoliwhirlEvosAttacks2:
 PoliwrathEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, DOUBLESLAP
 	db 1, SUBMISSION
 	db 35, SUBMISSION
@@ -1230,7 +1230,7 @@ CloysterEvosAttacks2:
 GastlyEvosAttacks2:
 	db EVOLVE_LEVEL, 25, HAUNTER
 	db 0 ; no more evolutions
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, LICK
 	db 8, SPITE
 	db 13, MEAN_LOOK
@@ -1244,7 +1244,7 @@ GastlyEvosAttacks2:
 HaunterEvosAttacks2:
 	db EVOLVE_TRADE, -1, GENGAR
 	db 0 ; no more evolutions
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, LICK
 	db 1, SPITE
 	db 8, SPITE
@@ -1258,7 +1258,7 @@ HaunterEvosAttacks2:
 
 GengarEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, LICK
 	db 1, SPITE
 	db 8, SPITE
@@ -1287,7 +1287,7 @@ DrowzeeEvosAttacks2:
 	db EVOLVE_LEVEL, 26, HYPNO
 	db 0 ; no more evolutions
 	db 1, POUND
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 10, DISABLE
 	db 18, CONFUSION
 	db 25, HEADBUTT
@@ -1301,7 +1301,7 @@ DrowzeeEvosAttacks2:
 HypnoEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, POUND
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, DISABLE
 	db 1, CONFUSION
 	db 10, DISABLE
@@ -1375,7 +1375,7 @@ ExeggcuteEvosAttacks2:
 	db EVOLVE_ITEM, LEAF_STONE, EXEGGUTOR
 	db 0 ; no more evolutions
 	db 1, BARRAGE
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 7, REFLECT
 	db 13, LEECH_SEED
 	db 19, CONFUSION
@@ -1388,7 +1388,7 @@ ExeggcuteEvosAttacks2:
 ExeggutorEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, BARRAGE
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, CONFUSION
 	db 19, STOMP
 	db 31, EGG_BOMB
@@ -2216,7 +2216,7 @@ HoothootEvosAttacks2:
 	db 1, GROWL
 	db 6, FORESIGHT
 	db 11, PECK
-	db 16, HYPNOSIS
+	db 16, STRUGGLE
 	db 22, REFLECT
 	db 28, TAKE_DOWN
 	db 34, CONFUSION
@@ -2231,7 +2231,7 @@ NoctowlEvosAttacks2:
 	db 1, PECK
 	db 6, FORESIGHT
 	db 11, PECK
-	db 16, HYPNOSIS
+	db 16, STRUGGLE
 	db 25, REFLECT
 	db 33, TAKE_DOWN
 	db 41, CONFUSION
@@ -2507,7 +2507,7 @@ SudowoodoEvosAttacks2:
 PolitoedEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, WATER_GUN
-	db 1, HYPNOSIS
+	db 1, STRUGGLE
 	db 1, DOUBLESLAP
 	db 1, PERISH_SONG
 	db 35, PERISH_SONG
@@ -3112,7 +3112,7 @@ StantlerEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 8, LEER
-	db 15, HYPNOSIS
+	db 15, STRUGGLE
 	db 23, STOMP
 	db 31, STRUGGLE
 	db 40, TAKE_DOWN
