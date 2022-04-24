@@ -91,7 +91,7 @@ BattleAnimations::
 	dw BattleAnim_Thunder
 	dw BattleAnim_RockThrow
 	dw BattleAnim_Earthquake
-	dw BattleAnim_Fissure
+	dw BattleAnim_ShadowClaw
 	dw BattleAnim_Dig
 	dw BattleAnim_Toxic
 	dw BattleAnim_Confusion
@@ -1528,7 +1528,7 @@ BattleAnim_EnergyBall:
 	anim_obj ANIM_OBJ_ABSORB_CENTER, 48, 84, $0
 	anim_wait 104
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_obj ANIM_OBJ_ENERGY_BALL, 46, 69, $1
+	anim_obj ANIM_OBJ_ENERGY_BALL, 48, 84, $1
 	anim_wait 4
 	anim_sound 0, 1, SFX_MASTER_BALL
 	anim_wait 44
@@ -1893,13 +1893,19 @@ BattleAnim_Earthquake:
 	anim_loop 4, .loop
 	anim_ret
 
-BattleAnim_Fissure:
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $40
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $60, $4, $0
-.loop
-	anim_sound 0, 1, SFX_EMBER
-	anim_wait 24
-	anim_loop 4, .loop
+BattleAnim_ShadowClaw:
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_CUT
+	anim_call BattleAnim_TargetObj_1Row
+	anim_bgp $1b
+	anim_sound 0, 0, SFX_NIGHTMARE
+	anim_wait 72
+	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 126, 36, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 122, 40, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 118, 44, $0
+	anim_wait 32
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, BG_EFFECT_TARGET, $0
 	anim_ret
 
 BattleAnim_Growl:
@@ -2856,10 +2862,13 @@ BattleAnim_DragonClaw:
 	anim_call BattleAnim_ShowMon_0
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $3
 	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 152, 40, $0
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 148, 36, $0
-	anim_wait 32
+	anim_wait 40
 	anim_sound 0, 1, SFX_CUT
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $3
+	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 118, 40, $0
 	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 122, 36, $0
 	anim_wait 32

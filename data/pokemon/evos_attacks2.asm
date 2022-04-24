@@ -658,7 +658,7 @@ DiglettEvosAttacks2:
 	db 25, STRUGGLE
 	db 33, SLASH
 	db 41, EARTHQUAKE
-	db 49, FISSURE
+	db 49, STRUGGLE
 	db 0 ; no more level-up moves
 
 DugtrioEvosAttacks2:
@@ -673,7 +673,7 @@ DugtrioEvosAttacks2:
 	db 25, STRUGGLE
 	db 37, SLASH
 	db 49, EARTHQUAKE
-	db 61, FISSURE
+	db 61, STRUGGLE
 	db 0 ; no more level-up moves
 
 MeowthEvosAttacks2:
