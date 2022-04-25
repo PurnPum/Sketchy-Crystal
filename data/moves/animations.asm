@@ -97,7 +97,7 @@ BattleAnimations::
 	dw BattleAnim_Confusion
 	dw BattleAnim_PsychicM
 	dw BattleAnim_Extrasensory
-	dw BattleAnim_Meditate
+	dw BattleAnim_PsychoBoost
 	dw BattleAnim_Agility
 	dw BattleAnim_QuickAttack
 	dw BattleAnim_Rage
@@ -2962,15 +2962,29 @@ BattleAnim_QuickAttack:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Meditate:
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_1Row
-	anim_sound 0, 0, SFX_PSYBEAM
-	anim_bgeffect ANIM_BG_WAVE_DEFORM_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 48
-	anim_incbgeffect ANIM_BG_WAVE_DEFORM_MON
-	anim_wait 48
+BattleAnim_PsychoBoost:
+	anim_2gfx ANIM_GFX_PSYCHIC, ANIM_GFX_CHARGE
+	anim_bgeffect ANIM_BG_NIGHT_SHADE, $0, BG_EFFECT_USER, $8
+	anim_obj ANIM_OBJ_RED_CHARGE, 44, 88, $0
+.loop
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_wait 8
+	anim_loop 12, .loop
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_obj ANIM_OBJ_RED_ENERGY_BALL, 54, 92, $2
+	anim_sound 0, 1, SFX_MASTER_BALL
+	anim_wait 44
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
+	anim_obj ANIM_OBJ_HIDDEN_POWER, 136, 48, $0
+	anim_obj ANIM_OBJ_HIDDEN_POWER, 136, 48, $10
+	anim_obj ANIM_OBJ_HIDDEN_POWER, 136, 48, $20
+	anim_obj ANIM_OBJ_HIDDEN_POWER, 136, 48, $30
+	anim_bgeffect ANIM_BG_PSYCHIC, $0, $0, $0
+	anim_sound 6, 2, SFX_PSYCHIC
+	anim_wait 56
 	anim_call BattleAnim_ShowMon_0
+	anim_incbgeffect ANIM_BG_PSYCHIC
+	anim_wait 4
 	anim_ret
 
 BattleAnim_Sharpen:

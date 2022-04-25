@@ -95,7 +95,7 @@ MoveNames::
 	li "CONFUSION"
 	li "PSYCHIC"
 	li "EXTRASENSORY"
-	li "MEDITATE"
+	li "PSYCHO BOOST"
 	li "AGILITY"
 	li "QUICK ATTACK"
 	li "RAGE"

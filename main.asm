@@ -412,9 +412,7 @@ INCLUDE "engine/events/trainer_scripts.asm"
 
 SECTION "bank32", ROMX
 
-INCLUDE "engine/battle_anims/bg_effects.asm"
 INCLUDE "data/moves/animations.asm"
-INCLUDE "engine/events/poisonstep_pals.asm"
 
 
 SECTION "Move Animations", ROMX
@@ -447,6 +445,8 @@ SECTION "Pic Animations 2", ROMX
 
 INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
+INCLUDE "engine/battle_anims/bg_effects.asm"
+INCLUDE "engine/events/poisonstep_pals.asm"
 
 
 SECTION "Pic Animations 3", ROMX
