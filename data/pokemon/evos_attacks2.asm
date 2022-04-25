@@ -1292,7 +1292,7 @@ DrowzeeEvosAttacks2:
 	db 18, CONFUSION
 	db 25, HEADBUTT
 	db 31, POISON_GAS
-	db 36, MEDITATE
+	db 36, STRUGGLE
 	db 40, PSYCHIC_M
 	db 43, PSYCH_UP
 	db 45, FUTURE_SIGHT
@@ -1308,7 +1308,7 @@ HypnoEvosAttacks2:
 	db 18, CONFUSION
 	db 25, HEADBUTT
 	db 33, POISON_GAS
-	db 40, MEDITATE
+	db 40, STRUGGLE
 	db 49, PSYCHIC_M
 	db 55, PSYCH_UP
 	db 60, FUTURE_SIGHT
@@ -1431,7 +1431,7 @@ MarowakEvosAttacks2:
 HitmonleeEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, DOUBLE_KICK
-	db 6, MEDITATE
+	db 6, STRUGGLE
 	db 11, ROLLING_KICK
 	db 16, JUMP_KICK
 	db 21, FOCUS_ENERGY
@@ -1652,7 +1652,7 @@ MrMimeEvosAttacks2:
 	db 1, BARRIER
 	db 6, CONFUSION
 	db 11, SUBSTITUTE
-	db 16, MEDITATE
+	db 16, STRUGGLE
 	db 21, DOUBLESLAP
 	db 26, LIGHT_SCREEN
 	db 26, REFLECT

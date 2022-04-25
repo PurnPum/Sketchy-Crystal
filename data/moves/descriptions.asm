@@ -96,7 +96,7 @@ MoveDescriptions::
 	dw ConfusionDescription
 	dw PsychicMDescription
 	dw ExtrasensoryDescription
-	dw MeditateDescription
+	dw PsychoBoostDescription
 	dw AgilityDescription
 	dw QuickAttackDescription
 	dw RageDescription
@@ -311,7 +311,7 @@ VicegripDescription:
 	next "ful pincers.@"
 
 BulldozeDescription:
-	db   "A ground stomp that"
+	db   "A grounded stomp,"
 	next "lowers speed.@"
 
 RazorWindDescription:
@@ -319,7 +319,7 @@ RazorWindDescription:
 	next "2nd turn: Attack@"
 
 WildChargeDescription:
-	db   "A smashing electric"
+	db   "A smashing zapped"
 	next "hit with recoil.@"
 
 CutDescription:
@@ -347,7 +347,7 @@ BindDescription:
 	next "for 2-5 turns.@"
 
 OverheatDescription:
-	db   "A full-power blast."
+	db   "A scorching blast,"
 	next "Lowers Sp.Att by 1@"
 
 VineWhipDescription:
@@ -375,7 +375,7 @@ RollingKickDescription:
 	next "kick.@"
 
 LungeDescription:
-	db   "Lowers foe's attack"
+	db   "Cuts foe's attack"
 	next "by making a lunge.@"
 
 HeadbuttDescription:
@@ -647,9 +647,9 @@ ExtrasensoryDescription:
 	db   "An odd, unseeable"
 	next "power, may flinch.@"
 
-MeditateDescription:
-	db   "Raises the user's"
-	next "ATTACK.@"
+PsychoBoostDescription:
+	db   "A huge psy-blast."
+	next "Lowers Sp.Att by 1@"
 
 AgilityDescription:
 	db   "Sharply increases"

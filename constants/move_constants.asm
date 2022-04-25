@@ -101,7 +101,7 @@
 	const CONFUSION    ; 5d
 	const PSYCHIC_M    ; 5e
 	const EXTRASENSORY ; 5f
-	const MEDITATE     ; 60
+	const PSYCHO_BOOST ; 60
 	const AGILITY      ; 61
 	const QUICK_ATTACK ; 62
 	const RAGE         ; 63
