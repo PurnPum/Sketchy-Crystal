@@ -98,14 +98,14 @@ BattleAnimations::
 	dw BattleAnim_PsychicM
 	dw BattleAnim_Extrasensory
 	dw BattleAnim_PsychoBoost
-	dw BattleAnim_Agility
+	dw BattleAnim_FlashCannon
 	dw BattleAnim_QuickAttack
 	dw BattleAnim_Rage
 	dw BattleAnim_Teleport
 	dw BattleAnim_NightShade
 	dw BattleAnim_Mimic
 	dw BattleAnim_Screech
-	dw BattleAnim_DoubleTeam
+	dw BattleAnim_IceShard
 	dw BattleAnim_Recover
 	dw BattleAnim_Harden
 	dw BattleAnim_Minimize
@@ -1532,7 +1532,6 @@ BattleAnim_EnergyBall:
 	anim_wait 4
 	anim_sound 0, 1, SFX_MASTER_BALL
 	anim_wait 44
-	anim_sound 1, 0, SFX_BALL_POOF
 	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $1
 	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $2
 	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $3
@@ -1542,6 +1541,7 @@ BattleAnim_EnergyBall:
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $50
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $dc
 	anim_obj ANIM_OBJ_RAZOR_LEAF, 134, 48, $90
+	anim_sound 0, 0, SFX_BURN
 	anim_wait 32
 	anim_ret
 
@@ -1677,15 +1677,44 @@ BattleAnim_Fly:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_DoubleTeam:
-	anim_call BattleAnim_TargetObj_2Row
-	anim_sound 0, 0, SFX_PSYBEAM
-	anim_bgeffect ANIM_BG_DOUBLE_TEAM, $0, BG_EFFECT_USER, $0
-	anim_wait 96
-	anim_incbgeffect ANIM_BG_DOUBLE_TEAM
+BattleAnim_IceShard:
+	anim_obp0 $54
+	anim_3gfx ANIM_GFX_HAZE, ANIM_GFX_ICE, ANIM_GFX_HORIZONTAL_ICE
+	anim_sound 0, 0, SFX_RAIN_DANCE
+.loop
+	anim_obj ANIM_OBJ_LOWER_MIST, 48, 90, $0
+	anim_wait 8
+	anim_loop 2, .loop
+	anim_wait 16
+	anim_obj ANIM_OBJ_ICE_SHARD_CHARGE, 48, 90, $0
+	anim_obj ANIM_OBJ_ICE_SHARD_CHARGE, 48, 90, $8
+	anim_obj ANIM_OBJ_ICE_SHARD_CHARGE, 48, 90, $28
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 4
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 64
+	anim_3gfx ANIM_GFX_HAZE, ANIM_GFX_HIT, ANIM_GFX_HORIZONTAL_ICE
+	anim_obj ANIM_OBJ_THROW_ICE, 48, 90, $0
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 8
+	anim_obj ANIM_OBJ_THROW_ICE, 52, 86, $0
+	anim_sound 0, 0, SFX_SHINE
+	anim_wait 8
+	anim_obj ANIM_OBJ_THROW_ICE, 44, 94, $0
+	anim_wait 8
+	anim_sound 0, 0, SFX_SHINE
 	anim_wait 24
-	anim_incbgeffect ANIM_BG_DOUBLE_TEAM
-	anim_call BattleAnim_ShowMon_0
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 120, 72, $0
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_wait 6
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_wait 6
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 152, 40, $0
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_wait 16
 	anim_ret
 
 BattleAnim_Recover:
@@ -2971,7 +3000,7 @@ BattleAnim_PsychoBoost:
 	anim_wait 8
 	anim_loop 12, .loop
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_obj ANIM_OBJ_RED_ENERGY_BALL, 54, 92, $2
+	anim_obj ANIM_OBJ_RED_ENERGY_BALL_WAVE, 54, 92, $2
 	anim_sound 0, 1, SFX_MASTER_BALL
 	anim_wait 44
 	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
@@ -3045,25 +3074,35 @@ BattleAnim_Rage:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Agility:
-	anim_1gfx ANIM_GFX_WIND
-	anim_obp0 $fc
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
-	anim_obj ANIM_OBJ_AGILITY, 8, 24, $10
-	anim_obj ANIM_OBJ_AGILITY, 8, 48, $2
-	anim_obj ANIM_OBJ_AGILITY, 8, 88, $8
-	anim_wait 4
-	anim_obj ANIM_OBJ_AGILITY, 8, 32, $6
-	anim_obj ANIM_OBJ_AGILITY, 8, 56, $c
-	anim_obj ANIM_OBJ_AGILITY, 8, 80, $4
-	anim_obj ANIM_OBJ_AGILITY, 8, 104, $e
-.loop
-	anim_sound 0, 0, SFX_RAZOR_WIND
-	anim_wait 4
-	anim_loop 18, .loop
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
-	anim_call BattleAnim_ShowMon_0
+BattleAnim_FlashCannon:
+	anim_2gfx ANIM_GFX_CHARGE, ANIM_GFX_REFLECT
+	anim_sound 0, 0, SFX_SHINE
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
+	anim_wait 8
+	anim_obj ANIM_OBJ_HARDEN, 48, 84, $0
+	anim_wait 24
+	anim_sound 0, 0, SFX_CHARGE
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $0
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $8
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $10
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $18
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $20
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $28
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $30
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 48, 88, $38
+	anim_wait 24
+	anim_obj ANIM_OBJ_RED_CHARGE, 48, 88, $0
+	anim_wait 124
+	anim_sound 0, 0, SFX_MASTER_BALL
+	anim_obj ANIM_OBJ_RED_ENERGY_BALL, 54, 92, $2
+	anim_wait 42
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $1
+	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $2
+	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $3
+	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $4
+	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $5
+	anim_wait 32
 	anim_ret
 
 BattleAnim_BoneClub:

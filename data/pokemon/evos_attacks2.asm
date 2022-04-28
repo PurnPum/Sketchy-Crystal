@@ -213,7 +213,7 @@ BeedrillEvosAttacks2:
 	db 25, RAGE
 	db 30, PURSUIT
 	db 35, PIN_MISSILE
-	db 40, AGILITY
+	db 40, STRUGGLE
 	db 0 ; no more level-up moves
 
 PidgeyEvosAttacks2:
@@ -225,7 +225,7 @@ PidgeyEvosAttacks2:
 	db 15, QUICK_ATTACK
 	db 21, WHIRLWIND
 	db 29, WING_ATTACK
-	db 37, AGILITY
+	db 37, STRUGGLE
 	db 47, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
@@ -240,7 +240,7 @@ PidgeottoEvosAttacks2:
 	db 15, QUICK_ATTACK
 	db 23, WHIRLWIND
 	db 33, WING_ATTACK
-	db 43, AGILITY
+	db 43, STRUGGLE
 	db 55, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
@@ -255,7 +255,7 @@ PidgeotEvosAttacks2:
 	db 15, QUICK_ATTACK
 	db 23, WHIRLWIND
 	db 33, WING_ATTACK
-	db 46, AGILITY
+	db 46, STRUGGLE
 	db 61, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
@@ -293,7 +293,7 @@ SpearowEvosAttacks2:
 	db 25, PURSUIT
 	db 31, MIRROR_MOVE
 	db 37, DRILL_PECK
-	db 43, AGILITY
+	db 43, STRUGGLE
 	db 0 ; no more level-up moves
 
 FearowEvosAttacks2:
@@ -307,7 +307,7 @@ FearowEvosAttacks2:
 	db 26, PURSUIT
 	db 32, MIRROR_MOVE
 	db 40, DRILL_PECK
-	db 47, AGILITY
+	db 47, STRUGGLE
 	db 0 ; no more level-up moves
 
 EkansEvosAttacks2:
@@ -345,10 +345,10 @@ PikachuEvosAttacks2:
 	db 6, TAIL_WHIP
 	db 8, THUNDER_WAVE
 	db 11, QUICK_ATTACK
-	db 15, DOUBLE_TEAM
+	db 15, STRUGGLE
 	db 20, STRUGGLE
 	db 26, THUNDERBOLT
-	db 33, AGILITY
+	db 33, STRUGGLE
 	db 41, THUNDER
 	db 50, LIGHT_SCREEN
 	db 0 ; no more level-up moves
@@ -771,7 +771,7 @@ GrowlitheEvosAttacks2:
 	db 18, LEER
 	db 26, TAKE_DOWN
 	db 34, FLAME_WHEEL
-	db 42, AGILITY
+	db 42, STRUGGLE
 	db 50, FLAMETHROWER
 	db 0 ; no more level-up moves
 
@@ -1029,7 +1029,7 @@ PonytaEvosAttacks2:
 	db 19, STOMP
 	db 26, FIRE_SPIN
 	db 34, TAKE_DOWN
-	db 43, AGILITY
+	db 43, STRUGGLE
 	db 53, FIRE_BLAST
 	db 0 ; no more level-up moves
 
@@ -1046,7 +1046,7 @@ RapidashEvosAttacks2:
 	db 26, FIRE_SPIN
 	db 34, TAKE_DOWN
 	db 40, FURY_ATTACK
-	db 47, AGILITY
+	db 47, STRUGGLE
 	db 61, FIRE_BLAST
 	db 0 ; no more level-up moves
 
@@ -1118,7 +1118,7 @@ FarfetchDEvosAttacks2:
 	db 13, LEER
 	db 19, FURY_ATTACK
 	db 25, STRUGGLE
-	db 31, AGILITY
+	db 31, STRUGGLE
 	db 37, SLASH
 	db 44, FALSE_SWIPE
 	db 0 ; no more level-up moves
@@ -1133,7 +1133,7 @@ DoduoEvosAttacks2:
 	db 21, TRI_ATTACK
 	db 25, RAGE
 	db 33, DRILL_PECK
-	db 37, AGILITY
+	db 37, STRUGGLE
 	db 0 ; no more level-up moves
 
 DodrioEvosAttacks2:
@@ -1147,7 +1147,7 @@ DodrioEvosAttacks2:
 	db 21, TRI_ATTACK
 	db 25, RAGE
 	db 38, DRILL_PECK
-	db 47, AGILITY
+	db 47, STRUGGLE
 	db 0 ; no more level-up moves
 
 SeelEvosAttacks2:
@@ -1446,7 +1446,7 @@ HitmonleeEvosAttacks2:
 HitmonchanEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, COMET_PUNCH
-	db 7, AGILITY
+	db 7, STRUGGLE
 	db 13, PURSUIT
 	db 26, THUNDERPUNCH
 	db 26, ICE_PUNCH
@@ -1576,7 +1576,7 @@ HorseaEvosAttacks2:
 	db 15, LEER
 	db 22, WATER_GUN
 	db 29, TWISTER
-	db 36, AGILITY
+	db 36, STRUGGLE
 	db 43, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -1591,7 +1591,7 @@ SeadraEvosAttacks2:
 	db 15, LEER
 	db 22, WATER_GUN
 	db 29, TWISTER
-	db 40, AGILITY
+	db 40, STRUGGLE
 	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -1606,7 +1606,7 @@ GoldeenEvosAttacks2:
 	db 29, FURY_ATTACK
 	db 38, WATERFALL
 	db 43, STRUGGLE
-	db 52, AGILITY
+	db 52, STRUGGLE
 	db 0 ; no more level-up moves
 
 SeakingEvosAttacks2:
@@ -1620,7 +1620,7 @@ SeakingEvosAttacks2:
 	db 29, FURY_ATTACK
 	db 41, WATERFALL
 	db 49, STRUGGLE
-	db 61, AGILITY
+	db 61, STRUGGLE
 	db 0 ; no more level-up moves
 
 StaryuEvosAttacks2:
@@ -1670,11 +1670,11 @@ ScytherEvosAttacks2:
 	db 6, FOCUS_ENERGY
 	db 12, PURSUIT
 	db 18, FALSE_SWIPE
-	db 24, AGILITY
+	db 24, STRUGGLE
 	db 30, WING_ATTACK
 	db 36, SLASH
 	db 42, STRUGGLE
-	db 48, DOUBLE_TEAM
+	db 48, STRUGGLE
 	db 0 ; no more level-up moves
 
 JynxEvosAttacks2:
@@ -1828,7 +1828,7 @@ JolteonEvosAttacks2:
 	db 30, DOUBLE_KICK
 	db 36, PIN_MISSILE
 	db 42, THUNDER_WAVE
-	db 47, AGILITY
+	db 47, STRUGGLE
 	db 52, THUNDER
 	db 0 ; no more level-up moves
 
@@ -1852,7 +1852,7 @@ PorygonEvosAttacks2:
 	db 1, CONVERSION2
 	db 1, TACKLE
 	db 1, CONVERSION
-	db 9, AGILITY
+	db 9, STRUGGLE
 	db 12, PSYBEAM
 	db 20, RECOVER
 	db 24, SHARPEN
@@ -1918,7 +1918,7 @@ KabutopsEvosAttacks2:
 AerodactylEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, WING_ATTACK
-	db 8, AGILITY
+	db 8, STRUGGLE
 	db 15, BITE
 	db 22, SUPERSONIC
 	db 29, ANCIENTPOWER
@@ -1946,7 +1946,7 @@ ArticunoEvosAttacks2:
 	db 1, GUST
 	db 1, POWDER_SNOW
 	db 13, MIST
-	db 25, AGILITY
+	db 25, STRUGGLE
 	db 37, MIND_READER
 	db 49, ICE_BEAM
 	db 61, REFLECT
@@ -1958,7 +1958,7 @@ ZapdosEvosAttacks2:
 	db 1, PECK
 	db 1, THUNDERSHOCK
 	db 13, THUNDER_WAVE
-	db 25, AGILITY
+	db 25, STRUGGLE
 	db 37, DETECT
 	db 49, DRILL_PECK
 	db 61, LIGHT_SCREEN
@@ -1970,7 +1970,7 @@ MoltresEvosAttacks2:
 	db 1, WING_ATTACK
 	db 1, EMBER
 	db 13, FIRE_SPIN
-	db 25, AGILITY
+	db 25, STRUGGLE
 	db 37, ENDURE
 	db 49, FLAMETHROWER
 	db 61, SAFEGUARD
@@ -1986,7 +1986,7 @@ DratiniEvosAttacks2:
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
 	db 29, STRUGGLE
-	db 36, AGILITY
+	db 36, STRUGGLE
 	db 43, SAFEGUARD
 	db 50, OUTRAGE
 	db 57, HYPER_BEAM
@@ -2003,7 +2003,7 @@ DragonairEvosAttacks2:
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
 	db 29, STRUGGLE
-	db 38, AGILITY
+	db 38, STRUGGLE
 	db 47, SAFEGUARD
 	db 56, OUTRAGE
 	db 65, HYPER_BEAM
@@ -2019,7 +2019,7 @@ DragoniteEvosAttacks2:
 	db 15, TWISTER
 	db 22, DRAGON_RAGE
 	db 29, STRUGGLE
-	db 38, AGILITY
+	db 38, STRUGGLE
 	db 47, SAFEGUARD
 	db 55, WING_ATTACK
 	db 61, OUTRAGE
@@ -2249,7 +2249,7 @@ LedybaEvosAttacks2:
 	db 22, SAFEGUARD
 	db 29, BATON_PASS
 	db 36, SWIFT
-	db 43, AGILITY
+	db 43, STRUGGLE
 	db 50, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -2264,7 +2264,7 @@ LedianEvosAttacks2:
 	db 24, SAFEGUARD
 	db 33, BATON_PASS
 	db 42, SWIFT
-	db 51, AGILITY
+	db 51, STRUGGLE
 	db 60, DOUBLE_EDGE
 	db 0 ; no more level-up moves
 
@@ -2279,7 +2279,7 @@ SpinarakEvosAttacks2:
 	db 23, LEECH_LIFE
 	db 30, FURY_SWIPES
 	db 37, SPIDER_WEB
-	db 45, AGILITY
+	db 45, STRUGGLE
 	db 53, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -2295,7 +2295,7 @@ AriadosEvosAttacks2:
 	db 25, LEECH_LIFE
 	db 34, FURY_SWIPES
 	db 43, SPIDER_WEB
-	db 53, AGILITY
+	db 53, STRUGGLE
 	db 63, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -2573,7 +2573,7 @@ AipomEvosAttacks2:
 	db 19, FURY_SWIPES
 	db 27, SWIFT
 	db 36, SCREECH
-	db 46, AGILITY
+	db 46, STRUGGLE
 	db 0 ; no more level-up moves
 
 SunkernEvosAttacks2:
@@ -2603,7 +2603,7 @@ YanmaEvosAttacks2:
 	db 1, TACKLE
 	db 1, FORESIGHT
 	db 7, QUICK_ATTACK
-	db 13, DOUBLE_TEAM
+	db 13, STRUGGLE
 	db 19, STRUGGLE
 	db 25, DETECT
 	db 31, SUPERSONIC
@@ -2720,7 +2720,7 @@ GirafarigEvosAttacks2:
 	db 1, STOMP
 	db 7, CONFUSION
 	db 13, STOMP
-	db 20, AGILITY
+	db 20, STRUGGLE
 	db 30, BATON_PASS
 	db 41, PSYBEAM
 	db 54, CRUNCH
@@ -2837,11 +2837,11 @@ ScizorEvosAttacks2:
 	db 6, FOCUS_ENERGY
 	db 12, PURSUIT
 	db 18, FALSE_SWIPE
-	db 24, AGILITY
+	db 24, STRUGGLE
 	db 30, METAL_CLAW
 	db 36, SLASH
 	db 42, STRUGGLE
-	db 48, DOUBLE_TEAM
+	db 48, STRUGGLE
 	db 0 ; no more level-up moves
 
 ShuckleEvosAttacks2:
@@ -2876,7 +2876,7 @@ SneaselEvosAttacks2:
 	db 17, SCREECH
 	db 25, FAINT_ATTACK
 	db 33, FURY_SWIPES
-	db 41, AGILITY
+	db 41, STRUGGLE
 	db 49, SLASH
 	db 57, BEAT_UP
 	db 65, METAL_CLAW
@@ -3014,7 +3014,7 @@ MantineEvosAttacks2:
 	db 10, SUPERSONIC
 	db 18, BUBBLEBEAM
 	db 25, TAKE_DOWN
-	db 32, AGILITY
+	db 32, STRUGGLE
 	db 40, WING_ATTACK
 	db 49, CONFUSE_RAY
 	db 0 ; no more level-up moves
@@ -3025,7 +3025,7 @@ SkarmoryEvosAttacks2:
 	db 1, PECK
 	db 13, STRUGGLE
 	db 19, SWIFT
-	db 25, AGILITY
+	db 25, STRUGGLE
 	db 37, FURY_ATTACK
 	db 49, STEEL_WING
 	db 0 ; no more level-up moves
@@ -3065,7 +3065,7 @@ KingdraEvosAttacks2:
 	db 15, LEER
 	db 22, WATER_GUN
 	db 29, TWISTER
-	db 40, AGILITY
+	db 40, STRUGGLE
 	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -3099,7 +3099,7 @@ Porygon2EvosAttacks2:
 	db 1, CONVERSION2
 	db 1, TACKLE
 	db 1, CONVERSION
-	db 9, AGILITY
+	db 9, STRUGGLE
 	db 12, PSYBEAM
 	db 20, RECOVER
 	db 24, DEFENSE_CURL
@@ -3149,7 +3149,7 @@ HitmontopEvosAttacks2:
 	db 19, QUICK_ATTACK
 	db 25, RAPID_SPIN
 	db 31, COUNTER
-	db 37, AGILITY
+	db 37, STRUGGLE
 	db 43, DETECT
 	db 49, TRIPLE_KICK
 	db 0 ; no more level-up moves
