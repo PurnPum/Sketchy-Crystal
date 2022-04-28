@@ -97,14 +97,14 @@ MoveDescriptions::
 	dw PsychicMDescription
 	dw ExtrasensoryDescription
 	dw PsychoBoostDescription
-	dw AgilityDescription
+	dw FlashCannonDescription
 	dw QuickAttackDescription
 	dw RageDescription
 	dw TeleportDescription
 	dw NightShadeDescription
 	dw MimicDescription
 	dw ScreechDescription
-	dw DoubleTeamDescription
+	dw IceShardDescription
 	dw RecoverDescription
 	dw HardenDescription
 	dw MinimizeDescription
@@ -651,7 +651,7 @@ PsychoBoostDescription:
 	db   "A huge psy-blast."
 	next "Lowers Sp.Att by 1@"
 
-AgilityDescription:
+FlashCannonDescription:
 	db   "Sharply increases"
 	next "the user's SPEED.@"
 
@@ -679,7 +679,7 @@ ScreechDescription:
 	db   "Sharply reduces"
 	next "the foe's DEFENSE.@"
 
-DoubleTeamDescription:
+IceShardDescription:
 	db   "Heightens evasive-"
 	next "ness.@"
 

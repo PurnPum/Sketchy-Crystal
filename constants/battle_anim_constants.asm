@@ -224,7 +224,13 @@ BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_OUTWARDS_CHARGE
 	const ANIM_OBJ_SMOKE_UP
 	const ANIM_OBJ_RED_CHARGE
+	const ANIM_OBJ_RED_ENERGY_BALL_WAVE
+	const ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE
+	const ANIM_OBJ_OUTWARDS_RED_CHARGE
 	const ANIM_OBJ_RED_ENERGY_BALL
+	const ANIM_OBJ_ICE_SHARD_CHARGE
+	const ANIM_OBJ_THROW_ICE
+	const ANIM_OBJ_LOWER_MIST
 NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -500,6 +506,7 @@ NUM_BATTLEANIMFUNCS EQU const_value
 	const BATTLEANIMFRAMESET_B6
 	const BATTLEANIMFRAMESET_B7
 	const BATTLEANIMFRAMESET_B8
+	const BATTLEANIMFRAMESET_B9
 NUM_BATTLEANIMFRAMESETS EQU const_value
 
 ; BattleAnimOAMData indexes (see data/battle_anims/oam.asm)
@@ -720,6 +727,8 @@ NUM_BATTLEANIMFRAMESETS EQU const_value
 	const BATTLEANIMOAMSET_D5
 	const BATTLEANIMOAMSET_D6
 	const BATTLEANIMOAMSET_D7
+	const BATTLEANIMOAMSET_D8
+	const BATTLEANIMOAMSET_D9
 NUM_BATTLEANIMOAMSETS EQU const_value
 
 ; BattleBGEffects indexes (see engine/battle_anims/bg_effects.asm)
@@ -821,6 +830,7 @@ NUM_ANIM_BGS EQU const_value - 1
 	const ANIM_GFX_ANGELS
 	const ANIM_GFX_WAVE
 	const ANIM_GFX_AEROBLAST
+	const ANIM_GFX_HORIZONTAL_ICE
 	const ANIM_GFX_PLAYERHEAD
 	const ANIM_GFX_ENEMYFEET
 NUM_ANIM_GFX EQU const_value - 1
