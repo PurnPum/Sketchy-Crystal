@@ -113,7 +113,7 @@
 	const RECOVER      ; 69
 	const DRILL_RUN    ; 6a
 	const AQUA_JET     ; 6b
-	const SMOKESCREEN  ; 6c
+	const POWER_TRIP   ; 6c
 	const CONFUSE_RAY  ; 6d
 	const WITHDRAW     ; 6e
 	const DEFENSE_CURL ; 6f

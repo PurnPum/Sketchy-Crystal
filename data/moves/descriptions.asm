@@ -108,7 +108,7 @@ MoveDescriptions::
 	dw RecoverDescription
 	dw DrillRunDescription
 	dw AquaJetDescription
-	dw SmokescreenDescription
+	dw PowerTripDescription
 	dw ConfuseRayDescription
 	dw WithdrawDescription
 	dw DefenseCurlDescription
@@ -288,7 +288,7 @@ MegaPunchDescription:
 
 LeafStormDescription:
 	db   "A storm of leaves."
-	next "Lowers Sp.Att by 1@"
+	next "Lowers SpAtt by 1.@"
 
 FirePunchDescription:
 	db   "A fiery punch. May"
@@ -348,7 +348,7 @@ BindDescription:
 
 OverheatDescription:
 	db   "A scorching blast,"
-	next "Lowers Sp.Att by 1@"
+	next "Lowers SpAtt by 1.@"
 
 VineWhipDescription:
 	db   "Whips the foe with"
@@ -375,8 +375,8 @@ RollingKickDescription:
 	next "kick.@"
 
 LungeDescription:
-	db   "Cuts foe's attack"
-	next "by making a lunge.@"
+	db   "A brutal lunge."
+	next "Lowers Att. by 1.@"
 
 HeadbuttDescription:
 	db   "An attack that may"
@@ -649,7 +649,7 @@ ExtrasensoryDescription:
 
 PsychoBoostDescription:
 	db   "A huge psy-blast."
-	next "Lowers Sp.Att by 1@"
+	next "Lowers SpAtt by 1.@"
 
 FlashCannonDescription:
 	db   "Sharply increases"
@@ -695,9 +695,9 @@ AquaJetDescription:
 	db   "A flashing fast"
 	next "lunge. Goes first.@"
 
-SmokescreenDescription:
-	db   "Lowers the foe's"
-	next "accuracy.@"
+PowerTripDescription:
+	db   "An excess of power"
+	next "lowers SpAtt by 1.@"
 
 ConfuseRayDescription:
 	db   "A move that causes"
