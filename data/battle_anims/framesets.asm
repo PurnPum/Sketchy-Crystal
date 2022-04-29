@@ -314,7 +314,7 @@ BattleAnimFrameData:
 	oamrestart
 
 .Frameset_0a:
-	oamframe BATTLEANIMOAMSET_0C,  8
+	oamframe BATTLEANIMOAMSET_69,  8
 	oamend
 
 .Frameset_0b:

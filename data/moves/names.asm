@@ -105,7 +105,7 @@ MoveNames::
 	li "SCREECH"
 	li "ICE SHARD"
 	li "RECOVER"
-	li "HARDEN"
+	li "DRILL RUN"
 	li "MINIMIZE"
 	li "SMOKESCREEN"
 	li "CONFUSE RAY"

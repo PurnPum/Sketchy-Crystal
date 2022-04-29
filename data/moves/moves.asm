@@ -119,7 +119,7 @@ Moves:
 	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        85, 40,   0
 	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,          100, 30,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100, 20,   0
-	move HARDEN,       EFFECT_DEFENSE_UP,          0, NORMAL,       100, 30,   0
+	move DRILL_RUN,    EFFECT_NORMAL_HIT,         80, GROUND,       100, 10,   0
 	move MINIMIZE,     EFFECT_EVASION_UP,          0, NORMAL,       100, 20,   0
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,       100, 20,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,        100, 10,   0
