@@ -68,7 +68,7 @@ CharmanderEvosAttacks2:
 	db 1, SCRATCH
 	db 1, GROWL
 	db 7, EMBER
-	db 13, SMOKESCREEN
+	db 13, STRUGGLE
 	db 19, RAGE
 	db 25, SCARY_FACE
 	db 31, FLAMETHROWER
@@ -84,7 +84,7 @@ CharmeleonEvosAttacks2:
 	db 1, GROWL
 	db 1, EMBER
 	db 7, EMBER
-	db 13, SMOKESCREEN
+	db 13, STRUGGLE
 	db 20, RAGE
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
@@ -98,9 +98,9 @@ CharizardEvosAttacks2:
 	db 1, SCRATCH
 	db 1, GROWL
 	db 1, EMBER
-	db 1, SMOKESCREEN
+	db 1, STRUGGLE
 	db 7, EMBER
-	db 13, SMOKESCREEN
+	db 13, STRUGGLE
 	db 20, RAGE
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
@@ -1477,7 +1477,7 @@ KoffingEvosAttacks2:
 	db 9, SMOG
 	db 17, SELFDESTRUCT
 	db 21, SLUDGE
-	db 25, SMOKESCREEN
+	db 25, STRUGGLE
 	db 33, HAZE
 	db 41, EXPLOSION
 	db 45, DESTINY_BOND
@@ -1492,7 +1492,7 @@ WeezingEvosAttacks2:
 	db 9, SMOG
 	db 17, SELFDESTRUCT
 	db 21, SLUDGE
-	db 25, SMOKESCREEN
+	db 25, STRUGGLE
 	db 33, HAZE
 	db 44, EXPLOSION
 	db 51, DESTINY_BOND
@@ -1572,7 +1572,7 @@ HorseaEvosAttacks2:
 	db EVOLVE_LEVEL, 32, SEADRA
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 8, SMOKESCREEN
+	db 8, STRUGGLE
 	db 15, LEER
 	db 22, WATER_GUN
 	db 29, TWISTER
@@ -1584,10 +1584,10 @@ SeadraEvosAttacks2:
 	db EVOLVE_TRADE, DRAGON_SCALE, KINGDRA
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, SMOKESCREEN
+	db 1, STRUGGLE
 	db 1, LEER
 	db 1, WATER_GUN
-	db 8, SMOKESCREEN
+	db 8, STRUGGLE
 	db 15, LEER
 	db 22, WATER_GUN
 	db 29, TWISTER
@@ -1715,7 +1715,7 @@ MagmarEvosAttacks2:
 	db 7, LEER
 	db 13, SMOG
 	db 19, FIRE_PUNCH
-	db 25, SMOKESCREEN
+	db 25, STRUGGLE
 	db 33, SUNNY_DAY
 	db 41, FLAMETHROWER
 	db 49, CONFUSE_RAY
@@ -2104,7 +2104,7 @@ CyndaquilEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
-	db 6, SMOKESCREEN
+	db 6, STRUGGLE
 	db 12, EMBER
 	db 19, QUICK_ATTACK
 	db 27, FLAME_WHEEL
@@ -2117,8 +2117,8 @@ QuilavaEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
-	db 1, SMOKESCREEN
-	db 6, SMOKESCREEN
+	db 1, STRUGGLE
+	db 6, STRUGGLE
 	db 12, EMBER
 	db 21, QUICK_ATTACK
 	db 31, FLAME_WHEEL
@@ -2130,9 +2130,9 @@ TyphlosionEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
 	db 1, LEER
-	db 1, SMOKESCREEN
+	db 1, STRUGGLE
 	db 1, EMBER
-	db 6, SMOKESCREEN
+	db 6, STRUGGLE
 	db 12, EMBER
 	db 21, QUICK_ATTACK
 	db 31, FLAME_WHEEL
@@ -3058,10 +3058,10 @@ HoundoomEvosAttacks2:
 KingdraEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, BUBBLE
-	db 1, SMOKESCREEN
+	db 1, STRUGGLE
 	db 1, LEER
 	db 1, WATER_GUN
-	db 8, SMOKESCREEN
+	db 8, STRUGGLE
 	db 15, LEER
 	db 22, WATER_GUN
 	db 29, TWISTER
@@ -3189,7 +3189,7 @@ MagbyEvosAttacks2:
 	db 7, LEER
 	db 13, SMOG
 	db 19, FIRE_PUNCH
-	db 25, SMOKESCREEN
+	db 25, STRUGGLE
 	db 31, SUNNY_DAY
 	db 37, FLAMETHROWER
 	db 43, CONFUSE_RAY

@@ -109,7 +109,7 @@ BattleAnimations::
 	dw BattleAnim_Recover
 	dw BattleAnim_DrillRun
 	dw BattleAnim_AquaJet
-	dw BattleAnim_Smokescreen
+	dw BattleAnim_PowerTrip
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Withdraw
 	dw BattleAnim_DefenseCurl
@@ -2955,21 +2955,23 @@ BattleAnim_Conversion2:
 	anim_wait 48
 	anim_ret
 
-BattleAnim_Smokescreen:
-	anim_3gfx ANIM_GFX_HAZE, ANIM_GFX_EGG, ANIM_GFX_SMOKE
-	anim_sound 6, 2, SFX_THROW_BALL
-	anim_obj ANIM_OBJ_SMOKESCREEN, 64, 92, $6c
+BattleAnim_PowerTrip:
+	anim_1gfx ANIM_GFX_HIT
+	anim_bgeffect ANIM_BG_FLAIL, $0, BG_EFFECT_USER, $0
+	anim_sound 0, 0, SFX_PSYBEAM
 	anim_wait 24
-	anim_incobj 1
-	anim_sound 0, 1, SFX_BALL_POOF
-	anim_obj ANIM_OBJ_BALL_POOF, 108, 70, $10
-	anim_wait 8
-.loop
-	anim_sound 0, 1, SFX_MENU
-	anim_obj ANIM_OBJ_SMOKE, 132, 60, $20
-	anim_wait 8
-	anim_loop 5, .loop
-	anim_wait 128
+	anim_bgp $1b
+	anim_wait 24
+	anim_incbgeffect ANIM_BG_FLAIL
+	anim_sound 0, 1, SFX_MOVE_PUZZLE_PIECE
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 120, 72, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 152, 40, $0
+	anim_wait 16
 	anim_ret
 
 BattleAnim_Strength:

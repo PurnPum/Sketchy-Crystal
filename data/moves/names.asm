@@ -107,7 +107,7 @@ MoveNames::
 	li "RECOVER"
 	li "DRILL RUN"
 	li "AQUA JET"
-	li "SMOKESCREEN"
+	li "POWER TRIP"
 	li "CONFUSE RAY"
 	li "WITHDRAW"
 	li "DEFENSE CURL"
