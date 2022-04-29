@@ -106,7 +106,7 @@ MoveNames::
 	li "ICE SHARD"
 	li "RECOVER"
 	li "DRILL RUN"
-	li "MINIMIZE"
+	li "AQUA JET"
 	li "SMOKESCREEN"
 	li "CONFUSE RAY"
 	li "WITHDRAW"

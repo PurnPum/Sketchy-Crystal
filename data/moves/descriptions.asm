@@ -107,7 +107,7 @@ MoveDescriptions::
 	dw IceShardDescription
 	dw RecoverDescription
 	dw DrillRunDescription
-	dw MinimizeDescription
+	dw AquaJetDescription
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
 	dw WithdrawDescription
@@ -691,9 +691,9 @@ DrillRunDescription:
 	db   "A rotating crash"
 	next "likely to crit.@"
 
-MinimizeDescription:
-	db   "Heightens evasive-"
-	next "ness.@"
+AquaJetDescription:
+	db   "A flashing fast"
+	next "lunge. Goes first.@"
 
 SmokescreenDescription:
 	db   "Lowers the foe's"
