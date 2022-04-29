@@ -172,8 +172,8 @@ CaterpieEvosAttacks2:
 MetapodEvosAttacks2:
 	db EVOLVE_LEVEL, 10, BUTTERFREE
 	db 0 ; no more evolutions
-	db 1, HARDEN
-	db 7, HARDEN
+	db 1, STRUGGLE
+	db 7, STRUGGLE
 	db 0 ; no more level-up moves
 
 ButterfreeEvosAttacks2:
@@ -200,8 +200,8 @@ WeedleEvosAttacks2:
 KakunaEvosAttacks2:
 	db EVOLVE_LEVEL, 10, BEEDRILL
 	db 0 ; no more evolutions
-	db 1, HARDEN
-	db 7, HARDEN
+	db 1, STRUGGLE
+	db 7, STRUGGLE
 	db 0 ; no more level-up moves
 
 BeedrillEvosAttacks2:
@@ -981,7 +981,7 @@ GeodudeEvosAttacks2:
 	db 11, ROCK_THROW
 	db 16, MAGNITUDE
 	db 21, SELFDESTRUCT
-	db 26, HARDEN
+	db 26, STRUGGLE
 	db 31, ROLLOUT
 	db 36, EARTHQUAKE
 	db 41, EXPLOSION
@@ -997,7 +997,7 @@ GravelerEvosAttacks2:
 	db 11, ROCK_THROW
 	db 16, MAGNITUDE
 	db 21, SELFDESTRUCT
-	db 27, HARDEN
+	db 27, STRUGGLE
 	db 34, ROLLOUT
 	db 41, EARTHQUAKE
 	db 48, EXPLOSION
@@ -1013,7 +1013,7 @@ GolemEvosAttacks2:
 	db 11, ROCK_THROW
 	db 16, MAGNITUDE
 	db 21, SELFDESTRUCT
-	db 27, HARDEN
+	db 27, STRUGGLE
 	db 34, ROLLOUT
 	db 41, EARTHQUAKE
 	db 48, EXPLOSION
@@ -1180,7 +1180,7 @@ GrimerEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, POISON_GAS
 	db 1, POUND
-	db 5, HARDEN
+	db 5, STRUGGLE
 	db 10, DISABLE
 	db 16, SLUDGE
 	db 23, MINIMIZE
@@ -1194,8 +1194,8 @@ MukEvosAttacks2:
 	; moves are not sorted by level
 	db 1, POISON_GAS
 	db 1, POUND
-	db 1, HARDEN
-	db 33, HARDEN
+	db 1, STRUGGLE
+	db 33, STRUGGLE
 	db 37, DISABLE
 	db 45, SLUDGE
 	db 23, MINIMIZE
@@ -1277,7 +1277,7 @@ OnixEvosAttacks2:
 	db 1, SCREECH
 	db 10, BIND
 	db 14, ROCK_THROW
-	db 23, HARDEN
+	db 23, STRUGGLE
 	db 27, RAGE
 	db 36, SANDSTORM
 	db 40, STRUGGLE
@@ -1320,7 +1320,7 @@ KrabbyEvosAttacks2:
 	db 1, BUBBLE
 	db 5, LEER
 	db 12, VICEGRIP
-	db 16, HARDEN
+	db 16, STRUGGLE
 	db 23, STOMP
 	db 27, STRUGGLE
 	db 34, PROTECT
@@ -1334,7 +1334,7 @@ KinglerEvosAttacks2:
 	db 1, VICEGRIP
 	db 5, LEER
 	db 12, VICEGRIP
-	db 16, HARDEN
+	db 16, STRUGGLE
 	db 23, STOMP
 	db 27, STRUGGLE
 	db 38, PROTECT
@@ -1627,7 +1627,7 @@ StaryuEvosAttacks2:
 	db EVOLVE_ITEM, WATER_STONE, STARMIE
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, HARDEN
+	db 1, STRUGGLE
 	db 7, WATER_GUN
 	db 13, RAPID_SPIN
 	db 19, RECOVER
@@ -1728,7 +1728,7 @@ PinsirEvosAttacks2:
 	db 7, FOCUS_ENERGY
 	db 13, BIND
 	db 19, SEISMIC_TOSS
-	db 25, HARDEN
+	db 25, STRUGGLE
 	db 31, STRUGGLE
 	db 37, SUBMISSION
 	db 43, STRUGGLE
@@ -1892,7 +1892,7 @@ KabutoEvosAttacks2:
 	db EVOLVE_LEVEL, 40, KABUTOPS
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 1, HARDEN
+	db 1, STRUGGLE
 	db 10, ABSORB
 	db 19, LEER
 	db 28, STRUGGLE
@@ -1904,7 +1904,7 @@ KabutoEvosAttacks2:
 KabutopsEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, SCRATCH
-	db 1, HARDEN
+	db 1, STRUGGLE
 	db 1, ABSORB
 	db 10, ABSORB
 	db 19, LEER
@@ -2769,7 +2769,7 @@ GligarEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, POISON_STING
 	db 6, STRUGGLE
-	db 13, HARDEN
+	db 13, STRUGGLE
 	db 20, QUICK_ATTACK
 	db 28, FAINT_ATTACK
 	db 36, SLASH
@@ -2783,7 +2783,7 @@ SteelixEvosAttacks2:
 	db 1, SCREECH
 	db 10, BIND
 	db 14, ROCK_THROW
-	db 23, HARDEN
+	db 23, STRUGGLE
 	db 27, RAGE
 	db 36, SANDSTORM
 	db 40, STRUGGLE
@@ -2822,7 +2822,7 @@ QwilfishEvosAttacks2:
 	db 1, SPIKES
 	db 1, TACKLE
 	db 1, POISON_STING
-	db 10, HARDEN
+	db 10, STRUGGLE
 	db 10, MINIMIZE
 	db 19, WATER_GUN
 	db 28, PIN_MISSILE
@@ -2917,7 +2917,7 @@ SlugmaEvosAttacks2:
 	db 1, SMOG
 	db 8, EMBER
 	db 15, ROCK_THROW
-	db 22, HARDEN
+	db 22, STRUGGLE
 	db 29, AMNESIA
 	db 36, FLAMETHROWER
 	db 43, ROCK_SLIDE
@@ -2931,7 +2931,7 @@ MagcargoEvosAttacks2:
 	db 1, ROCK_THROW
 	db 8, EMBER
 	db 15, ROCK_THROW
-	db 22, HARDEN
+	db 22, STRUGGLE
 	db 29, AMNESIA
 	db 36, FLAMETHROWER
 	db 48, ROCK_SLIDE
@@ -2967,7 +2967,7 @@ PiloswineEvosAttacks2:
 CorsolaEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 7, HARDEN
+	db 7, STRUGGLE
 	db 13, BUBBLE
 	db 19, RECOVER
 	db 25, BUBBLEBEAM

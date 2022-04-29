@@ -314,7 +314,7 @@ BattleAnimFrameData:
 	dorestart
 
 .Frameset_0a:
-	frame BATTLEANIMOAMSET_0C,  8
+	frame BATTLEANIMOAMSET_69,  8
 	endanim
 
 .Frameset_0b:

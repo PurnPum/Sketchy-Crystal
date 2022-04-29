@@ -106,7 +106,7 @@ MoveDescriptions::
 	dw ScreechDescription
 	dw IceShardDescription
 	dw RecoverDescription
-	dw HardenDescription
+	dw DrillRunDescription
 	dw MinimizeDescription
 	dw SmokescreenDescription
 	dw ConfuseRayDescription
@@ -687,9 +687,9 @@ RecoverDescription:
 	db   "Restores HP by 1/2"
 	next "the max HP.@"
 
-HardenDescription:
-	db   "Raises the user's"
-	next "DEFENSE.@"
+DrillRunDescription:
+	db   "A rotating crash"
+	next "likely to crit.@"
 
 MinimizeDescription:
 	db   "Heightens evasive-"

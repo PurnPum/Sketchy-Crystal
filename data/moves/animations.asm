@@ -107,7 +107,7 @@ BattleAnimations::
 	dw BattleAnim_Screech
 	dw BattleAnim_IceShard
 	dw BattleAnim_Recover
-	dw BattleAnim_Harden
+	dw BattleAnim_DrillRun
 	dw BattleAnim_Minimize
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
@@ -2838,12 +2838,32 @@ BattleAnim_LeechLife:
 	anim_wait 48
 	anim_ret
 
-BattleAnim_Harden:
-	anim_1gfx ANIM_GFX_REFLECT
-	anim_obp0 $0
-	anim_call BattleAnim_TargetObj_1Row
-	anim_call BattleAnimSub_Metallic
-	anim_call BattleAnim_ShowMon_0
+BattleAnim_DrillRun:
+	anim_3gfx ANIM_GFX_HIT, ANIM_GFX_HORN, ANIM_GFX_ROCKS
+	anim_obj ANIM_OBJ_HORN, 72, 80, $1
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_wait 8
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 16
+.loop
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 124, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 48, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 140, 56, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_PECK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 132, 64, $0
+	anim_sound 0, 0, SFX_RAZOR_WIND
+	anim_obj ANIM_OBJ_DEBRIS, 146, 64, $0
+	anim_wait 4
+	anim_loop 3, .loop
+	anim_wait 16
 	anim_ret
 
 BattleAnim_Psywave:
