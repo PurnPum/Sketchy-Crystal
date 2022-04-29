@@ -108,7 +108,7 @@ BattleAnimations::
 	dw BattleAnim_IceShard
 	dw BattleAnim_Recover
 	dw BattleAnim_DrillRun
-	dw BattleAnim_Minimize
+	dw BattleAnim_AquaJet
 	dw BattleAnim_Smokescreen
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_Withdraw
@@ -2730,17 +2730,26 @@ BattleAnim_Substitute:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Minimize:
-	anim_sound 0, 0, SFX_SURF
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_minimize
-	anim_bgeffect ANIM_BG_WAVE_DEFORM_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 48
-	anim_updateactorpic
-	anim_incbgeffect ANIM_BG_WAVE_DEFORM_MON
-	anim_wait 48
-	anim_call BattleAnim_ShowMon_0
+BattleAnim_AquaJet:
+	anim_3gfx ANIM_GFX_SPEED, ANIM_GFX_HIT, ANIM_GFX_WATER
+	anim_sound 0, 1, SFX_HYDRO_PUMP
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 40, 110, $0
+	anim_obj ANIM_OBJ_HYDRO_PUMP, 56, 110, $0
+	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+	anim_sound 0, 0, SFX_MENU
+	anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
+	anim_obj ANIM_OBJ_SPEED_LINE, 24, 88, $2
+	anim_obj ANIM_OBJ_SPEED_LINE, 32, 88, $1
+	anim_obj ANIM_OBJ_SPEED_LINE, 40, 88, $0
+	anim_obj ANIM_OBJ_SPEED_LINE, 48, 88, $80
+	anim_obj ANIM_OBJ_SPEED_LINE, 56, 88, $81
+	anim_obj ANIM_OBJ_SPEED_LINE, 64, 88, $82
+	anim_wait 12
+	anim_sound 0, 1, SFX_COMET_PUNCH
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_SHOW_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
 	anim_ret
 
 BattleAnim_SkyAttack:

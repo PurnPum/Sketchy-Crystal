@@ -119,7 +119,7 @@ Moves:
 	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,          100, 30,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100, 20,   0
 	move DRILL_RUN,    EFFECT_NORMAL_HIT,         80, GROUND,       100, 10,   0
-	move MINIMIZE,     EFFECT_EVASION_UP,          0, NORMAL,       100, 20,   0
+	move AQUA_JET,     EFFECT_PRIORITY_HIT,       40, WATER,        100, 30,   0
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,       100, 20,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,        100, 10,   0
 	move WITHDRAW,     EFFECT_DEFENSE_UP,          0, WATER,        100, 40,   0

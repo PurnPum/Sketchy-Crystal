@@ -112,7 +112,7 @@
 	const ICE_SHARD    ; 68
 	const RECOVER      ; 69
 	const DRILL_RUN    ; 6a
-	const MINIMIZE     ; 6b
+	const AQUA_JET     ; 6b
 	const SMOKESCREEN  ; 6c
 	const CONFUSE_RAY  ; 6d
 	const WITHDRAW     ; 6e

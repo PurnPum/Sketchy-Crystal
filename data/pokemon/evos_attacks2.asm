@@ -466,7 +466,7 @@ ClefairyEvosAttacks2:
 	db 4, ENCORE
 	db 8, STRUGGLE
 	db 13, DOUBLESLAP
-	db 19, MINIMIZE
+	db 19, STRUGGLE
 	db 26, DEFENSE_CURL
 	db 34, METRONOME
 	db 43, MOONLIGHT
@@ -1183,7 +1183,7 @@ GrimerEvosAttacks2:
 	db 5, STRUGGLE
 	db 10, DISABLE
 	db 16, SLUDGE
-	db 23, MINIMIZE
+	db 23, STRUGGLE
 	db 31, SCREECH
 	db 40, ACID_ARMOR
 	db 50, SLUDGE_BOMB
@@ -1198,7 +1198,7 @@ MukEvosAttacks2:
 	db 33, STRUGGLE
 	db 37, DISABLE
 	db 45, SLUDGE
-	db 23, MINIMIZE
+	db 23, STRUGGLE
 	db 31, SCREECH
 	db 45, ACID_ARMOR
 	db 60, SLUDGE_BOMB
@@ -1533,7 +1533,7 @@ ChanseyEvosAttacks2:
 	db 9, TAIL_WHIP
 	db 13, SOFTBOILED
 	db 17, DOUBLESLAP
-	db 23, MINIMIZE
+	db 23, STRUGGLE
 	db 29, STRUGGLE
 	db 35, EGG_BOMB
 	db 41, DEFENSE_CURL
@@ -1633,7 +1633,7 @@ StaryuEvosAttacks2:
 	db 19, RECOVER
 	db 25, SWIFT
 	db 31, BUBBLEBEAM
-	db 37, MINIMIZE
+	db 37, STRUGGLE
 	db 43, LIGHT_SCREEN
 	db 50, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -2823,7 +2823,7 @@ QwilfishEvosAttacks2:
 	db 1, TACKLE
 	db 1, POISON_STING
 	db 10, STRUGGLE
-	db 10, MINIMIZE
+	db 10, STRUGGLE
 	db 19, WATER_GUN
 	db 28, PIN_MISSILE
 	db 37, TAKE_DOWN
@@ -3216,7 +3216,7 @@ BlisseyEvosAttacks2:
 	db 7, TAIL_WHIP
 	db 10, SOFTBOILED
 	db 13, DOUBLESLAP
-	db 18, MINIMIZE
+	db 18, STRUGGLE
 	db 23, STRUGGLE
 	db 28, EGG_BOMB
 	db 33, DEFENSE_CURL
