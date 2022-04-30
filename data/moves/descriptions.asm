@@ -111,7 +111,7 @@ MoveDescriptions::
 	dw PowerTripDescription
 	dw ConfuseRayDescription
 	dw MagnetBombDescription
-	dw DefenseCurlDescription
+	dw BulletPunchDescription
 	dw BarrierDescription
 	dw LightScreenDescription
 	dw HazeDescription
@@ -707,9 +707,9 @@ MagnetBombDescription:
 	db   "These homing bombs"
 	next "can bypass protect@"
 
-DefenseCurlDescription:
-	db   "Heightens the"
-	next "user's DEFENSE.@"
+BulletPunchDescription:
+	db   "Will almost always"
+	next "attack first.@"
 
 BarrierDescription:
 	db   "Sharply increases"
