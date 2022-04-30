@@ -110,7 +110,7 @@ MoveDescriptions::
 	dw AquaJetDescription
 	dw PowerTripDescription
 	dw ConfuseRayDescription
-	dw WithdrawDescription
+	dw MagnetBombDescription
 	dw DefenseCurlDescription
 	dw BarrierDescription
 	dw LightScreenDescription
@@ -703,9 +703,9 @@ ConfuseRayDescription:
 	db   "A move that causes"
 	next "confusion.@"
 
-WithdrawDescription:
-	db   "Heightens the"
-	next "user's DEFENSE.@"
+MagnetBombDescription:
+	db   "These homing bombs"
+	next "can bypass protect@"
 
 DefenseCurlDescription:
 	db   "Heightens the"

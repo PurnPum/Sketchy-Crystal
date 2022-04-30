@@ -1654,7 +1654,11 @@ BattleCommand_CheckHit:
 	ret
 
 .Protect:
-; Return nz if the opponent is protected.
+; Return nz if the opponent is protected, unless we use a move that bypasses protect like Swift.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BYPASS_PROTECT
+	ret z
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_PROTECT, a

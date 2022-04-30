@@ -116,7 +116,7 @@ SquirtleEvosAttacks2:
 	db 1, TACKLE
 	db 4, TAIL_WHIP
 	db 7, BUBBLE
-	db 10, WITHDRAW
+	db 10, STRUGGLE
 	db 13, WATER_GUN
 	db 18, BITE
 	db 23, RAPID_SPIN
@@ -134,7 +134,7 @@ WartortleEvosAttacks2:
 	db 1, BUBBLE
 	db 4, TAIL_WHIP
 	db 7, BUBBLE
-	db 10, WITHDRAW
+	db 10, STRUGGLE
 	db 13, WATER_GUN
 	db 19, BITE
 	db 25, RAPID_SPIN
@@ -149,10 +149,10 @@ BlastoiseEvosAttacks2:
 	db 1, TACKLE
 	db 1, TAIL_WHIP
 	db 1, BUBBLE
-	db 1, WITHDRAW
+	db 1, STRUGGLE
 	db 4, TAIL_WHIP
 	db 7, BUBBLE
-	db 10, WITHDRAW
+	db 10, STRUGGLE
 	db 13, WATER_GUN
 	db 19, BITE
 	db 25, RAPID_SPIN
@@ -1076,7 +1076,7 @@ SlowbroEvosAttacks2:
 	db 20, CONFUSION
 	db 29, DISABLE
 	db 34, HEADBUTT
-	db 37, WITHDRAW
+	db 37, STRUGGLE
 	db 46, AMNESIA
 	db 54, PSYCHIC_M
 	db 0 ; no more level-up moves
@@ -1208,7 +1208,7 @@ ShellderEvosAttacks2:
 	db EVOLVE_ITEM, WATER_STONE, CLOYSTER
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 1, WITHDRAW
+	db 1, STRUGGLE
 	db 9, SUPERSONIC
 	db 17, AURORA_BEAM
 	db 25, PROTECT
@@ -1219,7 +1219,7 @@ ShellderEvosAttacks2:
 
 CloysterEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, WITHDRAW
+	db 1, STRUGGLE
 	db 1, SUPERSONIC
 	db 1, AURORA_BEAM
 	db 1, PROTECT
@@ -1865,7 +1865,7 @@ OmanyteEvosAttacks2:
 	db EVOLVE_LEVEL, 40, OMASTAR
 	db 0 ; no more evolutions
 	db 1, CONSTRICT
-	db 1, WITHDRAW
+	db 1, STRUGGLE
 	db 13, BITE
 	db 19, WATER_GUN
 	db 31, LEER
@@ -1877,7 +1877,7 @@ OmanyteEvosAttacks2:
 OmastarEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, CONSTRICT
-	db 1, WITHDRAW
+	db 1, STRUGGLE
 	db 1, BITE
 	db 13, BITE
 	db 19, WATER_GUN
@@ -2847,7 +2847,7 @@ ScizorEvosAttacks2:
 ShuckleEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, CONSTRICT
-	db 1, WITHDRAW
+	db 1, STRUGGLE
 	db 9, WRAP
 	db 14, ENCORE
 	db 23, SAFEGUARD

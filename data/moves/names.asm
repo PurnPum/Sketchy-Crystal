@@ -109,7 +109,7 @@ MoveNames::
 	li "AQUA JET"
 	li "POWER TRIP"
 	li "CONFUSE RAY"
-	li "WITHDRAW"
+	li "MAGNET BOMB"
 	li "DEFENSE CURL"
 	li "BARRIER"
 	li "LIGHT SCREEN"

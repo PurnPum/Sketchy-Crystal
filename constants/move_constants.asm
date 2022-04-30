@@ -115,7 +115,7 @@
 	const AQUA_JET     ; 6b
 	const POWER_TRIP   ; 6c
 	const CONFUSE_RAY  ; 6d
-	const WITHDRAW     ; 6e
+	const MAGNET_BOMB  ; 6e
 	const DEFENSE_CURL ; 6f
 	const BARRIER      ; 70
 	const LIGHT_SCREEN ; 71
