@@ -2,6 +2,7 @@ MoveEffectsPointers:
 ; entries correspond to EFFECT_* constants
 	table_width 2, MoveEffectsPointers
 	dw NormalHit
+	dw BypassProtect
 	dw DoSleep
 	dw PoisonHit
 	dw LeechHit

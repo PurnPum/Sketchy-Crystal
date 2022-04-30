@@ -111,7 +111,7 @@ BattleAnimations::
 	dw BattleAnim_AquaJet
 	dw BattleAnim_PowerTrip
 	dw BattleAnim_ConfuseRay
-	dw BattleAnim_Withdraw
+	dw BattleAnim_MagnetBomb
 	dw BattleAnim_DefenseCurl
 	dw BattleAnim_Barrier
 	dw BattleAnim_LightScreen
@@ -2803,20 +2803,39 @@ BattleAnim_TriAttack:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Withdraw:
-	anim_1gfx ANIM_GFX_REFLECT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_bgeffect ANIM_BG_WITHDRAW, $0, BG_EFFECT_USER, $50
-	anim_wait 48
+BattleAnim_MagnetBomb:
+	anim_3gfx ANIM_GFX_REFLECT, ANIM_GFX_CHARGE, ANIM_GFX_EXPLOSION
 	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_WITHDRAW, 48, 88, $0
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
+	anim_wait 8
+	anim_obj ANIM_OBJ_HARDEN, 48, 84, $0
+	anim_wait 24
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 144, 44, $8
+	anim_wait 16
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 150, 44, $18
+	anim_wait 16
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 124, 48, $28
+	anim_wait 16
+	anim_sound 0, 0, SFX_SHINE
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 134, 48, $38
+	anim_wait 22
+	anim_obj ANIM_OBJ_EXPLOSION1, 146, 48, $0
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_wait 16
+	anim_obj ANIM_OBJ_EXPLOSION1, 148, 48, $0
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_wait 16
+	anim_obj ANIM_OBJ_EXPLOSION1, 124, 52, $0
+	anim_sound 0, 1, SFX_EGG_BOMB
+	anim_wait 16
+	anim_obj ANIM_OBJ_EXPLOSION1, 136, 52, $0
+	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_wait 64
-	anim_incobj 2
-	anim_wait 1
-	anim_incbgeffect ANIM_BG_WITHDRAW
-	anim_call BattleAnim_ShowMon_0
 	anim_ret
-
+	
 BattleAnim_Psybeam:
 	anim_1gfx ANIM_GFX_PSYCHIC
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
