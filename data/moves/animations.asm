@@ -112,7 +112,7 @@ BattleAnimations::
 	dw BattleAnim_PowerTrip
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_MagnetBomb
-	dw BattleAnim_DefenseCurl
+	dw BattleAnim_BulletPunch
 	dw BattleAnim_Barrier
 	dw BattleAnim_LightScreen
 	dw BattleAnim_Haze
@@ -3079,17 +3079,41 @@ BattleAnim_Sharpen:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_DefenseCurl:
-	anim_1gfx ANIM_GFX_SHAPES
-	anim_obp0 $e4
-	anim_call BattleAnim_TargetObj_1Row
-	anim_sound 0, 0, SFX_SHARPEN
-	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING, $0, BG_EFFECT_USER, $40
-	anim_obj ANIM_OBJ_DEFENSE_CURL, 48, 88, $0
-	anim_wait 96
-	anim_incobj 2
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT_REPEATING
-	anim_call BattleAnim_ShowMon_0
+BattleAnim_BulletPunch:
+	anim_3gfx ANIM_GFX_CHARGE, ANIM_GFX_REFLECT, ANIM_GFX_HIT
+	anim_sound 0, 0, SFX_SHINE
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
+	anim_wait 8
+	anim_obj ANIM_OBJ_HARDEN, 48, 84, $0
+	anim_wait 24
+	anim_obj ANIM_OBJ_PUNCH, 136, 56, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $43
+	anim_wait 8
+	anim_obj ANIM_OBJ_PUNCH, 142, 72, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 142, 72, $43
+	anim_wait 8
+	anim_obj ANIM_OBJ_PUNCH, 130, 50, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 130, 50, $43
+	anim_wait 8
+	anim_obj ANIM_OBJ_PUNCH, 124, 44, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 124, 44, $43
+	anim_wait 8
+	anim_obj ANIM_OBJ_PUNCH, 148, 38, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 148, 38, $43
+	anim_wait 8
+	anim_obj ANIM_OBJ_PUNCH, 118, 52, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 118, 52, $43
+	anim_wait 8
+	anim_obj ANIM_OBJ_PUNCH, 120, 28, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 120, 28, $43
+	anim_wait 32
 	anim_ret
 
 BattleAnim_SeismicToss:

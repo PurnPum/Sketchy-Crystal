@@ -110,7 +110,7 @@ MoveNames::
 	li "POWER TRIP"
 	li "CONFUSE RAY"
 	li "MAGNET BOMB"
-	li "DEFENSE CURL"
+	li "BULLET PUNCH"
 	li "BARRIER"
 	li "LIGHT SCREEN"
 	li "HAZE"
