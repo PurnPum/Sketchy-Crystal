@@ -187,6 +187,9 @@ BattleAnimFrameData:
 	dw .Frameset_b7 ; BATTLEANIMFRAMESET_B7
 	dw .Frameset_b8 ; BATTLEANIMFRAMESET_B8
 	dw .Frameset_b9 ; BATTLEANIMFRAMESET_B9
+	dw .Frameset_ba ; BATTLEANIMFRAMESET_BA
+	dw .Frameset_bb ; BATTLEANIMFRAMESET_BB
+	dw .Frameset_bc ; BATTLEANIMFRAMESET_BC
 	assert_table_length NUM_BATTLEANIMFRAMESETS
 
 .Frameset_00:
@@ -314,7 +317,7 @@ BattleAnimFrameData:
 	oamrestart
 
 .Frameset_0a:
-	oamframe BATTLEANIMOAMSET_69,  8
+	oamframe BATTLEANIMOAMSET_0C,  8
 	oamend
 
 .Frameset_0b:
@@ -412,7 +415,11 @@ BattleAnimFrameData:
 	oamend
 
 .Frameset_57:
-	oamframe BATTLEANIMOAMSET_D9,  16
+	oamframe BATTLEANIMOAMSET_69, 32
+	oamframe BATTLEANIMOAMSET_6A,  4
+	oamframe BATTLEANIMOAMSET_6B,  4
+	oamframe BATTLEANIMOAMSET_6D,  4
+	oamframe BATTLEANIMOAMSET_6C,  4
 	oamend
 
 .Frameset_58:
@@ -480,7 +487,7 @@ BattleAnimFrameData:
 	oamframe BATTLEANIMOAMSET_1B,  8
 	oamend
 
-.Frameset_25:
+.Frameset_25: ;These 2 framesets were originally used by sing, that move is gone so I re-purpose them
 	oamframe BATTLEANIMOAMSET_23,  8
 	oamend
 
@@ -493,7 +500,8 @@ BattleAnimFrameData:
 	oamend
 
 .Frameset_28:
-	oamframe BATTLEANIMOAMSET_BE,  8
+	oamframe BATTLEANIMOAMSET_26,  8
+	oamframe BATTLEANIMOAMSET_27,  8
 	oamend
 
 .Frameset_29:
@@ -1267,4 +1275,16 @@ BattleAnimFrameData:
 
 .Frameset_b9:
 	oamframe BATTLEANIMOAMSET_D8,  8
+	oamend
+
+.Frameset_ba:
+	oamframe BATTLEANIMOAMSET_BE,  8
+	oamend
+
+.Frameset_bb:
+	oamframe BATTLEANIMOAMSET_D9,  16
+	oamend
+	
+.Frameset_bc:
+	oamframe BATTLEANIMOAMSET_69,  8
 	oamend
