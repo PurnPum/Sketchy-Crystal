@@ -1061,7 +1061,7 @@ SlowpokeEvosAttacks2:
 	db 20, CONFUSION
 	db 29, DISABLE
 	db 34, HEADBUTT
-	db 43, AMNESIA
+	db 43, STRUGGLE
 	db 48, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -1077,7 +1077,7 @@ SlowbroEvosAttacks2:
 	db 29, DISABLE
 	db 34, HEADBUTT
 	db 37, STRUGGLE
-	db 46, AMNESIA
+	db 46, STRUGGLE
 	db 54, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -1930,7 +1930,7 @@ AerodactylEvosAttacks2:
 SnorlaxEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, TACKLE
-	db 8, AMNESIA
+	db 8, STRUGGLE
 	db 15, STRUGGLE
 	db 22, BELLY_DRUM
 	db 29, HEADBUTT
@@ -2036,7 +2036,7 @@ MewtwoEvosAttacks2:
 	db 44, FUTURE_SIGHT
 	db 55, MIST
 	db 66, PSYCHIC_M
-	db 77, AMNESIA
+	db 77, STRUGGLE
 	db 88, RECOVER
 	db 99, SAFEGUARD
 	db 0 ; no more level-up moves
@@ -2193,7 +2193,7 @@ SentretEvosAttacks2:
 	db 17, FURY_SWIPES
 	db 25, STRUGGLE
 	db 33, REST
-	db 41, AMNESIA
+	db 41, STRUGGLE
 	db 0 ; no more level-up moves
 
 FurretEvosAttacks2:
@@ -2206,7 +2206,7 @@ FurretEvosAttacks2:
 	db 18, FURY_SWIPES
 	db 28, STRUGGLE
 	db 38, REST
-	db 48, AMNESIA
+	db 48, STRUGGLE
 	db 0 ; no more level-up moves
 
 HoothootEvosAttacks2:
@@ -2617,7 +2617,7 @@ WooperEvosAttacks2:
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
 	db 11, STRUGGLE
-	db 21, AMNESIA
+	db 21, STRUGGLE
 	db 31, EARTHQUAKE
 	db 41, RAIN_DANCE
 	db 51, MIST
@@ -2629,7 +2629,7 @@ QuagsireEvosAttacks2:
 	db 1, WATER_GUN
 	db 1, TAIL_WHIP
 	db 11, STRUGGLE
-	db 23, AMNESIA
+	db 23, STRUGGLE
 	db 35, EARTHQUAKE
 	db 47, RAIN_DANCE
 	db 59, MIST
@@ -2918,7 +2918,7 @@ SlugmaEvosAttacks2:
 	db 8, EMBER
 	db 15, ROCK_THROW
 	db 22, STRUGGLE
-	db 29, AMNESIA
+	db 29, STRUGGLE
 	db 36, FLAMETHROWER
 	db 43, ROCK_SLIDE
 	db 50, BODY_SLAM
@@ -2932,7 +2932,7 @@ MagcargoEvosAttacks2:
 	db 8, EMBER
 	db 15, ROCK_THROW
 	db 22, STRUGGLE
-	db 29, AMNESIA
+	db 29, STRUGGLE
 	db 36, FLAMETHROWER
 	db 48, ROCK_SLIDE
 	db 60, BODY_SLAM
@@ -2947,7 +2947,7 @@ SwinubEvosAttacks2:
 	db 28, TAKE_DOWN
 	db 37, MIST
 	db 46, BLIZZARD
-	db 55, AMNESIA
+	db 55, STRUGGLE
 	db 0 ; no more level-up moves
 
 PiloswineEvosAttacks2:
@@ -2961,7 +2961,7 @@ PiloswineEvosAttacks2:
 	db 33, FURY_ATTACK
 	db 42, MIST
 	db 56, BLIZZARD
-	db 70, AMNESIA
+	db 70, STRUGGLE
 	db 0 ; no more level-up moves
 
 CorsolaEvosAttacks2:

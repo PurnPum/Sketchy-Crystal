@@ -132,7 +132,7 @@ MoveNames::
 	li "SKULL BASH"
 	li "SPIKE CANNON"
 	li "CONSTRICT"
-	li "AMNESIA"
+	li "ROCK WRECKER"
 	li "KINESIS"
 	li "SOFTBOILED"
 	li "HI JUMP KICK"

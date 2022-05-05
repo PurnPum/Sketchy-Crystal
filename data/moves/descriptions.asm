@@ -133,7 +133,7 @@ MoveDescriptions::
 	dw SkullBashDescription
 	dw SpikeCannonDescription
 	dw ConstrictDescription
-	dw AmnesiaDescription
+	dw RockWreckerDescription
 	dw KinesisDescription
 	dw SoftboiledDescription
 	dw HiJumpKickDescription
@@ -795,9 +795,9 @@ ConstrictDescription:
 	db   "An attack that may"
 	next "lower SPEED.@"
 
-AmnesiaDescription:
-	db   "Sharply raises the"
-	next "user's SPCL.DEF.@"
+RockWreckerDescription:
+	db   "Throws a huge rock"
+	next "Lowers Att. by 1.@"
 
 KinesisDescription:
 	db   "Reduces the foe's"

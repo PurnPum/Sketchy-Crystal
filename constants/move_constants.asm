@@ -138,7 +138,7 @@
 	const SKULL_BASH   ; 82
 	const SPIKE_CANNON ; 83
 	const CONSTRICT    ; 84
-	const AMNESIA      ; 85
+	const ROCK_WRECKER ; 85
 	const KINESIS      ; 86
 	const SOFTBOILED   ; 87
 	const HI_JUMP_KICK ; 88
