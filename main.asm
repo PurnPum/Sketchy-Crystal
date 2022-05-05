@@ -420,15 +420,11 @@ INCLUDE "data/moves/animations.asm"
 
 SECTION "Move Animations", ROMX
 
-INCLUDE "engine/battle_anims/core.asm"
+INCLUDE "engine/events/bug_contest/display_stats.asm"
 INCLUDE "engine/battle_anims/anim_commands.asm"
+INCLUDE "engine/battle_anims/core.asm"
 INCLUDE "engine/battle_anims/functions.asm"
 INCLUDE "engine/battle_anims/helpers.asm"
-
-
-SECTION "Move Animations 2", ROMX
-
-INCLUDE "engine/events/bug_contest/display_stats.asm"
 
 
 SECTION "Pic Animations 1", ROMX

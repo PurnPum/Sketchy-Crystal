@@ -34,7 +34,6 @@ MoveGrammar:
 ; 2: originally "[mon]の¯[move]¯した!" ("[mon]¯did¯[move]!")
 	db MIMIC
 	db BARRAGE
-	db TRANSFORM
 	db STRUGGLE
 	db SCARY_FACE
 	db 0 ; end set

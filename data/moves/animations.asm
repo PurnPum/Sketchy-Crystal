@@ -145,7 +145,7 @@ BattleAnimations::
 	dw BattleAnim_LeechLife
 	dw BattleAnim_Accelerock
 	dw BattleAnim_SkyAttack
-	dw BattleAnim_Transform
+	dw BattleAnim_MudShot
 	dw BattleAnim_Bubble
 	dw BattleAnim_DizzyPunch
 	dw BattleAnim_Spore
@@ -2496,17 +2496,15 @@ BattleAnim_SpikeCannon:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Transform:
+BattleAnim_MudShot:
 	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_transform
-	anim_sound 0, 0, SFX_PSYBEAM
-	anim_bgeffect ANIM_BG_WAVE_DEFORM_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 48
-	anim_updateactorpic
-	anim_incbgeffect ANIM_BG_WAVE_DEFORM_MON
-	anim_wait 48
-	anim_call BattleAnim_ShowMon_0
+	anim_obp0 $fc
+.loop
+	anim_sound 6, 2, SFX_MENU
+	anim_obj ANIM_OBJ_SAND, 64, 92, $4
+	anim_wait 4
+	anim_loop 8, .loop
+	anim_wait 32
 	anim_ret
 
 BattleAnim_PetalDance:
