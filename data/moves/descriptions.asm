@@ -112,7 +112,7 @@ MoveDescriptions::
 	dw ConfuseRayDescription
 	dw MagnetBombDescription
 	dw BulletPunchDescription
-	dw BarrierDescription
+	dw PowerGemDescription
 	dw LightScreenDescription
 	dw HazeDescription
 	dw ReflectDescription
@@ -711,9 +711,9 @@ BulletPunchDescription:
 	db   "Will almost always"
 	next "attack first.@"
 
-BarrierDescription:
-	db   "Sharply increases"
-	next "user's DEFENSE.@"
+PowerGemDescription:
+	db   "A ray of light"
+	next "from a gemstone.@"
 
 LightScreenDescription:
 	db   "Ups SPCL.DEF with"

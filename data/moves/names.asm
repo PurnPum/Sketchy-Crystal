@@ -111,7 +111,7 @@ MoveNames::
 	li "CONFUSE RAY"
 	li "MAGNET BOMB"
 	li "BULLET PUNCH"
-	li "BARRIER"
+	li "POWER GEM"
 	li "LIGHT SCREEN"
 	li "HAZE"
 	li "REFLECT"
