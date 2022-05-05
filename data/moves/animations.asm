@@ -135,7 +135,7 @@ BattleAnimations::
 	dw BattleAnim_SpikeCannon
 	dw BattleAnim_Constrict
 	dw BattleAnim_RockWrecker
-	dw BattleAnim_Kinesis
+	dw BattleAnim_MeteorMash
 	dw BattleAnim_Softboiled
 	dw BattleAnim_HiJumpKick
 	dw BattleAnim_Glare
@@ -2649,19 +2649,31 @@ BattleAnim_SkullBash:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_Kinesis:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_NOISE
-	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
-	anim_obj ANIM_OBJ_KINESIS, 80, 76, $0
-	anim_wait 32
-.loop
-	anim_sound 0, 0, SFX_KINESIS
-	anim_obj ANIM_OBJ_SOUND, 64, 88, $0
-	anim_wait 32
-	anim_loop 3, .loop
-	anim_wait 32
-	anim_sound 0, 0, SFX_KINESIS_2
-	anim_wait 32
+BattleAnim_MeteorMash:
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
+	anim_bgp $1b
+	anim_sound 0, 0, SFX_PROTECT
+	anim_obj ANIM_OBJ_FALLING_STARS, 88, -20, $0
+	anim_wait 8
+	anim_sound 0, 0, SFX_PROTECT
+	anim_obj ANIM_OBJ_FALLING_STARS, 48, -20, $0
+	anim_wait 8
+	anim_sound 0, 0, SFX_PROTECT
+	anim_obj ANIM_OBJ_FALLING_STARS, 60, -20, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_FALLING_STARS, 26, -20, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_FALLING_STARS, 54, -20, $0
+	anim_wait 8
+	anim_sound 0, 0, SFX_MEGA_KICK
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_Y, $10, $1, $20
+	anim_obj ANIM_OBJ_PUNCH_SHAKE_YELLOW, 136, 56, $43
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_FALLING_STARS, 72, -20, $0
+	anim_wait 8
+	anim_obj ANIM_OBJ_FALLING_STARS, 30, -20, $0
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Peck:
