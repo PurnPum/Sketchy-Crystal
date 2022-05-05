@@ -1359,7 +1359,7 @@ BattleAnimFunction_WaterGun:
 	add hl, bc
 	ld a, [hl]
 	cp $30
-	jr c, .run_down
+	jr c, .run_down_mud
 	ld a, $2
 	call BattleAnim_StepToTarget
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -1373,6 +1373,16 @@ BattleAnimFunction_WaterGun:
 	ld [hl], a
 	ret
 
+.run_down_mud
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .run_down
+	ld hl, BATTLEANIMSTRUCT_PALETTE
+	add hl, bc
+	ld a, PAL_BATTLE_OB_BROWN
+	ld [hl], a
 .run_down
 	call BattleAnim_IncAnonJumptableIndex
 	ld a, BATTLEANIMFRAMESET_28
@@ -3581,7 +3591,7 @@ BattleAnimFunction_StrengthSeismicToss:
 	ld a, [hl]
 	cp BATTLEANIMFRAMESET_26
 	jr z, .power_gem
-	cp BATTLEANIMFRAMESET_0A
+	cp BATTLEANIMFRAMESET_BC
 	jr z, .power_gem
 	jr .proceed
 .power_gem
