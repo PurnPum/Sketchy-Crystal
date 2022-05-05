@@ -134,7 +134,7 @@ BattleAnimations::
 	dw BattleAnim_SkullBash
 	dw BattleAnim_SpikeCannon
 	dw BattleAnim_Constrict
-	dw BattleAnim_Amnesia
+	dw BattleAnim_RockWrecker
 	dw BattleAnim_Kinesis
 	dw BattleAnim_Softboiled
 	dw BattleAnim_HiJumpKick
@@ -2060,17 +2060,59 @@ BattleAnim_LightScreen:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Amnesia:
-	anim_1gfx ANIM_GFX_STATUS
-	anim_sound 0, 0, SFX_LICK
-	anim_obj ANIM_OBJ_AMNESIA, 64, 80, $2
-	anim_wait 16
-	anim_obj ANIM_OBJ_AMNESIA, 68, 80, $1
-	anim_wait 16
-	anim_obj ANIM_OBJ_AMNESIA, 72, 80, $0
+BattleAnim_RockWrecker:
+	anim_1gfx ANIM_GFX_ROCKS
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_BIG_ROCK_CENTER, 48, 100, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_SMALL_CHARGE, 48, 100, $38
+	anim_wait 7
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 100, $20
+	anim_wait 9
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_SMALL_CHARGE, 48, 100, $18
+	anim_wait 8
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 100, $8
+	anim_wait 10
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_SMALL_CHARGE, 48, 100, $10
+	anim_wait 12
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 100, $30
+	anim_wait 4
+	anim_sound 0, 1, SFX_STRENGTH
+	anim_obj ANIM_OBJ_ROCK_WRECKER_CHARGE, 48, 100, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_HORN_ATTACK
+	anim_obj ANIM_OBJ_ROCK_WRECKER_SMALL_CHARGE, 48, 100, $28
+	anim_wait 48
+	anim_sound 0, 1, SFX_RAZOR_WIND
+	anim_incobj 1
+	anim_obj ANIM_OBJ_HUGE_ROCK_CENTER, 48, 100, $0
 	anim_wait 64
+	anim_bgp $1b
+	anim_incobj 10
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $14, $2, $0
+	anim_obj ANIM_OBJ_THROW_HUGE_ROCK, 48, 100, $0
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_wait 44
+	anim_sound 0, 1, SFX_KARATE_CHOP
+	anim_bgeffect ANIM_BG_SHAKE_SCREEN_Y, $10, $1, $20
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_obj ANIM_OBJ_DEBRIS, 150, 66, $0
+	anim_obj ANIM_OBJ_DEBRIS, 142, 62, $0
+	anim_obj ANIM_OBJ_DEBRIS, 134, 58, $0
+	anim_obj ANIM_OBJ_OUTWARDS_ROCKS, 134, 48, $1
+	anim_obj ANIM_OBJ_OUTWARDS_ROCKS, 134, 48, $2
+	anim_obj ANIM_OBJ_OUTWARDS_ROCKS, 134, 48, $3
+	anim_obj ANIM_OBJ_OUTWARDS_ROCKS, 134, 48, $4
+	anim_obj ANIM_OBJ_OUTWARDS_ROCKS, 134, 48, $5
+	anim_wait 32
 	anim_ret
-
+	
 BattleAnim_DizzyPunch:
 	anim_2gfx ANIM_GFX_STATUS, ANIM_GFX_HIT
 	anim_sound 0, 1, SFX_MEGA_PUNCH
