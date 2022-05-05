@@ -143,7 +143,7 @@ MoveNames::
 	li "LEECH LIFE"
 	li "ACCELEROCK"
 	li "SKY ATTACK"
-	li "TRANSFORM"
+	li "MUD SHOT"
 	li "BUBBLE"
 	li "DIZZY PUNCH"
 	li "SPORE"

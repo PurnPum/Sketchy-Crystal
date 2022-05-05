@@ -1784,7 +1784,7 @@ LaprasEvosAttacks2:
 
 DittoEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, TRANSFORM
+	db 1, STRUGGLE
 	db 0 ; no more level-up moves
 
 EeveeEvosAttacks2:
@@ -2044,7 +2044,7 @@ MewtwoEvosAttacks2:
 MewEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, POUND
-	db 10, TRANSFORM
+	db 10, STRUGGLE
 	db 20, MEGA_PUNCH
 	db 30, METRONOME
 	db 40, PSYCHIC_M

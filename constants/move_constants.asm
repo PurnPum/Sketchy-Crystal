@@ -149,7 +149,7 @@
 	const LEECH_LIFE   ; 8d
 	const ACCELEROCK   ; 8e
 	const SKY_ATTACK   ; 8f
-	const TRANSFORM    ; 90
+	const MUD_SHOT     ; 90
 	const BUBBLE       ; 91
 	const DIZZY_PUNCH  ; 92
 	const SPORE        ; 93

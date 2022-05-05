@@ -144,7 +144,7 @@ MoveDescriptions::
 	dw LeechLifeDescription
 	dw AccelerockDescription
 	dw SkyAttackDescription
-	dw TransformDescription
+	dw MudShotDescription
 	dw BubbleDescription
 	dw DizzyPunchDescription
 	dw SporeDescription
@@ -839,9 +839,9 @@ SkyAttackDescription:
 	db   "1st turn: Prepare"
 	next "2nd turn: Attack@"
 
-TransformDescription:
-	db   "The user assumes"
-	next "the foe's guise.@"
+MudShotDescription:
+	db   "Hurls mud at the"
+	next "foe, lowers speed.@"
 
 BubbleDescription:
 	db   "An attack that may"
