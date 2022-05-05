@@ -1681,9 +1681,9 @@ JynxEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, POUND
 	db 1, LICK
-	db 1, LOVELY_KISS
+	db 1, STRUGGLE
 	db 1, POWDER_SNOW
-	db 9, LOVELY_KISS
+	db 9, STRUGGLE
 	db 13, POWDER_SNOW
 	db 21, DOUBLESLAP
 	db 25, ICE_PUNCH
