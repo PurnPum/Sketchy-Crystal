@@ -2497,14 +2497,31 @@ BattleAnim_SpikeCannon:
 	anim_ret
 
 BattleAnim_MudShot:
-	anim_1gfx ANIM_GFX_HIT
+	anim_2gfx ANIM_GFX_SAND, ANIM_GFX_WATER	
+	anim_bgeffect ANIM_BG_START_WATER, $0, BG_EFFECT_TARGET, $0
+	anim_call BattleAnim_UserObj_2Row
+	anim_sound 16, 2, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_GUN, 64, 88, $4
+	anim_wait 8
+	anim_obj ANIM_OBJ_WATER_GUN, 64, 76, $4
+	anim_wait 8
+	anim_obj ANIM_OBJ_WATER_GUN, 64, 82, $4
 	anim_obp0 $fc
 .loop
 	anim_sound 6, 2, SFX_MENU
 	anim_obj ANIM_OBJ_SAND, 64, 92, $4
+	anim_wait 10
+	anim_loop 3, .loop
 	anim_wait 4
-	anim_loop 8, .loop
+	anim_bgeffect ANIM_BG_WATER, $1c, $0, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_WATER, $8, $0, $0
+	anim_wait 8
+	anim_bgeffect ANIM_BG_WATER, $30, $0, $0
 	anim_wait 32
+	anim_call BattleAnim_ShowMon_1
+	anim_bgeffect ANIM_BG_END_WATER, $0, $0, $0
+	anim_wait 16
 	anim_ret
 
 BattleAnim_PetalDance:
