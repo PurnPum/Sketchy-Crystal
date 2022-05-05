@@ -832,35 +832,36 @@ BattleAnimFunction_OutwardsCharge:
 	ret
 
 .one
-	; Orb that moves upward
+	; Element that moves upward
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	dec [hl]
 	ret
 
 .four
-	; Orb that moves down and left
+	; Element that moves down and left
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	inc [hl]
 .two
-	; Orb that moves left
+	; Element that moves left
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	dec [hl]
 	ret
 
 .five
-	; Orb that moves down and right
+	; Element that moves down and right
 	ld hl, BATTLEANIMSTRUCT_YOFFSET
 	add hl, bc
 	inc [hl]
 .three
-	; Orb that moves right
+	; Element that moves right
 	ld hl, BATTLEANIMSTRUCT_XOFFSET
 	add hl, bc
 	inc [hl]
 	ret
+
 
 BattleAnimFunction_RazorLeaf:
 	call BattleAnim_AnonJumptable
@@ -3552,6 +3553,20 @@ BattleAnimFunction_StrengthSeismicToss:
 
 .switch_position
 	ld [hl], $4
+	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld a, [hl]
+	cp BATTLEANIMFRAMESET_26
+	jr z, .power_gem
+	cp BATTLEANIMFRAMESET_0A
+	jr z, .power_gem
+	jr .proceed
+.power_gem
+	ld hl, BATTLEANIMSTRUCT_PALETTE
+	add hl, bc
+	ld a, PAL_BATTLE_OB_GRAY
+	ld [hl], a
+.proceed
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]

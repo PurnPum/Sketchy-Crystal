@@ -953,7 +953,7 @@ TentacoolEvosAttacks2:
 	db 19, ACID
 	db 25, BUBBLEBEAM
 	db 30, WRAP
-	db 36, BARRIER
+	db 36, STRUGGLE
 	db 43, SCREECH
 	db 49, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -968,7 +968,7 @@ TentacruelEvosAttacks2:
 	db 19, ACID
 	db 25, BUBBLEBEAM
 	db 30, WRAP
-	db 38, BARRIER
+	db 38, STRUGGLE
 	db 47, SCREECH
 	db 55, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -1649,7 +1649,7 @@ StarmieEvosAttacks2:
 
 MrMimeEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, BARRIER
+	db 1, STRUGGLE
 	db 6, CONFUSION
 	db 11, SUBSTITUTE
 	db 16, STRUGGLE
@@ -2030,7 +2030,7 @@ MewtwoEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, CONFUSION
 	db 1, DISABLE
-	db 11, BARRIER
+	db 11, STRUGGLE
 	db 22, SWIFT
 	db 33, PSYCH_UP
 	db 44, FUTURE_SIGHT

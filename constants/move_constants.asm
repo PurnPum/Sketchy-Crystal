@@ -117,7 +117,7 @@
 	const CONFUSE_RAY  ; 6d
 	const MAGNET_BOMB  ; 6e
 	const BULLET_PUNCH ; 6f
-	const BARRIER      ; 70
+	const POWER_GEM    ; 70
 	const LIGHT_SCREEN ; 71
 	const HAZE         ; 72
 	const REFLECT      ; 73

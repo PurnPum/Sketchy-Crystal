@@ -113,7 +113,7 @@ BattleAnimations::
 	dw BattleAnim_ConfuseRay
 	dw BattleAnim_MagnetBomb
 	dw BattleAnim_BulletPunch
-	dw BattleAnim_Barrier
+	dw BattleAnim_PowerGem
 	dw BattleAnim_LightScreen
 	dw BattleAnim_Haze
 	dw BattleAnim_Reflect
@@ -3188,17 +3188,41 @@ BattleAnim_BoneClub:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Barrier:
-	anim_1gfx ANIM_GFX_REFLECT
-	anim_battlergfx_2row
-	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+BattleAnim_PowerGem:
+	anim_3gfx ANIM_GFX_ROCKS, ANIM_GFX_CHARGE, ANIM_GFX_CUT
+	anim_sound 0, 0, SFX_STRENGTH
+	anim_obj ANIM_OBJ_POWERGEM_CHARGE, 68, 119, $1
+	anim_obj ANIM_OBJ_POWERGEM_ROCK, 68, 115, $1
+	anim_sound 0, 0, SFX_STRENGTH
 	anim_wait 8
-	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_SCREEN, 72, 80, $0
-	anim_wait 32
-	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_SCREEN, 72, 80, $0
-	anim_wait 32
+	anim_obj ANIM_OBJ_POWERGEM_CHARGE, 44, 119, $1
+	anim_obj ANIM_OBJ_POWERGEM_ROCK, 44, 115, $1
+	anim_sound 0, 0, SFX_STRENGTH
+	anim_wait 8
+	anim_obj ANIM_OBJ_POWERGEM_CHARGE, 20, 119, $1
+	anim_obj ANIM_OBJ_POWERGEM_ROCK, 20, 115, $1
+	anim_sound 0, 0, SFX_STRENGTH
+	anim_wait 128
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_incobj 1
+	anim_incobj 2
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_incobj 3
+	anim_incobj 4
+	anim_wait 8
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_incobj 5
+	anim_incobj 6
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 144, 40, $0
+	anim_wait 14
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 136, 48, $0
+	anim_wait 14
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_DOWN_RIGHT, 128, 56, $0
+	anim_wait 48
 	anim_ret
 
 BattleAnim_Waterfall:
