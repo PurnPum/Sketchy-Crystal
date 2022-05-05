@@ -15,6 +15,7 @@ DoBattleAnimFrame:
 ; entries correspond to BATTLEANIMFUNC_* constants
 	dw BattleAnimFunction_Null
 	dw BattleAnimFunction_MoveFromUserToTarget
+	dw BattleAnimFunction_MoveDiagonallyToTarget
 	dw BattleAnimFunction_MoveFromUserToTargetAndDisappear
 	dw BattleAnimFunction_MoveInCircle
 	dw BattleAnimFunction_MoveWaveToTarget
@@ -235,7 +236,7 @@ BattleAnimFunction_MoveInCircle:
 	ret
 
 BattleAnimFunction_MoveFromUserToTarget:
-; Moves object diagonally at a ~30° angle towards opponent and stops when it reaches x coord $84. Obj Param changes the speed
+; Moves object diagonally at a ~30º angle towards opponent and stops when it reaches x coord $84. Obj Param changes the speed
 	call BattleAnim_AnonJumptable
 .anon_dw
 	dw .zero
@@ -254,6 +255,28 @@ BattleAnimFunction_MoveFromUserToTarget:
 	add hl, bc
 	ld a, [hl]
 	call BattleAnim_StepToTarget
+	ret
+	
+BattleAnimFunction_MoveDiagonallyToTarget:
+; Moves object diagonally at a ~30º angle towards opponent. Obj Param changes the speed
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+.one
+	call DeinitBattleAnimation
+	ret
+
+.zero
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	add $2
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_YCOORD
+	add hl, bc
+	inc [hl]
+	inc [hl]
 	ret
 
 BattleAnimFunction_MoveFromUserToTargetAndDisappear:

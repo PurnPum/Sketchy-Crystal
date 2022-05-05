@@ -133,7 +133,7 @@ MoveNames::
 	li "SPIKE CANNON"
 	li "CONSTRICT"
 	li "ROCK WRECKER"
-	li "KINESIS"
+	li "METEOR MASH"
 	li "SOFTBOILED"
 	li "HI JUMP KICK"
 	li "GLARE"

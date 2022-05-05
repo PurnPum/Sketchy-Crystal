@@ -134,7 +134,7 @@ MoveDescriptions::
 	dw SpikeCannonDescription
 	dw ConstrictDescription
 	dw RockWreckerDescription
-	dw KinesisDescription
+	dw MeteorMashDescription
 	dw SoftboiledDescription
 	dw HiJumpKickDescription
 	dw GlareDescription
@@ -799,7 +799,7 @@ RockWreckerDescription:
 	db   "Throws a huge rock"
 	next "Lowers Att. by 1.@"
 
-KinesisDescription:
+MeteorMashDescription:
 	db   "Reduces the foe's"
 	next "accuracy.@"
 
