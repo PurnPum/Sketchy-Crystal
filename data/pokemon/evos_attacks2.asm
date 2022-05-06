@@ -595,7 +595,7 @@ ParasEvosAttacks2:
 	db 7, STUN_SPORE
 	db 13, POISONPOWDER
 	db 19, LEECH_LIFE
-	db 25, SPORE
+	db 25, STRUGGLE
 	db 31, SLASH
 	db 37, STRUGGLE
 	db 43, GIGA_DRAIN
@@ -609,7 +609,7 @@ ParasectEvosAttacks2:
 	db 7, STUN_SPORE
 	db 13, POISONPOWDER
 	db 19, LEECH_LIFE
-	db 28, SPORE
+	db 28, STRUGGLE
 	db 37, SLASH
 	db 46, STRUGGLE
 	db 55, GIGA_DRAIN

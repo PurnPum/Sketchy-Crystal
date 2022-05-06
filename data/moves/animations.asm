@@ -148,7 +148,7 @@ BattleAnimations::
 	dw BattleAnim_MudShot
 	dw BattleAnim_Bubble
 	dw BattleAnim_DizzyPunch
-	dw BattleAnim_Spore
+	dw BattleAnim_BiWingBeat
 	dw BattleAnim_Flash
 	dw BattleAnim_Psywave
 	dw BattleAnim_Splash
@@ -1490,7 +1490,6 @@ BattleAnim_DragonRush:
 	anim_ret
 
 BattleAnim_Poisonpowder:
-BattleAnim_Spore:
 BattleAnim_StunSpore:
 	anim_1gfx ANIM_GFX_POWDER
 .loop
@@ -1511,6 +1510,53 @@ BattleAnim_StunSpore:
 	anim_wait 4
 	anim_loop 2, .loop
 	anim_wait 96
+	anim_ret
+
+	anim_1gfx ANIM_GFX_HIT
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 148, 56, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 116, 56, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 144, 56, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 120, 56, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 56, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 56, $0
+	anim_wait 16
+	anim_ret
+
+BattleAnim_BiWingBeat:
+	anim_1gfx ANIM_GFX_HIT
+	anim_if_param_equal $1, .alternate
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 162, 64, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 130, 64, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 158, 64, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 134, 64, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 154, 64, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 138, 64, $0
+	anim_wait 16
+	anim_ret
+
+.alternate:
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 144, 64, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 112, 64, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 64, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 116, 64, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_WING_ATTACK
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 64, $0
+	anim_obj ANIM_OBJ_HIT_YFIX, 120, 64, $0
+	anim_wait 16
 	anim_ret
 
 BattleAnim_EnergyBall:
