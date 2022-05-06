@@ -146,7 +146,7 @@ MoveNames::
 	li "MUD SHOT"
 	li "BUBBLE"
 	li "DIZZY PUNCH"
-	li "SPORE"
+	li "BI-WINGBEAT"
 	li "FLASH"
 	li "PSYWAVE"
 	li "SPLASH"

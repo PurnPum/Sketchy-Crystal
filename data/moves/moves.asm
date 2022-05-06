@@ -160,7 +160,7 @@ Moves:
 	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, NORMAL,       100, 15, 100
 	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     20, WATER,        100, 30,  10
 	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,       100, 10,  20
-	move SPORE,        EFFECT_SLEEP,               0, GRASS,        100, 15,   0
+	move BI_WINGBEAT,  EFFECT_DOUBLE_HIT,         35, FLYING,       100, 10,   0
 	move FLASH,        EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
 	move PSYWAVE,      EFFECT_PSYWAVE,             1, PSYCHIC_TYPE,  80, 15,   0
 	move SPLASH,       EFFECT_SPLASH,              0, NORMAL,       100, 40,   0

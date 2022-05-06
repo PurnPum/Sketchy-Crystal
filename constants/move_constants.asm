@@ -152,7 +152,7 @@
 	const MUD_SHOT     ; 90
 	const BUBBLE       ; 91
 	const DIZZY_PUNCH  ; 92
-	const SPORE        ; 93
+	const BI_WINGBEAT  ; 93
 	const FLASH        ; 94
 	const PSYWAVE      ; 95
 	const SPLASH       ; 96

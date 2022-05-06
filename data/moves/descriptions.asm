@@ -147,7 +147,7 @@ MoveDescriptions::
 	dw MudShotDescription
 	dw BubbleDescription
 	dw DizzyPunchDescription
-	dw SporeDescription
+	dw BiWingBeatDescription
 	dw FlashDescription
 	dw PsywaveDescription
 	dw SplashDescription
@@ -851,9 +851,9 @@ DizzyPunchDescription:
 	db   "An attack that may"
 	next "cause confusion.@"
 
-SporeDescription:
-	db   "A move that"
-	next "induces sleep.@"
+BiWingBeatDescription:
+	db   "Slams the target"
+	next "twice with wings.@"
 
 FlashDescription:
 	db   "Blinds the foe to"
