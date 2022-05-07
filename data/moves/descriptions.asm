@@ -168,7 +168,7 @@ MoveDescriptions::
 	dw StruggleDescription
 	dw SketchDescription
 	dw TripleKickDescription
-	dw ThiefDescription
+	dw DarkPulseDescription
 	dw SpiderWebDescription
 	dw MindReaderDescription
 	dw NightmareDescription
@@ -935,9 +935,9 @@ TripleKickDescription:
 	db   "Hits three times"
 	next "with rising power.@"
 
-ThiefDescription:
-	db   "An attack that may"
-	next "steal a held item.@"
+DarkPulseDescription:
+	db   "The user releases"
+	next "a horrible aura.@"
 
 SpiderWebDescription:
 	db   "Prevents fleeing"

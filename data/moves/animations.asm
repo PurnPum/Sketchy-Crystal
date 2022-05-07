@@ -169,7 +169,7 @@ BattleAnimations::
 	dw BattleAnim_Struggle
 	dw BattleAnim_Sketch
 	dw BattleAnim_TripleKick
-	dw BattleAnim_Thief
+	dw BattleAnim_DarkPulse
 	dw BattleAnim_SpiderWeb
 	dw BattleAnim_MindReader
 	dw BattleAnim_Nightmare
@@ -3590,20 +3590,45 @@ BattleAnim_TripleKick:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_Thief:
-	anim_1gfx ANIM_GFX_HIT
+BattleAnim_DarkPulse:
+	anim_1gfx ANIM_GFX_CHARGE
 	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_TACKLE, $0, BG_EFFECT_USER, $0
-	anim_wait 16
-	anim_sound 0, 1, SFX_THIEF
-	anim_obj ANIM_OBJ_HIT_YFIX, 128, 48, $0
-	anim_wait 16
+	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $0
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $8
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $10
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $18
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $20
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $28
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $30
+	anim_obj ANIM_OBJ_HIDDEN_POWER_GRAY, 44, 88, $38
+.loop
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_wait 8
+	anim_loop 8, .loop
+	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_bgp $1b
+	anim_wait 12
 	anim_call BattleAnim_ShowMon_0
 	anim_wait 1
-	anim_1gfx ANIM_GFX_STATUS
-	anim_sound 0, 1, SFX_THIEF_2
-	anim_obj ANIM_OBJ_THIEF, 120, 76, $1
-	anim_wait 64
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_incobj 5
+	anim_incobj 6
+	anim_incobj 7
+	anim_incobj 8
+	anim_incobj 9
+	anim_wait 16
+	anim_1gfx ANIM_GFX_HIT
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
+	anim_bgeffect ANIM_BG_NIGHT_SHADE, $0, BG_EFFECT_TARGET, $8
+.loop2
+	anim_sound 6, 2, SFX_SLUDGE_BOMB
+	anim_wait 8
+	anim_loop 8, .loop2
+	anim_incbgeffect ANIM_BG_NIGHT_SHADE
 	anim_ret
 
 BattleAnim_SpiderWeb:
