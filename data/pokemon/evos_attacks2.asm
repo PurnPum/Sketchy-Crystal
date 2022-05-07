@@ -1054,7 +1054,7 @@ SlowpokeEvosAttacks2:
 	db EVOLVE_LEVEL, 37, SLOWBRO
 	db EVOLVE_TRADE, KINGS_ROCK, SLOWKING
 	db 0 ; no more evolutions
-	db 1, CURSE
+	db 1, STRUGGLE
 	db 1, TACKLE
 	db 6, GROWL
 	db 15, WATER_GUN
@@ -1067,7 +1067,7 @@ SlowpokeEvosAttacks2:
 
 SlowbroEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, CURSE
+	db 1, STRUGGLE
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, WATER_GUN
@@ -1234,7 +1234,7 @@ GastlyEvosAttacks2:
 	db 1, LICK
 	db 8, SPITE
 	db 13, MEAN_LOOK
-	db 16, CURSE
+	db 16, STRUGGLE
 	db 21, NIGHT_SHADE
 	db 28, CONFUSE_RAY
 	db 33, DREAM_EATER
@@ -1249,7 +1249,7 @@ HaunterEvosAttacks2:
 	db 1, SPITE
 	db 8, SPITE
 	db 13, MEAN_LOOK
-	db 16, CURSE
+	db 16, STRUGGLE
 	db 21, NIGHT_SHADE
 	db 31, CONFUSE_RAY
 	db 39, DREAM_EATER
@@ -1263,7 +1263,7 @@ GengarEvosAttacks2:
 	db 1, SPITE
 	db 8, SPITE
 	db 13, MEAN_LOOK
-	db 16, CURSE
+	db 16, STRUGGLE
 	db 21, NIGHT_SHADE
 	db 31, CONFUSE_RAY
 	db 39, DREAM_EATER
@@ -2676,7 +2676,7 @@ MurkrowEvosAttacks2:
 
 SlowkingEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, CURSE
+	db 1, STRUGGLE
 	db 1, TACKLE
 	db 6, GROWL
 	db 15, WATER_GUN

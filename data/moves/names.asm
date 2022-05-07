@@ -173,7 +173,7 @@ MoveNames::
 	li "NIGHTMARE"
 	li "FLAME WHEEL"
 	li "SNORE"
-	li "CURSE"
+	li "SHADOW SNEAK"
 	li "FLAIL"
 	li "CONVERSION2"
 	li "AEROBLAST"

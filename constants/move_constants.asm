@@ -179,7 +179,7 @@
 	const NIGHTMARE    ; ab
 	const FLAME_WHEEL  ; ac
 	const SNORE        ; ad
-	const CURSE        ; ae
+	const SHADOW_SNEAK ; ae
 	const FLAIL        ; af
 	const CONVERSION2  ; b0
 	const AEROBLAST    ; b1

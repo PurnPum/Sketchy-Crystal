@@ -175,7 +175,7 @@ BattleAnimations::
 	dw BattleAnim_Nightmare
 	dw BattleAnim_FlameWheel
 	dw BattleAnim_Snore
-	dw BattleAnim_Curse
+	dw BattleAnim_ShadowSneak
 	dw BattleAnim_Flail
 	dw BattleAnim_Conversion2
 	dw BattleAnim_Aeroblast
@@ -3703,48 +3703,34 @@ BattleAnim_Snore:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_Curse:
-	anim_if_param_equal $1, .NotGhost
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_OBJECTS
-	anim_obj ANIM_OBJ_CURSE, 68, 72, $0
-	anim_sound 0, 0, SFX_CURSE
-	anim_wait 32
-	anim_incobj 1
-	anim_wait 12
-	anim_sound 0, 0, SFX_POISON_STING
-	anim_obj ANIM_OBJ_HIT, 44, 96, $0
-	anim_wait 16
-	anim_ret
-
-.NotGhost:
-	anim_1gfx ANIM_GFX_SPEED
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING, $0, BG_EFFECT_USER, $40
-	anim_sound 0, 0, SFX_SHARPEN
-	anim_wait 64
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_BLACK_REPEATING
-	anim_wait 1
-	anim_bgeffect ANIM_BG_FADE_MON_TO_LIGHT, $0, BG_EFFECT_USER, $40
-.loop
-	anim_sound 0, 0, SFX_SWORDS_DANCE
-	anim_obj ANIM_OBJ_FOCUS, 44, 108, $6
-	anim_wait 2
-	anim_obj ANIM_OBJ_FOCUS, 36, 108, $6
-	anim_wait 2
-	anim_obj ANIM_OBJ_FOCUS, 52, 108, $8
-	anim_wait 2
-	anim_obj ANIM_OBJ_FOCUS, 28, 108, $8
-	anim_wait 2
-	anim_obj ANIM_OBJ_FOCUS, 60, 108, $6
-	anim_wait 2
-	anim_obj ANIM_OBJ_FOCUS, 20, 108, $8
-	anim_wait 2
-	anim_obj ANIM_OBJ_FOCUS, 68, 108, $8
-	anim_wait 2
-	anim_loop 3, .loop
+BattleAnim_ShadowSneak:
+	anim_2gfx ANIM_GFX_ANGELS, ANIM_GFX_HIT
+	anim_bgp $1b
+	anim_obp0 $0
+	anim_sound 6, 2, SFX_WHIRLWIND
+	anim_obj ANIM_OBJ_DESTINY_BOND, 44, 120, $2
+	anim_wait 80
+	anim_sound 0, 0, SFX_POUND
+	anim_obj ANIM_OBJ_HIT_YFIX, 136, 56, $43
 	anim_wait 8
-	anim_incbgeffect ANIM_BG_FADE_MON_TO_LIGHT
-	anim_call BattleAnim_ShowMon_0
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_YFIX, 142, 72, $43
+	anim_wait 8
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 130, 50, $43
+	anim_wait 8
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_YFIX, 124, 44, $43
+	anim_wait 8
+	anim_sound 0, 0, SFX_POUND
+	anim_obj ANIM_OBJ_HIT_YFIX, 148, 38, $43
+	anim_wait 8
+	anim_sound 0, 0, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 118, 52, $43
+	anim_wait 8
+	anim_sound 0, 0, SFX_HEADBUTT
+	anim_obj ANIM_OBJ_HIT_YFIX, 120, 28, $43	
+	anim_wait 32
 	anim_ret
 
 BattleAnim_Flail:
