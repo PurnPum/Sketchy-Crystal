@@ -1324,7 +1324,7 @@ KrabbyEvosAttacks2:
 	db 23, STOMP
 	db 27, STRUGGLE
 	db 34, PROTECT
-	db 41, CRABHAMMER
+	db 41, STRUGGLE
 	db 0 ; no more level-up moves
 
 KinglerEvosAttacks2:
@@ -1338,7 +1338,7 @@ KinglerEvosAttacks2:
 	db 23, STOMP
 	db 27, STRUGGLE
 	db 38, PROTECT
-	db 49, CRABHAMMER
+	db 49, STRUGGLE
 	db 0 ; no more level-up moves
 
 VoltorbEvosAttacks2:

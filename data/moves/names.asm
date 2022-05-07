@@ -151,7 +151,7 @@ MoveNames::
 	li "PSYWAVE"
 	li "SPLASH"
 	li "POISON JAB"
-	li "CRABHAMMER"
+	li "HYDRO CANNON"
 	li "EXPLOSION"
 	li "FURY SWIPES"
 	li "BONEMERANG"
