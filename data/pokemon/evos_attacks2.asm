@@ -1855,7 +1855,7 @@ PorygonEvosAttacks2:
 	db 9, STRUGGLE
 	db 12, PSYBEAM
 	db 20, RECOVER
-	db 24, SHARPEN
+	db 24, STRUGGLE
 	db 32, LOCK_ON
 	db 36, TRI_ATTACK
 	db 44, ZAP_CANNON
