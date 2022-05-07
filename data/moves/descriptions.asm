@@ -174,7 +174,7 @@ MoveDescriptions::
 	dw NightmareDescription
 	dw FlameWheelDescription
 	dw SnoreDescription
-	dw CurseDescription
+	dw ShadowSneakDescription
 	dw FlailDescription
 	dw Conversion2Description
 	dw AeroblastDescription
@@ -959,9 +959,9 @@ SnoreDescription:
 	db   "An attack useable"
 	next "only while asleep.@"
 
-CurseDescription:
-	db   "Works differently"
-	next "for ghost-types.@"
+ShadowSneakDescription:
+	db   "Attacks first with"
+	next "an extended shadow@"
 
 FlailDescription:
 	db   "Stronger if the"
