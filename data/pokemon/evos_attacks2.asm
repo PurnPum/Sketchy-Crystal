@@ -1185,7 +1185,7 @@ GrimerEvosAttacks2:
 	db 16, SLUDGE
 	db 23, STRUGGLE
 	db 31, SCREECH
-	db 40, ACID_ARMOR
+	db 40, STRUGGLE
 	db 50, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
@@ -1200,7 +1200,7 @@ MukEvosAttacks2:
 	db 45, SLUDGE
 	db 23, STRUGGLE
 	db 31, SCREECH
-	db 45, ACID_ARMOR
+	db 45, STRUGGLE
 	db 60, SLUDGE_BOMB
 	db 0 ; no more level-up moves
 
@@ -1814,7 +1814,7 @@ VaporeonEvosAttacks2:
 	db 30, BITE
 	db 36, AURORA_BEAM
 	db 42, HAZE
-	db 47, ACID_ARMOR
+	db 47, STRUGGLE
 	db 52, HYDRO_PUMP
 	db 0 ; no more level-up moves
 

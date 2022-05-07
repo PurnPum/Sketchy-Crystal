@@ -152,7 +152,7 @@ BattleAnimations::
 	dw BattleAnim_Flash
 	dw BattleAnim_Psywave
 	dw BattleAnim_Splash
-	dw BattleAnim_AcidArmor
+	dw BattleAnim_PoisonJab
 	dw BattleAnim_Crabhammer
 	dw BattleAnim_Explosion
 	dw BattleAnim_FurySwipes
@@ -2182,14 +2182,41 @@ BattleAnim_Rest:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_AcidArmor:
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_bgeffect ANIM_BG_ACID_ARMOR, $0, BG_EFFECT_USER, $8
-	anim_sound 0, 0, SFX_MEGA_PUNCH
-	anim_wait 64
-	anim_incbgeffect ANIM_BG_ACID_ARMOR
-	anim_call BattleAnim_ShowMon_0
+BattleAnim_PoisonJab:
+	anim_2gfx ANIM_GFX_POISON, ANIM_GFX_HIT
+	anim_bgeffect ANIM_BG_BLACK_HUES, $0, $8, $0
+	anim_obj ANIM_OBJ_PUNCH, 126, 56, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 126, 56, $43
+	anim_wait 12
+.loop1
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 122, 50, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 126, 50, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 130, 50, $0
+	anim_wait 4
+	anim_loop 3, .loop1
+	
+	anim_obj ANIM_OBJ_PUNCH, 152, 52, $43
+	anim_sound 0, 0, SFX_KARATE_CHOP
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 152, 52, $43
+	anim_wait 12
+.loop2
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 148, 46, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 46, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 156, 46, $0
+	anim_wait 4
+	anim_loop 3, .loop2
+	anim_wait 16
 	anim_ret
 
 BattleAnim_Splash:
@@ -3206,7 +3233,7 @@ BattleAnim_Sharpen:
 	anim_ret
 
 BattleAnim_BulletPunch:
-	anim_3gfx ANIM_GFX_CHARGE, ANIM_GFX_REFLECT, ANIM_GFX_HIT
+	anim_2gfx ANIM_GFX_REFLECT, ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_SHINE
 	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
 	anim_wait 8

@@ -150,7 +150,7 @@ MoveNames::
 	li "FLASH"
 	li "PSYWAVE"
 	li "SPLASH"
-	li "ACID ARMOR"
+	li "POISON JAB"
 	li "CRABHAMMER"
 	li "EXPLOSION"
 	li "FURY SWIPES"
