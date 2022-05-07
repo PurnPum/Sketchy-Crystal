@@ -167,7 +167,7 @@ MoveNames::
 	li "STRUGGLE"
 	li "SKETCH"
 	li "TRIPLE KICK"
-	li "THIEF"
+	li "DARK PULSE"
 	li "SPIDER WEB"
 	li "MIND READER"
 	li "NIGHTMARE"
