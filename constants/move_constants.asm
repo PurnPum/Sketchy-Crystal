@@ -192,7 +192,7 @@
 	const SCARY_FACE   ; b8
 	const FAINT_ATTACK ; b9
 	const SWEET_KISS   ; ba
-	const BELLY_DRUM   ; bb
+	const TRIPLE_AXEL  ; bb
 	const SLUDGE_BOMB  ; bc
 	const MUD_SLAP     ; bd
 	const OCTAZOOKA    ; be

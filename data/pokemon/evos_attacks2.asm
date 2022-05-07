@@ -793,7 +793,7 @@ PoliwagEvosAttacks2:
 	db 19, DOUBLESLAP
 	db 25, RAIN_DANCE
 	db 31, BODY_SLAM
-	db 37, BELLY_DRUM
+	db 37, STRUGGLE
 	db 43, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -809,7 +809,7 @@ PoliwhirlEvosAttacks2:
 	db 19, DOUBLESLAP
 	db 27, RAIN_DANCE
 	db 35, BODY_SLAM
-	db 43, BELLY_DRUM
+	db 43, STRUGGLE
 	db 51, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -1932,7 +1932,7 @@ SnorlaxEvosAttacks2:
 	db 1, TACKLE
 	db 8, STRUGGLE
 	db 15, STRUGGLE
-	db 22, BELLY_DRUM
+	db 22, STRUGGLE
 	db 29, HEADBUTT
 	db 36, SNORE
 	db 36, REST

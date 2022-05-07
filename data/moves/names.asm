@@ -186,7 +186,7 @@ MoveNames::
 	li "SCARY FACE"
 	li "FAINT ATTACK"
 	li "SWEET KISS"
-	li "BELLY DRUM"
+	li "TRIPLE AXEL"
 	li "SLUDGE BOMB"
 	li "MUD-SLAP"
 	li "OCTAZOOKA"
