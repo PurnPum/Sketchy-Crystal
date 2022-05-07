@@ -188,7 +188,7 @@ BattleAnimations::
 	dw BattleAnim_ScaryFace
 	dw BattleAnim_FaintAttack
 	dw BattleAnim_SweetKiss
-	dw BattleAnim_BellyDrum
+	dw BattleAnim_TripleAxel
 	dw BattleAnim_SludgeBomb
 	dw BattleAnim_MudSlap
 	dw BattleAnim_Octazooka
@@ -3915,43 +3915,48 @@ BattleAnim_SweetKiss:
 	anim_wait 40
 	anim_ret
 
-BattleAnim_BellyDrum:
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_NOISE
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
-	anim_wait 24
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
-	anim_wait 24
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
+BattleAnim_TripleAxel:
+	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_ICE
+	anim_if_param_equal $1, .alternate1
+	anim_if_param_equal $2, .alternate2
+	anim_sound 0, 1, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_KICK, 144, 48, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_HIT_YFIX, 144, 48, $0
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 144, 46, $1
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 144, 46, $2
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 144, 46, $3
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 144, 46, $4
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 144, 46, $5
 	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
+	anim_ret
+
+.alternate1:
+	anim_sound 0, 1, SFX_DOUBLE_KICK
+	anim_obj ANIM_OBJ_KICK, 120, 64, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_HIT_YFIX, 120, 64, $0
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 120, 62, $1
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 120, 62, $2
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 120, 62, $3
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 120, 62, $4
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 120, 62, $5
 	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
-	anim_wait 24
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
-	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
-	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
-	anim_wait 12
-	anim_sound 0, 0, SFX_BELLY_DRUM
-	anim_obj ANIM_OBJ_BELLY_DRUM_HAND, 64, 104, $0
-	anim_obj ANIM_OBJ_BELLY_DRUM_NOTE, 64, 92, $f8
+	anim_ret
+
+.alternate2:
+	anim_sound 0, 1, SFX_DOUBLE_KICK
+	anim_obj ANIM_OBJ_KICK, 132, 32, $0
+	anim_wait 6
+	anim_obj ANIM_OBJ_HIT_YFIX, 132, 32, $0
+	anim_sound 0, 1, SFX_SHINE
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 132, 30, $1
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 132, 30, $2
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 132, 30, $3
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 132, 30, $4
+	anim_obj ANIM_OBJ_OUTWARDS_SMALL_ICE, 132, 30, $5
 	anim_wait 12
 	anim_ret
 

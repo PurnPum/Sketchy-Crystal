@@ -187,7 +187,7 @@ MoveDescriptions::
 	dw ScaryFaceDescription
 	dw FaintAttackDescription
 	dw SweetKissDescription
-	dw BellyDrumDescription
+	dw TripleAxelDescription
 	dw SludgeBombDescription
 	dw MudSlapDescription
 	dw OctazookaDescription
@@ -1011,9 +1011,9 @@ SweetKissDescription:
 	db   "A move that causes"
 	next "confusion.@"
 
-BellyDrumDescription:
-	db   "Reduces own HP to"
-	next "maximize ATTACK.@"
+TripleAxelDescription:
+	db   "Hits three times"
+	next "with rising power.@"
 
 SludgeBombDescription:
 	db   "An attack that may"
