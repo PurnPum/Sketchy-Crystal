@@ -153,7 +153,7 @@ BattleAnimations::
 	dw BattleAnim_Psywave
 	dw BattleAnim_Splash
 	dw BattleAnim_PoisonJab
-	dw BattleAnim_Crabhammer
+	dw BattleAnim_HydroCannon
 	dw BattleAnim_Explosion
 	dw BattleAnim_FurySwipes
 	dw BattleAnim_Bonemerang
@@ -2719,16 +2719,28 @@ BattleAnim_Swift:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Crabhammer:
-	anim_1gfx ANIM_GFX_HIT
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $40, $2, $0
-	anim_wait 48
-	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $8, $3
-.loop
-	anim_sound 0, 1, SFX_MEGA_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
-	anim_wait 12
-	anim_loop 3, .loop
+BattleAnim_HydroCannon:
+	anim_2gfx ANIM_GFX_WATER, ANIM_GFX_BEAM
+	anim_sound 0, 0, SFX_HYPER_BEAM
+	anim_bgp $1b
+	anim_obj ANIM_OBJ_BEAM_BLUE, 64, 92, $0
+	anim_wait 4
+	;anim_sound 16, 2, SFX_WATER_GUN
+	anim_obj ANIM_OBJ_WATER_GUN, 64, 92, $0
+	anim_obj ANIM_OBJ_WATER_GUN, 74, 88, $0
+	anim_sound 0, 0, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_BEAM_BLUE, 80, 84, $0
+	anim_wait 4
+	anim_obj ANIM_OBJ_WATER_GUN, 86, 76, $0
+	anim_obj ANIM_OBJ_WATER_GUN, 92, 68, $0
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_BEAM_BLUE, 96, 76, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_WATER_GUN, 104, 58, $0
+	anim_obj ANIM_OBJ_BEAM_BLUE, 112, 68, $0
+	anim_obj ANIM_OBJ_BEAM_TIP_BLUE, 126, 62, $0
+	anim_wait 102
 	anim_ret
 
 BattleAnim_SkullBash:

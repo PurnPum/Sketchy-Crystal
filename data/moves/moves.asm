@@ -165,7 +165,7 @@ Moves:
 	move PSYWAVE,      EFFECT_PSYWAVE,             1, PSYCHIC_TYPE,  80, 15,   0
 	move SPLASH,       EFFECT_SPLASH,              0, NORMAL,       100, 40,   0
 	move POISON_JAB,   EFFECT_POISON_HIT,         75, POISON,       100, 20,  30
-	move CRABHAMMER,   EFFECT_NORMAL_HIT,         90, WATER,         85, 10,   0
+	move HYDRO_CANNON, EFFECT_SELF_SPATT_DOWN,   115, WATER,        100,  5, 100
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,       100,  5,   0
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          18, NORMAL,        80, 15,   0
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         50, GROUND,        90, 10,   0

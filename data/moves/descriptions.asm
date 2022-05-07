@@ -152,7 +152,7 @@ MoveDescriptions::
 	dw PsywaveDescription
 	dw SplashDescription
 	dw PoisonJabDescription
-	dw CrabhammerDescription
+	dw HydroCannonDescription
 	dw ExplosionDescription
 	dw FurySwipesDescription
 	dw BonemerangDescription
@@ -871,9 +871,9 @@ PoisonJabDescription:
 	db   "A stab with an arm"
 	next "steeped in poison.@"
 
-CrabhammerDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
+HydroCannonDescription:
+	db   "A huge water blast"
+	next "Lowers SpAtt by 1.@"
 
 ExplosionDescription:
 	db   "Very powerful but"
