@@ -1407,7 +1407,7 @@ CuboneEvosAttacks2:
 	db 29, RAGE
 	db 33, FALSE_SWIPE
 	db 37, THRASH
-	db 41, BONE_RUSH
+	db 41, STRUGGLE
 	db 0 ; no more level-up moves
 
 MarowakEvosAttacks2:
@@ -1425,7 +1425,7 @@ MarowakEvosAttacks2:
 	db 32, RAGE
 	db 39, FALSE_SWIPE
 	db 46, THRASH
-	db 53, BONE_RUSH
+	db 53, STRUGGLE
 	db 0 ; no more level-up moves
 
 HitmonleeEvosAttacks2:
@@ -2511,7 +2511,7 @@ PolitoedEvosAttacks2:
 	db 1, DOUBLESLAP
 	db 1, PERISH_SONG
 	db 35, PERISH_SONG
-	db 51, SWAGGER
+	db 51, STRUGGLE
 	db 0 ; no more level-up moves
 
 HoppipEvosAttacks2:
@@ -2683,7 +2683,7 @@ SlowkingEvosAttacks2:
 	db 20, CONFUSION
 	db 29, DISABLE
 	db 34, HEADBUTT
-	db 43, SWAGGER
+	db 43, STRUGGLE
 	db 48, PSYCHIC_M
 	db 0 ; no more level-up moves
 
@@ -3246,7 +3246,7 @@ EnteiEvosAttacks2:
 	db 31, FIRE_SPIN
 	db 41, STOMP
 	db 51, FLAMETHROWER
-	db 61, SWAGGER
+	db 61, STRUGGLE
 	db 71, FIRE_BLAST
 	db 0 ; no more level-up moves
 

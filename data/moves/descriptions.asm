@@ -198,7 +198,7 @@ MoveDescriptions::
 	dw PerishSongDescription
 	dw IcyWindDescription
 	dw DetectDescription
-	dw BoneRushDescription
+	dw MudBombDescription
 	dw LockOnDescription
 	dw OutrageDescription
 	dw SandstormDescription
@@ -207,7 +207,7 @@ MoveDescriptions::
 	dw CharmDescription
 	dw RolloutDescription
 	dw FalseSwipeDescription
-	dw SwaggerDescription
+	dw XScissorDescription
 	dw MilkDrinkDescription
 	dw SparkDescription
 	dw FuryCutterDescription
@@ -1055,9 +1055,9 @@ DetectDescription:
 	db   "Evades attack that"
 	next "turn. It may fail.@"
 
-BoneRushDescription:
-	db   "An attack that"
-	next "hits 2-5 times.@"
+MudBombDescription:
+	db   "Throws a mud ball,"
+	next "may lower SpAtt.@"
 
 LockOnDescription:
 	db   "Ensures the next"
@@ -1091,9 +1091,9 @@ FalseSwipeDescription:
 	db   "Leaves the foe"
 	next "with at least 1HP.@"
 
-SwaggerDescription:
-	db   "Causes confusion"
-	next "and raises ATTACK.@"
+XScissorDescription:
+	db   "A slash with claws"
+	next "or scythes crossed@"
 
 MilkDrinkDescription:
 	db   "Restores HP by 1/2"
