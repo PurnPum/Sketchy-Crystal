@@ -256,7 +256,7 @@ Moves:
 	move SUNNY_DAY,    EFFECT_SUNNY_DAY,           0, FIRE,         100,  5,   0
 	move CRUNCH,       EFFECT_SP_DEF_DOWN_HIT,    80, DARK,         100, 15,  20
 	move MIRROR_COAT,  EFFECT_MIRROR_COAT,         1, PSYCHIC_TYPE, 100, 20,   0
-	move PSYCH_UP,     EFFECT_PSYCH_UP,            0, NORMAL,       100, 10,   0
+	move GUNK_SHOT,    EFFECT_SELF_ATTACK_DOWN,  115, POISON,       100,  5, 100
 	move EXTREMESPEED, EFFECT_PRIORITY_HIT,       80, NORMAL,       100,  5,   0
 	move ANCIENTPOWER, EFFECT_ALL_UP_HIT,         60, ROCK,         100,  5,  10
 	move SHADOW_BALL,  EFFECT_SP_DEF_DOWN_HIT,    80, GHOST,        100, 15,  20
@@ -264,5 +264,5 @@ Moves:
 	move ROCK_SMASH,   EFFECT_SPLASH,	           0, FIGHTING,     100,  1,   0
 	move WHIRLPOOL,    EFFECT_SPLASH,	           0, WATER,        100,  1,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            10, DARK,         100, 10,   0
-	move BATTLE_SURF,  EFFECT_NORMAL_HIT,		  95, WATER,		100, 15,   0
+	move BATTLE_SURF,  EFFECT_NORMAL_HIT,		  90, WATER,		100, 15,   0
 	assert_table_length NUM_ATTACKS

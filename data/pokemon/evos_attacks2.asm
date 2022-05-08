@@ -710,7 +710,7 @@ PsyduckEvosAttacks2:
 	db 10, DISABLE
 	db 16, CONFUSION
 	db 23, SCREECH
-	db 31, PSYCH_UP
+	db 31, STRUGGLE
 	db 40, FURY_SWIPES
 	db 50, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -725,7 +725,7 @@ GolduckEvosAttacks2:
 	db 10, DISABLE
 	db 16, CONFUSION
 	db 23, SCREECH
-	db 31, PSYCH_UP
+	db 31, STRUGGLE
 	db 44, FURY_SWIPES
 	db 58, HYDRO_PUMP
 	db 0 ; no more level-up moves
@@ -1294,7 +1294,7 @@ DrowzeeEvosAttacks2:
 	db 31, POISON_GAS
 	db 36, STRUGGLE
 	db 40, PSYCHIC_M
-	db 43, PSYCH_UP
+	db 43, STRUGGLE
 	db 45, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
@@ -1310,7 +1310,7 @@ HypnoEvosAttacks2:
 	db 33, POISON_GAS
 	db 40, STRUGGLE
 	db 49, PSYCHIC_M
-	db 55, PSYCH_UP
+	db 55, STRUGGLE
 	db 60, FUTURE_SIGHT
 	db 0 ; no more level-up moves
 
@@ -2032,7 +2032,7 @@ MewtwoEvosAttacks2:
 	db 1, DISABLE
 	db 11, STRUGGLE
 	db 22, SWIFT
-	db 33, PSYCH_UP
+	db 33, STRUGGLE
 	db 44, FUTURE_SIGHT
 	db 55, MIST
 	db 66, PSYCHIC_M
@@ -2645,7 +2645,7 @@ EspeonEvosAttacks2:
 	db 23, QUICK_ATTACK
 	db 30, SWIFT
 	db 36, PSYBEAM
-	db 42, PSYCH_UP
+	db 42, STRUGGLE
 	db 47, PSYCHIC_M
 	db 52, MORNING_SUN
 	db 0 ; no more level-up moves
