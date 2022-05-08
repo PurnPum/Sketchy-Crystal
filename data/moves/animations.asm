@@ -151,7 +151,7 @@ BattleAnimations::
 	dw BattleAnim_BiWingBeat
 	dw BattleAnim_Flash
 	dw BattleAnim_Psywave
-	dw BattleAnim_Splash
+	dw BattleAnim_SteelBeam
 	dw BattleAnim_PoisonJab
 	dw BattleAnim_HydroCannon
 	dw BattleAnim_Explosion
@@ -2219,14 +2219,26 @@ BattleAnim_PoisonJab:
 	anim_wait 16
 	anim_ret
 
-BattleAnim_Splash:
-	anim_1gfx ANIM_GFX_HIT
-	anim_sound 0, 0, SFX_VICEGRIP
-	anim_call BattleAnim_TargetObj_2Row
-	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
-	anim_wait 96
-	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
-	anim_call BattleAnim_ShowMon_0
+BattleAnim_SteelBeam:
+	anim_2gfx ANIM_GFX_REFLECT, ANIM_GFX_BEAM
+	anim_sound 0, 0, SFX_SHINE
+	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
+	anim_wait 8
+	anim_obj ANIM_OBJ_HARDEN, 48, 84, $0
+	anim_wait 24
+	anim_sound 0, 0, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_BEAM_GRAY, 64, 92, $0
+	anim_wait 4
+	anim_sound 0, 0, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_BEAM_GRAY, 80, 84, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_BEAM_GRAY, 96, 76, $0
+	anim_wait 4
+	anim_sound 0, 1, SFX_HYPER_BEAM
+	anim_obj ANIM_OBJ_BEAM_GRAY, 112, 68, $0
+	anim_obj ANIM_OBJ_BEAM_TIP_GRAY, 126, 62, $0
+	anim_wait 64
 	anim_ret
 
 BattleAnim_Dig:
@@ -2725,7 +2737,6 @@ BattleAnim_HydroCannon:
 	anim_bgp $1b
 	anim_obj ANIM_OBJ_BEAM_BLUE, 64, 92, $0
 	anim_wait 4
-	;anim_sound 16, 2, SFX_WATER_GUN
 	anim_obj ANIM_OBJ_WATER_GUN, 64, 92, $0
 	anim_obj ANIM_OBJ_WATER_GUN, 74, 88, $0
 	anim_sound 0, 0, SFX_HYPER_BEAM

@@ -155,7 +155,7 @@
 	const BI_WINGBEAT  ; 93
 	const FLASH        ; 94
 	const PSYWAVE      ; 95
-	const SPLASH       ; 96
+	const STEEL_BEAM   ; 96
 	const POISON_JAB   ; 97
 	const HYDRO_CANNON ; 98
 	const EXPLOSION    ; 99

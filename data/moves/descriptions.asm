@@ -150,7 +150,7 @@ MoveDescriptions::
 	dw BiWingBeatDescription
 	dw FlashDescription
 	dw PsywaveDescription
-	dw SplashDescription
+	dw SteelBeamDescription
 	dw PoisonJabDescription
 	dw HydroCannonDescription
 	dw ExplosionDescription
@@ -863,9 +863,9 @@ PsywaveDescription:
 	db   "An attack with"
 	next "variable power.@"
 
-SplashDescription:
-	db   "Has no effect"
-	next "whatsoever.@"
+SteelBeamDescription:
+	db   "A steely beam,"
+	next "Lowers Att. by 1.@"
 
 PoisonJabDescription:
 	db   "A stab with an arm"

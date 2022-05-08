@@ -163,7 +163,7 @@ Moves:
 	move BI_WINGBEAT,  EFFECT_DOUBLE_HIT,         35, FLYING,       100, 10,   0
 	move FLASH,        EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
 	move PSYWAVE,      EFFECT_PSYWAVE,             1, PSYCHIC_TYPE,  80, 15,   0
-	move SPLASH,       EFFECT_SPLASH,              0, NORMAL,       100, 40,   0
+	move STEEL_BEAM,   EFFECT_SELF_ATTACK_DOWN,  115, STEEL,        100,  5, 100
 	move POISON_JAB,   EFFECT_POISON_HIT,         75, POISON,       100, 20,  30
 	move HYDRO_CANNON, EFFECT_SELF_SPATT_DOWN,   115, WATER,        100,  5, 100
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,       100,  5,   0

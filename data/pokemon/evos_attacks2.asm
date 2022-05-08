@@ -1750,7 +1750,7 @@ TaurosEvosAttacks2:
 MagikarpEvosAttacks2:
 	db EVOLVE_LEVEL, 20, GYARADOS
 	db 0 ; no more evolutions
-	db 1, SPLASH
+	db 1, STRUGGLE
 	db 15, TACKLE
 	db 30, FLAIL
 	db 0 ; no more level-up moves
@@ -2517,7 +2517,7 @@ PolitoedEvosAttacks2:
 HoppipEvosAttacks2:
 	db EVOLVE_LEVEL, 18, SKIPLOOM
 	db 0 ; no more evolutions
-	db 1, SPLASH
+	db 1, STRUGGLE
 	db 5, SYNTHESIS
 	db 5, TAIL_WHIP
 	db 10, TACKLE
@@ -2532,7 +2532,7 @@ HoppipEvosAttacks2:
 SkiploomEvosAttacks2:
 	db EVOLVE_LEVEL, 27, JUMPLUFF
 	db 0 ; no more evolutions
-	db 1, SPLASH
+	db 1, STRUGGLE
 	db 1, SYNTHESIS
 	db 1, TAIL_WHIP
 	db 1, TACKLE
@@ -2549,7 +2549,7 @@ SkiploomEvosAttacks2:
 
 JumpluffEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, SPLASH
+	db 1, STRUGGLE
 	db 1, SYNTHESIS
 	db 1, TAIL_WHIP
 	db 1, TACKLE
