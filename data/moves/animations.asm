@@ -245,7 +245,7 @@ BattleAnimations::
 	dw BattleAnim_SunnyDay
 	dw BattleAnim_Crunch
 	dw BattleAnim_MirrorCoat
-	dw BattleAnim_PsychUp
+	dw BattleAnim_GunkShot
 	dw BattleAnim_Extremespeed
 	dw BattleAnim_Ancientpower
 	dw BattleAnim_ShadowBall
@@ -4938,19 +4938,37 @@ BattleAnim_MirrorCoat:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_PsychUp:
-	anim_1gfx ANIM_GFX_STATUS
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
-	anim_sound 0, 0, SFX_PSYBEAM
-	anim_obj ANIM_OBJ_PSYCH_UP, 44, 88, $0
-	anim_obj ANIM_OBJ_PSYCH_UP, 44, 88, $10
-	anim_obj ANIM_OBJ_PSYCH_UP, 44, 88, $20
-	anim_obj ANIM_OBJ_PSYCH_UP, 44, 88, $30
+BattleAnim_GunkShot:
+	anim_1gfx ANIM_GFX_POISON
+	anim_bgp $1b
+	anim_obp0 $27
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 62, 90, $10
+	anim_wait 3
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 60, 98, $13
+	anim_wait 4
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 66, 94, $12
+	anim_wait 8
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 58, 88, $09
+	anim_wait 2
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 64, 100, $18
+	anim_wait 5
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 52, 92, $15
+	anim_wait 6
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 56, 96, $07
+	anim_wait 7
+	anim_sound 6, 2, SFX_TOXIC
+	anim_obj ANIM_OBJ_ACID, 54, 86, $16
+	anim_wait 9
+	anim_sound 6, 2, SFX_TOXIC
+	anim_call BattleAnimSub_Sludge
 	anim_wait 64
-	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
-	anim_call BattleAnim_ShowMon_0
-	anim_wait 16
 	anim_ret
 
 BattleAnim_Extremespeed:

@@ -32,7 +32,7 @@ BattleTowerMons:
 
 	db ESPEON
 	db LEFTOVERS
-	db MUD_SLAP, PSYCHIC_M, PSYCH_UP, TOXIC
+	db MUD_SLAP, PSYCHIC_M, NO_MOVE, TOXIC
 	dw 0 ; OT ID
 	dt 1000 ; Exp
 	; Stat exp
@@ -58,7 +58,7 @@ BattleTowerMons:
 
 	db UMBREON
 	db GOLD_BERRY
-	db SHADOW_BALL, IRON_TAIL, PSYCH_UP, TOXIC
+	db SHADOW_BALL, IRON_TAIL, NO_MOVE, TOXIC
 	dw 0 ; OT ID
 	dt 1000 ; Exp
 	; Stat exp
@@ -526,7 +526,7 @@ BattleTowerMons:
 
 	db MR__MIME
 	db QUICK_CLAW
-	db TOXIC, PSYCH_UP, FIRE_PUNCH, HEADBUTT
+	db TOXIC, NO_MOVE, FIRE_PUNCH, HEADBUTT
 	dw 0 ; OT ID
 	dt 1000 ; Exp
 	; Stat exp
@@ -581,7 +581,7 @@ BattleTowerMons:
 
 	db STARMIE
 	db GOLD_BERRY
-	db RECOVER, PSYCHIC_M, BATTLE_SURF, PSYCH_UP
+	db RECOVER, PSYCHIC_M, BATTLE_SURF, NO_MOVE
 	dw 0 ; OT ID
 	dt 8000 ; Exp
 	; Stat exp
@@ -659,7 +659,7 @@ BattleTowerMons:
 
 	db ALAKAZAM
 	db BERRY_JUICE
-	db PSYCHIC_M, PSYCH_UP, TOXIC, THUNDERPUNCH
+	db PSYCHIC_M, NO_MOVE, TOXIC, THUNDERPUNCH
 	dw 0 ; OT ID
 	dt 8000 ; Exp
 	; Stat exp
@@ -1023,7 +1023,7 @@ BattleTowerMons:
 
 	db WIGGLYTUFF
 	db PINK_BOW
-	db PSYCHIC_M, NO_MOVE, PSYCH_UP, HEADBUTT
+	db PSYCHIC_M, NO_MOVE, NO_MOVE, HEADBUTT
 	dw 0 ; OT ID
 	dt 8000 ; Exp
 	; Stat exp
@@ -1494,7 +1494,7 @@ BattleTowerMons:
 
 	db ESPEON
 	db MIRACLEBERRY
-	db CONFUSION, SWIFT, TOXIC, PSYCH_UP
+	db CONFUSION, SWIFT, TOXIC, NO_MOVE
 	dw 0 ; OT ID
 	dt 27000 ; Exp
 	; Stat exp
@@ -1705,7 +1705,7 @@ BattleTowerMons:
 
 	db SNORLAX
 	db QUICK_CLAW
-	db ATTRACT, BODY_SLAM, PSYCH_UP, EARTHQUAKE
+	db ATTRACT, BODY_SLAM, NO_MOVE, EARTHQUAKE
 	dw 0 ; OT ID
 	dt 64000 ; Exp
 	; Stat exp
@@ -2095,7 +2095,7 @@ BattleTowerMons:
 
 	db EXEGGUTOR
 	db BRIGHTPOWDER
-	db EGG_BOMB, STOMP, PSYCH_UP, CONFUSION
+	db EGG_BOMB, STOMP, NO_MOVE, CONFUSION
 	dw 0 ; OT ID
 	dt 64000 ; Exp
 	; Stat exp
@@ -2280,7 +2280,7 @@ BattleTowerMons:
 
 	db SNORLAX
 	db LEFTOVERS
-	db HYPER_BEAM, EARTHQUAKE, BATTLE_SURF, PSYCH_UP
+	db HYPER_BEAM, EARTHQUAKE, BATTLE_SURF, NO_MOVE
 	dw 0 ; OT ID
 	dt 125000 ; Exp
 	; Stat exp
@@ -3352,7 +3352,7 @@ BattleTowerMons:
 
 	db UMBREON
 	db GOLD_BERRY
-	db FAINT_ATTACK, MOONLIGHT, PSYCH_UP, TOXIC
+	db FAINT_ATTACK, MOONLIGHT, NO_MOVE, TOXIC
 	dw 0 ; OT ID
 	dt 343000 ; Exp
 	; Stat exp
