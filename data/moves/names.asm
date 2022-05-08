@@ -149,7 +149,7 @@ MoveNames::
 	li "BI-WINGBEAT"
 	li "FLASH"
 	li "PSYWAVE"
-	li "SPLASH"
+	li "STEEL BEAM"
 	li "POISON JAB"
 	li "HYDRO CANNON"
 	li "EXPLOSION"
