@@ -223,7 +223,7 @@ BattleAnimations::
 	dw BattleAnim_Safeguard
 	dw BattleAnim_PainSplit
 	dw BattleAnim_SacredFire
-	dw BattleAnim_Magnitude
+	dw BattleAnim_Discharge
 	dw BattleAnim_Dynamicpunch
 	dw BattleAnim_Megahorn
 	dw BattleAnim_Dragonbreath
@@ -4525,23 +4525,30 @@ BattleAnim_SacredFire:
 	anim_wait 8
 	anim_ret
 
-BattleAnim_Magnitude:
-	anim_1gfx ANIM_GFX_ROCKS
+BattleAnim_Discharge:
+	anim_2gfx ANIM_GFX_LIGHTNING, ANIM_GFX_EXPLOSION
+	anim_bgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING, $0, BG_EFFECT_USER, $20
+	anim_bgeffect ANIM_BG_CYCLE_MID_OBPALS_GRAY_AND_YELLOW, $0, $2, $0 
+	anim_obj ANIM_OBJ_DISCHARGE_BALL, 44, 88, $08
+	anim_obj ANIM_OBJ_DISCHARGE_BALL, 44, 88, $22
+	anim_obj ANIM_OBJ_DISCHARGE_BALL, 44, 88, $38
 .loop
-	anim_bgeffect ANIM_BG_SHAKE_SCREEN_X, $e, $4, $0
-	anim_sound 0, 1, SFX_STRENGTH
-	anim_obj ANIM_OBJ_SMALL_ROCK, 128, 64, $40
-	anim_wait 2
-	anim_obj ANIM_OBJ_SMALL_ROCK, 120, 68, $30
-	anim_wait 2
-	anim_obj ANIM_OBJ_SMALL_ROCK, 152, 68, $30
-	anim_wait 2
-	anim_obj ANIM_OBJ_SMALL_ROCK, 144, 64, $40
-	anim_wait 2
-	anim_obj ANIM_OBJ_SMALL_ROCK, 136, 68, $30
-	anim_wait 2
-	anim_jumpuntil .loop
-	anim_wait 96
+	anim_sound 0, 0, SFX_SWORDS_DANCE
+	anim_wait 8
+	anim_loop 8, .loop
+	anim_incbgeffect ANIM_BG_CYCLE_MON_LIGHT_DARK_REPEATING
+	anim_call BattleAnim_ShowMon_0
+	anim_wait 1
+	anim_incobj 2
+	anim_incobj 3
+	anim_incobj 4
+	anim_wait 12
+	anim_obj ANIM_OBJ_THUNDERBOLT_BALL, 136, 56, $2
+	anim_wait 16
+	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $2
+	anim_sound 0, 1, SFX_THUNDERSHOCK
+	anim_obj ANIM_OBJ_SPARKS_CIRCLE_BIG, 136, 56, $0
+	anim_wait 56
 	anim_ret
 
 BattleAnim_Dynamicpunch:

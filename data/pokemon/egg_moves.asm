@@ -295,7 +295,6 @@ CuboneEggMoves:
 	db -1 ; end
 
 LickitungEggMoves:
-	db MAGNITUDE
 	db BODY_SLAM
 	db -1 ; end
 
@@ -314,7 +313,6 @@ RhyhornEggMoves:
 	db THRASH
 	db PURSUIT
 	db COUNTER
-	db MAGNITUDE
 	db -1 ; end
 
 ChanseyEggMoves:
