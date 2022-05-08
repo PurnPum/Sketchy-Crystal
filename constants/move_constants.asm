@@ -203,7 +203,7 @@
 	const PERISH_SONG  ; c3
 	const ICY_WIND     ; c4
 	const DETECT       ; c5
-	const BONE_RUSH    ; c6
+	const MUD_BOMB     ; c6
 	const LOCK_ON      ; c7
 	const OUTRAGE      ; c8
 	const SANDSTORM    ; c9
@@ -212,7 +212,7 @@
 	const CHARM        ; cc
 	const ROLLOUT      ; cd
 	const FALSE_SWIPE  ; ce
-	const SWAGGER      ; cf
+	const X_SCISSOR    ; cf
 	const MILK_DRINK   ; d0
 	const SPARK        ; d1
 	const FURY_CUTTER  ; d2

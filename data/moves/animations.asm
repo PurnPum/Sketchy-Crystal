@@ -199,7 +199,7 @@ BattleAnimations::
 	dw BattleAnim_PerishSong
 	dw BattleAnim_IcyWind
 	dw BattleAnim_Detect
-	dw BattleAnim_BoneRush
+	dw BattleAnim_MudBomb
 	dw BattleAnim_LockOn
 	dw BattleAnim_Outrage
 	dw BattleAnim_Sandstorm
@@ -208,7 +208,7 @@ BattleAnimations::
 	dw BattleAnim_Charm
 	dw BattleAnim_Rollout
 	dw BattleAnim_FalseSwipe
-	dw BattleAnim_Swagger
+	dw BattleAnim_XScissor
 	dw BattleAnim_MilkDrink
 	dw BattleAnim_Spark
 	dw BattleAnim_FuryCutter
@@ -3320,7 +3320,7 @@ BattleAnim_FlashCannon:
 	anim_obj ANIM_OBJ_RED_CHARGE, 48, 88, $0
 	anim_wait 124
 	anim_sound 0, 0, SFX_MASTER_BALL
-	anim_obj ANIM_OBJ_RED_ENERGY_BALL, 54, 92, $2
+	anim_obj ANIM_OBJ_RED_ENERGY_BALL, 54, 88, $2
 	anim_wait 42
 	anim_sound 0, 0, SFX_OUTRAGE
 	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $1
@@ -4101,19 +4101,30 @@ BattleAnim_Detect:
 	anim_wait 24
 	anim_ret
 
-BattleAnim_BoneRush:
-	anim_2gfx ANIM_GFX_HIT, ANIM_GFX_MISC
-	anim_sound 0, 1, SFX_BONE_CLUB
-	anim_obj ANIM_OBJ_BONE_RUSH, 132, 56, $2
-	anim_wait 16
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_YFIX, 120, 48, $0
-	anim_wait 16
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_YFIX, 144, 64, $0
-	anim_wait 16
+BattleAnim_MudBomb:
+	anim_3gfx ANIM_GFX_CHARGE, ANIM_GFX_HAZE, ANIM_GFX_EXPLOSION
+	anim_call BattleAnim_UserObj_2Row
+	anim_sound 0, 0, SFX_BALL_POOF
+	anim_obj ANIM_OBJ_MUD_BOMB_BALL, 64, 92, $10
+	anim_wait 32
+	anim_sound 0, 1, SFX_MENU
+	anim_obj ANIM_OBJ_EXPLOSION3, 138, 56, $0
+	anim_wait 5
+	anim_sound 0, 1, SFX_MENU
+	anim_obj ANIM_OBJ_EXPLOSION3, 126, 42, $0
+	anim_wait 5
+	anim_sound 0, 1, SFX_MENU
+	anim_obj ANIM_OBJ_EXPLOSION3, 132, 64, $0
+	anim_wait 5
+	anim_sound 0, 0, SFX_RAIN_DANCE
+.loop
+	anim_obj ANIM_OBJ_LOWER_HAZE_BROWN, 132, 60, $0
+	anim_wait 8
+	anim_loop 6, .loop
+	anim_call BattleAnim_ShowMon_1
+	anim_wait 48
 	anim_ret
-
+	
 BattleAnim_LockOn:
 	anim_1gfx ANIM_GFX_MISC
 	anim_sound 0, 1, SFX_MIND_READER
@@ -4252,17 +4263,12 @@ BattleAnim_FalseSwipe:
 	anim_wait 32
 	anim_ret
 
-BattleAnim_Swagger:
-	anim_2gfx ANIM_GFX_MISC, ANIM_GFX_WIND
-.loop
-	anim_sound 0, 0, SFX_MENU
-	anim_obj ANIM_OBJ_SWAGGER, 72, 88, $44
+BattleAnim_XScissor:
+	anim_1gfx ANIM_GFX_CUT
+	anim_sound 0, 1, SFX_CUT
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT_GREEN, 150, 38, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT_GREEN, 112, 38, $0
 	anim_wait 32
-	anim_loop 2, .loop
-	anim_wait 32
-	anim_sound 0, 1, SFX_KINESIS_2
-	anim_obj ANIM_OBJ_ANGER, 104, 40, $0
-	anim_wait 40
 	anim_ret
 
 BattleAnim_MilkDrink:
