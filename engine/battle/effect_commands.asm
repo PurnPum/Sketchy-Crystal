@@ -1679,8 +1679,8 @@ BattleCommand_CheckHit:
 	ret
 
 .LockOn:
-; Return nz if we are locked-on and aren't trying to use Earthquake or
-; Magnitude on a monster that is flying.
+; Return nz if we are locked-on and aren't trying to use Earthquake
+; on a monster that is flying.
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
@@ -1696,8 +1696,6 @@ BattleCommand_CheckHit:
 	call GetBattleVar
 
 	cp EARTHQUAKE
-	ret z
-	cp MAGNITUDE
 	ret z
 
 .LockedOn:
@@ -1753,8 +1751,6 @@ BattleCommand_CheckHit:
 
 	cp EARTHQUAKE
 	ret z
-	cp MAGNITUDE
-	ret
 
 .ThunderRain:
 ; Return z if the current move always hits in rain, and it is raining.

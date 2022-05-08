@@ -222,7 +222,7 @@ MoveDescriptions::
 	dw SafeguardDescription
 	dw PainSplitDescription
 	dw SacredFireDescription
-	dw MagnitudeDescription
+	dw DischargeDescription
 	dw DynamicpunchDescription
 	dw MegahornDescription
 	dw DragonbreathDescription
@@ -1151,9 +1151,9 @@ SacredFireDescription:
 	db   "An attack that may"
 	next "inflict a burn.@"
 
-MagnitudeDescription:
-	db   "A ground attack"
-	next "with random power.@"
+DischargeDescription:
+	db   "An electrical fla-"
+	next "-re. Can paralyze.@"
 
 DynamicpunchDescription:
 	db   "An attack that"
