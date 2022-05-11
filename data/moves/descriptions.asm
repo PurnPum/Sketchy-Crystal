@@ -275,8 +275,8 @@ KarateChopDescription:
 	next "a critical hit.@"
 
 DoubleslapDescription:
-	db   "Repeatedly slaps"
-	next "2-5 times.@"
+	db   "Slaps the target"
+	next "twice.@"
 
 CometPunchDescription:
 	db   "Repeatedly punches"
