@@ -271,8 +271,8 @@ PoundDescription:
 	next "legs or tail.@"
 
 KarateChopDescription:
-	db   "Has a high criti-"
-	next "cal hit ratio.@"
+	db   "Will always score"
+	next "a critical hit.@"
 
 DoubleslapDescription:
 	db   "Repeatedly slaps"

@@ -3,6 +3,7 @@ MoveEffectsPointers:
 	table_width 2, MoveEffectsPointers
 	dw NormalHit
 	dw BypassProtect
+	dw AlwaysCrit
 	dw DoSleep
 	dw PoisonHit
 	dw LeechHit
