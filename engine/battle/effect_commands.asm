@@ -1119,7 +1119,16 @@ CheckMimicUsed:
 
 BattleCommand_Critical:
 ; Determine whether this attack's hit will be critical.
-
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_ALWAYS_CRIT ; Karate Chop
+	jr nz, .not_yet
+	xor a
+	inc a
+	ld [wCriticalHit], a
+	ret
+	
+.not_yet
 	xor a
 	ld [wCriticalHit], a
 
