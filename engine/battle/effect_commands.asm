@@ -5399,13 +5399,18 @@ BattleCommand_EndLoop:
 	call BattleCommand_BeatUpFailText
 	jp EndMoveEffect
 
-.not_triple_kick
-	call BattleRandom
+.not_triple_kick 		;This code is the Multi-hit moves code, I altered it to change the percentiles from 
+	call BattleRandom 	;37.5, 37.5, 12.5, 12.5 to 12.5, 37.5, 37.5, 12.5 for 2, 3, 4 and 5 hits respectively
 	and $3
-	cp 2
-	jr c, .got_number_hits
-	call BattleRandom
-	and $3
+	cp 1				;Originally this cp jumped to .got_number_hits if "a" was 0 or 1, making 2 and 3 hits 37.5% likely to happen
+	jr nc, .almost_got_number_hits ; Now we jump to .got_number_hits if we roll anything above a 1 (inclusive)
+.reroll					;We reroll if we hit a 0 (skipping the previos jr nc) or a 3 (coming from jr z, .reroll 6 lines below)
+	call BattleRandom	;This reroll switches the percentiles to the desired ones, now 2 and 5 hits are more unlikely, while 3 and 4 are more likely
+	and $3				;Basically now to get 2 hits, we would need to roll 00 or 11 (50%) and then 00 (25%), making it 12.5% likely to happen
+	jr .got_number_hits ;Meanwhile to get 4 hits, we either get a 10 (25%), or we try again by getting a reroll from getting a 00 or a 11 (50%) and then a 10 (25%), making it 25+12.5 = 37,5% likely
+.almost_got_number_hits
+	cp 3				
+	jr z, .reroll		;Only reroll the hit count if we got a 3
 .got_number_hits
 	inc a
 .double_hit
