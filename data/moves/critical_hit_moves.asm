@@ -1,5 +1,4 @@
 CriticalHitMoves:
-	db RAZOR_WIND
 	db RAZOR_LEAF
 	db SLASH
 	db AEROBLAST
