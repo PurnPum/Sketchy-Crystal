@@ -163,6 +163,7 @@ ENDM
 	command futuresight             ; 9c
 	command doubleminimizedamage    ; 9d
 	command skipsuncharge           ; 9e
+	command skipraincharge
 	command thunderaccuracy         ; 9f
 	command teleport                ; a0
 	command beatup                  ; a1
