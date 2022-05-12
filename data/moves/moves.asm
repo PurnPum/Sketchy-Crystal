@@ -25,7 +25,7 @@ Moves:
 	move SCRATCH,      EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move VICEGRIP,     EFFECT_FLINCH_HIT,         60, STEEL,        100, 20,  20
 	move BULLDOZE,     EFFECT_SPEED_DOWN_HIT,     60, GROUND,       100, 20, 100
-	move RAZOR_WIND,   EFFECT_RAZOR_WIND,         80, NORMAL,        75, 10,   0
+	move RAZOR_WIND,   EFFECT_RAZOR_WIND,        120, FLYING,       100, 10,   0
 	move WILD_CHARGE,  EFFECT_RECOIL_HIT,        105, ELECTRIC,     100, 10,   0
 	move CUT,          EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
 	move GUST,         EFFECT_GUST,               40, FLYING,       100, 35,   0

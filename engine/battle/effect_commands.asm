@@ -6717,6 +6717,14 @@ BattleCommand_SkipSunCharge:
 	ld b, charge_command
 	jp SkipToBattleCommand
 	
+BattleCommand_SkipRainCharge:
+; mimicraincharge
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	ret nz
+	ld b, charge_command
+	jp SkipToBattleCommand
+	
 INCLUDE "engine/battle/move_effects/uturn.asm"
 
 INCLUDE "engine/battle/move_effects/future_sight.asm"
