@@ -50,7 +50,7 @@ Moves:
 	move WRAP,         EFFECT_TRAP_TARGET,        15, NORMAL,       100, 20,   0
 	move TAKE_DOWN,    EFFECT_RECOIL_HIT,        105, NORMAL,       100, 10,   0
 	move THRASH,       EFFECT_RAMPAGE,           105, NORMAL,       100, 10,   0
-	move DOUBLE_EDGE,  EFFECT_RECOIL_HIT,        120, NORMAL,       100, 15,   0
+	move DOUBLE_EDGE,  EFFECT_SELF_ATTACK_DOWN,  115, NORMAL,       100,  5,   0
 	move TAIL_WHIP,    EFFECT_DEFENSE_DOWN,        0, NORMAL,       100, 30,   0
 	move POISON_STING, EFFECT_POISON_HIT,         15, POISON,       100, 35,  30
 	move TWINEEDLE,    EFFECT_POISON_MULTI_HIT,   25, BUG,          100, 20,  20
