@@ -2176,3 +2176,24 @@ Blizzard:
 	buildopponentrage
 	freezetarget
 	endmove
+
+Bind:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	bindmultiplier
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove

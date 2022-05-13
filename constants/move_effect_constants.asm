@@ -164,4 +164,5 @@
 	const EFFECT_UTURN
 	const EFFECT_HAIL
 	const EFFECT_BLIZZARD
+	const EFFECT_BIND
 NUM_MOVE_EFECTS EQU const_value

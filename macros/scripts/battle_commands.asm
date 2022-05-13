@@ -163,27 +163,28 @@ ENDM
 	command futuresight             ; 9c
 	command doubleminimizedamage    ; 9d
 	command skipsuncharge           ; 9e
-	command skipraincharge
-	command thunderaccuracy         ; 9f
-	command teleport                ; a0
-	command beatup                  ; a1
-	command ragedamage              ; a2
-	command resettypematchup        ; a3
-	command allstatsup              ; a4
-	command bidefailtext            ; a5
-	command raisesubnoanim          ; a6
-	command lowersubnoanim          ; a7
-	command beatupfailtext          ; a8
-	command clearmissdamage         ; a9
-	command movedelay               ; aa
-	command moveanim                ; ab
-	command tristatuschance         ; ac
-	command supereffectivelooptext  ; ad
-	command startloop               ; ae
-	command curl                    ; af
-	command uturn					; b3
-	command starthail				; b5
-	command blizzardaccuracy		; b6
+	command skipraincharge			; 9f
+	command thunderaccuracy         ; a0
+	command teleport                ; a1
+	command beatup                  ; a2
+	command ragedamage              ; a3
+	command resettypematchup        ; a4
+	command allstatsup              ; a5
+	command bidefailtext            ; a6
+	command raisesubnoanim          ; a7
+	command lowersubnoanim          ; a8
+	command beatupfailtext          ; a9
+	command clearmissdamage         ; aa
+	command movedelay               ; ab
+	command moveanim                ; ac 
+	command tristatuschance         ; ad
+	command supereffectivelooptext  ; ae
+	command startloop               ; af
+	command curl                    ; b0
+	command uturn					; b1
+	command starthail				; b2
+	command blizzardaccuracy		; b3
+	command bindmultiplier			; b4
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

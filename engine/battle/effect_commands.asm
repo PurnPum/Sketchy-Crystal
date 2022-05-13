@@ -6733,6 +6733,25 @@ INCLUDE "engine/battle/move_effects/thunder.asm"
 
 INCLUDE "engine/battle/move_effects/blizzard.asm"
 
+BattleCommand_BindMultiplier:
+;This is called after DamageStats, so this means the following:
+;Move power d, player level e, enemy defense c and player attack b.
+	ld a, BATTLE_VARS_STATUS_OPP
+	push bc
+	push de
+	call GetBattleVarAddr
+	bit PAR, [hl]
+	jr z, .done	;Don't do anything if the enemy isn't paralyzed
+	pop de ;Restore D and E values before modifying d
+	sla d ;Double d's value, it should never be >127 since only bind uses this and bind is base 55 power
+	pop bc ;Restore b and c
+	ret
+.done
+	pop de
+	pop bc
+	ret
+	
+
 CheckHiddenOpponent:
 ; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP

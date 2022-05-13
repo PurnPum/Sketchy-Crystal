@@ -343,8 +343,8 @@ FlyDescription:
 	next "2nd turn: Attack@"
 
 BindDescription:
-	db   "Binds the target"
-	next "for 2-5 turns.@"
+	db   "Deals 2x damage to"
+	next "a paralyzed foe.@"
 
 OverheatDescription:
 	db   "A scorching blast,"
