@@ -165,4 +165,5 @@ MoveEffectsPointers:
 	dw UTurn
 	dw Hail
 	dw Blizzard
+	dw Bind
 	assert_table_length NUM_MOVE_EFFECTS

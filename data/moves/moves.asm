@@ -33,7 +33,7 @@ Moves:
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,       100, 35,   0
 	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,       100, 20,   0
 	move FLY,          EFFECT_SPLASH,	           0, FLYING,       100,  1,   0
-	move BIND,         EFFECT_TRAP_TARGET,        15, NORMAL,        75, 20,   0
+	move BIND,         EFFECT_BIND,       		  55, NORMAL,       100, 20,   0
 	move OVERHEAT,     EFFECT_SELF_SPATT_DOWN,   115, FIRE,         100,  5, 100
 	move VINE_WHIP,    EFFECT_NORMAL_HIT,         35, GRASS,        100, 10,   0
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,       100, 20,  30

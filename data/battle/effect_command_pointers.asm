@@ -184,4 +184,5 @@ BattleCommandPointers:
 	dw BattleCommand_UTurn
 	dw BattleCommand_StartHail
 	dw BattleCommand_BlizzardAccuracy
+	dw BattleCommand_BindMultiplier
 	assert_table_length NUM_EFFECT_COMMANDS
