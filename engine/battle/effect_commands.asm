@@ -4258,33 +4258,33 @@ RaiseStat:
 	ld [wFailedMessage], a
 	ret
 
-MinimizeDropSub:
+;MinimizeDropSub:
 ; Lower the substitute if we're minimizing
 ; Obsolete since we removed minimize
 
-	ld bc, wPlayerMinimized
-	ld hl, DropPlayerSub
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .do_player
-	ld bc, wEnemyMinimized
-	ld hl, DropEnemySub
-.do_player
-	ld a, BATTLE_VARS_MOVE_ANIM
-	call GetBattleVar
+;	ld bc, wPlayerMinimized
+;	ld hl, DropPlayerSub
+;	ldh a, [hBattleTurn]
+;	and a
+;	jr z, .do_player
+;	ld bc, wEnemyMinimized
+;	ld hl, DropEnemySub
+;.do_player
+;	ld a, BATTLE_VARS_MOVE_ANIM
+;	call GetBattleVar
 	;cp MINIMIZE
-	ret 
+;	ret 
 
-	ld a, $1
-	ld [bc], a
-	call _CheckBattleScene
-	ret nc
+;	ld a, $1
+;	ld [bc], a
+;	call _CheckBattleScene
+;	ret nc
 
-	xor a
-	ldh [hBGMapMode], a
-	call CallBattleCore
-	call WaitBGMap
-	jp BattleCommand_MoveDelay
+;	xor a
+;	ldh [hBGMapMode], a
+;	call CallBattleCore
+;	call WaitBGMap
+;	jp BattleCommand_MoveDelay
 
 BattleCommand_AttackDown:
 	ld a, ATTACK
@@ -4770,11 +4770,11 @@ BattleCommand_TriStatusChance:
 	dw BattleCommand_FreezeTarget ; freeze
 	dw BattleCommand_BurnTarget ; burn
 
-BattleCommand_Curl:
-	ld a, BATTLE_VARS_SUBSTATUS2
-	call GetBattleVarAddr
-	set SUBSTATUS_CURLED, [hl]
-	ret
+;BattleCommand_Curl: Defense curl was removed
+;	ld a, BATTLE_VARS_SUBSTATUS2
+;	call GetBattleVarAddr
+;	set SUBSTATUS_CURLED, [hl]
+;	ret
 
 BattleCommand_RaiseSubNoAnim:
 	ld hl, GetBattleMonBackpic
@@ -5704,6 +5704,35 @@ BattleCommand_Recoil:
 	jr z, .got_hp
 	ld hl, wEnemyMonMaxHP
 .got_hp
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_RECOIL_HIT_4TH
+	jr z, .a_4th_of_recoil
+.a_3rd_of_recoil
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+; get 1/3 damage or 1 HP, whichever is higher
+	push hl
+	ld hl, wCurDamage
+	ld a, 3
+	ld [hDivisor], a
+	ld a, [hli]
+	ld [hDividend], a
+	ld a, [hl]
+	ld [hDividend + 1], a
+	ld b, 2
+	call Divide
+	ld a, [hQuotient + 3]
+	ld c, a
+	ldh a, [hQuotient + 2]
+	ld b, a
+	or c
+	pop hl
+	jr nz, .min_damage
+	inc c
+	jr .min_damage
+.a_4th_of_recoil
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld d, a

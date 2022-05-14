@@ -51,6 +51,7 @@ MoveEffectsPointers:
 	dw NormalHit
 	dw Mist
 	dw FocusEnergy
+	dw RecoilHit4th
 	dw RecoilHit
 	dw DoConfuse
 	dw AttackUp2
@@ -159,7 +160,7 @@ MoveEffectsPointers:
 	dw Teleport
 	dw BeatUp
 	dw Fly
-	dw DefenseCurl
+	;dw DefenseCurl
 	dw SelfAttackDown
 	dw SelfSpecialAttackDown
 	dw UTurn

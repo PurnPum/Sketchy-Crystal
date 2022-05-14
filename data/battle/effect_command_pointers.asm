@@ -95,7 +95,7 @@ BattleCommandPointers:
 	dw BattleCommand_PerishSong
 	dw BattleCommand_StartSandstorm
 	dw BattleCommand_Endure
-	dw BattleCommand_CheckCurl
+	;dw BattleCommand_CheckCurl
 	dw BattleCommand_RolloutPower
 	dw BattleCommand_Unused5D
 	dw BattleCommand_FuryCutter
@@ -180,7 +180,7 @@ BattleCommandPointers:
 	dw BattleCommand_TriStatusChance
 	dw BattleCommand_SuperEffectiveLoopText
 	dw BattleCommand_StartLoop
-	dw BattleCommand_Curl
+	;dw BattleCommand_Curl
 	dw BattleCommand_UTurn
 	dw BattleCommand_StartHail
 	dw BattleCommand_BlizzardAccuracy

@@ -1,24 +1,24 @@
 DEF MAX_ROLLOUT_COUNT EQU 5
 
-BattleCommand_CheckCurl:
-	ld de, wPlayerRolloutCount
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld de, wEnemyRolloutCount
-.ok
-	ld a, BATTLE_VARS_SUBSTATUS1
-	call GetBattleVar
-	bit SUBSTATUS_ROLLOUT, a
-	jr z, .reset
 
-	ld b, doturn_command
-	jp SkipToBattleCommand
+;BattleCommand_CheckCurl:
+;	ld de, wPlayerRolloutCount
+;	ldh a, [hBattleTurn]
+;	and a
+;	jr z, .ok
+;	ld de, wEnemyRolloutCount
+;.ok
+;	ld a, BATTLE_VARS_SUBSTATUS1
+;	call GetBattleVar
+;	bit SUBSTATUS_ROLLOUT, a
+;	jr z, .reset
+;	ld b, doturn_command
+;	jp SkipToBattleCommand
 
-.reset
-	xor a
-	ld [de], a
-	ret
+;.reset
+;	xor a
+;	ld [de], a
+;	ret
 
 BattleCommand_RolloutPower:
 	ld a, BATTLE_VARS_STATUS

@@ -931,6 +931,7 @@ OHKOHit:
 	buildopponentrage
 	endmove
 
+RecoilHit4th:
 RecoilHit:
 	checkobedience
 	usedmovetext
@@ -1539,7 +1540,7 @@ Endure:
 	endmove
 
 Rollout:
-	checkcurl
+	;checkcurl
 	checkobedience
 	doturn
 	usedmovetext
@@ -2068,18 +2069,18 @@ BeatUp:
 	kingsrock
 	endmove
 
-DefenseCurl:
-	checkobedience
-	usedmovetext
-	doturn
-	defenseup
-	curl
-	lowersub
-	statupanim
-	raisesub
-	statupmessage
-	statupfailtext
-	endmove
+;DefenseCurl:
+;	checkobedience
+;	usedmovetext
+;	doturn
+;	defenseup
+;	curl
+;	lowersub
+;	statupanim
+;	raisesub
+;	statupmessage
+;	statupfailtext
+;	endmove
 
 SelfAttackDown:
 	checkobedience
