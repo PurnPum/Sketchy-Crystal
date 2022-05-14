@@ -95,7 +95,7 @@ ENDM
 	command perishsong              ; 58
 	command startsandstorm          ; 59
 	command endure                  ; 5a
-	command checkcurl               ; 5b
+	;command checkcurl               ; 5b
 	command rolloutpower            ; 5c
 	command effect0x5d              ; 5d
 	command furycutter              ; 5e
@@ -180,7 +180,7 @@ ENDM
 	command tristatuschance         ; ad
 	command supereffectivelooptext  ; ae
 	command startloop               ; af
-	command curl                    ; b0
+	;command curl                    ; b0
 	command uturn					; b1
 	command starthail				; b2
 	command blizzardaccuracy		; b3
