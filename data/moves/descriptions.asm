@@ -456,7 +456,7 @@ DragonRushDescription:
 
 SupersonicDescription:
 	db   "Sound waves that"
-	next "cause confusion.@"
+	next "damage and confuse@"
 
 HailDescription:
 	db   "Deals damage every"
