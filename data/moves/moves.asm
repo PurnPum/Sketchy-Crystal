@@ -90,7 +90,7 @@ Moves:
 	move RAZOR_LEAF,   EFFECT_NORMAL_HIT,         55, GRASS,        100, 25,   0
 	move SOLARBEAM,    EFFECT_SOLARBEAM,         120, GRASS,        100, 10,   0
 	move POISONPOWDER, EFFECT_POISON_HIT,         40, POISON,       100, 25, 100
-	move STUN_SPORE,   EFFECT_PARALYZE,            0, GRASS,         75, 30,   0
+	move STUN_SPORE,   EFFECT_PARALYZE,            0, GRASS,        100, 30,   0
 	move ENERGY_BALL,  EFFECT_SP_DEF_DOWN_HIT,    90, GRASS,        100, 10,   0
 	move PETAL_DANCE,  EFFECT_RAMPAGE,            70, GRASS,        100, 20,   0
 	move STRING_SHOT,  EFFECT_SPEED_DOWN,          0, BUG,           95, 40,   0
