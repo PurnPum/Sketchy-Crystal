@@ -165,7 +165,7 @@ ENDM
 	command skipsuncharge           ; 9e
 	command skipraincharge			; 9f
 	command thunderaccuracy         ; a0
-	command teleport                ; a1
+	;command teleport               ; a1
 	command beatup                  ; a2
 	command ragedamage              ; a3
 	command resettypematchup        ; a4

@@ -2039,7 +2039,7 @@ Teleport:
 	checkobedience
 	usedmovetext
 	doturn
-	teleport
+	uturn
 	endmove
 
 BeatUp:
