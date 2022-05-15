@@ -78,7 +78,7 @@ Moves:
 	move HYPER_BEAM,   EFFECT_HYPER_BEAM,        140, NORMAL,       100,  5,   0
 	move PECK,         EFFECT_NORMAL_HIT,         40, FLYING,       100, 35,   0
 	move DRILL_PECK,   EFFECT_NORMAL_HIT,         80, FLYING,       100, 20,   0
-	move SUBMISSION,   EFFECT_RECOIL_HIT,         80, FIGHTING,      80, 25,   0
+	move SUBMISSION,   EFFECT_RECOIL_HIT,        105, FIGHTING,     100, 10,   0
 	move LOW_KICK,     EFFECT_FLINCH_HIT,         50, FIGHTING,      90, 20,  30
 	move COUNTER,      EFFECT_COUNTER,             1, FIGHTING,     100, 20,   0
 	move SEISMIC_TOSS, EFFECT_LEVEL_DAMAGE,        1, FIGHTING,     100, 20,   0
