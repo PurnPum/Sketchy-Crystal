@@ -104,7 +104,7 @@ Moves:
 	move EARTHQUAKE,   EFFECT_EARTHQUAKE,        100, GROUND,       100, 10,   0
 	move SHADOW_CLAW,  EFFECT_NORMAL_HIT,         70, GHOST,        100, 15,   0
 	move DIG,          EFFECT_FLY,                80, GROUND,       100, 10,   0
-	move TOXIC,        EFFECT_TOXIC,               0, POISON,        85, 10,   0
+	move TOXIC,        EFFECT_TOXIC,               0, POISON,       100,  5,   0
 	move CONFUSION,    EFFECT_CONFUSE_HIT,        50, PSYCHIC_TYPE, 100, 25,  10
 	move PSYCHIC_M,    EFFECT_SP_DEF_DOWN_HIT,    90, PSYCHIC_TYPE, 100, 10,  10
 	move EXTRASENSORY, EFFECT_FLINCH_HIT,         80, PSYCHIC_TYPE, 100, 20,  10
