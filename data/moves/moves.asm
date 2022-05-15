@@ -121,7 +121,7 @@ Moves:
 	move DRILL_RUN,    EFFECT_NORMAL_HIT,         80, GROUND,       100, 10,   0
 	move AQUA_JET,     EFFECT_PRIORITY_HIT,       40, WATER,        100, 30,   0
 	move POWER_TRIP,   EFFECT_SELF_SPATT_DOWN,   115, DARK,         100,  5, 100
-	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,        100, 10,   0
+	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,        100, 15,   0
 	move MAGNET_BOMB,  EFFECT_BYPASS_PROTECT,     60, STEEL,        100, 20,   0
 	move BULLET_PUNCH, EFFECT_PRIORITY_HIT,       40, STEEL,        100, 30,   0
 	move POWER_GEM,    EFFECT_NORMAL_HIT,         80, ROCK, 		100, 20,   0
