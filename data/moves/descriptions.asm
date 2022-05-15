@@ -572,8 +572,8 @@ SolarbeamDescription:
 	next "2nd turn: Attack@"
 
 PoisonpowderDescription:
-	db   "A move that may"
-	next "poison the foe.@"
+	db   "Deals damage and"
+	next "always poisons.@"
 
 StunSporeDescription:
 	db   "A move that may"
