@@ -137,7 +137,7 @@ Moves:
 	move LICK,         EFFECT_PARALYZE_HIT,       50, GHOST,        100, 20,  30
 	move SMOG,         EFFECT_ALWAYS_CRIT_POISON, 50, POISON,       100, 20,   0
 	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,       100, 20,  30
-	move BONE_CLUB,    EFFECT_FLINCH_HIT,         65, GROUND,        85, 20,  10
+	move BONE_CLUB,    EFFECT_FLINCH_HIT,         65, GROUND,       100, 20,  10
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          120, FIRE,          85,  5,  10
 	move WATERFALL,    EFFECT_SPLASH,	           0, WATER,        100,  1,   0
 	move CLAMP,        EFFECT_TRAP_TARGET,        35, WATER,         75, 10,   0
