@@ -63,7 +63,7 @@ Moves:
 	move SUPERSONIC,   EFFECT_CONFUSE_HIT,        40, NORMAL,       100, 10, 100
 	move HAIL,    	   EFFECT_HAIL,			       0, ICE,          100, 10,   0
 	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,        55, 20,   0
-	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,       100, 30,  10
+	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,       100, 30, 100
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,         100, 25,  10
 	move FLAMETHROWER, EFFECT_BURN_HIT,           95, FIRE,         100, 15,  10
 	move MIST,         EFFECT_MIST,                0, ICE,          100, 30,   0
