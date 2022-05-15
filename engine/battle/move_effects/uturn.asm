@@ -83,3 +83,9 @@ BattleCommand_UTurn:
 	
 UTurnCantSwitch:
 	call AppearUserRaiseSub
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp TELEPORT ;If we're using teleport then print the failed text if we're here
+	ret nz
+	call AnimateFailedMove
+	jp PrintButItFailed
