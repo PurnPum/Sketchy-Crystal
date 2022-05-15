@@ -85,7 +85,7 @@ Moves:
 	move STRENGTH,     EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
 	move ABSORB,       EFFECT_LEECH_HIT,          25, GRASS,        100, 20,   0
 	move MEGA_DRAIN,   EFFECT_LEECH_HIT,          45, GRASS,        100, 15,   0
-	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,         90, 10,   0
+	move LEECH_SEED,   EFFECT_LEECH_SEED,          0, GRASS,        100,  5,   0
 	move DRAGON_CLAW,  EFFECT_NORMAL_HIT,         80, DRAGON,       100, 15,   0
 	move RAZOR_LEAF,   EFFECT_NORMAL_HIT,         55, GRASS,         95, 25,   0
 	move SOLARBEAM,    EFFECT_SOLARBEAM,         120, GRASS,        100, 10,   0
