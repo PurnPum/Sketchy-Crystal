@@ -1122,7 +1122,14 @@ BattleCommand_Critical:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_ALWAYS_CRIT ; Karate Chop
+	jr z, .crit_100
+	cp EFFECT_ALWAYS_CRIT_POISON ; Smog
 	jr nz, .not_yet
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	bit PSN, [hl]
+	jr z, .not_yet
+.crit_100
 	xor a
 	inc a
 	ld [wCriticalHit], a

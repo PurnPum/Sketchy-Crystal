@@ -5,6 +5,7 @@ MoveEffects: ; used only for BANK(MoveEffects)
 NormalHit:
 BypassProtect:
 AlwaysCrit:
+AlwaysCritPoison:
 	checkobedience
 	usedmovetext
 	doturn
