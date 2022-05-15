@@ -133,9 +133,9 @@ Moves:
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,       100, 10,   0
 	move MIRROR_MOVE,  EFFECT_MIRROR_MOVE,         0, FLYING,       100, 20,   0
 	move SELFDESTRUCT, EFFECT_SELFDESTRUCT,      200, NORMAL,       100,  5,   0
-	move EGG_BOMB,     EFFECT_NORMAL_HIT,        100, NORMAL,        75, 10,   0
-	move LICK,         EFFECT_PARALYZE_HIT,       20, GHOST,        100, 30,  30
-	move SMOG,         EFFECT_POISON_HIT,         20, POISON,        70, 20,  40
+	move EGG_BOMB,     EFFECT_RECOIL_HIT,        105, GRASS,        100, 10,   0
+	move LICK,         EFFECT_PARALYZE_HIT,       50, GHOST,        100, 20,  30
+	move SMOG,         EFFECT_ALWAYS_CRIT_POISON, 50, POISON,       100, 20,   0
 	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,       100, 20,  30
 	move BONE_CLUB,    EFFECT_FLINCH_HIT,         65, GROUND,        85, 20,  10
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          120, FIRE,          85,  5,  10

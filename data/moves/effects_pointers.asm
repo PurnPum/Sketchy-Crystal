@@ -4,6 +4,7 @@ MoveEffectsPointers:
 	dw NormalHit
 	dw BypassProtect
 	dw AlwaysCrit
+	dw AlwaysCritPoison
 	dw DoSleep
 	dw PoisonHit
 	dw LeechHit
