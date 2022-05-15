@@ -70,7 +70,7 @@ Moves:
 	move WATER_GUN,    EFFECT_NORMAL_HIT,         40, WATER,        100, 25,   0
 	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        110, WATER,         85,  5,   0
 	move SURF,         EFFECT_SPLASH,	           0, WATER,        100,  1,   0
-	move ICE_BEAM,     EFFECT_FREEZE_HIT,         95, ICE,          100, 10,  10
+	move ICE_BEAM,     EFFECT_FREEZE_HIT,         90, ICE,          100, 10,  10
 	move BLIZZARD,     EFFECT_BLIZZARD,          120, ICE,           70,  5,  10
 	move PSYBEAM,      EFFECT_CONFUSE_HIT,        65, PSYCHIC_TYPE, 100, 20,  10
 	move BUBBLEBEAM,   EFFECT_SPEED_DOWN_HIT,     65, WATER,        100, 20,  10
