@@ -115,7 +115,7 @@ Moves:
 	move TELEPORT,     EFFECT_TELEPORT,            0, PSYCHIC_TYPE, 100, 20,   0
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,        100, 15,   0
 	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,       100, 10,   0
-	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,        85, 40,   0
+	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,       100, 15,   0
 	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,          100, 30,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100, 20,   0
 	move DRILL_RUN,    EFFECT_NORMAL_HIT,         80, GROUND,       100, 10,   0
