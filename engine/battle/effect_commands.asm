@@ -6126,6 +6126,18 @@ INCLUDE "engine/battle/move_effects/substitute.asm"
 
 BattleCommand_RechargeNextTurn:
 ; rechargenextturn
+	ld hl, wEnemyMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_hp
+	ld hl, wBattleMonHP
+
+.got_hp
+	ld a, [hli]
+	or [hl]
+	ret z			;Dont set the recharge if the oposing mon has 0 HP (was knocked out by hyper beam)
+	
+.set_recharge
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVarAddr
 	set SUBSTATUS_RECHARGE, [hl]
