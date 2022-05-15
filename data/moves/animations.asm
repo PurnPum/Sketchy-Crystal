@@ -2507,15 +2507,18 @@ BattleAnim_FuryAttack:
 	anim_ret
 
 BattleAnim_UTurn:
-	anim_3gfx ANIM_GFX_EGG, ANIM_GFX_SMOKE, ANIM_GFX_MISC
+	anim_3gfx ANIM_GFX_EGG, ANIM_GFX_SMOKE, ANIM_GFX_HIT
 	anim_sound 6, 2, SFX_THROW_BALL
 	anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
 	anim_obj ANIM_OBJ_SLUDGE_BOMB, 64, 92, $10
 	anim_wait 42
+	anim_sound 0, 1, SFX_TACKLE
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 136, 56, $0
 	anim_obj ANIM_OBJ_BALL_POOF, 44, 104, $10
 	anim_wait 8
 	anim_bgeffect ANIM_BG_SHOW_MON, $0, BG_EFFECT_USER, $0
 	anim_wait 24
+	anim_1gfx ANIM_GFX_MISC
 	anim_obj ANIM_OBJ_BATON_PASS, 44, 104, $20
 	anim_sound 0, 0, SFX_BATON_PASS
 	anim_call BattleAnimSub_Return
