@@ -756,8 +756,8 @@ LickDescription:
 	next "cause paralysis.@"
 
 SmogDescription:
-	db   "An attack that may"
-	next "poison the foe.@"
+	db   "Will always crit a"
+	next "poisoned foe.@"
 
 SludgeDescription:
 	db   "An attack that may"
