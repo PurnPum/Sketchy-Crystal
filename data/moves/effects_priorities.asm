@@ -2,6 +2,7 @@ MoveEffectPriorities:
 	db EFFECT_SKETCH,		4
 	db EFFECT_PROTECT,      3
 	db EFFECT_ENDURE,       3
+	db EFFECT_MIST,			2
 	db EFFECT_PRIORITY_HIT, 2
 	db EFFECT_SUPER_FANG,	0
 	db EFFECT_FORCE_SWITCH, 0
