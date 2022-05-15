@@ -69,7 +69,7 @@ Moves:
 	move FLAMETHROWER, EFFECT_BURN_HIT,           95, FIRE,         100, 15,  10
 	move MIST,         EFFECT_MIST,                0, ICE,          100, 30,   0
 	move WATER_GUN,    EFFECT_NORMAL_HIT,         40, WATER,        100, 25,   0
-	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        120, WATER,         80,  5,   0
+	move HYDRO_PUMP,   EFFECT_NORMAL_HIT,        110, WATER,         85,  5,   0
 	move SURF,         EFFECT_SPLASH,	           0, WATER,        100,  1,   0
 	move ICE_BEAM,     EFFECT_FREEZE_HIT,         95, ICE,          100, 10,  10
 	move BLIZZARD,     EFFECT_BLIZZARD,          120, ICE,           70,  5,  10
