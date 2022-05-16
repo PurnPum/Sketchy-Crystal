@@ -1022,20 +1022,28 @@ TriAttack:
 	checkobedience
 	usedmovetext
 	doturn
+	startloop
+	lowersub
+	checkhit
 	critical
+	triattack
 	damagestats
 	damagecalc
 	stab
 	damagevariation
-	checkhit
-	moveanim
+	clearmissdamage
+	moveanimnosub
 	failuretext
 	applydamage
 	criticaltext
-	supereffectivetext
+	cleartext
+	supereffectivelooptext
 	checkfaint
 	buildopponentrage
-	tristatuschance
+	kickcounter
+	endloop
+	raisesub
+	kingsrock
 	endmove
 
 Toxic:
