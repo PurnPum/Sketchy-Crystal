@@ -156,7 +156,7 @@ Moves:
 	move BARRAGE,      EFFECT_MULTI_HIT,          18, GRASS,        100, 20,   0
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          70, BUG,          100, 10,   0
 	move ACCELEROCK,   EFFECT_PRIORITY_HIT,       40, ROCK,         100, 20,   0
-	move SKY_ATTACK,   EFFECT_SKY_ATTACK,        140, FLYING,        90,  5,   0
+	move SKY_ATTACK,   EFFECT_SELF_ATTACK_DOWN,  115, FLYING,       100,  5,   0
 	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, NORMAL,       100, 15, 100
 	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     20, WATER,        100, 30,  10
 	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,       100, 10,  20
