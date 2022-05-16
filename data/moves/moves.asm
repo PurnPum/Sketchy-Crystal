@@ -62,7 +62,7 @@ Moves:
 	move DRAGON_RUSH,  EFFECT_RECOIL_HIT,        105, DRAGON,       100, 10,   0
 	move SUPERSONIC,   EFFECT_CONFUSE_HIT,        40, NORMAL,       100, 10, 100
 	move HAIL,    	   EFFECT_HAIL,			       0, ICE,          100, 10,   0
-	move DISABLE,      EFFECT_DISABLE,             0, NORMAL,        55, 20,   0
+	move DISABLE,      EFFECT_DISABLE,             0, PSYCHIC_TYPE, 100, 20,   0
 	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,       100, 30, 100
 	move EMBER,        EFFECT_BURN_HIT,           40, FIRE,         100, 25,  10
 	move FLAMETHROWER, EFFECT_BURN_HIT,           95, FIRE,         100, 15,  10
@@ -128,7 +128,7 @@ Moves:
 	move LIGHT_SCREEN, EFFECT_LIGHT_SCREEN,        0, PSYCHIC_TYPE, 100, 30,   0
 	move HAZE,         EFFECT_RESET_STATS,         0, ICE,          100, 30,   0
 	move REFLECT,      EFFECT_REFLECT,             0, PSYCHIC_TYPE, 100, 20,   0
-	move FOCUS_ENERGY, EFFECT_FOCUS_ENERGY,        0, NORMAL,       100, 30,   0
+	move FOCUS_ENERGY, EFFECT_FOCUS_ENERGY,        0, FIGHTING,     100, 30,   0
 	move BIDE,         EFFECT_BIDE,                0, NORMAL,       100, 10,   0
 	move METRONOME,    EFFECT_METRONOME,           0, NORMAL,       100, 10,   0
 	move MIRROR_MOVE,  EFFECT_MIRROR_MOVE,         0, FLYING,       100, 20,   0
@@ -156,11 +156,11 @@ Moves:
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          70, BUG,          100, 10,   0
 	move ACCELEROCK,   EFFECT_PRIORITY_HIT,       40, ROCK,         100, 20,   0
 	move SKY_ATTACK,   EFFECT_SELF_ATTACK_DOWN,  115, FLYING,       100,  5,   0
-	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, NORMAL,       100, 15, 100
+	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, GROUND,       100, 15, 100
 	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     30, WATER,        100, 30, 100
 	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,       100, 10,  20
 	move BI_WINGBEAT,  EFFECT_DOUBLE_HIT,         35, FLYING,       100, 10,   0
-	move FLASH,        EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
+	move FLASH,        EFFECT_SPLASH,	           0, ELECTRIC,     100,  1,   0
 	move PSYWAVE,      EFFECT_PSYWAVE,             1, PSYCHIC_TYPE, 100, 15,   0
 	move STEEL_BEAM,   EFFECT_SELF_ATTACK_DOWN,  115, STEEL,        100,  5, 100
 	move POISON_JAB,   EFFECT_POISON_HIT,         75, POISON,       100, 20,  30
