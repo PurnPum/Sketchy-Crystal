@@ -171,7 +171,7 @@ Moves:
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         50, GROUND,       100, 10,   0
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100, 10,   0
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,         100, 10,  30
-	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,        90, 15,  10
+	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       100, 10,  10
 	move FLARE_BLITZ,  EFFECT_RECOIL_HIT,        105, FIRE,         100, 15,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, NORMAL,       100, 10,  20
