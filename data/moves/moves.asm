@@ -154,7 +154,7 @@ Moves:
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       160, PSYCHIC_TYPE, 100, 15,   0
 	move POISON_GAS,   EFFECT_STATS_DOWN_PSN,     40, POISON,       100, 20,   0
 	move BARRAGE,      EFFECT_MULTI_HIT,          18, GRASS,        100, 20,   0
-	move LEECH_LIFE,   EFFECT_LEECH_HIT,          20, BUG,          100, 15,   0
+	move LEECH_LIFE,   EFFECT_LEECH_HIT,          70, BUG,          100, 10,   0
 	move ACCELEROCK,   EFFECT_PRIORITY_HIT,       40, ROCK,         100, 20,   0
 	move SKY_ATTACK,   EFFECT_SKY_ATTACK,        140, FLYING,        90,  5,   0
 	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, NORMAL,       100, 15, 100
