@@ -174,7 +174,7 @@ Moves:
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       100, 10,  10
 	move FLARE_BLITZ,  EFFECT_RECOIL_HIT,        105, FIRE,         100, 10,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0
-	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, NORMAL,       100, 10,  20
+	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         80, CURSE_TYPE,   100, 10,  20
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,        90, 10,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
