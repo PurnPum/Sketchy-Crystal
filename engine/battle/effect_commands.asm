@@ -1119,8 +1119,12 @@ CheckMimicUsed:
 
 BattleCommand_Critical:
 ; Determine whether this attack's hit will be critical.
+	
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
+	;cp EFFECT_TRI_ATTACK
+	;call z, BattleCommand_TriAttack
+	;jr .not_yet
 	cp EFFECT_ALWAYS_CRIT ; Karate Chop
 	jr z, .crit_100
 	cp EFFECT_ALWAYS_CRIT_POISON ; Smog
@@ -1997,6 +2001,8 @@ BattleCommand_MoveAnimNoSub:
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .alternate_anim
 	cp EFFECT_TRIPLE_KICK
+	jr z, .triplekick
+	cp EFFECT_TRI_ATTACK
 	jr z, .triplekick
 	xor a
 	ld [wBattleAnimParam], a
@@ -3569,6 +3575,8 @@ DoSubstituteDamage:
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .ok
 	cp EFFECT_TRIPLE_KICK
+	jr z, .ok
+	cp EFFECT_TRI_ATTACK
 	jr z, .ok
 	cp EFFECT_BEAT_UP
 	jr z, .ok
@@ -5253,6 +5261,8 @@ BattleCommand_EndLoop:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVarAddr
 	ld a, [hl]
+	cp EFFECT_TRI_ATTACK
+	jr z, .triattack
 	cp EFFECT_POISON_MULTI_HIT
 	jr z, .twineedle
 	cp EFFECT_DOUBLE_HIT
@@ -5306,7 +5316,7 @@ BattleCommand_EndLoop:
 	and $3
 	cp 1				;Originally this cp jumped to .got_number_hits if "a" was 0 or 1, making 2 and 3 hits 37.5% likely to happen
 	jr nc, .almost_got_number_hits ; Now we jump to .got_number_hits if we roll anything above a 1 (inclusive)
-.reroll					;We reroll if we hit a 0 (skipping the previos jr nc) or a 3 (coming from jr z, .reroll 6 lines below)
+.reroll					;We reroll if we hit a 0 (skipping the previous jr nc) or a 3 (coming from jr z, .reroll 6 lines below)
 	call BattleRandom	;This reroll switches the percentiles to the desired ones, now 2 and 5 hits are more unlikely, while 3 and 4 are more likely
 	and $3				;Basically now to get 2 hits, we would need to roll 00 or 11 (50%) and then 00 (25%), making it 12.5% likely to happen
 	jr .got_number_hits ;Meanwhile to get 4 hits, we either get a 10 (25%), or we try again by getting a reroll from getting a 00 or a 11 (50%) and then a 10 (25%), making it 25+12.5 = 37,5% likely
@@ -5325,6 +5335,10 @@ BattleCommand_EndLoop:
 	ld a, 1
 	jr .double_hit
 
+.triattack 
+	ld a, 2
+	jr .double_hit
+	
 .in_loop
 	ld a, [de]
 	dec a
@@ -6666,6 +6680,8 @@ BattleCommand_PoisonGas:
 	call BattleCommand_SpecialAttackDown
 	call BattleCommand_StatDownMessage
 	ret
+
+INCLUDE "engine/battle/move_effects/triattack.asm"
 
 CheckHiddenOpponent:
 ; BUG: Lock-On and Mind Reader don't always bypass Fly and Dig (see docs/bugs_and_glitches.md)

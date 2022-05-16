@@ -2972,10 +2972,18 @@ BattleAnim_Lick:
 
 BattleAnim_TriAttack:
 	anim_3gfx ANIM_GFX_FIRE, ANIM_GFX_ICE, ANIM_GFX_LIGHTNING
+	anim_if_param_equal $1, .alternate1
+	anim_if_param_equal $2, .alternate2
 	anim_call BattleAnimSub_Fire
 	anim_wait 16
+	anim_ret
+	
+.alternate1
 	anim_call BattleAnimSub_Ice
 	anim_wait 16
+	anim_ret
+	
+.alternate2
 	anim_bgeffect ANIM_BG_FLASH_INVERTED, $0, $4, $4
 	anim_sound 0, 1, SFX_THUNDER
 	anim_obj ANIM_OBJ_THUNDER3, 152, 68, $0

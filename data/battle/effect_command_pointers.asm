@@ -186,4 +186,5 @@ BattleCommandPointers:
 	dw BattleCommand_BlizzardAccuracy
 	dw BattleCommand_BindMultiplier
 	dw BattleCommand_PoisonGas
+	dw BattleCommand_TriAttack
 	assert_table_length NUM_EFFECT_COMMANDS
