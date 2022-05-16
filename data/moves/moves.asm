@@ -30,7 +30,7 @@ Moves:
 	move CUT,          EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
 	move GUST,         EFFECT_GUST,               40, FLYING,       100, 35,   0
 	move WING_ATTACK,  EFFECT_NORMAL_HIT,         60, FLYING,       100, 35,   0
-	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, NORMAL,       100, 20,   0
+	move WHIRLWIND,    EFFECT_FORCE_SWITCH,        0, FLYING,       100, 20,   0
 	move FLY,          EFFECT_SPLASH,	           0, FLYING,       100,  1,   0
 	move BIND,         EFFECT_BIND,       		  55, NORMAL,       100, 20,   0
 	move OVERHEAT,     EFFECT_SELF_SPATT_DOWN,   115, FIRE,         100,  5, 100
@@ -169,7 +169,7 @@ Moves:
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          18, NORMAL,       100, 15,   0
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         50, GROUND,       100, 10,   0
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100, 10,   0
-	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,          90, 10,  30
+	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,         100, 10,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,        90, 15,  10
 	move FLARE_BLITZ,  EFFECT_RECOIL_HIT,        105, FIRE,         100, 15,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0
