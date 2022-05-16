@@ -1037,7 +1037,7 @@ TriAttack:
 	applydamage
 	criticaltext
 	cleartext
-	supereffectivelooptext
+	supereffectivetext
 	checkfaint
 	buildopponentrage
 	kickcounter
