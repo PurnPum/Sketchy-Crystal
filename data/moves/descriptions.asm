@@ -820,8 +820,8 @@ DreamEaterDescription:
 	next "sleeping victim.@"
 
 PoisonGasDescription:
-	db   "A move that may"
-	next "poison the foe.@"
+	db   "Lowers Speed and"
+	next "SpAtt if poisoned.@"
 
 BarrageDescription:
 	db   "Throws orbs to hit"

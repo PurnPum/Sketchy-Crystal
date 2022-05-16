@@ -2201,3 +2201,24 @@ Bind:
 	buildopponentrage
 	kingsrock
 	endmove
+	
+PoisonGas:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	poisongas
+	endmove

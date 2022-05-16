@@ -6656,6 +6656,16 @@ BattleCommand_BindMultiplier:
 	pop bc
 	ret
 	
+BattleCommand_PoisonGas:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	bit PSN, [hl]
+	ret z
+	call BattleCommand_SpeedDown
+	call BattleCommand_StatDownMessage
+	call BattleCommand_SpecialAttackDown
+	call BattleCommand_StatDownMessage
+	ret
 
 CheckHiddenOpponent:
 ; BUG: Lock-On and Mind Reader don't always bypass Fly and Dig (see docs/bugs_and_glitches.md)

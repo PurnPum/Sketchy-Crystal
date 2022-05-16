@@ -168,4 +168,5 @@ MoveEffectsPointers:
 	dw Hail
 	dw Blizzard
 	dw Bind
+	dw PoisonGas
 	assert_table_length NUM_MOVE_EFFECTS
