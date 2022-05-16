@@ -6800,6 +6800,16 @@ BattleCommand_BindMultiplier:
 	pop bc
 	ret
 	
+BattleCommand_PoisonGas:
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	bit PSN, [hl]
+	ret z
+	call BattleCommand_SpeedDown
+	call BattleCommand_StatDownMessage
+	call BattleCommand_SpecialAttackDown
+	call BattleCommand_StatDownMessage
+	ret
 
 CheckHiddenOpponent:
 ; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.

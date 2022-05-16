@@ -185,6 +185,7 @@ ENDM
 	command starthail				; b2
 	command blizzardaccuracy		; b3
 	command bindmultiplier			; b4
+	command poisongas
 NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1
