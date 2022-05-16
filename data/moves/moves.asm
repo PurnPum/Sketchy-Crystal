@@ -157,7 +157,7 @@ Moves:
 	move ACCELEROCK,   EFFECT_PRIORITY_HIT,       40, ROCK,         100, 20,   0
 	move SKY_ATTACK,   EFFECT_SELF_ATTACK_DOWN,  115, FLYING,       100,  5,   0
 	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, NORMAL,       100, 15, 100
-	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     20, WATER,        100, 30,  10
+	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     30, WATER,        100, 30, 100
 	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,       100, 10,  20
 	move BI_WINGBEAT,  EFFECT_DOUBLE_HIT,         35, FLYING,       100, 10,   0
 	move FLASH,        EFFECT_SPLASH,	           0, NORMAL,       100,  1,   0
