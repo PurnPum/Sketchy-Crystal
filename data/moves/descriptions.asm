@@ -1024,8 +1024,8 @@ MudSlapDescription:
 	next "Special Attack.@"
 
 OctazookaDescription:
-	db   "An attack that may"
-	next "reduce accuracy.@"
+	db   "An attack that'll"
+	next "reduce attack.@"
 
 SpikesDescription:
 	db   "Hurts foes when"
