@@ -4249,7 +4249,7 @@ BattleCommand_StatUp:
 	ld a, [wFailedMessage]
 	and a
 	ret nz
-	;jp MinimizeDropSub
+	jp MinimizeDropSub
 
 RaiseStat:
 	ld a, b
@@ -4347,7 +4347,7 @@ RaiseStat:
 	ld [wFailedMessage], a
 	ret
 
-;MinimizeDropSub:
+MinimizeDropSub:
 ; Lower the substitute if we're minimizing
 ; Obsolete since we removed minimize
 
@@ -4362,7 +4362,7 @@ RaiseStat:
 ;	ld a, BATTLE_VARS_MOVE_ANIM
 ;	call GetBattleVar
 	;cp MINIMIZE
-;	ret 
+	ret 
 
 ;	ld a, $1
 ;	ld [bc], a
