@@ -2274,3 +2274,19 @@ SweetKiss:
 	statdownmessage
 	statdownfailtext
 	endmove
+
+SweetScent:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	evasiondown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	speeddown
+	statdownmessage
+	statdownfailtext
+	endmove

@@ -1184,8 +1184,8 @@ RapidSpinDescription:
 	next "spinning attack.@"
 
 SweetScentDescription:
-	db   "Reduces the foe's"
-	next "evasiveness.@"
+	db   "Lowers foe's speed"
+	next "and evasiveness.@"
 
 IronTailDescription:
 	db   "An attack that may"
