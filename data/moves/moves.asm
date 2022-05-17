@@ -199,7 +199,7 @@ Moves:
 	move MACH_PUNCH,   EFFECT_PRIORITY_HIT,       40, FIGHTING,     100, 30,   0
 	move SCARY_FACE,   EFFECT_SCARY_FACE,          0, DARK,         100, 10,   0
 	move FAINT_ATTACK, EFFECT_BYPASS_PROTECT,     65, DARK,         100, 20,   0
-	move SWEET_KISS,   EFFECT_CONFUSE,             0, NORMAL,        75, 10,   0
+	move SWEET_KISS,   EFFECT_SWEET_KISS,          0, NORMAL,       100, 10,   0
 	move TRIPLE_AXEL,  EFFECT_TRIPLE_KICK,        17, ICE,       	100, 10,   0
 	move SLUDGE_BOMB,  EFFECT_POISON_HIT,         90, POISON,       100, 10,  30
 	move MUD_SLAP,     EFFECT_ACCURACY_DOWN_HIT,  20, GROUND,       100, 10, 100
