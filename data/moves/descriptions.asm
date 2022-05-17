@@ -1193,7 +1193,7 @@ IronTailDescription:
 
 MetalClawDescription:
 	db   "An attack that may"
-	next "up user's ATTACK.@"
+	next "score a critical.@"
 
 VitalThrowDescription:
 	db   "A 2nd-strike move"
