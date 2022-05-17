@@ -182,7 +182,7 @@ Moves:
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        17, FIGHTING,      90, 10,   0
 	move DARK_PULSE,   EFFECT_NORMAL_HIT,         90, DARK,         100, 15,   0
 	move SPIDER_WEB,   EFFECT_MEAN_LOOK,           0, BUG,          100, 10,   0
-	move MIND_READER,  EFFECT_LOCK_ON,             0, NORMAL,       100,  5,   0
+	move MIND_READER,  EFFECT_ACCURACY_UP,         0, PSYCHIC_TYPE, 100,  5,   0
 	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,        100, 15,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,         100, 25,  10
 	move SNORE,        EFFECT_SNORE,              40, NORMAL,       100, 15,  30

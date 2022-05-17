@@ -944,8 +944,8 @@ SpiderWebDescription:
 	next "or switching.@"
 
 MindReaderDescription:
-	db   "Ensures the next"
-	next "attack will hit.@"
+	db   "Focuses to raise"
+	next "its own accuracy.@"
 
 NightmareDescription:
 	db   "A sleeper loses"
