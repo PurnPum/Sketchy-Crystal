@@ -5,6 +5,7 @@ MoveEffectsPointers:
 	dw BypassProtect
 	dw AlwaysCrit
 	dw AlwaysCritPoison
+	dw Extremespeed
 	dw DoSleep
 	dw PoisonHit
 	dw LeechHit
