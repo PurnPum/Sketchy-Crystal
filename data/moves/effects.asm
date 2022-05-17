@@ -2260,3 +2260,15 @@ ScaryFace:
 	statdownmessage
 	statdownfailtext
 	endmove
+
+SweetKiss:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	checksafeguard
+	confuse
+	attackdown
+	statdownmessage
+	statdownfailtext
+	endmove

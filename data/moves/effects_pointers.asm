@@ -171,4 +171,5 @@ MoveEffectsPointers:
 	dw PoisonGas
 	dw CottonSpore
 	dw ScaryFace
+	dw SweetKiss
 	assert_table_length NUM_MOVE_EFECTS
