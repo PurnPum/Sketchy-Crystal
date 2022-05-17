@@ -3521,6 +3521,8 @@ BattleAnim_WingAttack:
 
 BattleAnim_Overheat:
 	anim_2gfx ANIM_GFX_SMOKE, ANIM_GFX_FIRE
+	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
+	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
 .loop
 	anim_sound 0, 1, SFX_EMBER 
 	anim_obj ANIM_OBJ_FIRE_BLAST, 46, 88, $1
@@ -3531,6 +3533,7 @@ BattleAnim_Overheat:
 	anim_wait 24
 	anim_loop 3, .loop
 	anim_wait 32
+	anim_bgeffect ANIM_BG_VIBRATE_MON, $0, BG_EFFECT_TARGET, $0
 	anim_obj ANIM_OBJ_BURNED, 132, 48, $10
 	anim_wait 8
 .loop2
