@@ -1008,8 +1008,8 @@ FaintAttackDescription:
 	next "that beats protect@"
 
 SweetKissDescription:
-	db   "A move that causes"
-	next "confusion.@"
+	db   "Lowers attack and"
+	next "causes confusion.@"
 
 TripleAxelDescription:
 	db   "Hits three times"
