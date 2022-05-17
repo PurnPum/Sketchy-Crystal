@@ -245,7 +245,7 @@ Moves:
 	move SWEET_SCENT,  EFFECT_SWEET_SCENT,         0, GRASS,        100, 20,   0
 	move IRON_TAIL,    EFFECT_NORMAL_HIT,        110, STEEL,         75, 10,  30
 	move METAL_CLAW,   EFFECT_NORMAL_HIT,         50, STEEL,        100, 35,   0
-	move VITAL_THROW,  EFFECT_ALWAYS_HIT,         70, FIGHTING,     100, 10,   0
+	move VITAL_THROW,  EFFECT_BYPASS_PROTECT,     75, FIGHTING,     100, 10,   0
 	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, NORMAL,       100,  5,   0
 	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,        100,  5,   0
 	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, NORMAL,       100,  5,   0

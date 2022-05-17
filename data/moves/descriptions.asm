@@ -1196,8 +1196,8 @@ MetalClawDescription:
 	next "score a critical.@"
 
 VitalThrowDescription:
-	db   "A 2nd-strike move"
-	next "that never misses.@"
+	db   "A 2nd-strike move,"
+	next "bypasses protect.@"
 
 MorningSunDescription:
 	db   "Restores HP"
