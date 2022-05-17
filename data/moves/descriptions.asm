@@ -780,8 +780,8 @@ ClampDescription:
 	next "2-5 turns.@"
 
 SwiftDescription:
-	db   "An attack that"
-	next "never misses.@"
+	db   "Homing stars that"
+	next "can bypass protect@"
 
 SkullBashDescription:
 	db   "1st turn: Prepare"
@@ -1004,8 +1004,8 @@ ScaryFaceDescription:
 	next "Sp. Att and speed.@"
 
 FaintAttackDescription:
-	db   "An attack that"
-	next "never misses.@"
+	db   "A sudden attack"
+	next "that beats protect@"
 
 SweetKissDescription:
 	db   "A move that causes"
