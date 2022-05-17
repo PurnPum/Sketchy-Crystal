@@ -169,4 +169,5 @@ MoveEffectsPointers:
 	dw Blizzard
 	dw Bind
 	dw PoisonGas
+	dw CottonSpore
 	assert_table_length NUM_MOVE_EFFECTS

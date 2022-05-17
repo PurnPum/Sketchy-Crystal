@@ -976,8 +976,8 @@ AeroblastDescription:
 	next "cal hit ratio.@"
 
 CottonSporeDescription:
-	db   "Sharply reduces"
-	next "the foe's SPEED.@"
+	db   "Reduces the foe's"
+	next "Attack and speed.@"
 
 ReversalDescription:
 	db   "Stronger if the"
