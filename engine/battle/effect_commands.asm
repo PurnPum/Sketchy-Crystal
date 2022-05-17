@@ -5849,6 +5849,7 @@ BattleCommand_Recoil:
 	ld d, a
 ; get 1/3 damage or 1 HP, whichever is higher
 	push hl
+	push de
 	ld hl, wCurDamage
 	ld a, 3
 	ld [hDivisor], a
@@ -5856,14 +5857,28 @@ BattleCommand_Recoil:
 	ld [hDividend], a
 	ld a, [hl]
 	ld [hDividend + 1], a
+	ld a, [hQuotient + 3]
+	ld e, a
+	xor a
+	ld [hQuotient + 3], a
+	ld a, [hQuotient + 2]
+	ld d, a
+	xor a
+	ld [hQuotient + 2], a
 	ld b, 2
 	call Divide
 	ld a, [hQuotient + 3]
 	ld c, a
 	ldh a, [hQuotient + 2]
 	ld b, a
-	or c
+	ld a, d
+	ld [hQuotient + 3], a
+	ld a, e
+	ld [hQuotient + 2], a
+	pop de
 	pop hl
+	ld a, b
+	or c
 	jr nz, .min_damage
 	inc c
 	jr .min_damage

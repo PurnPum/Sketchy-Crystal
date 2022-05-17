@@ -1901,7 +1901,8 @@ GetTwelfthMaxHP:
 ; output: bc
 	call GetQuarterMaxHP 
 	call GetThird
-
+	ret
+	
 GetEighthMaxHP:
 ; output: bc
 	call GetQuarterMaxHP
@@ -1938,31 +1939,44 @@ GetQuarterMaxHP:
 GetThirdMaxHP:
 	call GetMaxHP
 	call GetThird
+	ret
 
 GetThird:
+; input : bc
 ; output: bc
-; divide result by 3
-	push hl
-	ld hl, wHPBuffer1
+; divide bc by 3
+	push de
 	ld a, 3
 	ld [hDivisor], a
-	ld a, [hli]
+	ld a, b
 	ld [hDividend], a
-	ld a, [hl]
+	ld a, c
 	ld [hDividend + 1], a
+	ld a, [hQuotient + 3]
+	ld e, a
+	xor a
+	ld [hQuotient + 3], a
+	ld a, [hQuotient + 2]
+	ld d, a
+	xor a
+	ld [hQuotient + 2], a
 	ld b, 2
 	call Divide
 	ld a, [hQuotient + 3]
 	ld c, a
 	ldh a, [hQuotient + 2]
 	ld b, a
+	ld a, d
+	ld [hQuotient + 3], a
+	ld a, e
+	ld [hQuotient + 2], a
 ; at least 1
-	ld a, c
-	or b
+	ld a, b
+	or c
 	jr nz, .end
 	inc c
 .end
-	pop hl
+	pop de
 	ret
 
 GetHalfMaxHP:
