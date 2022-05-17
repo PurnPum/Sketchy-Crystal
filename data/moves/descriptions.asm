@@ -1188,8 +1188,8 @@ SweetScentDescription:
 	next "and evasiveness.@"
 
 IronTailDescription:
-	db   "An attack that may"
-	next "reduce DEFENSE.@"
+	db   "An innacurate hit"
+	next "by a hardened tail@"
 
 MetalClawDescription:
 	db   "An attack that may"
