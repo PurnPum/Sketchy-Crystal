@@ -208,7 +208,7 @@ Moves:
 	move ZAP_CANNON,   EFFECT_PARALYZE_HIT,      100, ELECTRIC,      50,  5, 100
 	move FORESIGHT,    EFFECT_FORESIGHT,           0, NORMAL,       100, 40,   0
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,        100,  5,   0
-	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, NORMAL,       100,  5,   0
+	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, GHOST,        100,  5,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     55, ICE,           95, 15, 100
 	move DETECT,       EFFECT_PROTECT,             0, FIGHTING,     100,  5,   0
 	move MUD_BOMB,     EFFECT_SP_ATK_DOWN_HIT,    70, GROUND,       100, 10,  30
