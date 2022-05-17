@@ -248,9 +248,9 @@ Moves:
 	move VITAL_THROW,  EFFECT_BYPASS_PROTECT,     75, FIGHTING,     100, 10,   0
 	move MORNING_SUN,  EFFECT_MORNING_SUN,         0, PSYCHIC_TYPE, 100,  5,   0
 	move SYNTHESIS,    EFFECT_SYNTHESIS,           0, GRASS,        100,  5,   0
-	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, DARK,       100,  5,   0
+	move MOONLIGHT,    EFFECT_MOONLIGHT,           0, DARK,         100,  5,   0
 	move HIDDEN_POWER, EFFECT_HIDDEN_POWER,        1, NORMAL,       100, 15,   0
-	move CROSS_CHOP,   EFFECT_NORMAL_HIT,        100, FIGHTING,      80,  5,   0
+	move CROSS_CHOP,   EFFECT_NORMAL_HIT,         80, FIGHTING,     100, 10,   0
 	move TWISTER,      EFFECT_TWISTER,            40, DRAGON,       100, 20,  20
 	move RAIN_DANCE,   EFFECT_RAIN_DANCE,          0, WATER,        100,  5,   0
 	move SUNNY_DAY,    EFFECT_SUNNY_DAY,           0, FIRE,         100,  5,   0
