@@ -2228,3 +2228,19 @@ PoisonGas:
 	kingsrock
 	poisongas
 	endmove
+
+CottonSpore:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	speeddown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	attackdown
+	statdownmessage
+	statdownfailtext
+	endmove
