@@ -186,7 +186,7 @@ Moves:
 	move MIND_READER,  EFFECT_ACCURACY_UP,         0, PSYCHIC_TYPE, 100,  5,   0
 	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,        100, 15,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,         100, 25,  10
-	move SNORE,        EFFECT_SNORE,              40, NORMAL,       100, 15,  30
+	move SNORE,        EFFECT_SNORE,              70, NORMAL,       100, 15,  30
 	move SHADOW_SNEAK, EFFECT_PRIORITY_HIT,       40, GHOST,   		100, 30,   0
 	move FLAIL,        EFFECT_REVERSAL,            1, NORMAL,       100, 15,   0
 	move CONVERSION2,  EFFECT_CONVERSION2,         0, NORMAL,       100, 30,   0
