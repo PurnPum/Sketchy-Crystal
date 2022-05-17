@@ -1000,8 +1000,8 @@ MachPunchDescription:
 	next "lands first.@"
 
 ScaryFaceDescription:
-	db   "Sharply reduces"
-	next "the foe's SPEED.@"
+	db   "Reduces the foe's"
+	next "Sp. Att and speed.@"
 
 FaintAttackDescription:
 	db   "An attack that"
