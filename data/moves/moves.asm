@@ -260,7 +260,7 @@ Moves:
 	move EXTREMESPEED, EFFECT_EXTREMESPEED,       80, NORMAL,       100,  5,   0
 	move ANCIENTPOWER, EFFECT_ALL_UP_HIT,         60, ROCK,         100,  5,  10
 	move SHADOW_BALL,  EFFECT_SP_DEF_DOWN_HIT,    80, GHOST,        100, 15,  20
-	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,       80, PSYCHIC_TYPE,  90, 15,   0
+	move FUTURE_SIGHT, EFFECT_FUTURE_SIGHT,      105, PSYCHIC_TYPE,  90, 15,   0
 	move ROCK_SMASH,   EFFECT_SPLASH,	           0, FIGHTING,     100,  1,   0
 	move WHIRLPOOL,    EFFECT_SPLASH,	           0, WATER,        100,  1,   0
 	move BEAT_UP,      EFFECT_BEAT_UP,            10, DARK,         100, 10,   0
