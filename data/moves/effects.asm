@@ -2246,3 +2246,19 @@ CottonSpore:
 	statdownmessage
 	statdownfailtext
 	endmove
+
+ScaryFace:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	speeddown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	specialattackdown
+	statdownmessage
+	statdownfailtext
+	endmove
