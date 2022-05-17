@@ -1103,7 +1103,7 @@ ResidualDamage:
 	call z, Call_PlayBattleAnim_OnlyIfVisible
 	call SwitchTurnCore
 
-	call GetEighthMaxHP
+	call GetTwelfthMaxHP
 	call SubtractHPFromUser
 	ld a, $1
 	ldh [hBGMapMode], a
@@ -1123,7 +1123,7 @@ ResidualDamage:
 	ld [wNumHits], a
 	ld de, ANIM_IN_NIGHTMARE
 	call Call_PlayBattleAnim_OnlyIfVisible
-	call GetQuarterMaxHP
+	call GetThirdMaxHP
 	call SubtractHPFromUser
 	ld hl, HasANightmareText
 	call StdBattleTextbox
@@ -1900,6 +1900,11 @@ GetSixteenthMaxHP:
 .ok
 	ret
 
+GetTwelfthMaxHP:
+; output: bc
+	call GetQuarterMaxHP 
+	call GetThird
+
 GetEighthMaxHP:
 ; output: bc
 	call GetQuarterMaxHP
@@ -1933,6 +1938,36 @@ GetQuarterMaxHP:
 .end
 	ret
 
+GetThirdMaxHP:
+	call GetMaxHP
+	call GetThird
+
+GetThird:
+; output: bc
+; divide result by 3
+	push hl
+	ld hl, wHPBuffer1
+	ld a, 3
+	ld [hDivisor], a
+	ld a, [hli]
+	ld [hDividend], a
+	ld a, [hl]
+	ld [hDividend + 1], a
+	ld b, 2
+	call Divide
+	ld a, [hQuotient + 3]
+	ld c, a
+	ldh a, [hQuotient + 2]
+	ld b, a
+; at least 1
+	ld a, c
+	or b
+	jr nz, .end
+	inc c
+.end
+	pop hl
+	ret
+
 GetHalfMaxHP:
 ; output: bc
 	call GetMaxHP
@@ -1948,6 +1983,7 @@ GetHalfMaxHP:
 	inc c
 .end
 	ret
+
 
 GetMaxHP:
 ; output: bc, wHPBuffer1
