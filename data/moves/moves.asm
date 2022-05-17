@@ -210,7 +210,7 @@ Moves:
 	move DESTINY_BOND, EFFECT_DESTINY_BOND,        0, GHOST,        100,  5,   0
 	move PERISH_SONG,  EFFECT_PERISH_SONG,         0, GHOST,        100,  5,   0
 	move ICY_WIND,     EFFECT_SPEED_DOWN_HIT,     55, ICE,          100, 15, 100
-	move DETECT,       EFFECT_PROTECT,             0, FIGHTING,     100,  5,   0
+	move DETECT,       EFFECT_PROTECT,             0, FIGHTING,     100, 10,   0
 	move MUD_BOMB,     EFFECT_SP_ATK_DOWN_HIT,    70, GROUND,       100, 10,  30
 	move LOCK_ON,      EFFECT_LOCK_ON,             0, NORMAL,       100,  5,   0
 	move OUTRAGE,      EFFECT_RAMPAGE,            90, DRAGON,       100, 15,   0
