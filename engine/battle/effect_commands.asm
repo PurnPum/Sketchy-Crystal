@@ -1122,9 +1122,6 @@ BattleCommand_Critical:
 	
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	;cp EFFECT_TRI_ATTACK
-	;call z, BattleCommand_TriAttack
-	;jr .not_yet
 	cp EFFECT_ALWAYS_CRIT ; Karate Chop
 	jr z, .crit_100
 	cp EFFECT_ALWAYS_CRIT_POISON ; Smog
