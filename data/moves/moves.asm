@@ -156,7 +156,7 @@ Moves:
 	move LEECH_LIFE,   EFFECT_LEECH_HIT,          70, BUG,          100, 10,   0
 	move ACCELEROCK,   EFFECT_PRIORITY_HIT,       40, ROCK,         100, 20,   0
 	move SKY_ATTACK,   EFFECT_SELF_ATTACK_DOWN,  115, FLYING,       100,  5,   0
-	move MUD_SHOT,     EFFECT_SPEED_DOWN_HIT,     55, GROUND,       100, 15, 100
+	move MUD_SHOT,     EFFECT_SP_ATK_DOWN_HIT,    55, GROUND,       100, 15, 100
 	move BUBBLE,       EFFECT_SPEED_DOWN_HIT,     30, WATER,        100, 30, 100
 	move DIZZY_PUNCH,  EFFECT_CONFUSE_HIT,        70, NORMAL,       100, 10,  20
 	move BI_WINGBEAT,  EFFECT_DOUBLE_HIT,         35, FLYING,       100, 10,   0
@@ -201,7 +201,7 @@ Moves:
 	move SWEET_KISS,   EFFECT_SWEET_KISS,          0, NORMAL,       100, 10,   0
 	move TRIPLE_AXEL,  EFFECT_TRIPLE_KICK,        17, ICE,       	100, 10,   0
 	move SLUDGE_BOMB,  EFFECT_POISON_HIT,         90, POISON,       100, 10,  30
-	move MUD_SLAP,     EFFECT_SP_ATK_DOWN_HIT,    30, GROUND,       100, 10, 100
+	move MUD_SLAP,     EFFECT_SPEED_DOWN_HIT,     30, GROUND,       100, 10, 100
 	move OCTAZOOKA,    EFFECT_ATTACK_DOWN_HIT,    55, WATER,        100, 10, 100
 	move SPIKES,       EFFECT_SPIKES,              0, GROUND,       100, 20,   0
 	move ZAP_CANNON,   EFFECT_PARALYZE_HIT,      100, ELECTRIC,      50,  5, 100
