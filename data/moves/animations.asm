@@ -2998,27 +2998,27 @@ BattleAnim_MagnetBomb:
 	anim_obj ANIM_OBJ_HARDEN, 48, 84, $0
 	anim_wait 24
 	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 144, 44, $8
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE_LOWER, 144, 44, $8
 	anim_wait 16
 	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 150, 44, $18
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE_LOWER, 150, 44, $18
 	anim_wait 16
 	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 124, 48, $28
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE_LOWER, 124, 48, $28
 	anim_wait 16
 	anim_sound 0, 0, SFX_SHINE
-	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE, 134, 48, $38
+	anim_obj ANIM_OBJ_GRAY_SOLAR_BEAM_CHARGE_LOWER, 134, 48, $38
 	anim_wait 22
-	anim_obj ANIM_OBJ_EXPLOSION1, 146, 48, $0
+	anim_obj ANIM_OBJ_EXPLOSION1, 144, 44, $0
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_wait 16
-	anim_obj ANIM_OBJ_EXPLOSION1, 148, 48, $0
+	anim_obj ANIM_OBJ_EXPLOSION1, 150, 44, $0
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_wait 16
-	anim_obj ANIM_OBJ_EXPLOSION1, 124, 52, $0
+	anim_obj ANIM_OBJ_EXPLOSION1, 124, 48, $0
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_wait 16
-	anim_obj ANIM_OBJ_EXPLOSION1, 136, 52, $0
+	anim_obj ANIM_OBJ_EXPLOSION1, 134, 48, $0
 	anim_sound 0, 1, SFX_EGG_BOMB
 	anim_wait 64
 	anim_ret
