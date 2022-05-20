@@ -182,3 +182,10 @@
 	tilecoll WALL, WALL, WALL, WALL ; b5
 	tilecoll FLOOR, HEADBUTT_TREE, WALL, HEADBUTT_TREE ; b6
 	tilecoll WALL, WALL, WALL, WALL ; b7
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; b8
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; b9
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ba
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; bb
+	tilecoll FLOOR, WALL, FLOOR, FLOOR ; bc
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; bd
+	tilecoll FLOOR, FLOOR, WALL, WALL ; be
