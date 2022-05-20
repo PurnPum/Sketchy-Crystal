@@ -1572,10 +1572,9 @@ BattleAnim_EnergyBall:
 	anim_obj ANIM_OBJ_SOLAR_BEAM_CHARGE, 48, 84, $38
 	anim_wait 24
 	anim_obj ANIM_OBJ_ABSORB_CENTER, 48, 84, $0
-	anim_wait 104
+	anim_wait 124
 	anim_bgeffect ANIM_BG_CYCLE_OBPALS_GRAY_AND_YELLOW, $0, $2, $0
 	anim_obj ANIM_OBJ_ENERGY_BALL, 48, 84, $1
-	anim_wait 4
 	anim_sound 0, 1, SFX_MASTER_BALL
 	anim_wait 44
 	anim_obj ANIM_OBJ_OUTWARDS_CHARGE, 134, 48, $1
