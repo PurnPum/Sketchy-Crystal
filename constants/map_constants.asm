@@ -233,7 +233,7 @@ ENDM
 
 	newgroup VIOLET                                               ; 10
 	map_const ROUTE_32,                                    10, 45 ;  1
-	map_const ROUTE_35,                                    10, 18 ;  2
+	map_const ROUTE_35,                                    10, 19 ;  2
 	map_const ROUTE_36,                                    30,  9 ;  3
 	map_const ROUTE_37,                                    10,  9 ;  4
 	map_const VIOLET_CITY,                                 20, 18 ;  5

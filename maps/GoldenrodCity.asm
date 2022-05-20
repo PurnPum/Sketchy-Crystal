@@ -571,16 +571,16 @@ GoldenrodCity_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 14, 22, BGEVENT_READ, GoldenrodCityStationSign
+	bg_event 15, 22, BGEVENT_READ, GoldenrodCityStationSign
 	bg_event  8, 25, BGEVENT_READ, GoldenrodCityRadioTowerSign
 	bg_event 30, 35, BGEVENT_READ, GoldenrodDeptStoreSign
 	bg_event 30, 17, BGEVENT_READ, GoldenrodGymSign
 	bg_event 26, 26, BGEVENT_READ, GoldenrodCitySign
-	bg_event 32, 38, BGEVENT_READ, GoldenrodCityBikeShopSign
+	bg_event 32, 39, BGEVENT_READ, GoldenrodCityBikeShopSign
 	bg_event 20, 30, BGEVENT_READ, GoldenrodCityGameCornerSign
 	bg_event 16, 15, BGEVENT_READ, GoldenrodCityNameRaterSign
-	bg_event 12, 14, BGEVENT_READ, GoldenrodCityUndergroundSignNorth
-	bg_event 16, 38, BGEVENT_READ, GoldenrodCityUndergroundSignSouth
+	bg_event 12, 15, BGEVENT_READ, GoldenrodCityUndergroundSignNorth
+	bg_event 17, 38, BGEVENT_READ, GoldenrodCityUndergroundSignSouth
 	bg_event 20, 35, BGEVENT_UP, GoldenrodCityPokecenterSign
 	bg_event 34, 14, BGEVENT_READ, GoldenrodCityFlowerShopSign
 
