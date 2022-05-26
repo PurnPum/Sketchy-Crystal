@@ -351,8 +351,6 @@ TrainerPicnickerGina1:
 OfficerKeithScript:
 	faceplayer
 	opentext
-	checktime NITE
-	iffalse .NoFight
 	checkevent EVENT_BEAT_OFFICER_KEITH
 	iftrue .AfterScript
 	playmusic MUSIC_OFFICER_ENCOUNTER
