@@ -46,7 +46,7 @@ Moves:
 	move FURY_ATTACK,  EFFECT_TRIPLE_KICK,        15, NORMAL,       100, 20,   0
 	move UTURN,   	   EFFECT_UTURN,		      70, BUG,        	100, 20,   0
 	move TACKLE,       EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
-	move BODY_SLAM,    EFFECT_PARALYZE_HIT,       85, NORMAL,       100, 15,  30
+	move BODY_SLAM,    EFFECT_PARALYZE_HIT,       75, NORMAL,       100, 15,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        15, NORMAL,       100, 20,   0
 	move TAKE_DOWN,    EFFECT_RECOIL_HIT,        105, NORMAL,       100, 10,   0
 	move THRASH,       EFFECT_RAMPAGE,           105, NORMAL,       100, 10,   0
