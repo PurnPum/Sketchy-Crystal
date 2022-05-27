@@ -76,7 +76,7 @@ ClairGroup:
 Rival1Group:
 	; RIVAL1 (1)
 	db "?@", TRAINERTYPE_MOVES
-	db  5, CHIKORITA, GROWL, TACKLE, NO_MOVE
+	db  5, CHIKORITA, GROWL, TACKLE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 	; RIVAL1 (2)
