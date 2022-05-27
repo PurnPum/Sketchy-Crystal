@@ -240,5 +240,3 @@
 	tilecoll WATER, WATER, WATER, WATER ; ef
 	tilecoll BUOY, WATER, BUOY, WATER ; f0
 	tilecoll BUOY, WATER, BUOY, WATER ; f1
-	tilecoll WATER, WATER, WALL, WALL ; f2
-	tilecoll WATER, WATER, WALL, WALL ; f3

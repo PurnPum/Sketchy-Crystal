@@ -6,6 +6,7 @@
 	const SPROUTTOWER3F_POKE_BALL1
 	const SPROUTTOWER3F_POKE_BALL2
 	const SPROUTTOWER3F_SILVER
+	const SPROUTTOWER3F_FALKNER
 
 SproutTower3F_MapScripts:
 	def_scene_scripts
@@ -82,6 +83,24 @@ SageLiScript:
 	writetext SageLiFlashExplanationText
 	waitbutton
 	closetext
+	showemote EMOTE_SHOCK, SPROUTTOWER3F_FALKNER, 15
+	applymovement SPROUTTOWER3F_FALKNER, SproutTower3FFalknerApproachesLiMovement
+	opentext
+	writetext SproutTowerFalknerLikedBattleText
+	setevent EVENT_FALKNER_SPROUT_TOWER
+	waitbutton
+	closetext
+	turnobject SPROUTTOWER3F_FALKNER, UP
+	opentext
+	writetext SproutTowerFalknerUsedEscapeRopeText
+	pause 15
+	closetext
+	playsound SFX_WARP_TO
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	disappear SPROUTTOWER3F_FALKNER
+	waitsfx
+	special FadeInQuickly
 	end
 
 .GotFlash:
@@ -127,6 +146,10 @@ SproutTower3FPainting:
 	jumptext SproutTower3FPaintingText
 
 SproutTower3FStatue:
+	clearevent EVENT_BEAT_SAGE_LI
+	clearevent EVENT_BEAT_FALKNER
+	clearevent EVENT_GOT_HM05_FLASH
+	setevent EVENT_RIVAL_SPROUT_TOWER
 	jumptext SproutTower3FStatueText
 
 SproutTower3FPotion:
@@ -141,6 +164,10 @@ SproutTower3FPlayerApproachesRivalMovement:
 	step UP
 	step UP
 	step_end
+	
+SproutTower3FFalknerApproachesLiMovement:
+	step RIGHT
+	step_end
 
 SproutTower3FRivalApproachesElderMovement:
 	step UP
@@ -150,6 +177,79 @@ SproutTower3FRivalLeavesElderMovement:
 	step RIGHT
 	step DOWN
 	step_end
+	
+SproutTowerFalknerScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_FALKNER
+	iftrue .WelcomeBack
+	writetext SproutTowerFalknerBeforeLiBattle
+	waitbutton
+	closetext
+	end
+
+.WelcomeBack
+	writetext SproutTowerFalknerAfterGymBattle
+	waitbutton
+	closetext
+	end
+
+SproutTowerFalknerAfterGymBattle:
+	text "FALKNER: Li and I"
+	line "have trained"
+	cont "together since"
+	cont "I was a kid."
+	
+	para "He has been my"
+	line "fatherly figure"
+	cont "ever since the"
+	cont "aerostat accident."
+	
+	para "At least I still"
+	line "have his #MON…"
+	done
+
+SproutTowerFalknerLikedBattleText:
+	text "FALKNER: Wow!"
+	line "That battle was as"
+	cont "fierce as a raging"
+	cont "angry Fearow!"
+	
+	para "Yet it still was"
+	line "as elegant as a"
+	cont "flying Pidgeot!"
+	
+	para "Well done! I can't"
+	line "wait for our "
+	cont "battle to happen"
+	cont "at the GYM!"
+	
+	para "I'll see you"
+	line "there!"
+	done
+
+SproutTowerFalknerUsedEscapeRopeText:
+	text "FALKNER used an"
+	line "ESCAPE ROPE!"
+	done
+
+SproutTowerFalknerBeforeLiBattle:
+	text "FALKNER: I was"
+	line "training with my"
+	cont "old friend LI when"
+	cont "that boy appeared…"
+	
+	para "They looked very"
+	line "determined but"
+	cont "also quite angry…"
+	
+	para "Regardless, I can"
+	line "arbitrate a match"
+	cont "between you and LI"
+
+	para "Give it all"
+	line "you've got!"
+	done
 
 SproutTowerElderLecturesRivalText:
 	text "ELDER: You are in-"
@@ -346,9 +446,10 @@ SproutTower3F_MapEvents:
 
 	def_object_events
 	object_event  9, 12, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageJin, -1
-	object_event  8,  9, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSageTroy, -1
+	object_event  8,  9, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSageTroy, -1
 	object_event 10,  2, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SageLiScript, -1
 	object_event  9, 11, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageNeal, -1
 	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPotion, EVENT_SPROUT_TOWER_3F_POTION
 	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE
 	object_event 10,  4, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_SPROUT_TOWER
+	object_event  7,  3, SPRITE_FALKNER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTowerFalknerScript, EVENT_FALKNER_SPROUT_TOWER

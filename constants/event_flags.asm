@@ -1458,6 +1458,7 @@
 ; Unused: next 48 events
 ; Repurposed
 	const EVENT_ROUTE_35_NUGGET
-
+	const EVENT_FALKNER_SPROUT_TOWER
+	
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800
