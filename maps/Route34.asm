@@ -416,7 +416,7 @@ TrainerCooltrainerfIrene:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	checkevent EVENT_BEAT_COOLTRAINERF_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfIreneAfterText1
 	waitbutton
@@ -435,7 +435,7 @@ TrainerCooltrainerfJenn:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	checkevent EVENT_BEAT_COOLTRAINERF_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfJennAfterText1
 	waitbutton
@@ -454,13 +454,10 @@ TrainerCooltrainerfKate:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	checkevent EVENT_BEAT_COOLTRAINERF_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfKateOfferSoftSandText
-	promptbutton
-	verbosegiveitem SOFT_SAND
-	iffalse .BagFull
-	setevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	setevent EVENT_BEAT_COOLTRAINERF_KATE
 .GotSoftSand:
 	writetext CooltrainerfKateAfterText
 	waitbutton
@@ -482,6 +479,9 @@ DayCareSign:
 
 Route34Nugget:
 	itemball NUGGET
+	
+Route34SoftSand:
+	itemball SOFT_SAND
 
 Route34HiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_ROUTE_34_HIDDEN_RARE_CANDY
@@ -646,7 +646,8 @@ PokefanmBrandonAfterText:
 
 CooltrainerfIreneSeenText:
 	text "IRENE: Kyaaah!"
-	line "Someone found us!"
+	line "Someone challenges"
+	cont "us!"
 	done
 
 CooltrainerfIreneBeatenText:
@@ -662,10 +663,10 @@ CooltrainerfIreneAfterText1:
 
 CooltrainerfIreneAfterText2:
 	text "IRENE: Isn't this"
-	line "beach great?"
+	line "route great?"
 
-	para "It's our secret"
-	line "little getaway!"
+	para "It's our favourite"
+	line "place to train!"
 	done
 
 CooltrainerfJennSeenText:
@@ -706,9 +707,6 @@ CooltrainerfKateOfferSoftSandText:
 	text "KATE: You're too"
 	line "strong. I didn't"
 	cont "stand a chance."
-
-	para "Here. You deserve"
-	line "this."
 	done
 
 CooltrainerfKateAfterText:
@@ -716,10 +714,10 @@ CooltrainerfKateAfterText:
 	line "jumped you."
 
 	para "We never expected"
-	line "anyone to find us"
+	line "anyone to beat us"
 
-	para "here. You sure"
-	line "startled us."
+	para "You sure"
+	line "showed us."
 	done
 
 Route34IlexForestSignText:
@@ -785,7 +783,8 @@ Route34_MapEvents:
 	object_event 19, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAY_CARE_MAN_ON_ROUTE_34
 	object_event 18, 18, SPRITE_DAY_CARE_MON_1, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon1Script, EVENT_DAY_CARE_MON_1
 	object_event 21, 19, SPRITE_DAY_CARE_MON_2, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon2Script, EVENT_DAY_CARE_MON_2
-	object_event 15, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfIrene, -1
-	object_event  7, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJenn, -1
-	object_event 10, 51, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfKate, -1
-	object_event 11, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
+	object_event 23, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainerfIrene, -1
+	object_event 17, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainerfJenn, -1
+	object_event 17, 22, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKate, -1
+	object_event 11, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
+	object_event 15, 46, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_ITEMBALL, 0, Route34SoftSand, EVENT_ROUTE_34_SOFTSAND
