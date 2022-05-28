@@ -60,7 +60,7 @@ Moves:
 	move GROWL,        EFFECT_ATTACK_DOWN,         0, NORMAL,       100, 40,   0
 	move ROAR,         EFFECT_FORCE_SWITCH,        0, NORMAL,       100, 20,   0
 	move DRAGON_RUSH,  EFFECT_RECOIL_HIT,        105, DRAGON,       100, 10,   0
-	move SUPERSONIC,   EFFECT_CONFUSE_HIT,        40, NORMAL,       100, 10, 100
+	move SUPERSONIC,   EFFECT_CONFUSE_HIT,        20, NORMAL,       100, 10, 100
 	move HAIL,    	   EFFECT_HAIL,			       0, ICE,          100, 10,   0
 	move DISABLE,      EFFECT_DISABLE,             0, PSYCHIC_TYPE, 100, 20,   0
 	move ACID,         EFFECT_DEFENSE_DOWN_HIT,   40, POISON,       100, 30, 100
