@@ -6435,7 +6435,7 @@ LoadEnemyMon:
 ; Are we in a trainer battle?
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
-	jr nz, .WildMoves
+	jr nz, .WildMoves	;TODO: If we're randomizing don't use the party struct and instead use FillMoves2
 ; Then copy moves from the party struct
 	ld hl, wOTPartyMon1Moves
 	ld a, [wCurPartyMon]
@@ -6455,7 +6455,8 @@ LoadEnemyMon:
 	ld [hl], a
 	ld [wSkipMovesBeforeLevelUp], a
 ; Fill moves based on level
-	predef FillMoves2
+	;predef FillMoves2
+	predef FillMoves
 
 .PP:
 ; Trainer battle?
