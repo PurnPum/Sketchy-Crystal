@@ -482,11 +482,10 @@ FillMoves:
 	push bc
 	ld a, [wExtraOptions]
 	bit 0, a
+	ld hl, EvosAttacksPointers2
 	jr nz, .pointers2 ;Use the 2nd set of learnset data if we're randomizing trainer battles.
-.pointers
 	ld hl, EvosAttacksPointers
 .pointers2
-	ld hl, EvosAttacksPointers2
 	ld b, 0
 	ld a, [wCurPartySpecies]
 	dec a

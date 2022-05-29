@@ -6436,6 +6436,7 @@ LoadEnemyMon:
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
 	jr nz, .WildMoves	;TODO: If we're randomizing don't use the party struct and instead use FillMoves2
+
 ; Then copy moves from the party struct
 	ld hl, wOTPartyMon1Moves
 	ld a, [wCurPartyMon]
