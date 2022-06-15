@@ -280,9 +280,9 @@ EarlsPokemonAcademySignText:
 	done
 	
 VioletCityGymGuideText:
-	text "Hi! The GYM Leader"
-	line "Falkner at"
-	cont "Sprout tower!"
+	text "Hi! Falkner, the"
+	line "GYM Leader, is in"
+	cont "the Sprout tower!"
 	
 	para "If you want a"
 	line "battle then you"
