@@ -177,7 +177,7 @@ Moves:
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,       100, 10,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
 	move SUBSTITUTE,   EFFECT_SUBSTITUTE,          0, NORMAL,       100, 10,   0
-	move STRUGGLE,     EFFECT_RECOIL_HIT_4TH,     20, NORMAL,       100,  1,   0
+	move STRUGGLE,     EFFECT_RECOIL_HIT_4TH,     30, NORMAL,       100,  1,   0
 	move SKETCH,       EFFECT_SKETCH,              0, NORMAL,       100,  2,   0
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        17, FIGHTING,      90, 10,   0
 	move DARK_PULSE,   EFFECT_NORMAL_HIT,         90, DARK,         100, 15,   0
