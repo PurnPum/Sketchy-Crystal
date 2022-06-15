@@ -1,8 +1,13 @@
 	object_const_def
 	const SLOWPOKEWELLB1F_ROCKET1
 	const SLOWPOKEWELLB1F_ROCKET2
+	const SLOWPOKEWELLB1F_ROCKET_GIRL1
 	const SLOWPOKEWELLB1F_ROCKET3
-	const SLOWPOKEWELLB1F_ROCKET_GIRL
+	const SLOWPOKEWELLB1F_ROCKET4
+	const SLOWPOKEWELLB1F_ROCKET5
+	const SLOWPOKEWELLB1F_ROCKET6
+	const SLOWPOKEWELLB1F_ROCKET_GIRL2
+	const SLOWPOKEWELLB1F_BUGSY
 	const SLOWPOKEWELLB1F_SLOWPOKE1
 	const SLOWPOKEWELLB1F_SLOWPOKE2
 	const SLOWPOKEWELLB1F_KURT
@@ -15,7 +20,13 @@ SlowpokeWellB1F_MapScripts:
 	def_callbacks
 
 SlowpokeWellB1FKurtScript:
-	jumptextfaceplayer SlowpokeWellB1FKurtText
+	faceplayer
+	opentext
+	writetext SlowpokeWellB1FKurtText
+	closetext
+	waitbutton
+	turnobject SLOWPOKEWELLB1F_KURT, LEFT
+	end
 
 TrainerGruntM29:
 	trainer GRUNTM, GRUNTM_29, EVENT_BEAT_ROCKET_GRUNTM_29, GruntM29SeenText, GruntM29BeatenText, 0, .Script
@@ -41,14 +52,23 @@ TrainerGruntM1:
 	disappear SLOWPOKEWELLB1F_ROCKET1
 	disappear SLOWPOKEWELLB1F_ROCKET2
 	disappear SLOWPOKEWELLB1F_ROCKET3
-	disappear SLOWPOKEWELLB1F_ROCKET_GIRL
+	disappear SLOWPOKEWELLB1F_ROCKET4
+	disappear SLOWPOKEWELLB1F_ROCKET5
+	disappear SLOWPOKEWELLB1F_ROCKET6
+	disappear SLOWPOKEWELLB1F_ROCKET_GIRL1
+	disappear SLOWPOKEWELLB1F_ROCKET_GIRL2
 	pause 15
 	special FadeInQuickly
 	disappear SLOWPOKEWELLB1F_KURT
 	moveobject SLOWPOKEWELLB1F_KURT, 11, 6
+	disappear SLOWPOKEWELLB1F_BUGSY
+	moveobject SLOWPOKEWELLB1F_BUGSY, 11, 6
 	appear SLOWPOKEWELLB1F_KURT
-	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictoryMovementData
-	turnobject PLAYER, RIGHT
+	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictory1MovementData
+	appear SLOWPOKEWELLB1F_BUGSY
+	applymovement SLOWPOKEWELLB1F_BUGSY, BugsySlowpokeWellVictoryMovementData
+	turnobject PLAYER, DOWN
+	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictory2MovementData
 	opentext
 	writetext KurtLeaveSlowpokeWellText
 	waitbutton
@@ -124,15 +144,26 @@ SlowpokeWellB1FBoulder:
 SlowpokeWellB1FSuperPotion:
 	itemball SUPER_POTION
 
-KurtSlowpokeWellVictoryMovementData:
+BugsySlowpokeWellVictoryMovementData:
+	step LEFT
+	step LEFT
 	step LEFT
 	step LEFT
 	step LEFT
 	step LEFT
 	step UP
-	step_sleep 8
-	step_sleep 8
-	step_sleep 8
+	step UP
+	step_end
+	
+KurtSlowpokeWellVictory1MovementData:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step UP
+	step_end
+	
+KurtSlowpokeWellVictory2MovementData:
 	step LEFT
 	step UP
 	step UP
@@ -141,7 +172,23 @@ KurtSlowpokeWellVictoryMovementData:
 	step_sleep 8
 	turn_head LEFT
 	step_end
+	
+SlowpokeWellB1FBusyRocket:
+	opentext
+	writetext SlowpokeWellB1FBusyRocketText
+	waitbutton
+	closetext
+	end
 
+SlowpokeWellB1FBusyRocketText:
+	text "…Looks focused…"
+	
+	para "Probably a good"
+	line "idea to just sneak"
+	cont "past them while"
+	cont "they fight…"
+	done
+	
 SlowpokeWellB1FKurtText:
 	text "KURT: Hey there,"
 	line "<PLAYER>!"
@@ -150,28 +197,27 @@ SlowpokeWellB1FKurtText:
 	line "took off when I"
 	cont "shouted at him."
 
-	para "But then I took a"
-	line "tumble down the"
-	cont "WELL."
+	para "Then BUGSY and I"
+	line "entered the WELL."
 
-	para "I slammed down"
-	line "hard on my back,"
-	cont "so I can't move."
+	para "However these 4"
+	line "grunts were wait-"
+	cont "-ing for us and we"
+	cont "got ambushed!"
 
-	para "Rats! If I were"
-	line "fit, my #MON"
-
-	para "would've punished"
-	line "them…"
-
-	para "Ah, it can't be"
-	line "helped."
-
-	para "<PLAYER>, show them"
-	line "how gutsy you are"
-	cont "in my place!"
-	done
-
+	para "<PLAYER>, you'll"
+	line "have to deal with"
+	cont "the rest of the"
+	cont "grunts in the well"
+	
+	para "We should be able"
+	line "to handle these 4."
+	
+	para "Show the rest of"
+	line "this scum how"
+	cont "gutsy you are!"
+	done 
+	
 KurtLeaveSlowpokeWellText:
 	text "KURT: Way to go,"
 	line "<PLAYER>!"
@@ -179,9 +225,31 @@ KurtLeaveSlowpokeWellText:
 	para "TEAM ROCKET has"
 	line "taken off."
 
-	para "My back's better"
-	line "too. Let's get out"
-	cont "of here."
+	para "BUGSY: You did"
+	line "incredibly well"
+	cont "<PLAYER>!"
+	
+	para "I have called the"
+	line "rest of the GYM"
+	cont "leaders."
+	
+	para "They will be on"
+	line "the lookout for"
+	
+	para "any suspicious"
+	line "activities on"
+	
+	para "their respective"
+	line "towns."
+	
+	para "KURT: I'll heal"
+	line "your party at my"
+	cont "house, let us go."
+	
+	para "BUGSY: I'll go to"
+	line "the GYM. I can't"
+	cont "wait to fight you,"
+	cont "<PLAYER>."
 	done
 
 GruntM29SeenText:
@@ -194,10 +262,15 @@ GruntM29SeenText:
 	para "He startled me so"
 	line "much that I fell"
 	cont "down here."
-
-	para "I think I'll vent"
-	line "my anger by taking"
-	cont "it out on you!"
+	
+	para "Luckily that noise"
+	line "was enough for the"
+	cont "backup to show up!"
+	
+	para "Regardless, I'll"
+	line "vent my anger by"
+	cont "taking it out"
+	cont "on you!"
 	done
 
 GruntM29BeatenText:
@@ -330,12 +403,17 @@ SlowpokeWellB1F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 13,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM29, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 14,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM29, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  5,  2, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerGruntM1, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 17, 13, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 4, SlowpokeWellB1FBusyRocket, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 17, 11, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 1, SlowpokeWellB1FBusyRocket, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 16, 12, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 2, SlowpokeWellB1FBusyRocket, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 16, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 1, SlowpokeWellB1FBusyRocket, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  5,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerGruntM2, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event 13,  3, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerGruntF1, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 17, 12, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 1, SlowpokeWellB1FBusyRocket, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  7,  4, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FSlowpokeWithMailScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
 	object_event  6,  2, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FTaillessSlowpokeScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
-	object_event 16, 14, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FKurtScript, EVENT_SLOWPOKE_WELL_KURT
+	object_event 17, 14, SPRITE_KURT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FKurtScript, EVENT_SLOWPOKE_WELL_KURT
 	object_event  3,  2, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FBoulder, -1
 	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB1FSuperPotion, EVENT_SLOWPOKE_WELL_B1F_SUPER_POTION

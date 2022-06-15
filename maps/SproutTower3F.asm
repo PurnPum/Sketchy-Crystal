@@ -146,10 +146,6 @@ SproutTower3FPainting:
 	jumptext SproutTower3FPaintingText
 
 SproutTower3FStatue:
-	clearevent EVENT_BEAT_SAGE_LI
-	clearevent EVENT_BEAT_FALKNER
-	clearevent EVENT_GOT_HM05_FLASH
-	setevent EVENT_RIVAL_SPROUT_TOWER
 	jumptext SproutTower3FStatueText
 
 SproutTower3FPotion:

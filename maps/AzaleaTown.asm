@@ -35,7 +35,7 @@ AzaleaTownFlypointCallback:
 	endcallback
 
 AzaleaTownRivalBattleScene1:
-	moveobject AZALEATOWN_RIVAL, 11, 11
+	moveobject AZALEATOWN_RIVAL, 11, 15
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -108,8 +108,8 @@ AzaleaTownRivalBattleScript:
 AzaleaTownRocket1Script:
 	jumptextfaceplayer AzaleaTownRocket1Text
 
-AzaleaTownRocket2Script:
-	jumptextfaceplayer AzaleaTownRocket2Text
+AzaleaTownYoungsterGymScript:
+	jumptextfaceplayer AzaleaTownYoungsterGymText
 
 AzaleaTownGrampsScript:
 	faceplayer
@@ -234,6 +234,12 @@ AzaleaTownRivalBattleExitMovement:
 	step LEFT
 	step LEFT
 	step LEFT
+	step UP
+	step UP
+	step UP
+	step UP
+	turn_head LEFT
+	step_sleep 4
 	step_end
 
 AzaleaTownPlayerLeavesKurtsHouseMovement:
@@ -315,13 +321,15 @@ AzaleaTownRocket1Text:
 	line "Samaritan?"
 	done
 
-AzaleaTownRocket2Text:
-	text "Do you know about"
-	line "SLOWPOKETAIL? I"
-	cont "heard it's tasty!"
+AzaleaTownYoungsterGymText:
+	text "The GYM Leader,"
+	line "BUGSY, left the"
+	cont "GYM a minute ago."
 
-	para "Aren't you glad I"
-	line "told you that?"
+	para "Apparently he went"
+	line "to KURTS house,"
+	cont "which is north to"
+	cont "the GYM."
 	done
 
 AzaleaTownGrampsTextBefore:
@@ -492,5 +500,6 @@ AzaleaTown_MapEvents:
 	object_event  1, 14, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event  8,  6, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhiteApricornTree, -1
 	object_event 11, 14, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
-	object_event 10, 20, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownRocket2Script, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event 10, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownYoungsterGymScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
 	object_event  6,  9, SPRITE_KURT_OUTSIDE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownKurtScript, EVENT_AZALEA_TOWN_KURT
+	
