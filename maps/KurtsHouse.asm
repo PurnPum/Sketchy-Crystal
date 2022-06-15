@@ -4,12 +4,21 @@
 	const KURTSHOUSE_SLOWPOKE
 	const KURTSHOUSE_KURT2
 	const KURTSHOUSE_TWIN2
+	const KURTSHOUSE_BUGSY
 
 KurtsHouse_MapScripts:
 	def_scene_scripts
-
+	scene_script .DummyScene0 ; SCENE_DEFAULT
+	scene_script .DummyScene1 ; SCENE_FINISHED
+	
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .KurtCallback
+
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
 
 .KurtCallback:
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
@@ -448,8 +457,105 @@ KurtsHouseKurtGoAroundPlayerThenExitHouseMovement:
 	big_step DOWN
 	step_end
 
+KurtsHousePlayerApproachesBugsyMovement:
+	step UP
+	step UP
+	step_end
+
+KurtsHouseBugsyMovesAsideMovement:
+	step LEFT
+	step_end
+
+KurtsHouseBugsyRunsOutsideMovement:
+	big_step DOWN
+	big_step DOWN
+	big_step RIGHT
+	big_step DOWN
+	big_step DOWN
+	step_end
+	
+KurtsHousePlayerMovesAsideMovement:
+	step LEFT
+	step_end
+	
+KurtsHouseEntranceScene:
+	turnobject PLAYER, UP
+	applymovement PLAYER, KurtsHousePlayerApproachesBugsyMovement
+	turnobject KURTSHOUSE_BUGSY, DOWN
+	showemote EMOTE_SHOCK, KURTSHOUSE_BUGSY, 15
+	opentext
+	writetext KurtsHouseBugsyCalledByKurtText
+	waitbutton
+	closetext
+	applymovement KURTSHOUSE_BUGSY, KurtsHouseBugsyMovesAsideMovement
+	turnobject KURTSHOUSE_BUGSY, RIGHT
+	opentext
+	writetext KurtsHouseBugsyCalledByKurtAfterMovingText
+	waitbutton
+	closetext
+	opentext
+	writetext KurtsHouseKurtMakingBallsMustWaitText
+	waitbutton
+	closetext
+	showemote EMOTE_SHOCK, KURTSHOUSE_BUGSY, 15
+	opentext
+	writetext KurtsHouseKurtMakingBallsMustWaitBugsyAngryText
+	waitbutton
+	closetext
+	special FadeOutMusic
+	turnobject PLAYER, DOWN
+	playsound SFX_FLY
+	applymovement KURTSHOUSE_BUGSY, KurtsHouseBugsyRunsOutsideMovement
+	playsound SFX_EXIT_BUILDING
+	disappear KURTSHOUSE_BUGSY
+	waitsfx
+	setevent EVENT_AZALEA_TOWN_SLOWPOKETAIL_BUGSY_KICKING_ASS
+	special RestartMapMusic
+	turnobject PLAYER, UP
+	opentext
+	writetext KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftText
+	waitbutton
+	closetext
+	special FadeOutMusic
+	applymovement PLAYER, KurtsHousePlayerMovesAsideMovement
+	turnobject PLAYER, RIGHT
+	playsound SFX_FLY
+	applymovement KURTSHOUSE_KURT1, KurtsHouseKurtExitHouseMovement
+	playsound SFX_EXIT_BUILDING
+	disappear KURTSHOUSE_KURT1
+	turnobject PLAYER, DOWN
+	waitsfx
+	setevent EVENT_AZALEA_TOWN_SLOWPOKETAIL_ROCKET
+	setscene SCENE_FINISHED
+	special RestartMapMusic
+	end
+
+KurtsHouseBugsyCalledByKurtText:
+	text "H-Hi! Nice to"
+	line "meet you!"
+	
+	para "Im BUGSY, the Gym"
+	line "leader of this"
+	cont "town."
+	done
+	
+KurtsHouseBugsyCalledByKurtAfterMovingText:
+	text "BUGSY: This here"
+	line "is Kurt."
+
+	para "He is a very wise"
+	line "and crafty man."
+
+	para "He called me for"
+	line "something quite"
+	
+	para "important, or so"
+	line "it seems."
+	done
+
 KurtsHouseKurtMakingBallsMustWaitText:
-	text "Hm? Who are you?"
+	text "KURT: Hm? Who"
+	line "are you?"
 
 	para "<PLAYER>, eh? You"
 	line "want me to make"
@@ -457,7 +563,23 @@ KurtsHouseKurtMakingBallsMustWaitText:
 
 	para "Sorry, but that'll"
 	line "have to wait."
-
+	
+	para "Hm, you look like"
+	line "a pretty good"
+	cont "trainer."
+	
+	para "BUGSY: He has the"
+	line "ZEPHYR Badge!"
+	
+	para "If he was able to"
+	line "defeat FALKNER"
+	cont "he must be good!"
+	
+	para "KURT: Well then,"
+	line "in that case,"
+	cont "listen here"
+	cont "you two…"
+	
 	para "Do you know TEAM"
 	line "ROCKET? Ah, don't"
 
@@ -473,22 +595,52 @@ KurtsHouseKurtMakingBallsMustWaitText:
 	para "They're supposed"
 	line "to have disbanded"
 	cont "three years ago."
+	
+	para "BUGSY: Wait, are"
+	line "they back?"
 
-	para "Anyway, they're at"
-	line "the WELL, cutting"
+	para "KURT: Yeah, this"
+	line "morning they"
+	cont "settled in the"
+	cont "SLOWPOKE's WELL."
+	
+	para "And they are"
+	line "cutting off"
 
-	para "off SLOWPOKETAILS"
+	para "SLOWPOKETAILS"
 	line "for sale!"
-
-	para "So I'm going to"
-	line "go give them a"
-	cont "lesson in pain!"
-
-	para "Hang on, SLOWPOKE!"
-	line "Old KURT is on his"
-	cont "way!"
 	done
 
+KurtsHouseKurtMakingBallsMustWaitBugsyAngryText:
+	text "BUGSY: WHAT?!"
+	
+	para "Well NOT on my"
+	line "watch! I'll go"
+	cont "show them!"
+	done
+	
+KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftText:
+	text "KURT: BUGSY is a"
+	line "very strong Gym"
+	cont "leader."
+	
+	para "Gym leaders act as"
+	line "authoritarian"
+	cont "figures on their"
+	
+	para "respective cities"
+	line "or towns, they are"
+	cont "like the police."
+	
+	para "However, that does"
+	line "not mean that I'm"
+	cont "going to stay here"
+	
+	para "and wait until the"
+	line "trash gets taken"
+	cont "out!"
+	done
+	
 KurtsHouseKurtHonoredToMakeBallsText:
 	text "KURT: Hi, <PLAYER>!"
 
@@ -679,9 +831,9 @@ KurtsHouse_MapEvents:
 
 	def_warp_events
 	warp_event  3,  7, AZALEA_TOWN, 4
-	warp_event  4,  7, AZALEA_TOWN, 4
 
 	def_coord_events
+	coord_event  3,  6, SCENE_DEFAULT, KurtsHouseEntranceScene
 
 	def_bg_events
 	bg_event  6,  1, BGEVENT_READ, KurtsHouseRadio
@@ -698,3 +850,4 @@ KurtsHouse_MapEvents:
 	object_event  6,  3, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsHouseSlowpoke, EVENT_KURTS_HOUSE_SLOWPOKE
 	object_event 14,  3, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Kurt2, EVENT_KURTS_HOUSE_KURT_2
 	object_event 11,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, KurtsGranddaughter2, EVENT_KURTS_HOUSE_GRANDDAUGHTER_2
+	object_event  3,  3, SPRITE_BUGSY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_AZALEA_TOWN_SLOWPOKETAIL_BUGSY_KICKING_ASS
