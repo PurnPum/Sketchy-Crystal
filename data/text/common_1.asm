@@ -4,14 +4,15 @@ _FruitBearingTreeText::
 	done
 
 _HeyItsFruitText::
-	text "Hey! It's"
-	line "@"
+	text "Hey! There are a"
+	line "lot of ripen"
+	cont "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 
 _ObtainedFruitText::
-	text "Obtained"
+	text "Obtained a lot of"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
@@ -23,8 +24,8 @@ _FruitPackIsFullText::
 	done
 
 _NothingHereText::
-	text "There's nothing"
-	line "here…"
+	text "These berries need"
+	line "to ripen more…"
 	done
 
 _WhichApricornText::
