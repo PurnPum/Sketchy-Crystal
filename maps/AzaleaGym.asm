@@ -148,11 +148,19 @@ AzaleaGymStatue:
 	jumpstd GymStatue2Script
 
 BugsyText_INeverLose:
-	text "I'm BUGSY!"
-	line "I never lose when"
-
-	para "it comes to bug"
-	line "#MON."
+	text "Hi <PLAYER>!"
+	
+	para "Thanks again for"
+	line "your help at the"
+	cont "well!"
+	
+	para "That aside, you're"
+	line "here to collect my"
+	cont "badge, right?"
+	
+	para "Well, I never lose"
+	line "when it comes down"
+	cont "to bug #MON."
 
 	para "My research is"
 	line "going to make me"
