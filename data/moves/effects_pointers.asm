@@ -111,7 +111,7 @@ MoveEffectsPointers:
 	dw HealBell
 	dw NormalHit
 	dw TripleKick
-	dw Thief
+	;dw Thief
 	dw MeanLook
 	dw Nightmare
 	dw FlameWheel

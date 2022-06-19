@@ -1132,3 +1132,17 @@ BattleText_RainFallingAlready:
 	line "raining!"
 	prompt
 	
+BattleText_ResistBerry:
+	text "<TARGET> took"
+	line "less damage from"
+	cont "@"
+	text_ram wStringBuffer1
+	text " "
+	prompt
+	
+BattleText_ResistBerry2:
+	text "by using its"
+	line "@"
+	text_ram wStringBuffer1
+	text "!"
+	prompt

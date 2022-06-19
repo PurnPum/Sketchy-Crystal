@@ -4481,6 +4481,23 @@ ItemRecoveryAnim:
 	pop de
 	pop hl
 	ret
+	
+ItemRecoveryAnimKeepText:
+	push hl
+	push de
+	push bc
+	ld a, RECOVER
+	ld [wFXAnimID], a
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	ld [wFXAnimID + 1], a
+	predef PlayBattleAnim
+	call SwitchTurnCore
+	pop bc
+	pop de
+	pop hl
+	ret
 
 UseHeldStatusHealingItem:
 	callfar GetOpponentItem

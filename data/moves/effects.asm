@@ -16,6 +16,7 @@ Extremespeed:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -45,6 +46,7 @@ PoisonHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -66,6 +68,7 @@ LeechHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -87,6 +90,7 @@ BurnHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -108,6 +112,7 @@ FreezeHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -129,6 +134,7 @@ ParalyzeHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -150,6 +156,7 @@ Selfdestruct:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	selfdestruct
 	moveanimnosub
 	failuretext
@@ -171,6 +178,7 @@ DreamEater:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -549,6 +557,7 @@ AttackDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -571,6 +580,7 @@ DefenseDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -594,6 +604,7 @@ SpeedDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -616,6 +627,7 @@ SpecialAttackDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -638,6 +650,7 @@ SpecialDefenseDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -660,6 +673,7 @@ AccuracyDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -682,6 +696,7 @@ EvasionDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -704,6 +719,7 @@ DefenseUpHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -726,6 +742,7 @@ AttackUpHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -748,6 +765,7 @@ AllUpHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -769,6 +787,7 @@ PayDay:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -802,6 +821,7 @@ Bide:
 	unleashenergy
 	resettypematchup
 	checkhit
+	resistberry
 	moveanim
 	bidefailtext
 	applydamage
@@ -823,6 +843,7 @@ Rampage:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -854,6 +875,7 @@ MultiHit:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -881,6 +903,7 @@ PoisonMultiHit:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -905,6 +928,7 @@ FlinchHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -942,6 +966,7 @@ RecoilHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -986,6 +1011,7 @@ ConfuseHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1033,6 +1059,7 @@ TriAttack:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -1080,6 +1107,7 @@ SkyAttack:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1109,6 +1137,7 @@ HyperBeam:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1128,6 +1157,7 @@ Rage:
 	damagecalc
 	stab
 	checkhit
+	resistberry
 	ragedamage
 	damagevariation
 	moveanim
@@ -1192,6 +1222,7 @@ RazorWind:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1214,6 +1245,7 @@ Fly:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanimnosub
 	raisesub
 	failuretext
@@ -1236,6 +1268,7 @@ TrapTarget:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1270,6 +1303,7 @@ Reversal:
 	constantdamage
 	stab
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1320,6 +1354,7 @@ Snore:
 	checkhit
 	effectchance
 	snore
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1394,6 +1429,7 @@ FalseSwipe:
 	damagevariation
 	falseswipe
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1425,6 +1461,7 @@ TripleKick:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -1439,27 +1476,27 @@ TripleKick:
 	kingsrock
 	endmove
 
-Thief:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	thief
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
+;Thief:
+;	checkobedience
+;	usedmovetext
+;	doturn
+;	critical
+;	damagestats
+;	damagecalc
+;	stab
+;	damagevariation
+;	checkhit
+;	effectchance
+;	moveanim
+;	failuretext
+;	applydamage
+;	criticaltext
+;	supereffectivetext
+;	thief
+;	checkfaint
+;	buildopponentrage
+;	kingsrock
+;	endmove
 
 MeanLook:
 	checkobedience
@@ -1485,6 +1522,7 @@ FlameWheel:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1559,6 +1597,7 @@ Rollout:
 	checkhit
 	rolloutpower
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1598,6 +1637,7 @@ FuryCutter:
 	checkhit
 	furycutter
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1627,6 +1667,7 @@ Return:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1649,6 +1690,7 @@ Present:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	failuretext
 	applydamage
 	criticaltext
@@ -1669,6 +1711,7 @@ Frustration:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1696,6 +1739,7 @@ SacredFire:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1720,6 +1764,7 @@ Magnitude:
 	damagevariation
 	checkhit
 	doubleundergrounddamage
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1748,6 +1793,7 @@ Pursuit:
 	damagevariation
 	pursuit
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1768,6 +1814,7 @@ RapidSpin:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1810,6 +1857,7 @@ HiddenPower:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1883,6 +1931,7 @@ SkullBash:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1907,6 +1956,7 @@ Twister:
 	damagevariation
 	doubleflyingdamage
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1929,6 +1979,7 @@ Earthquake:
 	damagevariation
 	doubleundergrounddamage
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1949,6 +2000,7 @@ FutureSight:
 	futuresight
 	damagevariation ; skip here if last turn
 	checkhit
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -1967,6 +2019,7 @@ Gust:
 	damagevariation
 	doubleflyingdamage
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1988,6 +2041,7 @@ Stomp:
 	doubleminimizedamage
 	checkhit
 	effectchance
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2011,6 +2065,7 @@ Solarbeam:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2033,6 +2088,7 @@ Thunder:
 	effectchance
 	stab
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2063,6 +2119,7 @@ BeatUp:
 	damagecalc
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -2100,6 +2157,7 @@ SelfAttackDown:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2124,6 +2182,7 @@ SelfSpecialAttackDown:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2148,6 +2207,7 @@ UTurn:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2178,6 +2238,7 @@ Blizzard:
 	effectchance
 	stab
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2199,6 +2260,7 @@ Bind:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2219,6 +2281,7 @@ PoisonGas:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage

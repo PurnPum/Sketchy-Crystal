@@ -196,6 +196,24 @@
 	const MUSIC_MAIL   ; bc
 	const MIRAGE_MAIL  ; bd
 	const ITEM_BE      ; be
+	const NRMLRESBERRY ; bf
+	const GRSSRESBERRY ; c0
+	const FIRERESBERRY ; c1
+	const WATERESBERRY ; c2
+	const ICERESBERRY  ; c3
+	const FGHTRESBERRY ; c4
+	const PSYRESBERRY  ; c5
+	const DARKRESBERRY ; c6
+	const GHSTRESBERRY ; c7
+	const DRGNRESBERRY ; c8
+	const PSNRESBERRY  ; c9
+	const ROCKRESBERRY ; ca
+	const GRNDRESBERRY ; cb
+	const ELECRESBERRY ; cc
+	const BUGRESBERRY  ; cd
+	const STELRESBERRY ; ce
+	const FLYRESBERRY  ; cf
+
 NUM_ITEMS EQU const_value - 1
 
 __tmhm_value__ = 1
