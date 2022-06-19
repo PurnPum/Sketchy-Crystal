@@ -45,7 +45,7 @@ Kurt1:
 	faceplayer
 	opentext
 	checkevent EVENT_KURT_GAVE_YOU_LURE_BALL
-	iftrue .GotLureBall
+	iftrue .noApricorns ; Bypass all the apricorn BS since we removed them from the trees
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .ClearedSlowpokeWell
 	writetext KurtsHouseKurtMakingBallsMustWaitText
@@ -77,9 +77,14 @@ Kurt1:
 .ClearedSlowpokeWell:
 	writetext KurtsHouseKurtHonoredToMakeBallsText
 	promptbutton
-	verbosegiveitem LURE_BALL
+	verbosegiveitem ULTRA_BALL
 	iffalse .NoRoomForBall
 	setevent EVENT_KURT_GAVE_YOU_LURE_BALL
+.noApricorns:
+	writetext KurtsHouseKurtBallsFromApricornsText
+	waitbutton
+	closetext
+	end
 .GotLureBall:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .WaitForApricorns
@@ -655,6 +660,18 @@ KurtsHouseKurtHonoredToMakeBallsText:
 
 	para "a trainer like"
 	line "you."
+	
+	para "However, we're"
+	line "currently going"
+	cont "through an APRI-"
+	cont "CORN shortage."
+	
+	para "So right now I"
+	line "work remotely for"
+	cont "SILPH CO since"
+	cont "they still have"
+	cont "plenty of APRICORN"
+	cont "stored."
 
 	para "This is all I have"
 	line "now, but take it."
@@ -664,12 +681,10 @@ KurtsHouseKurtBallsFromApricornsText:
 	text "KURT: I make BALLS"
 	line "from APRICORNS."
 
-	para "Collect them from"
-	line "trees and bring"
-	cont "'em to me."
-
-	para "I'll make BALLS"
-	line "out of them."
+	para "You won't find any"
+	line "as of right now,"
+	cont "but at least I"
+	cont "still got a job."
 	done
 
 KurtsHouseKurtAskYouHaveAnApricornText:
