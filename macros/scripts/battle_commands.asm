@@ -84,7 +84,7 @@ ENDM
 	command kingsrock               ; 4d
 	command triplekick              ; 4e
 	command kickcounter             ; 4f
-	command thief                   ; 50
+	;command thief                   ; 50
 	command arenatrap               ; 51
 	command nightmare               ; 52
 	command defrost                 ; 53
@@ -187,6 +187,7 @@ ENDM
 	command bindmultiplier			; b4
 	command poisongas				; b5
 	command triattack				; b6
+	command resistberry				; b7
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

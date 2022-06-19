@@ -191,24 +191,24 @@ ItemDescriptions:
 	dw MusicMailDesc
 	dw MirageMailDesc
 	dw TeruSama25Desc
+	dw NormalResistBerryDesc
+	dw GrassResistBerryDesc
+	dw FireResistBerryDesc
+	dw WaterResistBerryDesc
+	dw IceResistBerryDesc
+	dw FightingResistBerryDesc
+	dw PsychicResistBerryDesc
+	dw DarkResistBerryDesc
+	dw GhostResistBerryDesc
+	dw DragonResistBerryDesc
+	dw PoisonResistBerryDesc
+	dw RockResistBerryDesc
+	dw GroundResistBerryDesc
+	dw ElectricResistBerryDesc
+	dw BugResistBerryDesc
+	dw SteelResistBerryDesc
+	dw FlyingResistBerryDesc
 	assert_table_length NUM_ITEMS
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -988,6 +988,74 @@ MusicMailDesc:
 MirageMailDesc:
 	db   "MEW-print MAIL."
 	next "(HOLD)@"
+
+NormalResistBerryDesc:
+	db   "Halves NORMAL-type"
+	next "damage (HOLD)@"
+
+GrassResistBerryDesc:
+	db   "Halves S.Effective"
+	next "GRASS DMG (HOLD)@"
+
+FireResistBerryDesc:
+	db   "Halves S.Effective"
+	next "FIRE DMG (HOLD)@"
+
+WaterResistBerryDesc:
+	db   "Halves S.Effective"
+	next "WATER DMG (HOLD)@"
+
+IceResistBerryDesc:
+	db   "Halves S.Effective"
+	next "ICE DMG (HOLD)@"
+
+FightingResistBerryDesc:
+	db   "Halves S.Effective"
+	next "FIGHT DMG (HOLD)@"
+
+PsychicResistBerryDesc:
+	db   "Halves S.Effective"
+	next "PSYCHIC DMG (HOLD)@"
+
+DarkResistBerryDesc:
+	db   "Halves S.Effective"
+	next "DARK DMG (HOLD)@"
+
+GhostResistBerryDesc:
+	db   "Halves S.Effective"
+	next "GHOST DMG (HOLD)@"
+
+DragonResistBerryDesc:
+	db   "Halves S.Effective"
+	next "DRAGON DMG (HOLD)@"
+
+PoisonResistBerryDesc:
+	db   "Halves S.Effective"
+	next "POISON DMG (HOLD)@"
+
+RockResistBerryDesc:
+	db   "Halves S.Effective"
+	next "ROCK DMG (HOLD)@"
+
+GroundResistBerryDesc:
+	db   "Halves S.Effective"
+	next "GROUND DMG (HOLD)@"
+
+ElectricResistBerryDesc:
+	db   "Halves S.Effective"
+	next "ELEC DMG (HOLD)@"
+
+BugResistBerryDesc:
+	db   "Halves S.Effective"
+	next "BUG DMG (HOLD)@"
+
+SteelResistBerryDesc:
+	db   "Halves S.Effective"
+	next "STEEL DMG (HOLD)@"
+
+FlyingResistBerryDesc:
+	db   "Halves S.Effective"
+	next "FLYING DMG (HOLD)@"
 
 TeruSama25Desc:
 	db   "?@"

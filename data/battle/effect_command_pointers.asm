@@ -84,7 +84,7 @@ BattleCommandPointers:
 	dw BattleCommand_HeldFlinch
 	dw BattleCommand_TripleKick
 	dw BattleCommand_KickCounter
-	dw BattleCommand_Thief
+	;dw BattleCommand_Thief
 	dw BattleCommand_ArenaTrap
 	dw BattleCommand_Nightmare
 	dw BattleCommand_Defrost
@@ -187,4 +187,5 @@ BattleCommandPointers:
 	dw BattleCommand_BindMultiplier
 	dw BattleCommand_PoisonGas
 	dw BattleCommand_TriAttack
+	dw BattleCommand_ResistBerry
 	assert_table_length NUM_EFFECT_COMMANDS

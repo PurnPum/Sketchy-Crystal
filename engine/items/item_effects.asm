@@ -208,6 +208,7 @@ ItemEffects:
 ;	ITEM_BE
 ; They all have the ITEMMENU_NOUSE attribute so they can't be used anyway.
 ; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
+; This applies to the resist berries too, they can't be used outside of battle.
 
 PokeBallEffect:
 ; BUG: The Dude's catching tutorial may crash if his Poké Ball can't be used (see docs/bugs_and_glitches.md)
