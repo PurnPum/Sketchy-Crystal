@@ -104,6 +104,7 @@ Landmarks:
 	landmark  12, 100, TohjoFallsName
 	landmark  20,  68, Route28Name
 	landmark 140, 116, FastShipName
+	landmark  84,  92, ShuckleCaveName
 	assert_table_length NUM_LANDMARKS
 
 NewBarkTownName:     db "NEW BARK¯TOWN@"
@@ -208,3 +209,4 @@ TohjoFallsName:      db "TOHJO FALLS@"
 UndergroundName:     db "UNDERGROUND@"
 BattleTowerName:     db "BATTLE¯TOWER@"
 SpecialMapName:      db "SPECIAL@"
+ShuckleCaveName:	 db "SHUCKLE'S CAVE@"
