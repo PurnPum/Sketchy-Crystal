@@ -220,6 +220,9 @@ Route9_Blocks:
 
 Route22_Blocks:
 	INCBIN "maps/Route22.blk"
+	
+ShuckleCave_Blocks:
+	INCBIN "maps/ShuckleCave.blk"
 
 
 SECTION "Map Blocks 2", ROMX
