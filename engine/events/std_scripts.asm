@@ -395,18 +395,18 @@ BugContestResults_FirstPlace:
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
 BugContestResults_SecondPlace:
-	getitemname STRING_BUFFER_4, EVERSTONE
+	getitemname STRING_BUFFER_4, MOON_STONE
 	farwritetext ContestResults_PlayerWonAPrizeText
 	waitbutton
-	verbosegiveitem EVERSTONE
+	verbosegiveitem MOON_STONE
 	iffalse BugContestResults_NoRoomForEverstone
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
 BugContestResults_ThirdPlace:
-	getitemname STRING_BUFFER_4, GOLD_BERRY
+	getitemname STRING_BUFFER_4, EVERSTONE
 	farwritetext ContestResults_PlayerWonAPrizeText
 	waitbutton
-	verbosegiveitem GOLD_BERRY
+	verbosegiveitem EVERSTONE
 	iffalse BugContestResults_NoRoomForGoldBerry
 	sjump BugContestResults_ReturnAfterWinnersPrize
 
