@@ -23,8 +23,6 @@ ShuckleCaveShuckle:
 	closetext
 	end
 .BagFull
-	writetext ShuckleCaveNoRoomForJuiceText
-	waitbutton
 	closetext
 	end
 	
@@ -39,11 +37,6 @@ ShuckleCaveGetJuiceText:
 	para "Hopefully it does"
 	line "not mind me taking"
 	cont "some of this…"
-	done
-	
-ShuckleCaveNoRoomForJuiceText:
-	text "No space left in"
-	line "the bag for this."
 	done
 	
 ShuckleCaveDrunkShuckle:
