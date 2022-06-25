@@ -474,10 +474,22 @@ AideScript_GivePotion:
 	writetext AideText_GiveYouPotion
 	promptbutton
 	verbosegiveitem POTION
+	verbosegiveitem BICYCLE
+	setevent EVENT_GOT_BICYCLE
+	writetext AideText_AlsoGiveCandy
+	yesorno
+	iftrue .get_candy
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOTHING
+	end
+
+.get_candy:
+	verbosegiveitem RARE_CANDY, 99
+	writetext AideText_AlwaysBusy
+	waitbutton
+	closetext
 	end
 
 AideScript_WalkBalls1:
@@ -498,6 +510,7 @@ AideScript_GiveYouBalls:
 	opentext
 	writetext AideText_GiveYouBalls
 	promptbutton
+	verbosegiveitem EXP_SHARE, 5
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
 	giveitem POKE_BALL, 5
@@ -521,25 +534,37 @@ ElmsAideScript:
 	iftrue AideScript_ExplainBalls
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
-	writetext AideText_AlwaysBusy
-	waitbutton
-	closetext
-	end
+	sjump AideScript_GiveCandy
 
 AideScript_TheftTestimony:
 	writetext AideText_TheftTestimony
 	waitbutton
-	closetext
-	end
+	sjump AideScript_GiveCandy
 
 AideScript_ExplainBalls:
 	writetext AideText_ExplainBalls
 	waitbutton
-	closetext
-	end
+	sjump AideScript_GiveCandy
 
 AideScript_AfterTheft:
 	writetext AideText_AfterTheft
+	waitbutton
+	sjump AideScript_GiveCandy
+	
+AideScript_GiveCandy:
+	writetext AideText_GiveCandy
+	yesorno
+	iffalse .no_candy
+	verbosegiveitem RARE_CANDY, 99
+	iffalse .BagFull
+	waitbutton ;Fallthrough
+.no_candy:
+	writetext AideText_AlwaysBusy
+	waitbutton
+	closetext
+	end
+.BagFull:
+	writetext AideText_NoSpaceForCandy
 	waitbutton
 	closetext
 	end
@@ -721,6 +746,41 @@ AfterChikoritaMovement:
 	step UP
 	turn_head UP
 	step_end
+
+AideText_AlsoGiveCandy:
+	text "You can also take"
+	line "these rare candies"
+	cont "if you want."
+	
+	para "They will make"
+	line "your errand way"
+	cont "less tedious."
+
+	para "I can give you"
+	line "as many as you"
+	cont "want."
+	
+	para "You just need to"
+	line "talk to me here."
+	
+	para "However, you may"
+	line "not take them if"
+	cont "wish so."
+	
+	para "So, do you"
+	line "want them?"
+	done
+
+AideText_GiveCandy:	
+	text "Do you need more"
+	line "rare candies?"
+	done
+
+AideText_NoSpaceForCandy:
+	text "Sorry <PLAYER>,"
+	line "but you have no"
+	cont "space for this!"
+	done
 
 ElmText_Intro:
 	text "ELM: <PLAY_G>!"
