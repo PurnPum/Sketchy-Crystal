@@ -205,23 +205,75 @@ CherrygroveYoungsterScript:
 	waitbutton
 	closetext
 	end
-
-MysticWaterGuy:
+	
+CherrygroveCityFishingGuruScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
-	iftrue .After
-	writetext MysticWaterGuyTextBefore
+	checkevent EVENT_GOT_OLD_ROD
+	iftrue .GotOldRod
+	writetext CherrygroveCityFishingGuruText_Question
+	yesorno
+	iffalse .Refused
+	writetext CherrygroveCityFishingGuruText_Yes
 	promptbutton
-	verbosegiveitem MYSTIC_WATER
-	iffalse .Exit
-	setevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
-.After:
-	writetext MysticWaterGuyTextAfter
+	verbosegiveitem OLD_ROD
+	writetext CherrygroveCityFishingGuruText_GiveOldRod
 	waitbutton
-.Exit:
+	closetext
+	setevent EVENT_GOT_OLD_ROD
+	end
+
+.Refused:
+	writetext CherrygroveCityFishingGuruText_No
+	waitbutton
 	closetext
 	end
+
+.GotOldRod:
+	writetext CherrygroveCityFishingGuruText_After
+	waitbutton
+	closetext
+	end
+
+CherrygroveCityFishingGuruText_Question:
+	text "This is a great"
+	line "fishing spot."
+
+	para "You saw people"
+	line "fishing? How"
+	cont "about you?"
+
+	para "Would you like one"
+	line "of my RODS?"
+	done
+
+CherrygroveCityFishingGuruText_Yes:
+	text "Heh, that's good"
+	line "to hear."
+
+	para "Now you're an"
+	line "angler too!"
+	done
+
+CherrygroveCityFishingGuruText_GiveOldRod:
+	text "Fishing is great!"
+
+	para "If there's water,"
+	line "be it the sea or a"
+
+	para "stream, try out"
+	line "your ROD."
+	done
+
+CherrygroveCityFishingGuruText_No:
+	text "Oh. That's rather"
+	line "disappointing…"
+	done
+
+CherrygroveCityFishingGuruText_After:
+	text "Yo, kid. How are"
+	line "they biting?"
+	done
 
 CherrygroveCitySign:
 	jumptext CherrygroveCitySignText
@@ -569,4 +621,4 @@ CherrygroveCity_MapEvents:
 	object_event 39,  6, SPRITE_SILVER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_CHERRYGROVE_CITY
 	object_event 27, 12, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 23,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
-	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
+	object_event  7, 12, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFishingGuruScript, -1
