@@ -211,6 +211,9 @@ Route29FruitTree:
 
 Route29Potion:
 	itemball POTION
+	
+Route29BerryShopSign:
+	jumptext Route29BerryShopSignText
 
 DudeMovementData1a:
 	step UP
@@ -245,6 +248,10 @@ DudeMovementData2b:
 	step DOWN
 	step DOWN
 	step_end
+	
+Route29BerryShopSignText:
+	text "Berry shop"
+	done
 
 CatchingTutorialBoxFullText:
 	text "#MON hide in"
@@ -412,11 +419,14 @@ Route29Sign2Text:
 	line "NEW BARK TOWN"
 	done
 
+
+
 Route29_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
 	warp_event 27,  1, ROUTE_29_ROUTE_46_GATE, 3
+	warp_event  7,  1, ROUTE_29_BERRYSHOP, 1
 
 	def_coord_events
 	coord_event 53,  8, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial1
@@ -425,12 +435,12 @@ Route29_MapEvents:
 	def_bg_events
 	bg_event 51,  7, BGEVENT_READ, Route29Sign1
 	bg_event  3,  5, BGEVENT_READ, Route29Sign2
+	bg_event  8,  1, BGEVENT_READ, Route29BerryShopSign
 
 	def_object_events
 	object_event 50, 12, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CatchingTutorialDudeScript, -1
 	object_event 27, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29YoungsterScript, -1
 	object_event 15, 11, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29TeacherScript, -1
-	object_event 12,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route29FruitTree, -1
 	object_event 25,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route29FisherScript, -1
 	object_event 13,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
 	object_event 29, 12, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TuscanyScript, EVENT_ROUTE_29_TUSCANY_OF_TUESDAY

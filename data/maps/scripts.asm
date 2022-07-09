@@ -412,6 +412,7 @@ SECTION "Map Scripts 21", ROMX
 INCLUDE "maps/CianwoodCity.asm"
 INCLUDE "maps/Route27.asm"
 INCLUDE "maps/Route29.asm"
+INCLUDE "maps/Route29BerryShop.asm"
 INCLUDE "maps/Route30.asm"
 INCLUDE "maps/Route38.asm"
 INCLUDE "maps/Route13.asm"
