@@ -20,6 +20,7 @@ FishGroups:
 	fishgroup 50 percent + 1, .ROUTE32_Old,				.ROUTE32_Good,				.ROUTE32_Super
 	fishgroup 50 percent + 1, .UNION_Old,				.UNION_Good,				.UNION_Super
 	fishgroup 50 percent + 1, .SLOWPOKEWELL_Old,		.SLOWPOKEWELL_Good,			.SLOWPOKEWELL_Super
+	fishgroup 50 percent + 1, .AZALEA_Old,				.AZALEA_Good,				.AZALEA_Super
 	fishgroup 50 percent + 1, .ILEX_Old,				.ILEX_Good,					.ILEX_Super
 	fishgroup 50 percent + 1, .ROUTE34_Old,				.ROUTE34_Good,				.ROUTE34_Super
 	fishgroup 50 percent + 1, .GOLDENROD_Old,			.GOLDENROD_Good,			.GOLDENROD_Super
@@ -168,6 +169,15 @@ FishGroups:
 	db 100 percent,	KRABBY,	10
 
 .SLOWPOKEWELL_Super:
+	db 100 percent,	KRABBY,	10
+	
+.AZALEA_Old:
+	db 100 percent,	KRABBY,	10
+
+.AZALEA_Good:
+	db 100 percent,	KRABBY,	10
+
+.AZALEA_Super:
 	db 100 percent,	KRABBY,	10
 
 .ILEX_Old:
