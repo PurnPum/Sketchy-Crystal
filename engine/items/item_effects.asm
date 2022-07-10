@@ -187,7 +187,7 @@ ItemEffects:
 	dw NoEffect            ; ITEM_AB
 	dw NoEffect            ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
-	dw RestoreHPEffect     ; GOLD_BERRY
+	dw Restore4THHPEffect  ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
 	dw NoEffect            ; ITEM_B0
 	dw PokeBallEffect      ; PARK_BALL
@@ -1629,6 +1629,10 @@ BitterBerryEffect:
 RestoreHPEffect:
 	call ItemRestoreHP
 	jp StatusHealer_Jumptable
+	
+Restore4THHPEffect:
+	call ItemRestore4THHP
+	jp StatusHealer_Jumptable
 
 EnergypowderEffect:
 	ld c, HAPPINESS_BITTERPOWDER
@@ -1668,6 +1672,33 @@ ItemRestoreHP:
 	xor a
 	ld [wLowHealthAlarm], a
 	call GetHealingItemAmount
+	call RestoreHealth
+	call BattlemonRestoreHealth
+	call HealHP_SFX_GFX
+	ld a, PARTYMENUTEXT_HEAL_HP
+	ld [wPartyMenuActionText], a
+	call ItemActionTextWaitButton
+	call UseDisposableItem
+	ld a, 0
+	ret
+
+ItemRestore4THHP:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+	ld a, 2
+	ret c
+
+	call IsMonFainted
+	ld a, 1
+	ret z
+
+	call IsMonAtFullHealth
+	ld a, 1
+	ret nc
+
+	xor a
+	ld [wLowHealthAlarm], a
+	call GetOneFourthMaxHP
 	call RestoreHealth
 	call BattlemonRestoreHealth
 	call HealHP_SFX_GFX
@@ -1953,6 +1984,25 @@ GetOneFifthMaxHP:
 	ldh a, [hQuotient + 2]
 	ld d, a
 	ldh a, [hQuotient + 3]
+	ld e, a
+	pop bc
+	ret
+
+GetOneFourthMaxHP:
+	push bc
+	ld a, MON_MAXHP
+	call GetPartyParamLocation
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld c, a
+	srl b
+	rr c
+	srl b
+	rr c
+	ld a, b
+	ld d, a
+	ld a, c
 	ld e, a
 	pop bc
 	ret
