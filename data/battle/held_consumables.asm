@@ -2,6 +2,7 @@
 
 ConsumableEffects:
 	db HELD_BERRY
+	db HELD_BERRY_4TH
 	db HELD_2
 	db HELD_5
 	db HELD_HEAL_POISON
