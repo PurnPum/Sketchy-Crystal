@@ -4380,8 +4380,30 @@ HandleHealingItems:
 HandleHPHealingItem:
 	callfar GetOpponentItem
 	ld a, b
+	cp HELD_BERRY_4TH
+	jr z, .get_4th
 	cp HELD_BERRY
-	ret nz
+	jr z, .proceed
+	ret
+.get_4th ;This code is used for Gold berries, that recover a 4th of your Max HP
+	ld a, [hBattleTurn]
+	and a
+	push bc
+	jr z, .swapZeroToOne
+.swapOneToZero
+	call SetPlayerTurn
+	call GetQuarterMaxHP ; This will set the value of "c" to 1/4th of the max HP of the mon
+	call SetEnemyTurn
+	jr .preproceed
+.swapZeroToOne
+	call SetEnemyTurn
+	call GetQuarterMaxHP ; This will set the value of "c" to 1/4th of the max HP of the mon
+	call SetPlayerTurn
+.preproceed
+	ld a, c
+	pop bc ;Restore b's value while keeping c
+	ld c, a
+.proceed
 	ld de, wEnemyMonHP + 1
 	ld hl, wEnemyMonMaxHP
 	ldh a, [hBattleTurn]

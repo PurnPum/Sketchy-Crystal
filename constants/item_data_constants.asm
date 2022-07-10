@@ -63,6 +63,7 @@ DEF MAIL_STRUCT_LENGTH_JP EQU $2a ; mailmsg_jp struct
 	const_def
 	const HELD_NONE
 	const HELD_BERRY
+	const HELD_BERRY_4TH
 	const HELD_2
 	const HELD_LEFTOVERS
 	const_skip
