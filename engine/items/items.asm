@@ -566,12 +566,16 @@ ItemAttr_ReturnCarry:
 	scf
 	ret
 
-IncreaseSketchPrice:
-	ld a, TM_SKETCH
+IncreasePriceByBadgesObtained: ; Inputs -> Price : de , Item : wCurItem
 	ld hl, wCurItem ;Store wCurItem in hl
-	cp [hl] ;Compare TM_Sketch with the current item being checked
-	ret nz ;If we're not checking the Sketch TM then just return to GetItemPrice
-	ld hl, wBadges; Otherwise, load the number of badges that we have in a bitmap stored in a word of 2 bytes
+	ld a, [hl] ;Store the item ID in a to pass it to IsInArray
+	ld hl, IncreasinglyPriceyItems ;Load Array in hl to pass it to IsInArray
+	push de ;save de since we need to overwrite it
+	ld de, 1 ; The array is 1 byte wide so especify that to IsInArray
+	call IsInArray ;This will tell us if the item is in the list or not, the index is now stored in b, but it won't be needed
+	pop de ;restore de's value
+	ret nc ;if c is 0 then the item wasn't in the list, thus we can return back
+	ld hl, wBadges; Load the number of badges that we have in a bitmap stored in a word of 2 bytes
 	ld b, 2 ;b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
 	push de
 	call CountSetBits ;This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
@@ -579,7 +583,7 @@ IncreaseSketchPrice:
 	ld a, [wNumSetBits] ;Load the amount of badges in a
 	ld h, d
 	ld l, e ;This basically equals to ld hl, de
-	cp $00 ;Compare 'a' to 0, if they match z becomes 1
+	and a ;Compare 'a' to 0, if they match z becomes 1
 	ret z ;Return to GetItemPrice if z is 1, Otherwise:
 	
 .loopSketchOp
@@ -600,7 +604,7 @@ GetItemPrice:
 	ld a, ITEMATTR_PRICE_HI
 	call GetItemAttr
 	ld d, a
-	call IncreaseSketchPrice
+	call IncreasePriceByBadgesObtained
 	pop bc
 	pop hl
 	ret
