@@ -1,0 +1,30 @@
+IncreasinglyPriceyItems: ;List of items that increase on price by the amount of badges obtained
+	table_width 1, IncreasinglyPriceyItems
+	db PSNCUREBERRY
+	db PRZCUREBERRY
+	db BURNT_BERRY
+	db ICE_BERRY
+	db BITTER_BERRY
+	db MINT_BERRY
+	db MIRACLEBERRY
+	db MYSTERYBERRY
+	db GOLD_BERRY
+	db NRMLRESBERRY
+	db GRSSRESBERRY
+	db FIRERESBERRY
+	db WATERESBERRY
+	db ICERESBERRY
+	db FGHTRESBERRY
+	db PSYRESBERRY
+	db DARKRESBERRY
+	db GHSTRESBERRY
+	db DRGNRESBERRY
+	db PSNRESBERRY
+	db ROCKRESBERRY
+	db GRNDRESBERRY
+	db ELECRESBERRY
+	db BUGRESBERRY
+	db STELRESBERRY
+	db FLYRESBERRY
+	db TM_SKETCH
+	db -1
