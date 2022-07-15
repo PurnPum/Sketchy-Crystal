@@ -2991,6 +2991,8 @@ wMomSavingMoney::
 ; bit 7: active
 	db
 
+wPokemonCenterPrice:: dw
+
 wCoins:: dw
 
 wBadges::
@@ -3342,6 +3344,8 @@ wDayCareMan::
 ; bit 5: monsters are compatible
 ; bit 0: monster 1 in day-care
 	db
+	
+
 
 wBreedMon1Nickname:: ds MON_NAME_LENGTH
 wBreedMon1OT:: ds NAME_LENGTH
