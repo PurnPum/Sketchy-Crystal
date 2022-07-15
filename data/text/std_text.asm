@@ -58,6 +58,18 @@ NurseAskHealText:
 	line "#MON?"
 	done
 
+NurseExplainCost:
+	text "This will cost"
+	line "you ¥@"
+	text_decimal wPokemonCenterPrice, 2, 5
+	text "."
+	done
+	
+NurseNotEnoughMoney:
+	text "Sorry, you can't"
+	line "afford this…"
+	done
+
 NurseTakePokemonText:
 	text "OK, may I see your"
 	line "#MON?"

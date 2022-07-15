@@ -57,6 +57,8 @@ StdScripts::
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 
+POKEMONCENTERS_BASE_PRICE	EQU 250
+
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
 
@@ -105,11 +107,15 @@ PokecenterNurseScript:
 .ok
 	; only do this once
 	clearevent EVENT_WELCOMED_TO_POKECOM_CENTER
-
 	farwritetext NurseAskHealText
 	yesorno
 	iffalse .done
-
+	callasm GetPriceToHealMons
+	farwritetext NurseExplainCost
+	yesorno
+	iffalse .done
+	callasm TakeMoneyBeforeHeal
+	iffalse .cantPay
 	farwritetext NurseTakePokemonText
 	pause 20
 	special StubbedTrainerRankings_Healings
@@ -147,6 +153,13 @@ PokecenterNurseScript:
 	closetext
 	end
 
+.cantPay
+	farwritetext NurseNotEnoughMoney
+	waitbutton
+	pause 10
+	sjump .done
+	
+
 .pokerus
 	; already cleared earlier in the script
 	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
@@ -165,6 +178,40 @@ PokecenterNurseScript:
 	setflag ENGINE_CAUGHT_POKERUS
 	specialphonecall SPECIALCALL_POKERUS
 	end
+
+GetPriceToHealMons:
+	ld hl, wBadges; Load the number of badges that we have in a bitmap stored in a word of 2 bytes
+	ld b, 2 ;b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
+	call CountSetBits ;This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
+	ld a, [wNumSetBits] ;Load the amount of badges in a
+	ld bc, POKEMONCENTERS_BASE_PRICE
+	inc a ;0=1, ...
+	ld h,0
+	ld l,0
+	call AddNTimes ;Do bc*a and save it in hl
+	ld a, h
+	ld [wStringBuffer2 + 1], a
+	ld [wPokemonCenterPrice], a
+	ld a, l
+	ld [wStringBuffer2 + 2], a
+	ld [wPokemonCenterPrice + 1], a
+	ret
+	
+TakeMoneyBeforeHeal:
+	ld de, wMoney
+	ld bc, wStringBuffer2
+	farcall CompareMoney
+	jr c, .not_enough_money
+	farcall TakeMoney
+	xor a
+	inc a
+	ld [wScriptVar], a ;Set wScriptVar to 1 to use it in the script at the iftrue
+	ret
+
+.not_enough_money
+	xor a
+	ld [wScriptVar], a ;Set wScriptVar to 0 to use it in the script at the iftrue
+	ret
 
 DifficultBookshelfScript:
 	farjumptext DifficultBookshelfText
