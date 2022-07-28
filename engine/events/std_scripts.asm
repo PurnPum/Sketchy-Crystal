@@ -116,6 +116,7 @@ PokecenterNurseScript:
 	iffalse .done
 	callasm TakeMoneyBeforeHeal
 	iffalse .cantPay
+	playsound SFX_TRANSACTION
 	farwritetext NurseTakePokemonText
 	pause 20
 	special StubbedTrainerRankings_Healings
