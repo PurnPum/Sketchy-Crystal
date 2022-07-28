@@ -1,3 +1,4 @@
+SHUCKLE_BERRYJUICE_PRICE EQU 50
 	object_const_def
 	const SHUCKLECAVE_SHUCKLE
 
@@ -8,40 +9,59 @@ ShuckleCave_MapScripts:
 
 ShuckleCaveShuckle:
 	opentext
-	checkevent EVENT_SHUCKLE_CAVE_GOT_JUICE
-	iftrue .got_juice
-	writetext ShuckleCaveGetJuiceText
+	checkevent EVENT_SHUCKLE_CAVE_ALREADY_SEEN_TEXT
+	iftrue .simplerText
+.firstTimeText
+	writetext ShuckleCaveSellJuiceText
 	waitbutton
-	verbosegiveitem BERRY_JUICE, 99
+	setevent EVENT_SHUCKLE_CAVE_ALREADY_SEEN_TEXT
+	sjump .proceed
+.simplerText
+	writetext ShuckleCaveSellJuiceSimpleText
+	waitbutton
+.proceed
+	yesorno
 	iffalse .BagFull
-	setevent EVENT_SHUCKLE_CAVE_GOT_JUICE
 	closetext
-	end
-.got_juice:
-	writetext ShuckleCaveDrunkShuckle
-	waitbutton
+	checkmoney YOUR_MONEY, SHUCKLE_BERRYJUICE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	playsound SFX_TRANSACTION
+	pause 10
+	giveitem BERRY_JUICE
+	takemoney YOUR_MONEY, SHUCKLE_BERRYJUICE_PRICE
 	closetext
 	end
 .BagFull
 	closetext
 	end
+.NotEnoughMoney
+	opentext
+	playsound SFX_WRONG
+	writetext ShuckleCaveNoMoneyText
+	waitbutton
+	closetext
+	end
 	
-ShuckleCaveGetJuiceText:
-	text "This SHUCKLE looks"
-	line "passed out."
+ShuckleCaveSellJuiceText:
+	text "This SHUCKLE is"
+	line "holding a lot of"
+	cont "cash and some"
+	cont "bottles of"
+	cont "BERRY JUICE."
 	
-	para "Its not injured so"
-	line "battling isn't the"
-	cont "cause."
-	
-	para "Hopefully it does"
-	line "not mind me taking"
-	cont "some of this…"
+	para "There are lines"
+	line "drawn on the floor"
+	cont "that say '¥50'…"
 	done
-	
-ShuckleCaveDrunkShuckle:
-	text "Someone has had a"
-	line "bit too much juice"
+
+ShuckleCaveSellJuiceSimpleText:
+	text "BERRY JUICE x ¥50"
+	done
+
+ShuckleCaveNoMoneyText:
+	text "Shuckle gives you"
+	line "a dissapointing"
+	cont "stare…"
 	done
 
 ShuckleCave_MapEvents:
@@ -55,4 +75,4 @@ ShuckleCave_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  3, 3, SPRITE_SHUCKLE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ShuckleCaveShuckle, EVENT_SHUCKLE_CAVE_GOT_JUICE
+	object_event  3, 3, SPRITE_SHUCKLE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ShuckleCaveShuckle, -1
