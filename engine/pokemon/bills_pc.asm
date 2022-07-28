@@ -412,6 +412,8 @@ BillsPC_Withdraw:
 .withdraw
 	call BillsPC_CheckMail_PreventBlackout
 	jp c, .cancel
+	call PayBeforeWithdrawing
+	jr c, .FailedWithdraw ;Called when we select "No" on the payment box or if we can't afford it
 	call TryWithdrawPokemon
 	jr c, .FailedWithdraw
 	ld a, $0
@@ -1817,6 +1819,86 @@ DepositPokemon:
 	scf
 	ret
 
+PayBeforeWithdrawing:
+	ld a, [wPartyCount]
+	cp PARTY_LENGTH
+	ret z ;If we have 6 mons on our party dont even bother with any of this
+	ld de, PCString_PayBeforeWithdrawal
+	call BillsPC_PlaceString
+	farcall GetPriceToHealMons
+	ld hl, wPokemonCenterPrice
+	ld a, [hli]
+	ld d, a
+	ld a, [hld]
+	ld e, a
+	srl d
+	rr e
+	srl d
+	rr e ;This will divide de by 2, thus dividing by 4 in total
+	ld a, d
+	ld [hli], a
+	ld a, e
+	ld [hld], a ;Store the changed value into the same address
+	ld de, wPokemonCenterPrice
+	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_LEFTALIGN | PRINTNUM_MONEY | 2, 4
+	ld hl, wStringBuffer5
+	call PrintNum ;This will print the number from 'de' into whatever hl points to (in this case wStringBuffer5)
+	ld de, wStringBuffer5
+	ld hl, wStringBuffer5 + 5 ;It will always print 4 numbers so this should be safe
+	ld a, "."
+	ld [hli], a
+	ld a, $50
+	ld [hl], a
+	hlcoord 11, 16
+	call PlaceString
+	lb bc, 14, 11
+	call PlaceYesNoBox
+	jr nc, .proceed ;Return if player selected "no"
+.leave
+	ld a, [wMenuCursorY]
+	dec a
+	ld [wMenuCursorY], a
+	scf
+	ret
+
+.proceed
+	ld hl, wMoney
+	ld a, [hl] ;Get the first byte regarding money amount
+	and a ;If a > 0 (and thus z=0) then we have at least 65536 pokedollars, so we skip further fund checks.
+	jr nz, .CanAfford
+	ld de, wMoney + 1 ;If we're here the first byte of wMoney is 00, so we only use the last 2 bytes, making it simpler to compare funds
+	ld bc, wPokemonCenterPrice
+	ld a, 2 ;Use only 2 bytes as the price will never surpass 4 digits ($2710=d10000)
+	call PCCompareFunds ;Use a copy of the far function CompareFunds to avoid 'a' being overwritten by the farcall
+	jr c, .CantAfford
+.CanAfford
+	ld de, SFX_TRANSACTION
+	call WaitPlaySFX
+	call WaitSFX
+	ld a, [wPokemonCenterPrice - 1] ;Load the byte before wPokemonCenterPrice to save it since we'll override it with 00
+	ld b, a ;Save the old value in b
+	xor a
+	ld [wPokemonCenterPrice - 1], a ;Write 00 there so we can use 3 bytes for wPokemonCenterPrice
+	push bc
+	ld de, wMoney
+	ld bc, wPokemonCenterPrice - 1
+	farcall TakeMoney
+	pop bc ;Restore b's value
+	ld a, b
+	ld [wPokemonCenterPrice - 1], a ;Restore whatever value was held there earlier
+	ret
+	
+.CantAfford:
+	ld de, PCString_CantAffort
+	call BillsPC_PlaceString
+	ld de, SFX_WRONG
+	call WaitPlaySFX
+	call WaitSFX
+	ld c, 50
+	call DelayFrames
+	scf
+	ret
+
 TryWithdrawPokemon:
 	ld a, [wBillsPC_CursorPosition]
 	ld hl, wBillsPC_ScrollPosition
@@ -2001,6 +2083,8 @@ MovePKMNWitoutMail_InsertMon:
 	ret
 
 .BoxToParty:
+	call PayBeforeWithdrawing
+	ret c ;Return if we couldn't afford the movement or we refused to pay
 	call .CopyFromBox
 	call .CopyToParty
 	ret
@@ -2227,6 +2311,8 @@ PCString_Non: db "Non.@" ; unreferenced
 PCString_BoxFull: db "The BOX is full.@"
 PCString_PartyFull: db "The party's full!@"
 PCString_NoReleasingEGGS: db "No releasing EGGS!@"
+PCString_PayBeforeWithdrawal: db "That'll be@"
+PCString_CantAffort: db "Not enough funds!@"
 
 _ChangeBox:
 	call LoadStandardMenuHeader
@@ -2525,4 +2611,50 @@ BillsPC_PlaceChangeBoxString:
 	call PlaceString
 	ld a, $1
 	ldh [hBGMapMode], a
+	ret
+
+PCCompareFunds:
+; a: number of bytes
+; bc: start addr of amount (big-endian)
+; de: start addr of account (big-endian)
+	push hl
+	push de
+	push bc
+	ld h, b
+	ld l, c
+	ld c, 0
+	ld b, a
+.loop1
+	dec a
+	jr z, .done
+	inc de
+	inc hl
+	jr .loop1
+
+.done
+	and a
+.loop2
+	ld a, [de]
+	sbc [hl]
+	jr z, .okay
+	inc c
+
+.okay
+	dec de
+	dec hl
+	dec b
+	jr nz, .loop2
+	jr c, .set_carry
+	ld a, c
+	and a
+	jr .skip_carry
+
+.set_carry
+	ld a, 1
+	and a
+	scf
+.skip_carry
+	pop bc
+	pop de
+	pop hl
 	ret
