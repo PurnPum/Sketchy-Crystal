@@ -209,8 +209,8 @@ Route42FruitTree2:
 Route42FruitTree3:
 	fruittree FRUITTREE_ROUTE_42_3
 
-Route42HiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_ROUTE_42_HIDDEN_MAX_POTION
+Route42HiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_ROUTE_42_HIDDEN_ULTRA_POTION
 
 Route42SuicuneMovement:
 	set_sliding
@@ -334,7 +334,7 @@ Route42_MapEvents:
 	bg_event  7,  5, BGEVENT_READ, MtMortarSign1
 	bg_event 45,  9, BGEVENT_READ, MtMortarSign2
 	bg_event 54,  8, BGEVENT_READ, Route42Sign2
-	bg_event 16, 11, BGEVENT_ITEM, Route42HiddenMaxPotion
+	bg_event 16, 11, BGEVENT_ITEM, Route42HiddenUltraPotion
 
 	def_object_events
 	object_event 40, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerFisherTully, -1

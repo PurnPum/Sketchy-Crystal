@@ -235,8 +235,8 @@ LakeOfRageHiddenFullRestore:
 LakeOfRageHiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_LAKE_OF_RAGE_HIDDEN_RARE_CANDY
 
-LakeOfRageHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_LAKE_OF_RAGE_HIDDEN_MAX_POTION
+LakeOfRageHiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_LAKE_OF_RAGE_HIDDEN_ULTRA_POTION
 
 LakeOfRageLanceTeleportIntoSkyMovement:
 	teleport_from
@@ -505,7 +505,7 @@ LakeOfRage_MapEvents:
 	bg_event 25, 31, BGEVENT_READ, MagikarpHouseSignScript
 	bg_event 11, 28, BGEVENT_ITEM, LakeOfRageHiddenFullRestore
 	bg_event  4,  4, BGEVENT_ITEM, LakeOfRageHiddenRareCandy
-	bg_event 35,  5, BGEVENT_ITEM, LakeOfRageHiddenMaxPotion
+	bg_event 35,  5, BGEVENT_ITEM, LakeOfRageHiddenUltraPotion
 
 	def_object_events
 	object_event 21, 28, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LakeOfRageLanceScript, EVENT_LAKE_OF_RAGE_LANCE

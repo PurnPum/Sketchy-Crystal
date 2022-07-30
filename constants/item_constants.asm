@@ -20,13 +20,13 @@
 	const AWAKENING    ; 0c
 	const PARLYZ_HEAL  ; 0d
 	const FULL_RESTORE ; 0e
-	const MAX_POTION   ; 0f
+	const ULTRA_POTION ; 0f
 	const HYPER_POTION ; 10
 	const SUPER_POTION ; 11
 	const POTION       ; 12
 	const ESCAPE_ROPE  ; 13
 	const REPEL        ; 14
-	const MAX_ELIXER   ; 15
+	const SUPER_ELIXER   ; 15
 	const FIRE_STONE   ; 16
 	const THUNDERSTONE ; 17
 	const WATER_STONE  ; 18
@@ -69,7 +69,7 @@
 	const SUPER_ROD    ; 3d
 	const PP_UP        ; 3e
 	const ETHER        ; 3f
-	const MAX_ETHER    ; 40
+	const SUPER_ETHER    ; 40
 	const ELIXER       ; 41
 	const RED_SCALE    ; 42
 	const SECRETPOTION ; 43

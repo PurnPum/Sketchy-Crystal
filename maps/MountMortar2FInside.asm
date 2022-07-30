@@ -23,8 +23,8 @@ TrainerSupernerdHugh:
 	closetext
 	end
 
-MountMortar2FInsideMaxPotion:
-	itemball MAX_POTION
+MountMortar2FInsideUltraPotion:
+	itemball ULTRA_POTION
 
 MountMortar2FInsideRareCandy:
 	itemball RARE_CANDY
@@ -77,7 +77,7 @@ MountMortar2FInside_MapEvents:
 	bg_event 24,  8, BGEVENT_ITEM, MountMortar2FInsideHiddenFullRestore
 
 	def_object_events
-	object_event 28, 22, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideMaxPotion, EVENT_MOUNT_MORTAR_2F_INSIDE_MAX_POTION
+	object_event 28, 22, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideUltraPotion, EVENT_MOUNT_MORTAR_2F_INSIDE_ULTRA_POTION
 	object_event  2, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideRareCandy, EVENT_MOUNT_MORTAR_2F_INSIDE_RARE_CANDY
 	object_event 19, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideTMDefenseCurl, EVENT_MOUNT_MORTAR_2F_INSIDE_TM_DEFENSE_CURL
 	object_event 16,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortar2FInsideDragonScale, EVENT_MOUNT_MORTAR_2F_INSIDE_DRAGON_SCALE

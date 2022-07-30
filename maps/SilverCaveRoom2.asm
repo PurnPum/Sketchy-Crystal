@@ -17,8 +17,8 @@ SilverCaveRoom2UltraBall:
 SilverCaveRoom2PPUp:
 	itemball PP_UP
 
-SilverCaveRoom2HiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_MAX_POTION
+SilverCaveRoom2HiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_SILVER_CAVE_ROOM_2_HIDDEN_ULTRA_POTION
 
 SilverCaveRoom2_MapEvents:
 	db 0, 0 ; filler
@@ -32,7 +32,7 @@ SilverCaveRoom2_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 14, 31, BGEVENT_ITEM, SilverCaveRoom2HiddenMaxPotion
+	bg_event 14, 31, BGEVENT_ITEM, SilverCaveRoom2HiddenUltraPotion
 
 	def_object_events
 	object_event 24, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SilverCaveRoom2Calcium, EVENT_SILVER_CAVE_ROOM_2_CALCIUM
