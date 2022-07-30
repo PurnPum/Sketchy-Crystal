@@ -65,8 +65,8 @@ IcePathB1FBoulder:
 IcePathB1FIron:
 	itemball IRON
 
-IcePathB1FHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_ICE_PATH_B1F_HIDDEN_MAX_POTION
+IcePathB1FHiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_ICE_PATH_B1F_HIDDEN_ULTRA_POTION
 
 IcePathBoulderFellThroughText:
 	text "The boulder fell"
@@ -89,7 +89,7 @@ IcePathB1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 17, 30, BGEVENT_ITEM, IcePathB1FHiddenMaxPotion
+	bg_event 17, 30, BGEVENT_ITEM, IcePathB1FHiddenUltraPotion
 
 	def_object_events
 	object_event 11,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IcePathB1FBoulder, EVENT_BOULDER_IN_ICE_PATH_1

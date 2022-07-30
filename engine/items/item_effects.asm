@@ -28,13 +28,13 @@ ItemEffects:
 	dw StatusHealingEffect ; AWAKENING
 	dw StatusHealingEffect ; PARLYZ_HEAL
 	dw FullRestoreEffect   ; FULL_RESTORE
-	dw RestoreHPEffect     ; MAX_POTION
+	dw RestoreHPEffect     ; ULTRA_POTION
 	dw RestoreHPEffect     ; HYPER_POTION
 	dw RestoreHPEffect     ; SUPER_POTION
 	dw RestoreHPEffect     ; POTION
 	dw EscapeRopeEffect    ; ESCAPE_ROPE
 	dw RepelEffect         ; REPEL
-	dw RestorePPEffect     ; MAX_ELIXER
+	dw RestorePPEffect     ; SUPER_ELIXER
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
@@ -77,7 +77,7 @@ ItemEffects:
 	dw SuperRodEffect      ; SUPER_ROD
 	dw RestorePPEffect     ; PP_UP
 	dw RestorePPEffect     ; ETHER
-	dw RestorePPEffect     ; MAX_ETHER
+	dw RestorePPEffect     ; SUPER_ETHER
 	dw RestorePPEffect     ; ELIXER
 	dw NoEffect            ; RED_SCALE
 	dw NoEffect            ; SECRETPOTION
@@ -2134,7 +2134,7 @@ EscapeRopeEffect:
 	ret
 
 SuperRepelEffect:
-	ld b, 200
+	ld b, 175
 	jr UseRepel
 
 MaxRepelEffect:
@@ -2368,7 +2368,7 @@ RestorePPEffect:
 
 .loop2
 	ld a, [wTempRestorePPItem]
-	cp MAX_ELIXER
+	cp SUPER_ELIXER
 	jp z, Elixer_RestorePPofAllMoves
 	cp ELIXER
 	jp z, Elixer_RestorePPofAllMoves
@@ -2555,11 +2555,12 @@ RestorePP:
 	jr nc, .dont_restore
 
 	ld a, [wTempRestorePPItem]
-	cp MAX_ELIXER
-	jr z, .restore_all
-	cp MAX_ETHER
-	jr z, .restore_all
-
+	ld c, 20
+	cp SUPER_ELIXER
+	jr z, .restore_some
+	cp SUPER_ETHER
+	jr z, .restore_some
+	
 	ld c, 5
 	cp MYSTERYBERRY
 	jr z, .restore_some

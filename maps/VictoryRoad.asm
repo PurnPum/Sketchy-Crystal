@@ -109,8 +109,8 @@ VictoryRoadFullHeal:
 VictoryRoadHPUp:
 	itemball HP_UP
 
-VictoryRoadHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_VICTORY_ROAD_HIDDEN_MAX_POTION
+VictoryRoadHiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_VICTORY_ROAD_HIDDEN_ULTRA_POTION
 
 VictoryRoadHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_VICTORY_ROAD_HIDDEN_FULL_HEAL
@@ -256,7 +256,7 @@ VictoryRoad_MapEvents:
 	coord_event 13,  8, SCENE_DEFAULT, VictoryRoadRivalRight
 
 	def_bg_events
-	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenMaxPotion
+	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenUltraPotion
 	bg_event  3, 65, BGEVENT_ITEM, VictoryRoadHiddenFullHeal
 
 	def_object_events

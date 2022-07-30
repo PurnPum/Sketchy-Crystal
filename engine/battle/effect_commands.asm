@@ -1164,7 +1164,10 @@ BattleCommand_Critical:
 	ld c, 0
 
 	cp CHANSEY
+	jr z, .proceed
+	cp BLISSEY
 	jr nz, .Farfetchd
+.proceed
 	ld a, [hl]
 	cp LUCKY_PUNCH
 	jr nz, .FocusEnergy

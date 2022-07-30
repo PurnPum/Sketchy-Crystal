@@ -629,8 +629,8 @@ GoldenrodUndergroundSwitchRoomEntrancesSmokeBall:
 GoldenrodUndergroundSwitchRoomEntrancesFullHeal:
 	itemball FULL_HEAL
 
-GoldenrodUndergroundSwitchRoomEntrancesHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_MAX_POTION
+GoldenrodUndergroundSwitchRoomEntrancesHiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_ULTRA_POTION
 
 GoldenrodUndergroundSwitchRoomEntrancesHiddenRevive:
 	hiddenitem REVIVE, EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_REVIVE
@@ -952,7 +952,7 @@ GoldenrodUndergroundSwitchRoomEntrances_MapEvents:
 	bg_event 10,  1, BGEVENT_READ, Switch2Script
 	bg_event  2,  1, BGEVENT_READ, Switch3Script
 	bg_event 20, 11, BGEVENT_READ, EmergencySwitchScript
-	bg_event  8,  9, BGEVENT_ITEM, GoldenrodUndergroundSwitchRoomEntrancesHiddenMaxPotion
+	bg_event  8,  9, BGEVENT_ITEM, GoldenrodUndergroundSwitchRoomEntrancesHiddenUltraPotion
 	bg_event  1,  8, BGEVENT_ITEM, GoldenrodUndergroundSwitchRoomEntrancesHiddenRevive
 
 	def_object_events

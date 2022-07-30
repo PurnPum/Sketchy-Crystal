@@ -15,13 +15,13 @@ ItemDescriptions:
 	dw AwakeningDesc
 	dw ParlyzHealDesc
 	dw FullRestoreDesc
-	dw MaxPotionDesc
+	dw UltraPotionDesc
 	dw HyperPotionDesc
 	dw SuperPotionDesc
 	dw PotionDesc
 	dw EscapeRopeDesc
 	dw RepelDesc
-	dw MaxElixerDesc
+	dw SuperElixerDesc
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
@@ -64,7 +64,7 @@ ItemDescriptions:
 	dw SuperRodDesc
 	dw PPUpDesc
 	dw EtherDesc
-	dw MaxEtherDesc
+	dw SuperEtherDesc
 	dw ElixerDesc
 	dw RedScaleDesc
 	dw SecretPotionDesc
@@ -314,21 +314,21 @@ FullRestoreDesc:
 	db   "Fully restores HP"
 	next "& status.@"
 
-MaxPotionDesc:
-	db   "Fully restores"
-	next "#MON HP.@"
+UltraPotionDesc:
+	db   "Restores #MON"
+	next "HP by 240.@"
 
 HyperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 200.@"
+	next "HP by 120.@"
 
 SuperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 60.@"
 
 PotionDesc:
 	db   "Restores #MON"
-	next "HP by 20.@"
+	next "HP by 30.@"
 
 EscapeRopeDesc:
 	db   "Use for escaping"
@@ -338,9 +338,9 @@ RepelDesc:
 	db   "Repels weak #-"
 	next "MON for 100 steps.@"
 
-MaxElixerDesc:
-	db   "Fully restores the"
-	next "PP of one #MON.@"
+SuperElixerDesc:
+	db   "Restores PP of all"
+	next "moves by 20.@"
 
 FireStoneDesc:
 	db   "Evolves certain"
@@ -374,8 +374,8 @@ CarbosDesc:
 	next "one #MON.@"
 
 LuckyPunchDesc:
-	db   "Ups critical hit"
-	next "ratio of CHANSEY.@"
+	db   "+2 Crit ratio of"
+	next "CHANSEY/BLISSEY.@"
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"
@@ -423,7 +423,7 @@ GuardSpecDesc:
 
 SuperRepelDesc:
 	db   "Repels weak #-"
-	next "MON for 200 steps.@"
+	next "MON for 175 steps.@"
 
 MaxRepelDesc:
 	db   "Repels weak #-"
@@ -438,15 +438,15 @@ TeruSama3Desc:
 
 FreshWaterDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 45.@"
 
 SodaPopDesc:
 	db   "Restores #MON"
-	next "HP by 60.@"
+	next "HP by 80.@"
 
 LemonadeDesc:
 	db   "Restores #MON"
-	next "HP by 80.@"
+	next "HP by 200.@"
 
 XAttackDesc:
 	db   "Raises ATTACK."
@@ -506,9 +506,9 @@ EtherDesc:
 	db   "Restores PP of one"
 	next "move by 10.@"
 
-MaxEtherDesc:
-	db   "Fully restores PP"
-	next "of one move.@"
+SuperEtherDesc:
+	db   "Restores PP of one"
+	next "move by 20.@"
 
 ElixerDesc:
 	db   "Restores PP of all"
@@ -540,7 +540,7 @@ SilverWingDesc:
 
 MoomooMilkDesc:
 	db   "Restores #MON"
-	next "HP by 100.@"
+	next "HP by 160.@"
 
 QuickClawDesc:
 	db   "Raises 1st strike"
@@ -728,11 +728,11 @@ TeruSama8Desc:
 
 EnergyPowderDesc:
 	db   "Restores #MON"
-	next "HP by 50. Bitter.@"
+	next "HP by 100. Bitter.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"
-	next "HP by 200. Bitter.@"
+	next "HP by 300. Bitter.@"
 
 HealPowderDesc:
 	db   "Cures all status"
@@ -799,7 +799,7 @@ CharcoalDesc:
 
 BerryJuiceDesc:
 	db   "Restores #MON"
-	next "HP by 20.@"
+	next "HP by 30. (HOLD).@"
 
 ScopeLensDesc:
 	db   "Raises critical"
@@ -929,7 +929,7 @@ BerryDesc:
 
 GoldBerryDesc:
 	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	next "item (25%HP, HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"

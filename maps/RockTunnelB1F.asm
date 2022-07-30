@@ -17,8 +17,8 @@ RockTunnelB1FPPUp:
 RockTunnelB1FRevive:
 	itemball REVIVE
 
-RockTunnelB1FHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_ROCK_TUNNEL_B1F_HIDDEN_MAX_POTION
+RockTunnelB1FHiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_ROCK_TUNNEL_B1F_HIDDEN_ULTRA_POTION
 
 RockTunnelB1F_MapEvents:
 	db 0, 0 ; filler
@@ -32,7 +32,7 @@ RockTunnelB1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  4, 14, BGEVENT_ITEM, RockTunnelB1FHiddenMaxPotion
+	bg_event  4, 14, BGEVENT_ITEM, RockTunnelB1FHiddenUltraPotion
 
 	def_object_events
 	object_event  7, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RockTunnelB1FIron, EVENT_ROCK_TUNNEL_B1F_IRON
