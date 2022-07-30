@@ -42,7 +42,7 @@ IncreasinglyPriceyItems: ;List of items that increase on price by the amount of 
 	db REVIVE
 	db MAX_REVIVE
 	db BRIGHTPOWDER
-	db QUICKCLAW
+	db QUICK_CLAW
 	db KINGS_ROCK
 	db FOCUS_BAND
 	db SCOPE_LENS
