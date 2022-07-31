@@ -669,8 +669,8 @@ IlexForest_Blocks:
 DarkCaveVioletEntrance_Blocks:
 	INCBIN "maps/DarkCaveVioletEntrance.blk"
 
-DarkCaveBlackthornEntrance_Blocks:
-	INCBIN "maps/DarkCaveBlackthornEntrance.blk"
+DarkCaveRoute46Entrance_Blocks:
+	INCBIN "maps/DarkCaveRoute46Entrance.blk"
 
 RuinsOfAlphResearchCenter_Blocks:
 	INCBIN "maps/RuinsOfAlphResearchCenter.blk"

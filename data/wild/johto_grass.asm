@@ -1206,7 +1206,7 @@ JohtoGrassWildMons:
 	db 4, DUNSPARCE
 	end_grass_wildmons
 
-	def_grass_wildmons DARK_CAVE_BLACKTHORN_ENTRANCE
+	def_grass_wildmons DARK_CAVE_ROUTE46_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
 	db 23, GEODUDE
