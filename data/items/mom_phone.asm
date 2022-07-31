@@ -18,8 +18,8 @@ MomItems_2:
 	momitem    500,    50, MOM_ITEM, SUPER_REPEL
 	momitem   1000,   200, MOM_ITEM, SUPER_POTION
 	momitem   2000,   250, MOM_ITEM, SODA_POP
-	momitem   3000,   500, MOM_ITEM, MOOMOO_MILK
-	momitem   4000,   600, MOM_ITEM, LEMONADE
+	momitem   3000,   450, MOM_ITEM, MOOMOO_MILK
+	momitem   4000,   520, MOM_ITEM, LEMONADE
 	momitem   5000,  1500, MOM_ITEM, FIRE_STONE
 	momitem   6000,  1500, MOM_ITEM, WATER_STONE
 	momitem   7000,  1500, MOM_ITEM, LEAF_STONE
