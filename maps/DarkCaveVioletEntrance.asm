@@ -37,7 +37,7 @@ DarkCaveVioletEntrance_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 34,  6, BGEVENT_ITEM, DarkCaveVioletEntranceHiddenFreshWater
+	bg_event 32,  6, BGEVENT_ITEM, DarkCaveVioletEntranceHiddenFreshWater
 
 	def_object_events
 	object_event  6,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceElixers, EVENT_DARK_CAVE_VIOLET_ENTRANCE_ELIXERS
