@@ -39,13 +39,14 @@ Marts:
 	assert_table_length NUM_MARTS
 
 MartRoute29BerryShop:
-	db 8 ; # items
+	db 9 ; # items
 	db BERRY
 	db GRSSRESBERRY
 	db PRZCUREBERRY
 	db NRMLRESBERRY
 	db PSNCUREBERRY
 	db ROCKRESBERRY
+	db BITTER_BERRY
 	db WATERESBERRY
 	db FLYRESBERRY
 	db -1 ; end
