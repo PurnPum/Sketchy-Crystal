@@ -52,21 +52,25 @@ MartRoute29BerryShop:
 	db -1 ; end
 	
 MartCherrygrove:
-	db 4 ; # items
+	db 7 ; # items
 	db POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
+	db ETHER
 	db AWAKENING
+	db REPEL
 	db TM_SKETCH
 	db -1 ; end
 
 MartCherrygroveDex:
-	db 5 ; # items
+	db 8 ; # items
 	db POKE_BALL
 	db POTION
 	db ANTIDOTE
 	db PARLYZ_HEAL
+	db ETHER
 	db AWAKENING
+	db REPEL
 	db TM_SKETCH
 	db -1 ; end
 
@@ -77,11 +81,11 @@ MartViolet:
 	db ESCAPE_ROPE
 	db ANTIDOTE
 	db PARLYZ_HEAL
-	db AWAKENING
-	db X_DEFEND
-	db X_ATTACK
-	db X_SPEED
-	db FLOWER_MAIL
+	db BURN_HEAL
+	db REPEL
+	db ETHER
+	db SILK_SCARF
+	db HARD_STONE
 	db TM_SKETCH
 	db -1 ; end
 
