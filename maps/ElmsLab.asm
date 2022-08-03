@@ -1,3 +1,9 @@
+DEF ELMSLAB_1RARECANDY_BASE_PRICE EQU 25*1
+DEF ELMSLAB_5RARECANDY_BASE_PRICE EQU 24*5
+DEF ELMSLAB_10RARECANDY_BASE_PRICE EQU 23*10
+DEF ELMSLAB_25RARECANDY_BASE_PRICE EQU 21*25
+DEF ELMSLAB_50RARECANDY_BASE_PRICE EQU 19*50
+DEF ELMSLAB_99RARECANDY_BASE_PRICE EQU 16*99
 	object_const_def
 	const ELMSLAB_ELM
 	const ELMSLAB_ELMS_AIDE
@@ -486,17 +492,6 @@ AideScript_GivePotion:
 	verbosegiveitem POTION
 	verbosegiveitem BICYCLE
 	setevent EVENT_GOT_BICYCLE
-	writetext AideText_AlsoGiveCandy
-	yesorno
-	iftrue .get_candy
-	writetext AideText_AlwaysBusy
-	waitbutton
-	closetext
-	setscene SCENE_ELMSLAB_NOOP
-	end
-
-.get_candy:
-	verbosegiveitem RARE_CANDY, 99
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
@@ -545,37 +540,25 @@ ElmsAideScript:
 	iftrue AideScript_ExplainBalls
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
-	sjump AideScript_GiveCandy
-
-AideScript_TheftTestimony:
-	writetext AideText_TheftTestimony
-	waitbutton
-	sjump AideScript_GiveCandy
-
-AideScript_ExplainBalls:
-	writetext AideText_ExplainBalls
-	waitbutton
-	sjump AideScript_GiveCandy
-
-AideScript_AfterTheft:
-	writetext AideText_AfterTheft
-	waitbutton
-	sjump AideScript_GiveCandy
-	
-AideScript_GiveCandy:
-	writetext AideText_GiveCandy
-	yesorno
-	iffalse .no_candy
-	verbosegiveitem RARE_CANDY, 99
-	iffalse .BagFull
-	waitbutton ;Fallthrough
-.no_candy:
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
 	end
-.BagFull:
-	writetext AideText_NoSpaceForCandy
+
+AideScript_TheftTestimony:
+	writetext AideText_TheftTestimony
+	waitbutton
+	closetext
+	end
+
+AideScript_ExplainBalls:
+	writetext AideText_ExplainBalls
+	waitbutton
+	closetext
+	end
+
+AideScript_AfterTheft:
+	writetext AideText_AfterTheft
 	waitbutton
 	closetext
 	end
@@ -642,6 +625,138 @@ ElmsLabTrashcan2: ; unreferenced
 
 ElmsLabBookshelf:
 	jumpstd DifficultBookshelfScript
+	
+ElmsLabRareCandyVendingMachine:
+	opentext
+	writetext ElmsLabVendingText
+	waitbutton
+.Start:
+	special PlaceMoneyTopRight
+	loadmenu .MenuHeader
+	verticalmenu
+	closewindow
+	ifequal 1, .Candy1
+	ifequal 2, .Candy5
+	ifequal 3, .Candy10
+	ifequal 4, .Candy25
+	ifequal 5, .Candy50
+	ifequal 6, .Candy99
+	closetext
+	end
+
+.Candy1:
+	checkmoney YOUR_MONEY, ELMSLAB_1RARECANDY_BASE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem RARE_CANDY
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, ELMSLAB_1RARECANDY_BASE_PRICE
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	sjump .VendItem
+
+.Candy5:
+	checkmoney YOUR_MONEY, ELMSLAB_5RARECANDY_BASE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem RARE_CANDY, 5
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, ELMSLAB_5RARECANDY_BASE_PRICE
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	sjump .VendItem
+	
+.Candy10:
+	checkmoney YOUR_MONEY, ELMSLAB_10RARECANDY_BASE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem RARE_CANDY, 10
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, ELMSLAB_10RARECANDY_BASE_PRICE
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	sjump .VendItem
+	
+.Candy25:
+	checkmoney YOUR_MONEY, ELMSLAB_25RARECANDY_BASE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem RARE_CANDY, 25
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, ELMSLAB_25RARECANDY_BASE_PRICE
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	sjump .VendItem
+	
+.Candy50:
+	checkmoney YOUR_MONEY, ELMSLAB_50RARECANDY_BASE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem RARE_CANDY, 50
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, ELMSLAB_50RARECANDY_BASE_PRICE
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	sjump .VendItem
+	
+.Candy99:
+	checkmoney YOUR_MONEY, ELMSLAB_99RARECANDY_BASE_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+	giveitem RARE_CANDY, 99
+	iffalse .NotEnoughSpace
+	takemoney YOUR_MONEY, ELMSLAB_99RARECANDY_BASE_PRICE
+	getitemname STRING_BUFFER_3, RARE_CANDY
+	sjump .VendItem
+
+.VendItem:
+	pause 10
+	playsound SFX_ENTER_DOOR
+	writetext ElmsLabClangText
+	promptbutton
+	itemnotify
+	sjump .Start
+
+.NotEnoughMoney:
+	writetext ElmsLabVendingNoMoneyText
+	waitbutton
+	sjump .Start
+
+.NotEnoughSpace:
+	writetext ElmsLabVendingNoSpaceText
+	waitbutton
+	sjump .Start
+
+.MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 2, SCREEN_WIDTH - 1, TEXTBOX_Y + 5
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	db 7 ; items
+	db "1 CANDY    ¥{d:ELMSLAB_1RARECANDY_BASE_PRICE}@"
+	db "5 CANDIES  ¥{d:ELMSLAB_5RARECANDY_BASE_PRICE}@"
+	db "10 CANDIES ¥{d:ELMSLAB_10RARECANDY_BASE_PRICE}@"
+	db "25 CANDIES ¥{d:ELMSLAB_25RARECANDY_BASE_PRICE}@"
+	db "50 CANDIES ¥{d:ELMSLAB_50RARECANDY_BASE_PRICE}@"
+	db "99 CANDIES ¥{d:ELMSLAB_99RARECANDY_BASE_PRICE}@"
+	db "CANCEL@"
+
+ElmsLabClangText:
+	text "Clang!"
+
+	para "@"
+	text_ram wStringBuffer3
+	text_start
+	line "dropped out."
+	done
+
+ElmsLabVendingText:
+	text "A vending machine!"
+	line "Its full of"
+	cont "RARE CANDY!"
+	done
+
+ElmsLabVendingNoMoneyText:
+	text "Oops, not enough"
+	line "money…"
+	done
+
+ElmsLabVendingNoSpaceText:
+	text "There's no more"
+	line "room for stuff…"
+	done
 
 ElmsLab_WalkUpToElmMovement:
 	step UP
@@ -757,41 +872,6 @@ AfterChikoritaMovement:
 	step UP
 	turn_head UP
 	step_end
-
-AideText_AlsoGiveCandy:
-	text "You can also take"
-	line "these rare candies"
-	cont "if you want."
-	
-	para "They will make"
-	line "your errand way"
-	cont "less tedious."
-
-	para "I can give you"
-	line "as many as you"
-	cont "want."
-	
-	para "You just need to"
-	line "talk to me here."
-	
-	para "However, you may"
-	line "not take them if"
-	cont "wish so."
-	
-	para "So, do you"
-	line "want them?"
-	done
-
-AideText_GiveCandy:	
-	text "Do you need more"
-	line "rare candies?"
-	done
-
-AideText_NoSpaceForCandy:
-	text "Sorry <PLAYER>,"
-	line "but you have no"
-	cont "space for this!"
-	done
 
 ElmText_Intro:
 	text "ELM: <PLAY_G>!"
@@ -1475,7 +1555,7 @@ ElmsLab_MapEvents:
 	bg_event  1,  7, BGEVENT_READ, ElmsLabTravelTip2
 	bg_event  2,  7, BGEVENT_READ, ElmsLabTravelTip3
 	bg_event  3,  7, BGEVENT_READ, ElmsLabTravelTip4
-	bg_event  6,  7, BGEVENT_READ, ElmsLabBookshelf
+	bg_event  6,  7, BGEVENT_UP,   ElmsLabRareCandyVendingMachine
 	bg_event  7,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  8,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  9,  7, BGEVENT_READ, ElmsLabBookshelf
