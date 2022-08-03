@@ -45,7 +45,7 @@ CherrygrovePokecenter1FFisherText:
 
 CherrygrovePokecenter1FGentlemanText:
 	text "Withdrawing any"
-	line "#MON costs a 4th"
+	line "#MON costs 1/4"
 	cont "of the price for"
 	cont "healing your team."
 	
