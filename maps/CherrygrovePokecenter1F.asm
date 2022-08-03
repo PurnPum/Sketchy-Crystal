@@ -35,17 +35,24 @@ CherrygrovePokecenter1FTeacherScript:
 	end
 
 CherrygrovePokecenter1FFisherText:
-	text "It's great. I can"
+	text "It's tough. I can"
 	line "store any number"
 
-	para "of #MON, and"
-	line "it's all free."
+	para "of #MON, but"
+	line "you gotta pay to"
+	cont "withdraw them."
 	done
 
 CherrygrovePokecenter1FGentlemanText:
-	text "That PC is free"
-	line "for any trainer"
-	cont "to use."
+	text "Withdrawing any"
+	line "#MON costs a 4th"
+	cont "of the price for"
+	cont "healing your team."
+	
+	para "It works like that"
+	line "because the PC"
+	cont "fully heals any"
+	cont "stored #MON."
 	done
 
 CherrygrovePokecenter1FTeacherText:

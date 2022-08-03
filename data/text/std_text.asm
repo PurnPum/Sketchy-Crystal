@@ -52,7 +52,7 @@ PokeComNurseNiteText:
 NurseAskHealText:
 	text "We can heal your"
 	line "#MON to perfect"
-	cont "health."
+	cont "health for a fee."
 
 	para "Shall we heal your"
 	line "#MON?"
