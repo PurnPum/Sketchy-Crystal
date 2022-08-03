@@ -14,7 +14,7 @@ FishGroups:
 	fishgroup 50 percent + 1, .ROUTE30_Old,				.ROUTE30_Good,				.ROUTE30_Super
 	fishgroup 50 percent + 1, .ROUTE31_Old,				.ROUTE31_Good,				.ROUTE31_Super
 	fishgroup 50 percent + 1, .DARKCAVEVIOLET_Old,		.DARKCAVEVIOLET_Good,		.DARKCAVEVIOLET_Super
-	fishgroup 50 percent + 1, .DARKCAVEBLACKTHORN_Old,	.DARKCAVEBLACKTHORN_Good,	.DARKCAVEBLACKTHORN_Super
+	fishgroup 50 percent + 1, .DARKCAVEROUTE46_Old,		.DARKCAVEROUTE46_Good,		.DARKCAVEROUTE46_Super
 	fishgroup 50 percent + 1, .VIOLET_Old,				.VIOLET_Good,				.VIOLET_Super
 	fishgroup 50 percent + 1, .RUINSALPH_Old,			.RUINSALPH_Good,			.RUINSALPH_Super
 	fishgroup 50 percent + 1, .ROUTE32_Old,				.ROUTE32_Good,				.ROUTE32_Super
@@ -73,76 +73,76 @@ FishGroups:
 	assert_table_length NUM_FISHGROUPS
 
 .NEWBARK_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	WOOPER,		2
 
 .NEWBARK_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	QUAGSIRE,	2
 
 .NEWBARK_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	QUAGSIRE,	2
 
 .CHERRYGROVE_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	CORSOLA,	3
 
 .CHERRYGROVE_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	CORSOLA,	3
 
 .CHERRYGROVE_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	CORSOLA,	3
 
 .ROUTE30_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	POLIWAG,	4
 
 .ROUTE30_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	POLIWHIRL,	4
 
 .ROUTE30_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	POLITOED,	4
 
 .ROUTE31_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	HORSEA,		5
 
 .ROUTE31_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SEADRA,		5
 
 .ROUTE31_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	KINGDRA,	5
 
 .DARKCAVEVIOLET_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	MARILL,		5
 
 .DARKCAVEVIOLET_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	AZUMARILL,	5
 
 .DARKCAVEVIOLET_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	AZUMARILL,	5
 
-.DARKCAVEBLACKTHORN_Old:
-	db 100 percent,	KRABBY,	10
+.DARKCAVEROUTE46_Old:
+	db 100 percent,	WOOPER,		6
 
-.DARKCAVEBLACKTHORN_Good:
-	db 100 percent,	KRABBY,	10
+.DARKCAVEROUTE46_Good:
+	db 100 percent,	QUAGSIRE,	6
 
-.DARKCAVEBLACKTHORN_Super:
-	db 100 percent,	KRABBY,	10
+.DARKCAVEROUTE46_Super:
+	db 100 percent,	QUAGSIRE,	6
 
 .VIOLET_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SHELLDER,	6
 
 .VIOLET_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SHELLDER,	6
 
 .VIOLET_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	CLOYSTER,	6
 
 .RUINSALPH_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	PSYDUCK,	7
 
 .RUINSALPH_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	PSYDUCK,	7
 
 .RUINSALPH_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	GOLDUCK,	7
 
 .ROUTE32_Old:
 	db 100 percent,	KRABBY,	10
