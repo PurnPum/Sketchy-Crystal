@@ -291,6 +291,8 @@ LookAtElmPokeBallScript:
 
 ElmsLabHealingMachine:
 	opentext
+	checkevent EVENT_USED_ELMS_HEALING_MACHINE
+	iftrue .CantHeal
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .CanHeal
 	writetext ElmsLabHealingMachineText1
@@ -302,6 +304,13 @@ ElmsLabHealingMachine:
 	writetext ElmsLabHealingMachineText2
 	yesorno
 	iftrue ElmsLabHealingMachine_HealParty
+	setevent EVENT_USED_ELMS_HEALING_MACHINE
+	closetext
+	end
+	
+.CantHeal:
+	writetext ElmsLabHealingMachineText3
+	waitbutton
 	closetext
 	end
 
@@ -977,13 +986,18 @@ ElmDirectionsText1:
 
 ElmDirectionsText2:
 	text "If your #MON is"
-	line "hurt, you should"
+	line "hurt, you can heal"
 
-	para "heal it with this"
+	para "them with this"
 	line "machine."
 
-	para "Feel free to use"
-	line "it anytime."
+	para "However you can"
+	line "only use it once."
+	
+	para "Its very expensive"
+	line "to run this mach-"
+	cont "ine and we're low"
+	cont "in funds."
 	done
 
 ElmDirectionsText3:
@@ -1020,6 +1034,11 @@ ElmsLabHealingMachineText1:
 ElmsLabHealingMachineText2:
 	text "Would you like to"
 	line "heal your #MON?"
+	done
+
+ElmsLabHealingMachineText3:
+	text "The machine is"
+	line "turned off."
 	done
 
 ElmAfterTheftText1:
