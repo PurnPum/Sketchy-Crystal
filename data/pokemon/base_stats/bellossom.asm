@@ -1,6 +1,6 @@
 	db BELLOSSOM ; 182
 
-	db  75,  80,  85,  50,  90, 100
+	db  85,  50,  80,  35,  100, 150
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

@@ -1,9 +1,9 @@
 	db DUGTRIO ; 051
 
-	db  35,  80,  50, 120,  50,  70
+	db  35, 115,  50, 120,  50,  70
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, GROUND ; type
+	db GROUND, NORMAL ; type
 	db 50 ; catch rate
 	db 153 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

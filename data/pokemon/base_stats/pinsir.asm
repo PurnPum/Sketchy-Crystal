@@ -1,6 +1,6 @@
 	db PINSIR ; 127
 
-	db  65, 125, 100,  85,  55,  70
+	db  80, 125, 110,  85,  40,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, BUG ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

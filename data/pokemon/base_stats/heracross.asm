@@ -1,6 +1,6 @@
 	db HERACROSS ; 214
 
-	db  80, 125,  75,  85,  40,  95
+	db  80, 125,  60, 85,  40,  110
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, FIGHTING ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

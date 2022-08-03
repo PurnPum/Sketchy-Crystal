@@ -1,9 +1,9 @@
 	db LAPRAS ; 131
 
-	db 130,  85,  80,  60,  85,  95
+	db 130,  75,  80,  60,  95,  95
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, ICE ; type
+	db ICE, DRAGON ; type
 	db 45 ; catch rate
 	db 219 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

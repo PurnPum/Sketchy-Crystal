@@ -1,6 +1,6 @@
 	db TAUROS ; 128
 
-	db  75, 100,  95, 110,  40,  70
+	db  75, 100,  95, 110,  70,  40
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

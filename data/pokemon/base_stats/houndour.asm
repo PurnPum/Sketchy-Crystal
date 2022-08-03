@@ -1,6 +1,6 @@
 	db HOUNDOUR ; 228
 
-	db  45,  60,  30,  65,  80,  50
+	db  45,  50,  30,  70,  85,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, FIRE ; type
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

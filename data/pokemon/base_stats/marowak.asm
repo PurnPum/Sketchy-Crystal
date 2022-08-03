@@ -1,9 +1,9 @@
 	db MAROWAK ; 105
 
-	db  60,  80, 110,  45,  50,  80
+	db  70,  75, 110,  35,  50,  90
 	;   hp  atk  def  spd  sat  sdf
 
-	db GROUND, GROUND ; type
+	db GROUND, GHOST ; type
 	db 75 ; catch rate
 	db 124 ; base exp
 	db NO_ITEM, THICK_CLUB ; items
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_MONSTER ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

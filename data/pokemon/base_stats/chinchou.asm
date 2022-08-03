@@ -1,6 +1,6 @@
 	db CHINCHOU ; 170
 
-	db  75,  38,  38,  67,  56,  56
+	db  75,  38,  38,  67,  61,  56
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, ELECTRIC ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_2, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

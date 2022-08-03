@@ -1,6 +1,6 @@
 	db METAPOD ; 011
 
-	db  50,  20,  55,  30,  25,  25
+	db  55,  55,  80,  10,  20,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, BUG ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

@@ -1,6 +1,6 @@
 	db HAUNTER ; 093
 
-	db  45,  50,  45,  95, 115,  55
+	db  45, 115,  45,  95,  50,  55
 	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

@@ -1,6 +1,6 @@
 	db QWILFISH ; 211
 
-	db  65,  95,  75,  85,  55,  55
+	db  65,  95, 105,  85,  55,  55
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_2, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

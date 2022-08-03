@@ -1,6 +1,6 @@
 	db WEEDLE ; 013
 
-	db  40,  35,  30,  50,  20,  20
+	db  40,  60,  30,  55,  20,  20
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

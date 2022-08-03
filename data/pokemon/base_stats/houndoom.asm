@@ -1,6 +1,6 @@
 	db HOUNDOOM ; 229
 
-	db  75,  90,  50,  95, 110,  80
+	db  75,  70,  50, 105, 110,  80
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, FIRE ; type
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

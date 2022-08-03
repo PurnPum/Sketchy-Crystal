@@ -1,6 +1,6 @@
 	db GASTLY ; 092
 
-	db  30,  35,  30,  80, 100,  35
+	db  30, 100,  30,  80, 35,  35
 	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

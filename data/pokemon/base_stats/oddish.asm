@@ -1,6 +1,6 @@
 	db ODDISH ; 043
 
-	db  45,  50,  55,  30,  75,  65
+	db  45,  55,  65,  25,  70,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

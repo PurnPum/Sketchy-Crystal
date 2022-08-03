@@ -1,6 +1,6 @@
 	db GLIGAR ; 207
 
-	db  65,  75, 105,  85,  35,  65
+	db  75,  85, 110,  85,  35,  65
 	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, FLYING ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

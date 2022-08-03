@@ -1,6 +1,6 @@
 	db SEEL ; 086
 
-	db  65,  45,  55,  45,  45,  70
+	db  80,  45,  55,  45,  45,  80
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

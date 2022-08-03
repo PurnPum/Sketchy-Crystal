@@ -1,12 +1,12 @@
 	db SNEASEL ; 215
 
-	db  55,  95,  55, 115,  35,  75
+	db  55,  65,  55, 115, 105,  30
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, ICE ; type
 	db 60 ; catch rate
 	db 132 ; base exp
-	db NO_ITEM, QUICK_CLAW ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end
