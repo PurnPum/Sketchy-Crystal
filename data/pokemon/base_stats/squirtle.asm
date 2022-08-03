@@ -1,6 +1,6 @@
 	db SQUIRTLE ; 007
 
-	db  44,  48,  65,  43,  50,  64
+	db  44,  48,  65,  43,  54,  64
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

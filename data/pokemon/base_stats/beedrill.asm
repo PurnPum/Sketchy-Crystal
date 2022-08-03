@@ -1,12 +1,12 @@
 	db BEEDRILL ; 015
 
-	db  65,  80,  40,  75,  45,  80
+	db  70, 100, 100,  85,  40,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, POISON ; type
 	db 45 ; catch rate
 	db 159 ; base exp
-	db NO_ITEM, POISON_BARB ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 15 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

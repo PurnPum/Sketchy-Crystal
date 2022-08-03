@@ -1,6 +1,6 @@
 	db GENGAR ; 094
 
-	db  60,  65,  60, 110, 130,  75
+	db  60, 130,  60, 110, 65,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db GHOST, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

@@ -1,6 +1,6 @@
 	db VILEPLUME ; 045
 
-	db  75,  80,  85,  50, 100,  90
+	db  80,  90, 110,  35, 100, 100
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

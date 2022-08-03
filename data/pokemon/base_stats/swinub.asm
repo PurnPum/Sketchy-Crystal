@@ -1,6 +1,6 @@
 	db SWINUB ; 220
 
-	db  50,  50,  40,  50,  30,  30
+	db  50,  63,  40,  50,  30,  30
 	;   hp  atk  def  spd  sat  sdf
 
 	db ICE, GROUND ; type
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

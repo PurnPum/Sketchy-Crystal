@@ -1,6 +1,6 @@
 	db LANTURN ; 171
 
-	db 125,  58,  58,  67,  76,  76
+	db 125,  58,  58,  67,  87,  76
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, ELECTRIC ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_2, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

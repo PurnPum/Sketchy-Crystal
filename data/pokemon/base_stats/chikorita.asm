@@ -1,6 +1,6 @@
 	db CHIKORITA ; 152
 
-	db  45,  49,  65,  45,  49,  65
+	db  55,  49,  65,  35,  49,  65
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
@@ -17,5 +17,6 @@
 	dn EGG_MONSTER, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end
+

@@ -1,6 +1,6 @@
 	db ZUBAT ; 041
 
-	db  40,  45,  35,  55,  30,  40
+	db  40,  50,  35,  55,  30,  40
 	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, FLYING ; type
@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end

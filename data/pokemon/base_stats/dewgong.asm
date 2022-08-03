@@ -1,6 +1,6 @@
 	db DEWGONG ; 087
 
-	db  90,  70,  80,  70,  70,  95
+	db  105, 70,  80,  70,  70, 110
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, ICE ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
 	; end
