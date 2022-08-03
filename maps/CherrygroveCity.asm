@@ -411,11 +411,11 @@ GuideGentPokecenterText:
 	para "your #MON in no"
 	line "time at all."
 
-	para "You'll be relying"
-	line "on them a lot, so"
-
-	para "you better learn"
-	line "about them."
+	para "They are quite"
+	line "expensive so try"
+	cont "to only use them"
+	cont "when it is abso-"
+	cont "lutely necessary."
 	done
 
 GuideGentMartText:
