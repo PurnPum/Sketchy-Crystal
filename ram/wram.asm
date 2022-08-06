@@ -3119,6 +3119,7 @@ wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 wKurtsHouseSceneID::							  db
+wCherrygroveMartSceneID::						  db
 
 	ds 50
 
