@@ -207,13 +207,10 @@ SproutTowerFalknerAfterGymBattle:
 
 SproutTowerFalknerLikedBattleText:
 	text "FALKNER: Wow!"
-	line "That battle was as"
+	line "That was a great"
+	line "battle! It was as"
 	cont "fierce as a raging"
-	cont "angry Fearow!"
-	
-	para "Yet it still was"
-	line "as elegant as a"
-	cont "flying Pidgeot!"
+	cont "Fearow!"
 	
 	para "Well done! I can't"
 	line "wait for our "
