@@ -7172,7 +7172,7 @@ GiveExperiencePoints:
 	inc hl
 	ld a, [de]
 	add [hl]
-	ld [de], a
+	;ld [de], a This will prevent the player from gaining stat EXP in battles
 	jr nc, .no_carry_stat_exp
 	dec de
 	ld a, [de]
