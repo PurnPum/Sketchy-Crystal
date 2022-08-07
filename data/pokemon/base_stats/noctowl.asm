@@ -1,6 +1,6 @@
 	db NOCTOWL ; 164
 
-	db 100,  50,  50,  50, 106, 106
+	db 105,  50,  60,  50, 106, 106
 	;   hp  atk  def  spd  sat  sdf
 
 	db PSYCHIC_TYPE, FLYING ; type
