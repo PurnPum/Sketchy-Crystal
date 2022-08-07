@@ -1,10 +1,10 @@
 	db "ELECTRIC@" ; species name
 	dw 307, 660 ; height, weight
 
-	db   "When two"
-	next "ELECTABUZZ touch,"
-	next "they control the"
+	db   "Albeit small, this"
+	next "#MON has a very"
+	next "good punching"
 
-	page "electric currents"
-	next "to communicate"
-	next "their feelings.@"
+	page "technique. It zaps"
+	next "any foe that tries"
+	next "keeping distance.@"

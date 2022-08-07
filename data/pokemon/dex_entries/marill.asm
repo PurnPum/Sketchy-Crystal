@@ -1,10 +1,10 @@
 	db "AQUAMOUSE@" ; species name
 	dw 104, 190 ; height, weight
 
-	db   "The fur on its"
-	next "body naturally"
-	next "repels water. It"
+	db   "Its tail is soft"
+	next "and ups MARILL's"
+	next "buoyancy. However,"
 
-	page "can stay dry, even"
-	next "when it plays in"
-	next "the water.@"
+	page "it can do a lot of"
+	next "damage with it if"
+	next "it has to be used.@"

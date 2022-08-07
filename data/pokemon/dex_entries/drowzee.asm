@@ -1,10 +1,10 @@
 	db "HYPNOSIS@" ; species name
 	dw 303, 710 ; height, weight
 
-	db   "When it twitches"
-	next "its nose, it can"
-	next "tell where someone"
+	db   "After eating some-"
+	next "ones dream, it"
+	next "replaces it with a"
 
-	page "is sleeping and"
-	next "what that person"
-	next "is dreaming about.@"
+	page "horrid nightmare."
+	next "It then drinks the"
+	next "victim's tears.@"

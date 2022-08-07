@@ -1,10 +1,10 @@
 	db "LEAF@" ; species name
 	dw 311, 350 ; height, weight
 
-	db   "The scent that"
-	next "wafts from the"
-	next "leaves on its neck"
+	db   "It is believed to"
+	next "origin from the"
+	next "Late Jurassic era."
 
-	page "causes anyone who"
-	next "smells it to"
-	next "become energetic.@"
+	page "Its docile and"
+	next "much smaller than"
+	next "its ancestors.@"

@@ -1,10 +1,10 @@
 	db "GAS@" ; species name
 	dw 403, 2 ; height, weight
 
-	db   "It wraps its op-"
-	next "ponent in its gas-"
-	next "like body, slowly"
+	db   "Its tongue is very"
+	next "sharp and covered"
+	next "in tough papillae."
 
-	page "weakening its prey"
-	next "by poisoning it"
-	next "through the skin.@"
+	page "A single lick can"
+	next "make the victim"
+	next "draw blood.@"

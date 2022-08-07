@@ -1,10 +1,10 @@
 	db "FLOWER@" ; species name
 	dw 204, 90 ; height, weight
 
-	db   "If it notices"
-	next "anything that"
-	next "moves, it"
+	db   "During the day,"
+	next "it sunbathes to"
+	next "feed itself."
 
-	page "immediately flings"
-	next "its vine at the"
-	next "object.@"
+	page "During the night,"
+	next "however, it is a"
+	next "vicious hunter.@"

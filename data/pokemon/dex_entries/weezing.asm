@@ -1,10 +1,10 @@
 	db "POISON GAS@" ; species name
 	dw 311, 210 ; height, weight
 
-	db   "When it inhales"
-	next "poisonous gases"
-	next "from garbage, its"
+	db   "It creates huge"
+	next "explosions when it"
+	next "bursts into flames"
 
-	page "body expands, and"
-	next "its insides smell"
-	next "much worse.@"
+	page "while surrounded"
+	next "by gas. It's used"
+	next "on firework shows.@"

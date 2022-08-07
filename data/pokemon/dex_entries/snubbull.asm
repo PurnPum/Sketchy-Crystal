@@ -1,10 +1,10 @@
 	db "FAIRY@" ; species name
 	dw 200, 170 ; height, weight
 
-	db   "In truth, it is a"
+	db   "It used to be a"
 	next "cowardly #MON."
-	next "It growls eagerly"
+	next "However, one day"
 
-	page "in order to hide"
-	next "its fear from its"
-	next "opponent.@"
+	page "its fighting spi-"
+	next "rit rose alongside"
+	next "its confidence.@"

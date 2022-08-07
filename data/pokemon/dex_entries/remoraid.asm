@@ -1,10 +1,10 @@
 	db "JET@" ; species name
 	dw 200, 260 ; height, weight
 
-	db   "To escape from an"
-	next "attacker, it may"
-	next "shoot water out of"
+	db   "Its main way to"
+	next "defend itself is"
+	next "to shoot scalding"
 
-	page "its mouth, then"
-	next "use that force to"
-	next "swim backward.@"
+	page "water to its foes."
+	next "Alternatively it"
+	next "will propel away.@"

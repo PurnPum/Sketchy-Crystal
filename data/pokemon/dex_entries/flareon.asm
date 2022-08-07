@@ -1,10 +1,10 @@
 	db "FLAME@" ; species name
-	dw 211, 550 ; height, weight
+	dw 211, 690 ; height, weight
 
-	db   "Once it has stored"
-	next "up enough heat,"
-	next "this #MON's"
+	db   "For survival, this"
+	next "#MON stopped using"
+	next "its physical power"
 
-	page "body temperature"
-	next "can reach up to"
-	next "1700 degrees.@"
+	page "and focused on"
+	next "using ranged hits."
+	next "It gained weight.@"

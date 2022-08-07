@@ -1,10 +1,10 @@
-	db "POISONMOTH@" ; species name
+	db "PSYMOTH@" ; species name
 	dw 411, 280 ; height, weight
 
-	db   "The scales it"
-	next "scatters will"
-	next "paralyze anyone"
+	db   "It likes going to"
+	next "lit up street"
+	next "lamps to find bugs"
 
-	page "who touches them,"
-	next "making that person"
-	next "unable to stand.@"
+	page "to feed on. It can"
+	next "use psychic blasts"
+	next "if they flee.@"

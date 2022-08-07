@@ -6,5 +6,5 @@
 	next "from the latest"
 
 	page "technology. It"
-	next "may have unprog-"
-	next "rammed reactions.@"
+	next "has better control"
+	next "on its electricity@"

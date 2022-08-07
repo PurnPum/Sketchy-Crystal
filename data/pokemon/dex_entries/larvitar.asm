@@ -6,5 +6,5 @@
 	next "#MON becomes a"
 
 	page "pupa after eating"
-	next "enough dirt to"
+	next "enough rocks to"
 	next "make a mountain.@"

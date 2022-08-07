@@ -5,6 +5,6 @@
 	next "feathers make no"
 	next "sound in flight."
 
-	page "It silently sneaks"
-	next "up on prey without"
-	next "being detected.@"
+	page "It will use its"
+	next "psychic powers to"
+	next "impair its prey.@"

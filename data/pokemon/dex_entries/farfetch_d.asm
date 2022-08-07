@@ -1,10 +1,10 @@
 	db "WILD DUCK@" ; species name
 	dw 207, 330 ; height, weight
 
-	db   "In order to pre-"
-	next "vent their"
-	next "extinction, more"
+	db   "After being prey"
+	next "for so long, these"
+	next "#MON dediced to"
 
-	page "people have made"
-	next "an effort to breed"
-	next "these #MON.@"
+	page "use the leek much"
+	next "more aggresively."
+	next "They remain prey.@"
