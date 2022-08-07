@@ -1,10 +1,10 @@
 	db "TWIN BIRD@" ; species name
 	dw 407, 860 ; height, weight
 
-	db   "It lives on a"
-	next "grassy plain where"
-	next "it can see a long"
+	db   "It trains smashing"
+	next "boulders with its"
+	next "feet. It does this"
 
-	page "way. If it sees an"
-	next "enemy, it runs"
-	next "away at 60 mph.@"
+	page "9 hours daily, a"
+	next "good meal and rest"
+	next "come afterwards.@"

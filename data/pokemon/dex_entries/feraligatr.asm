@@ -1,10 +1,10 @@
 	db "BIG JAW@" ; species name
 	dw 707, 1960 ; height, weight
 
-	db   "Although it has a"
-	next "massive body, its"
-	next "powerful hind legs"
+	db   "It's more barbaric"
+	next "than its ancestors"
+	next "for some reason."
 
-	page "enable it to move"
-	next "quickly, even on"
-	next "the ground.@"
+	page "It, however, likes"
+	next "using ranged hits"
+	next "over close fights.@"

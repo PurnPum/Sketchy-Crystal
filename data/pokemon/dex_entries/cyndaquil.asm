@@ -6,5 +6,5 @@
 	next "back burns hottest"
 
 	page "when it is angry."
-	next "The flaring flames"
-	next "intimidate foes.@"
+	next "It likes to stay"
+	next "underground.@"

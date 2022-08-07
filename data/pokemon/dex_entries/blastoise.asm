@@ -1,10 +1,10 @@
 	db "SHELLFISH@" ; species name
 	dw 503, 1890 ; height, weight
 
-	db   "It firmly plants"
-	next "its feet on the"
-	next "ground before"
+	db   "Its shell is made"
+	next "out of very hard"
+	next "collagen."
 
-	page "shooting water"
-	next "from the jets on"
-	next "its back.@"
+	page "Its cannons,"
+	next "however, are pure"
+	next "titanium.@"

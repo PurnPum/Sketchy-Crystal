@@ -1,10 +1,10 @@
 	db "HYPNOSIS@" ; species name
 	dw 503, 1670 ; height, weight
 
-	db   "The longer it"
-	next "swings its"
-	next "pendulum, the"
+	db   "Pictures of HYPNO"
+	next "are used in most"
+	next "schools to teach"
 
-	page "longer the effects"
-	next "of its hypnosis"
-	next "last.@"
+	page "kids why they"
+	next "should not wander"
+	next "alone at night.@"

@@ -1,10 +1,10 @@
 	db "LONG LEG@" ; species name
 	dw 307, 740 ; height, weight
 
-	db   "Rather than mak-"
-	next "ing a nest in one"
-	next "specific spot, it"
+	db   "Instead of setting"
+	next "up a nest, it pre-"
+	next "fers taking over"
 
-	page "wanders in search"
-	next "of food after"
-	next "darkness falls.@"
+	page "an already exist-"
+	next "ing one. It does"
+	next "not care how to.@"

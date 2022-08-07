@@ -1,10 +1,10 @@
 	db "SHADOW@" ; species name
 	dw 411, 890 ; height, weight
 
-	db   "Hiding in people's"
-	next "shadows at night,"
-	next "it absorbs their"
+	db   "Whenever it needs"
+	next "to, it solidifies"
+	next "gas around its"
 
-	page "heat. The chill it"
-	next "causes makes the"
-	next "victims shake.@"
+	page "fists to make sure"
+	next "anything it hits"
+	next "gets poisoned.@"

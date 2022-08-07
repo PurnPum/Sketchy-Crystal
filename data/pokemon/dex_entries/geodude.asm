@@ -1,10 +1,10 @@
 	db "ROCK@" ; species name
 	dw 104, 440 ; height, weight
 
-	db   "Proud of their"
-	next "sturdy bodies,"
-	next "they bash against"
+	db   "43.7% of its body"
+	next "are its arms and"
+	next "fists. So this"
 
-	page "each other in a"
-	next "contest to prove"
-	next "whose is harder.@"
+	page "#MON focuses on"
+	next "training these all"
+	next "day long.@"

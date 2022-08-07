@@ -1,10 +1,10 @@
 	db "PINCER@" ; species name
 	dw 403, 1320 ; height, weight
 
-	db   "Its oversized claw"
-	next "is very powerful,"
-	next "but when it's not"
+	db   "While it is consi-"
+	next "dered to be in the"
+	next "Ocypodidae family,"
 
-	page "in battle, the"
-	next "claw just gets in"
-	next "the way.@"
+	page "The BUG-typing is"
+	next "generic enough to"
+	next "justify its type.@"

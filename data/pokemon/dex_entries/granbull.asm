@@ -1,10 +1,10 @@
-	db "FAIRY@" ; species name
+	db "PDD@" ; species name
 	dw 407, 1070 ; height, weight
 
-	db   "It can make most"
-	next "any #MON run"
-	next "away simply by"
+	db   "URSARING used to"
+	next "be this #MON's"
+	next "mortal enemy."
 
-	page "opening its mouth"
-	next "wide to reveal its"
-	next "big fangs.@"
+	page "After some time"
+	next "and evolution,"
+	next "the tides turned.@"
