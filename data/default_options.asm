@@ -16,10 +16,9 @@ DefaultOptions:
 	db 1 << FAST_TEXT_DELAY_F
 ; wGBPrinterBrightness: normal
 	db GBPRINTER_NORMAL
-; wOptions2: menu account on
-	db 1 << MENU_ACCOUNT
-
-	db $00
-	db $00
+; wOptions2:
+; bit 0: Menu account on
+; bit 1: Dialogue mode normal
+	db %00000011
 .End
 	assert DefaultOptions.End - DefaultOptions == wOptionsEnd - wOptions

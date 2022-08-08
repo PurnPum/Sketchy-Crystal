@@ -383,7 +383,7 @@ endr
 
 .IsMenuAccountOn:
 	ld a, [wOptions2]
-	and 1 << MENU_ACCOUNT
+	and 1 << MENU_ACCOUNT_ON
 	ret
 
 .DrawBugContestStatusBox:
