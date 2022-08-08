@@ -1791,9 +1791,10 @@ wGBPrinterBrightness::
 ;   darkest:  $7F
 	db
 wOptions2::
-; bit 1: menu account off/on
+; bit 0: menu account off/on
+; bit 1: dialogue mode normal/minimum
+; bits 2-7: not yet used
 	db
-	ds 2
 wOptionsEnd::
 
 ; Time buffer, for counting the amount of time since
