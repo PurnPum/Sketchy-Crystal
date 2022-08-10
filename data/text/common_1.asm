@@ -165,6 +165,10 @@ _OakTimeWokeUpText::
 	line "clock for me?"
 	prompt
 
+_OakTimeWokeUpTextMin::
+	text "Zzz…"
+	prompt
+	
 _OakTimeWhatTimeIsItText::
 	text "What time is it?"
 	done
