@@ -1537,6 +1537,10 @@ _OakText1::
 	para "People call me the"
 	line "#MON PROF."
 	prompt
+	
+_OakText1Min::
+	text "Sup."
+	prompt
 
 _OakText2::
 	text "This world is in-"
@@ -1570,6 +1574,10 @@ _OakText2::
 	cont "#MON able to"
 	cont "battle."
 	prompt
+	
+_OakText2Min::
+	text "#MON…"
+	prompt
 
 _OakText3::
 	text_promptbutton
@@ -1590,6 +1598,10 @@ _OakText4::
 	line "with #MON, some"
 	cont "battle with them."
 	prompt
+	
+_OakText4Min::
+	text "Money is key…"
+	prompt
 
 _OakText5::
 	text "But we don't know"
@@ -1602,4 +1614,8 @@ _OakText5::
 
 	para "That's why I study"
 	line "#MON every day."
+	prompt
+
+_OakText5Min::
+	text "Enough…"
 	prompt

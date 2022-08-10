@@ -34,7 +34,7 @@ MeetMomRightScript:
 	applymovement PLAYERSHOUSE1F_MOM1, MomWalksToPlayerMovement
 MeetMomScript:
 	opentext
-	writetext ElmsLookingForYouText
+	writetextcheckdialogue ElmsLookingForYouText, ElmsLookingForYouTextMin
 	promptbutton
 	getstring STRING_BUFFER_4, PokegearName
 	scall PlayersHouse1FReceiveItemStd
@@ -44,7 +44,7 @@ MeetMomScript:
 	setscene SCENE_PLAYERSHOUSE1F_NOOP
 	setevent EVENT_PLAYERS_HOUSE_MOM_1
 	clearevent EVENT_PLAYERS_HOUSE_MOM_2
-	writetext MomGivesPokegearText
+	writetextcheckdialogue MomGivesPokegearText, MomGivesPokegearTextMin
 	promptbutton
 	special SetDayOfWeek
 .SetDayOfWeek:
@@ -61,6 +61,8 @@ MeetMomScript:
 	yesorno
 	iffalse .SetDayOfWeek
 .DayOfWeekDone:
+	isdialogueminimal
+	iftrue .skipbullshit
 	writetext ComeHomeForDSTText
 	yesorno
 	iffalse .ExplainPhone
@@ -79,6 +81,7 @@ MeetMomScript:
 .FinishPhone:
 	writetext InstructionsNextText
 	waitbutton
+.skipbullshit
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .FromRight
@@ -124,7 +127,7 @@ MomScript:
 	iftrue .GaveMysteryEgg
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .GotAPokemon
-	writetext HurryUpElmIsWaitingText
+	writetextcheckdialogue HurryUpElmIsWaitingText, HurryUpElmIsWaitingTextMin
 	waitbutton
 	closetext
 	end
@@ -229,6 +232,10 @@ ElmsLookingForYouText:
 
 	para "Here you go!"
 	done
+	
+ElmsLookingForYouTextMin:
+	text "Take your toy…"
+	done
 
 MomGivesPokegearText:
 	text "#MON GEAR, or"
@@ -243,6 +250,10 @@ MomGivesPokegearText:
 
 	para "You mustn't forget"
 	line "that!"
+	done
+	
+MomGivesPokegearTextMin:
+	text "Set the date…"
 	done
 
 IsItDSTText:
@@ -295,6 +306,10 @@ HurryUpElmIsWaitingText:
 	line "ing for you."
 
 	para "Hurry up, baby!"
+	done
+	
+HurryUpElmIsWaitingTextMin:
+	text "Get moving!"
 	done
 
 SoWhatWasProfElmsErrandText:
