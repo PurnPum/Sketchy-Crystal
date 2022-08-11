@@ -2367,11 +2367,12 @@ Script_checkver_duplicate: ; unreferenced
 
 
 Script_isdialogueminimal:
-	call CheckDialogueMode
 	xor a
-	jr nz, .done ; if z=0 we're in normal mode, therefore return a 0 to wScriptVar (False)
+	ld [wScriptVar], a
+	call CheckDialogueMode
+	ret nz ; if z=0 we're in normal mode, therefore return since we already wrote 0 to wScriptVar (False)
+	xor a
 	inc a
-.done
 	ld [wScriptVar], a
 	ret
 	
