@@ -54,7 +54,7 @@ CherrygroveMartClerk2Script:
 	opentext
 	checkevent EVENT_MET_CLERK_CHERRYGROVE_CANDY_MACHINE
 	iftrue .HiAgain
-	writetext CherrygroveMartClerk2Text
+	writetextcheckdialogue CherrygroveMartClerk2Text, CherrygroveMartClerk2TextMin
 	waitbutton
 	closetext
 	turnobject CHERRYGROVEMART_CLERK2, UP
@@ -77,7 +77,7 @@ CherrygroveMartClerk2Scene:
 	turnobject PLAYER, DOWN
 	pause 15
 	opentext
-	writetext CherrygroveMartClerk2Text
+	writetextcheckdialogue CherrygroveMartClerk2Text, CherrygroveMartClerk2TextMin
 	waitbutton
 	closetext
 	applymovement CHERRYGROVEMART_CLERK2, CherrygroveMartClerk2Movement2
@@ -155,6 +155,11 @@ CherrygroveMartClerk2Text:
 	para "But you also want"
 	line "it to be fun"
 	cont "for you!"
+	done
+
+CherrygroveMartClerk2TextMin:
+	text "RARE CANDY"
+	line "Machines here."
 	done
 
 CherrygroveMartCooltrainerMText:
