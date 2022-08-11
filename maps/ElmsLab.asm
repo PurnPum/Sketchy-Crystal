@@ -50,7 +50,9 @@ ElmsLabWalkUpToElmScript:
 	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
 	turnobject ELMSLAB_ELM, RIGHT
 	opentext
-	writetext ElmText_Intro
+	writetextcheckdialogue ElmText_Intro, ElmText_IntroMin
+	isdialogueminimal
+	iftrue .skip_bullshit
 .MustSayYes:
 	yesorno
 	iftrue .ElmGetsEmail
@@ -74,6 +76,7 @@ ElmsLabWalkUpToElmScript:
 	opentext
 	turnobject ELMSLAB_ELM, RIGHT
 	writetext ElmText_MissionFromMrPokemon
+.skip_bullshit:
 	waitbutton
 	closetext
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
@@ -81,7 +84,7 @@ ElmsLabWalkUpToElmScript:
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement2
 	turnobject PLAYER, RIGHT
 	opentext
-	writetext ElmText_ChooseAPokemon
+	writetextcheckdialogue ElmText_ChooseAPokemon, ElmText_ChooseAPokemonMin
 	waitbutton
 	setscene SCENE_ELMSLAB_CANT_LEAVE
 	closetext
@@ -166,12 +169,12 @@ CyndaquilPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeCyndaquilText
+	writetextcheckdialogue TakeCyndaquilText, TakeCyndaquilTextMin
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
 	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	writetext ChoseStarterText
+	writetextcheckdialogue ChoseStarterText, ChoseStarterTextMin
 	promptbutton
 	waitsfx
 	getmonname STRING_BUFFER_3, CYNDAQUIL
@@ -196,12 +199,12 @@ TotodilePokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeTotodileText
+	writetextcheckdialogue TakeTotodileText, TakeTotodileTextMin
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL2
 	setevent EVENT_GOT_TOTODILE_FROM_ELM
-	writetext ChoseStarterText
+	writetextcheckdialogue ChoseStarterText, ChoseStarterTextMin
 	promptbutton
 	waitsfx
 	getmonname STRING_BUFFER_3, TOTODILE
@@ -224,12 +227,12 @@ ChikoritaPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeChikoritaText
+	writetextcheckdialogue TakeChikoritaText, TakeChikoritaTextMin
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL3
 	setevent EVENT_GOT_CHIKORITA_FROM_ELM
-	writetext ChoseStarterText
+	writetextcheckdialogue ChoseStarterText, ChoseStarterTextMin
 	promptbutton
 	waitsfx
 	getmonname STRING_BUFFER_3, CHIKORITA
@@ -251,10 +254,12 @@ DidntChooseStarterScript:
 ElmDirectionsScript:
 	turnobject PLAYER, UP
 	opentext
-	writetext ElmDirectionsText1
+	writetextcheckdialogue ElmDirectionsText1, ElmDirectionsText1Min
 	waitbutton
 	closetext
 	addcellnum PHONE_ELM
+	isdialogueminimal
+	iftrue .enough_bullshit
 	opentext
 	writetext GotElmsNumberText
 	playsound SFX_REGISTER_PHONE_NUMBER
@@ -271,6 +276,7 @@ ElmDirectionsScript:
 	writetext ElmDirectionsText3
 	waitbutton
 	closetext
+.enough_bullshit:
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POTION
@@ -481,12 +487,12 @@ AideScript_WalkPotion2:
 
 AideScript_GivePotion:
 	opentext
-	writetext AideText_GiveYouPotion
+	writetextcheckdialogue AideText_GiveYouPotion, AideText_GiveYouPotionMin
 	promptbutton
 	verbosegiveitem POTION
 	verbosegiveitem BICYCLE
 	setevent EVENT_GOT_BICYCLE
-	writetext AideText_AlwaysBusy
+	writetextcheckdialogue AideText_AlwaysBusy, AideText_AlwaysBusyMin
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOTHING
@@ -534,7 +540,7 @@ ElmsAideScript:
 	iftrue AideScript_ExplainBalls
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
-	writetext AideText_AlwaysBusy
+	writetextcheckdialogue AideText_AlwaysBusy, AideText_AlwaysBusyMin
 	waitbutton
 	closetext
 	end
@@ -773,6 +779,10 @@ ElmText_Intro:
 	para "that I recently"
 	line "caught."
 	done
+	
+ElmText_IntroMin:
+	text "So you're here…"
+	done
 
 ElmText_Accepted:
 	text "Thanks, <PLAY_G>!"
@@ -856,6 +866,10 @@ ElmText_ChooseAPokemon:
 
 	para "Go on. Pick one!"
 	done
+	
+ElmText_ChooseAPokemonMin:
+	text "Pick a #MON."
+	done
 
 ElmText_LetYourMonBattleIt:
 	text "If a wild #MON"
@@ -874,16 +888,28 @@ TakeCyndaquilText:
 	cont "fire #MON?"
 	done
 
+TakeCyndaquilTextMin:
+	text "CYNDAQUIL?"
+	done
+
 TakeTotodileText:
 	text "ELM: Do you want"
 	line "TOTODILE, the"
 	cont "water #MON?"
+	done
+	
+TakeTotodileTextMin:
+	text "TOTODILE?"
 	done
 
 TakeChikoritaText:
 	text "ELM: So, you like"
 	line "CHIKORITA, the"
 	cont "grass #MON?"
+	done
+
+TakeChikoritaTextMin:
+	text "CHIKORITA?"
 	done
 
 DidntChooseStarterText:
@@ -898,6 +924,10 @@ ChoseStarterText:
 	text "ELM: I think"
 	line "that's a great"
 	cont "#MON too!"
+	done
+	
+ChoseStarterTextMin:
+	text "Okay…"
 	done
 
 ReceivedStarterText:
@@ -925,6 +955,10 @@ ElmDirectionsText1:
 
 	para "number. Call me if"
 	line "anything comes up!"
+	done
+	
+ElmDirectionsText1Min:
+	text "Now get outta here"
 	done
 
 ElmDirectionsText2:
@@ -1242,11 +1276,19 @@ AideText_GiveYouPotion:
 	line "you to have this"
 	cont "for your errand."
 	done
+	
+AideText_GiveYouPotionMin:
+	text "Free stuff!"
+	done
 
 AideText_AlwaysBusy:
 	text "There are only two"
 	line "of us, so we're"
 	cont "always busy."
+	done
+	
+AideText_AlwaysBusyMin:
+	text "So much work…"
 	done
 
 AideText_TheftTestimony:
