@@ -20,12 +20,12 @@ MrPokemonsHouse_MapScripts:
 	showemote EMOTE_SHOCK, MRPOKEMONSHOUSE_GENTLEMAN, 15
 	turnobject MRPOKEMONSHOUSE_GENTLEMAN, DOWN
 	opentext
-	writetext MrPokemonIntroText1
+	writetextcheckdialogue MrPokemonIntroText1, MrPokemonIntroText1Min
 	waitbutton
 	closetext
 	applymovement PLAYER, MrPokemonsHouse_PlayerWalksToMrPokemon
 	opentext
-	writetext MrPokemonIntroText2
+	writetextcheckdialogue MrPokemonIntroText2, MrPokemonIntroText2Min
 	promptbutton
 	waitsfx
 	giveitem MYSTERY_EGG
@@ -35,18 +35,18 @@ MrPokemonsHouse_MapScripts:
 	itemnotify
 	setevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	blackoutmod CHERRYGROVE_CITY
-	writetext MrPokemonIntroText3
+	writetextcheckdialogue MrPokemonIntroText3, MrPokemonIntroText3Min
 	promptbutton
 	turnobject MRPOKEMONSHOUSE_GENTLEMAN, RIGHT
-	writetext MrPokemonIntroText4
+	writetextcheckdialogue MrPokemonIntroText4, MrPokemonIntroText4Min
 	promptbutton
 	turnobject MRPOKEMONSHOUSE_GENTLEMAN, DOWN
 	turnobject MRPOKEMONSHOUSE_OAK, LEFT
-	writetext MrPokemonIntroText5
+	writetextcheckdialogue MrPokemonIntroText5, MrPokemonIntroText5Min
 	waitbutton
 	closetext
 	sjump MrPokemonsHouse_OakScript
-
+	
 MrPokemonsHouse_MrPokemonScript:
 	faceplayer
 	opentext
@@ -86,14 +86,14 @@ MrPokemonsHouse_OakScript:
 	applymovement MRPOKEMONSHOUSE_OAK, MrPokemonsHouse_OakWalksToPlayer
 	turnobject PLAYER, RIGHT
 	opentext
-	writetext MrPokemonsHouse_OakText1
+	writetextcheckdialogue MrPokemonsHouse_OakText1, MrPokemonsHouse_OakText1Min
 	promptbutton
 	waitsfx
 	writetext MrPokemonsHouse_GetDexText
 	playsound SFX_ITEM
 	waitsfx
 	setflag ENGINE_POKEDEX
-	writetext MrPokemonsHouse_OakText2
+	writetextcheckdialogue MrPokemonsHouse_OakText2, MrPokemonsHouse_OakText2Min
 	waitbutton
 	closetext
 	turnobject PLAYER, DOWN
@@ -105,7 +105,7 @@ MrPokemonsHouse_OakScript:
 	pause 15
 	turnobject PLAYER, UP
 	opentext
-	writetext MrPokemonsHouse_MrPokemonHealText
+	writetextcheckdialogue MrPokemonsHouse_MrPokemonHealText, MrPokemonsHouse_MrPokemonHealTextMin
 	waitbutton
 	closetext
 	special FadeBlackQuickly
@@ -117,7 +117,7 @@ MrPokemonsHouse_OakScript:
 	special FadeInQuickly
 	special RestartMapMusic
 	opentext
-	writetext MrPokemonText_ImDependingOnYou
+	writetextcheckdialogue MrPokemonText_ImDependingOnYou, MrPokemonText_ImDependingOnYouMin
 	waitbutton
 	closetext
 	setevent EVENT_RIVAL_NEW_BARK_TOWN
@@ -177,11 +177,19 @@ MrPokemonIntroText1:
 	para "PROF.ELM said that"
 	line "you would visit."
 	done
+	
+MrPokemonIntroText1Min:
+	text "Come, child."
+	done
 
 MrPokemonIntroText2:
 	text "This is what I"
 	line "want PROF.ELM to"
 	cont "examine."
+	done
+	
+MrPokemonIntroText2Min:
+	text "Take my egg."
 	done
 
 MrPokemonsHouse_GotEggText:
@@ -205,10 +213,18 @@ MrPokemonIntroText3:
 	line "tion, PROF.ELM is"
 	cont "the authority."
 	done
-
+	
+MrPokemonIntroText3Min:
+	text "OAK likes eggs too"
+	done
+	
 MrPokemonIntroText4:
 	text "Even PROF.OAK here"
 	line "recognizes that."
+	done
+
+MrPokemonIntroText4Min:
+	text "Right, Oakie?"
 	done
 
 MrPokemonIntroText5:
@@ -216,7 +232,11 @@ MrPokemonIntroText5:
 	line "is correct, PROF."
 	cont "ELM will know it."
 	done
-
+	
+MrPokemonIntroText5Min:
+	text "Look, he blushed!"
+	done
+	
 MrPokemonsHouse_MrPokemonHealText:
 	text "You are returning"
 	line "to PROF.ELM?"
@@ -225,10 +245,18 @@ MrPokemonsHouse_MrPokemonHealText:
 	line "should have some"
 	cont "rest."
 	done
+	
+MrPokemonsHouse_MrPokemonHealTextMin:
+	text "Free heal!"
+	done
 
 MrPokemonText_ImDependingOnYou:
 	text "I'm depending on"
 	line "you!"
+	done
+	
+MrPokemonText_ImDependingOnYouMin:
+	text "Now go!"
 	done
 
 MrPokemonText_AlwaysNewDiscoveries:
@@ -302,6 +330,11 @@ MrPokemonsHouse_OakText1:
 	para "It's a hi-tech"
 	line "encyclopedia!"
 	done
+	
+MrPokemonsHouse_OakText1Min:
+	text "Here kid, learn"
+	line "something."
+	done
 
 MrPokemonsHouse_GetDexText:
 	text "<PLAYER> received"
@@ -324,6 +357,11 @@ MrPokemonsHouse_OakText2:
 
 	para "<PLAY_G>, I'm"
 	line "counting on you!"
+	done
+	
+MrPokemonsHouse_OakText2Min:
+	text "And don't call me"
+	line "Oakie in public!"
 	done
 
 MrPokemonText_GimmeTheScale:
