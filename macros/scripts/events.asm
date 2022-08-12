@@ -1077,4 +1077,11 @@ MACRO writetextcheckdialogue
 	dw \2 ;Pointer to minimal text
 ENDM
 
+	const farwritetextcheckdialogue_command ; $ac
+MACRO farwritetextcheckdialogue
+	db farwritetextcheckdialogue_command
+	dba \1
+	dba \2
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value
