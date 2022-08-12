@@ -236,6 +236,7 @@ ScriptCommandTable:
 	dw Script_checksave                  ; a9
 	dw Script_isdialogueminimal			 ; aa
 	dw Script_writetextcheckdialogue	 ; ab
+	dw Script_farwritetextcheckdialogue	 ; ac
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -1380,6 +1381,12 @@ SkipTwoScriptBytes:
 	call GetScriptByte
 	call GetScriptByte
 	ret
+	
+SkipThreeScriptBytes:
+	call GetScriptByte
+	call GetScriptByte
+	call GetScriptByte
+	ret
 
 ScriptJump:
 	ld a, b
@@ -2385,3 +2392,13 @@ Script_writetextcheckdialogue:
 .minimal_mode
 	call SkipTwoScriptBytes
 	jp Script_writetext ;Otherwise skip the first 2 bytes and write the 3rd and 4th which hold the minimal text pointer
+
+Script_farwritetextcheckdialogue:
+	call CheckDialogueMode
+	jr z, .minimal_mode
+	call Script_farwritetext ;If z=0 we're in normal mode, so only writetext the first 2 bytes which point to the normal text
+	call SkipThreeScriptBytes ;Then go past the 3 bytes that we no longer need
+	ret
+.minimal_mode
+	call SkipThreeScriptBytes
+	jp Script_farwritetext ;Otherwise skip the first 3 bytes and write the 4th and 5th which hold the minimal text pointer
