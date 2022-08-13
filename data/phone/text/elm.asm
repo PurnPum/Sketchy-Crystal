@@ -142,6 +142,11 @@ ElmPhoneDisasterText:
 	para "Please get back"
 	line "here now!"
 	done
+	
+ElmPhoneDisasterTextMin:
+	text "Come back some kid"
+	line "took our shit."
+	done
 
 ElmPhoneEggAssistantText:
 	text "Hello, <PLAY_G>? We"
