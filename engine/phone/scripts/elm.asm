@@ -73,7 +73,7 @@ ElmPhoneCallerScript:
 	end
 
 .disaster
-	farwritetext ElmPhoneDisasterText
+	farwritetextcheckdialogue ElmPhoneDisasterText, ElmPhoneDisasterTextMin
 	specialphonecall SPECIALCALL_NONE
 	setevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
 	end
