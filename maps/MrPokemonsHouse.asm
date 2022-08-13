@@ -215,7 +215,8 @@ MrPokemonIntroText3:
 	done
 	
 MrPokemonIntroText3Min:
-	text "OAK likes eggs too"
+	text "OAK likes" 
+	line "eggs too!"
 	done
 	
 MrPokemonIntroText4:
