@@ -110,14 +110,20 @@ CherrygroveRivalSceneNorth:
 	turnobject PLAYER, RIGHT
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
-	writetext CherrygroveRivalText_Seen
+	writetextcheckdialogue CherrygroveRivalText_Seen, CherrygroveRivalText_SeenMin
 	waitbutton
 	closetext
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
 	iftrue .Totodile
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .Chikorita
+	isdialogueminimal
+	iftrue .min
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
+	sjump .proceed
+.min
+	winlosstext RivalCherrygroveWinTextMin, RivalCherrygroveLossTextMin
+.proceed
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_TOTODILE
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
@@ -128,7 +134,13 @@ CherrygroveRivalSceneNorth:
 	sjump .AfterYourDefeat
 
 .Totodile:
+	isdialogueminimal
+	iftrue .min2
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
+	sjump .proceed2
+.min2
+	winlosstext RivalCherrygroveWinTextMin, RivalCherrygroveLossTextMin
+.proceed2
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_CHIKORITA
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
@@ -139,7 +151,13 @@ CherrygroveRivalSceneNorth:
 	sjump .AfterYourDefeat
 
 .Chikorita:
+	isdialogueminimal
+	iftrue .min3
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
+	sjump .proceed3
+.min3
+	winlosstext RivalCherrygroveWinTextMin, RivalCherrygroveLossTextMin
+.proceed3
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_CYNDAQUIL
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
@@ -152,7 +170,7 @@ CherrygroveRivalSceneNorth:
 .AfterVictorious:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
-	writetext CherrygroveRivalText_YouWon
+	writetextcheckdialogue CherrygroveRivalText_YouWon, CherrygroveRivalText_YouWonMin
 	waitbutton
 	closetext
 	sjump .FinishRival
@@ -160,7 +178,7 @@ CherrygroveRivalSceneNorth:
 .AfterYourDefeat:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
-	writetext CherrygroveRivalText_YouLost
+	writetextcheckdialogue CherrygroveRivalText_YouLost, CherrygroveRivalText_YouLostMin
 	waitbutton
 	closetext
 .FinishRival:
@@ -502,10 +520,18 @@ CherrygroveRivalText_Seen:
 	para "I'll show you"
 	line "what I mean!"
 	done
+	
+CherrygroveRivalText_SeenMin:
+	text "You suck."
+	done
 
 RivalCherrygroveWinText:
 	text "Humph. Are you"
 	line "happy you won?"
+	done
+	
+RivalCherrygroveWinTextMin:
+	text "K"
 	done
 
 CherrygroveRivalText_YouLost:
@@ -518,10 +544,19 @@ CherrygroveRivalText_YouLost:
 	cont "est #MON"
 	cont "trainer."
 	done
-
+	
+CherrygroveRivalText_YouLostMin:
+	text "Yawn…"
+	line "Out of my way."
+	done
+	
 RivalCherrygroveLossText:
 	text "Humph. That was a"
 	line "waste of time."
+	done
+	
+RivalCherrygroveLossTextMin:
+	text "See?"
 	done
 
 CherrygroveRivalText_YouWon:
@@ -533,6 +568,11 @@ CherrygroveRivalText_YouWon:
 	line "the world's great-"
 	cont "est #MON"
 	cont "trainer."
+	done
+	
+CherrygroveRivalText_YouWonMin:
+	text "Yawn…"
+	line "Out of my way."
 	done
 
 CherrygroveTeacherText_NoMapCard:
