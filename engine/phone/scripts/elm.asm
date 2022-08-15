@@ -79,7 +79,7 @@ ElmPhoneCallerScript:
 	end
 
 .assistant
-	farwritetext ElmPhoneEggAssistantText
+	farwritetextcheckdialogue ElmPhoneEggAssistantText, ElmPhoneEggAssistantTextMin
 	specialphonecall SPECIALCALL_NONE
 	clearevent EVENT_ELMS_AIDE_IN_VIOLET_POKEMON_CENTER
 	setevent EVENT_ELMS_AIDE_IN_LAB
