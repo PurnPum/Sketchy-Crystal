@@ -675,8 +675,17 @@ Script_trainertext:
 	ld l, a
 	ld a, [wSeenTrainerBank]
 	ld b, a
+	call CheckDialogueMode
+	jr nz, .end
+	ld hl, MinimalDialogueTrainerSeenText
+	ld b, BANK(MinimalDialogueTrainerSeenText)
+.end
 	call MapTextbox
 	ret
+
+MinimalDialogueTrainerSeenText:
+	text "Battle!"
+	done
 
 Script_scripttalkafter:
 	ld hl, wScriptAfterPointer
