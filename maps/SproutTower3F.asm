@@ -35,7 +35,7 @@ SproutTower3FRivalScene:
 	applymovement PLAYER, SproutTower3FPlayerApproachesRivalMovement
 	applymovement SPROUTTOWER3F_SILVER, SproutTower3FRivalApproachesElderMovement
 	opentext
-	writetext SproutTowerElderLecturesRivalText
+	writetextcheckdialogue SproutTowerElderLecturesRivalText, SproutTowerElderLecturesRivalTextMin
 	waitbutton
 	closetext
 	showemote EMOTE_SHOCK, SPROUTTOWER3F_SILVER, 15
@@ -44,7 +44,7 @@ SproutTower3FRivalScene:
 	applymovement SPROUTTOWER3F_SILVER, SproutTower3FRivalLeavesElderMovement
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
-	writetext SproutTowerRivalOnlyCareAboutStrongText
+	writetextcheckdialogue SproutTowerRivalOnlyCareAboutStrongText, SproutTowerRivalOnlyCareAboutStrongTextMin
 	waitbutton
 	closetext
 	turnobject SPROUTTOWER3F_SILVER, UP
@@ -67,7 +67,7 @@ SageLiScript:
 	opentext
 	checkevent EVENT_GOT_HM05_FLASH
 	iftrue .GotFlash
-	writetext SageLiSeenText
+	writetextcheckdialogue SageLiSeenText, SageLiSeenTextMin
 	waitbutton
 	closetext
 	winlosstext SageLiBeatenText, 0
@@ -75,18 +75,18 @@ SageLiScript:
 	startbattle
 	reloadmapafterbattle
 	opentext
-	writetext SageLiTakeThisFlashText
+	writetextcheckdialogue SageLiTakeThisFlashText, SageLiTakeThisFlashTextMin
 	promptbutton
 	verbosegiveitem HM_FLASH
 	setevent EVENT_GOT_HM05_FLASH
 	setevent EVENT_BEAT_SAGE_LI
-	writetext SageLiFlashExplanationText
+	writetextcheckdialogue SageLiFlashExplanationText, SageLiFlashExplanationTextMin
 	waitbutton
 	closetext
 	showemote EMOTE_SHOCK, SPROUTTOWER3F_FALKNER, 15
 	applymovement SPROUTTOWER3F_FALKNER, SproutTower3FFalknerApproachesLiMovement
 	opentext
-	writetext SproutTowerFalknerLikedBattleText
+	writetextcheckdialogue SproutTowerFalknerLikedBattleText, SproutTowerFalknerLikedBattleTextMin
 	setevent EVENT_FALKNER_SPROUT_TOWER
 	waitbutton
 	closetext
@@ -148,11 +148,11 @@ SproutTower3FPainting:
 SproutTower3FStatue:
 	jumptext SproutTower3FStatueText
 
-SproutTower3FPotion:
-	itemball POTION
+SproutTower3FPokeBalls:
+	itemball POKE_BALL, 3
 
 SproutTower3FEscapeRope:
-	itemball ESCAPE_ROPE
+	itemball ESCAPE_ROPE, 5
 
 SproutTower3FPlayerApproachesRivalMovement:
 	step UP
@@ -220,6 +220,11 @@ SproutTowerFalknerLikedBattleText:
 	para "I'll see you"
 	line "there!"
 	done
+	
+SproutTowerFalknerLikedBattleTextMin:
+	text "FALKNER: Cool."
+	line "Back to the GYM."
+	done
 
 SproutTowerFalknerUsedEscapeRopeText:
 	text "FALKNER used an"
@@ -264,6 +269,10 @@ SproutTowerElderLecturesRivalText:
 	para "#MON are not"
 	line "tools of war…"
 	done
+	
+SproutTowerElderLecturesRivalTextMin:
+	text "ELDER: Yo chill."
+	done
 
 SproutTowerRivalOnlyCareAboutStrongText:
 	text "…"
@@ -289,6 +298,11 @@ SproutTowerRivalOnlyCareAboutStrongText:
 	para "I really couldn't"
 	line "care less about"
 	cont "weak #MON."
+	done
+	
+SproutTowerRivalOnlyCareAboutStrongTextMin:
+	text "Somehow he sucks"
+	line "more than you."
 	done
 
 SproutTowerRivalUsedEscapeRopeText:
@@ -318,7 +332,12 @@ SageLiSeenText:
 	para "your #MON and"
 	line "you!"
 	done
-
+	
+SageLiSeenTextMin:
+	text "One sec let me"
+	line "heal my bois."
+	done
+	
 SageLiBeatenText:
 	text "Ah, excellent!"
 	done
@@ -333,6 +352,11 @@ SageLiTakeThisFlashText:
 	para "Take this FLASH"
 	line "HM."
 	done
+	
+SageLiTakeThisFlashTextMin:
+	text "Here take this"
+	line "junk."
+	done
 
 SageLiFlashExplanationText:
 	text "FLASH illuminates"
@@ -344,6 +368,10 @@ SageLiFlashExplanationText:
 
 	para "need the BADGE"
 	line "from VIOLET's GYM."
+	done
+
+SageLiFlashExplanationTextMin:
+	text "Just use a map…"
 	done
 
 SageLiAfterBattleText:
@@ -442,7 +470,7 @@ SproutTower3F_MapEvents:
 	object_event  8,  9, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSageTroy, -1
 	object_event 10,  2, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SageLiScript, -1
 	object_event  9, 11, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageNeal, -1
-	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPotion, EVENT_SPROUT_TOWER_3F_POTION
-	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE
+	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPokeBalls, EVENT_SPROUT_TOWER_3F_POKE_BALLS
+	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPES
 	object_event 10,  4, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_SPROUT_TOWER
 	object_event  7,  3, SPRITE_FALKNER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTowerFalknerScript, EVENT_FALKNER_SPROUT_TOWER
