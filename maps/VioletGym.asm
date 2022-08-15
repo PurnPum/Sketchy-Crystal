@@ -14,7 +14,7 @@ VioletGymFalknerScript:
 	opentext
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
-	writetext FalknerIntroText
+	writetextcheckdialogue FalknerIntroText, FalknerIntroTextMin
 	waitbutton
 	closetext
 	winlosstext FalknerWinLossText, 0
@@ -36,12 +36,12 @@ VioletGymFalknerScript:
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOTHING
 	specialphonecall SPECIALCALL_ASSISTANT
-	writetext FalknerZephyrBadgeText
+	writetextcheckdialogue FalknerZephyrBadgeText, FalknerZephyrBadgeTextMin
 	promptbutton
 	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForMudSlap
 	setevent EVENT_GOT_TM31_MUD_SLAP
-	writetext FalknerTMMudSlapText
+	writetextcheckdialogue FalknerTMMudSlapText, FalknerTMMudSlapTextMin
 	clearevent EVENT_FALKNER_SPROUT_TOWER
 	waitbutton
 	closetext
@@ -134,6 +134,11 @@ FalknerIntroText:
 	para "magnificent bird"
 	line "#MON!"
 	done
+	
+FalknerIntroTextMin:
+	text "Let's see what"
+	line "you've got."
+	done
 
 FalknerWinLossText:
 	text "…Darn! My dad's"
@@ -167,6 +172,11 @@ FalknerZephyrBadgeText:
 	para "Here--take this"
 	line "too."
 	done
+	
+FalknerZephyrBadgeTextMin:
+	text "Take this, you'll"
+	line "need it."
+	done
 
 FalknerTMMudSlapText:
 	text "By using a TM, a"
@@ -185,6 +195,11 @@ FalknerTMMudSlapText:
 
 	para "Hey don't look"
 	line "at me like that!"
+	done
+	
+FalknerTMMudSlapTextMin:
+	text "Welp, prices have"
+	line "just risen…"
 	done
 
 FalknerFightDoneText:
