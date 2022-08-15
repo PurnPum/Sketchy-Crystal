@@ -333,32 +333,33 @@ ElmsLabHealingMachine_HealParty:
 	end
 
 ElmAfterTheftDoneScript:
+	writetext ElmAfterTheftText7
 	waitbutton
 	closetext
 	end
 
 ElmAfterTheftScript:
-	writetext ElmAfterTheftText1
+	writetextcheckdialogue ElmAfterTheftText1, ElmAfterTheftText1Min
 	checkitem MYSTERY_EGG
 	iffalse ElmAfterTheftDoneScript
 	promptbutton
-	writetext ElmAfterTheftText2
+	writetextcheckdialogue ElmAfterTheftText2, ElmAfterTheftText2Min
 	waitbutton
 	takeitem MYSTERY_EGG
 	scall ElmJumpBackScript1
-	writetext ElmAfterTheftText3
+	writetextcheckdialogue ElmAfterTheftText3, ElmAfterTheftText3Min
 	waitbutton
 	scall ElmJumpBackScript2
-	writetext ElmAfterTheftText4
+	writetextcheckdialogue ElmAfterTheftText4, ElmAfterTheftText4Min
 	promptbutton
-	writetext ElmAfterTheftText5
+	writetextcheckdialogue ElmAfterTheftText5, ElmAfterTheftText5Min
 	promptbutton
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MAIN_MENU_MOBILE_CHOICES
 	setmapscene ROUTE_29, SCENE_ROUTE29_CATCH_TUTORIAL
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
 	setevent EVENT_ROUTE_30_BATTLE
-	writetext ElmAfterTheftText6
+	writetextcheckdialogue ElmAfterTheftText6, ElmAfterTheftText6Min
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
@@ -514,13 +515,13 @@ AideScript_WalkBalls2:
 
 AideScript_GiveYouBalls:
 	opentext
-	writetext AideText_GiveYouBalls
+	writetextcheckdialogue AideText_GiveYouBalls, AideText_GiveYouBallsMin
 	promptbutton
 	verbosegiveitem EXP_SHARE, 5
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
 	giveitem POKE_BALL, 5
-	writetext AideText_ExplainBalls
+	writetextcheckdialogue AideText_ExplainBalls, AideText_ExplainBallsMin
 	promptbutton
 	itemnotify
 	closetext
@@ -571,10 +572,10 @@ MeetCopScript:
 CopScript:
 	turnobject ELMSLAB_OFFICER, LEFT
 	opentext
-	writetext ElmsLabOfficerText1
+	writetextcheckdialogue ElmsLabOfficerText1, ElmsLabOfficerText1Min
 	promptbutton
 	special NameRival
-	writetext ElmsLabOfficerText2
+	writetextcheckdialogue ElmsLabOfficerText2, ElmsLabOfficerText2Min
 	waitbutton
 	closetext
 	applymovement ELMSLAB_OFFICER, OfficerLeavesMovement
@@ -1026,15 +1027,28 @@ ElmAfterTheftText1:
 	line "MR.#MON's big"
 	cont "discovery?"
 	done
+	
+ElmAfterTheftText1Min:
+	text "I'll beat that"
+	line "kid's ass later…"
+	done
 
 ElmAfterTheftText2:
 	text "<PLAYER> handed"
 	line "the MYSTERY EGG to"
 	cont "PROF.ELM."
 	done
-
+	
+ElmAfterTheftText2Min:
+	text "Transferring egg…"
+	done
+	
 ElmAfterTheftText3:
 	text "ELM: This?"
+	done
+
+ElmAfterTheftText3Min:
+	text "Uh?"
 	done
 
 ElmAfterTheftText4:
@@ -1043,6 +1057,11 @@ ElmAfterTheftText4:
 
 	para "If it is, it is a"
 	line "great discovery!"
+	done
+	
+ElmAfterTheftText4Min:
+	text "What the hell"
+	line "is this???"
 	done
 
 ElmAfterTheftText5:
@@ -1078,6 +1097,11 @@ ElmAfterTheftText5:
 	line "would be the one"
 	cont "in VIOLET CITY."
 	done
+	
+ElmAfterTheftText5Min:
+	text "Sigh, now I gotta"
+	line "investigate this."
+	done
 
 ElmAfterTheftText6:
 	text "…<PLAY_G>. The"
@@ -1089,6 +1113,27 @@ ElmAfterTheftText6:
 	para "Before you leave,"
 	line "make sure that you"
 	cont "talk to your mom."
+	done
+	
+ElmAfterTheftText6Min:
+	text "Well, tell your"
+	line "mom I said hi."
+	done
+
+ElmAfterTheftText7:
+	text "Wtf, did you eat"
+	line "the egg he gave"
+	cont "you or wtf did you"
+	cont "do?"
+	
+	para "Oh, you stored it"
+	line "in the PC to see"
+	cont "if it would become"
+	cont "an Easter Egg?"
+	
+	para "Well, congrats on"
+	line "wasting our damn"
+	cont "time on this shit."
 	done
 
 ElmStudyingEggText:
@@ -1323,6 +1368,10 @@ AideText_GiveYouBalls:
 	line "#DEX quest!"
 	done
 
+AideText_GiveYouBallsMin:
+	text "More free stuff!"
+	done
+
 AideText_ExplainBalls:
 	text "To add to your"
 	line "#DEX, you have"
@@ -1331,6 +1380,11 @@ AideText_ExplainBalls:
 	para "Throw # BALLS"
 	line "at wild #MON"
 	cont "to get them."
+	done
+	
+AideText_ExplainBallsMin:
+	text "Throw ball, get"
+	line "#MON, simple."
 	done
 
 ElmsLabOfficerText1:
@@ -1353,6 +1407,11 @@ ElmsLabOfficerText1:
 	para "Did you happen to"
 	line "get his name?"
 	done
+	
+ElmsLabOfficerText1Min:
+	text "Sigh, just name"
+	line "the other kid, OK?"
+	done
 
 ElmsLabOfficerText2:
 	text "OK! So <RIVAL>"
@@ -1360,6 +1419,11 @@ ElmsLabOfficerText2:
 
 	para "Thanks for helping"
 	line "my investigation!"
+	done
+	
+ElmsLabOfficerText2Min:
+	text "'<RIVAL>'?"
+	line "It's OK, I guess…"
 	done
 
 ElmsLabWindowText1:
