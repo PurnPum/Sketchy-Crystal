@@ -27,7 +27,7 @@ Route29Tutorial1:
 	turnobject PLAYER, LEFT
 	setevent EVENT_DUDE_TALKED_TO_YOU
 	opentext
-	writetext CatchingTutorialIntroText
+	writetextcheckdialogue CatchingTutorialIntroText, CatchingTutorialIntroTextMin
 	yesorno
 	iffalse Script_RefusedTutorial1
 	closetext
@@ -38,7 +38,7 @@ Route29Tutorial1:
 	catchtutorial BATTLETYPE_TUTORIAL
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	opentext
-	writetext CatchingTutorialDebriefText
+	writetextcheckdialogue CatchingTutorialDebriefText, CatchingTutorialDebriefTextMin
 	waitbutton
 	closetext
 	setscene SCENE_ROUTE29_NOTHING
@@ -52,7 +52,7 @@ Route29Tutorial2:
 	turnobject PLAYER, LEFT
 	setevent EVENT_DUDE_TALKED_TO_YOU
 	opentext
-	writetext CatchingTutorialIntroText
+	writetextcheckdialogue CatchingTutorialIntroText, CatchingTutorialIntroTextMin
 	yesorno
 	iffalse Script_RefusedTutorial2
 	closetext
@@ -63,7 +63,7 @@ Route29Tutorial2:
 	catchtutorial BATTLETYPE_TUTORIAL
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	opentext
-	writetext CatchingTutorialDebriefText
+	writetextcheckdialogue CatchingTutorialDebriefText, CatchingTutorialDebriefTextMin
 	waitbutton
 	closetext
 	setscene SCENE_ROUTE29_NOTHING
@@ -71,7 +71,7 @@ Route29Tutorial2:
 	end
 
 Script_RefusedTutorial1:
-	writetext CatchingTutorialDeclinedText
+	writetextcheckdialogue CatchingTutorialDeclinedText, CatchingTutorialDeclinedTextMin
 	waitbutton
 	closetext
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData1b
@@ -79,7 +79,7 @@ Script_RefusedTutorial1:
 	end
 
 Script_RefusedTutorial2:
-	writetext CatchingTutorialDeclinedText
+	writetextcheckdialogue CatchingTutorialDeclinedText,  CatchingTutorialDeclinedTextMin
 	waitbutton
 	closetext
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData2b
@@ -220,6 +220,10 @@ CatchingTutorialIntroText:
 	line "to show you how to"
 	cont "catch #MON?"
 	done
+	
+CatchingTutorialIntroTextMin:
+	text "Free Tutorial!"
+	done
 
 CatchingTutorialDebriefText:
 	text "That's how you do"
@@ -228,6 +232,10 @@ CatchingTutorialDebriefText:
 	para "If you weaken them"
 	line "first, #MON are"
 	cont "easier to catch."
+	done
+	
+CatchingTutorialDebriefTextMin:
+	text "ez"
 	done
 
 CatchingTutorialDeclinedText:
@@ -238,6 +246,10 @@ CatchingTutorialDeclinedText:
 
 	para "#MON, you have"
 	line "to walk a lot."
+	done
+	
+CatchingTutorialDeclinedTextMin:
+	text "k bye"
 	done
 
 CatchingTutorialRepeatText:
