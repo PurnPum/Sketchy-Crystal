@@ -162,6 +162,11 @@ ElmPhoneEggAssistantText:
 	line "Could you talk to"
 	cont "him?"
 	done
+	
+ElmPhoneEggAssistantTextMin:
+	text "Go get the egg at"
+	line "the #MON CENTER"
+	done
 
 ElmPhoneRadioTowerRocketTakeoverText:
 	text "<PLAY_G>, how are"
