@@ -18,7 +18,7 @@ VioletPokecenter1F_ElmsAideScript:
 	opentext
 	checkevent EVENT_REFUSED_TO_TAKE_EGG_FROM_ELMS_AIDE
 	iftrue .SecondTimeAsking
-	writetextcheckdialog VioletPokecenterElmsAideFavorText, VioletPokecenterElmsAideFavorTextMin
+	writetextcheckdialogue VioletPokecenterElmsAideFavorText, VioletPokecenterElmsAideFavorTextMin
 .AskTakeEgg:
 	yesorno
 	iffalse .RefusedEgg
@@ -31,7 +31,7 @@ VioletPokecenter1F_ElmsAideScript:
 	clearevent EVENT_ELMS_AIDE_IN_LAB
 	clearevent EVENT_TOGEPI_HATCHED
 	setmapscene ROUTE_32, SCENE_ROUTE32_OFFER_SLOWPOKETAIL
-	writetext VioletPokecenterElmsAideGiveEggText
+	writetextcheckdialogue VioletPokecenterElmsAideGiveEggText, VioletPokecenterElmsAideGiveEggTextMin
 	waitbutton
 	closetext
 	readvar VAR_FACING
