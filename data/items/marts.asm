@@ -53,7 +53,7 @@ MartRoute29BerryShop:
 	
 MartCherrygrove:
 	db 8 ; # items
-	db POTION
+	db RAGECANDYBAR
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db ETHER
@@ -66,7 +66,7 @@ MartCherrygrove:
 MartCherrygroveDex:
 	db 9 ; # items
 	db POKE_BALL
-	db POTION
+	db RAGECANDYBAR
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db ETHER
