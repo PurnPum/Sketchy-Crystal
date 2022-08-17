@@ -1299,14 +1299,31 @@ BattleCommand_Stab:
 	ld hl, wCurDamage + 1
 	ld a, [hld]
 	ld h, [hl]
-	ld l, a
+	ld l, a		;hl = damage
 
+	ld a, b
+	cp c 		;compare a and c, if they are the same, the pokemon is monotype
 	ld b, h
 	ld c, l
+	jr z, .monotypestab
 	srl b
-	rr c
+	rr c		;bc = 50% damage
 	add hl, bc
-
+	jr .proceed
+.monotypestab	;This will make STAB from monotype mons 1.75 instead of 1.5
+	srl b
+	rr c		;bc = 50% damage
+	push hl		;Save this iteration of hl (damage)
+	ld h, b
+	ld l, c		;hl = bc = 50% damage
+	srl b
+	rr c		;bc = 25% damage
+	add hl, bc	;hl = 75% damage
+	ld b, h
+	ld c, l		;bc = hl = 75% damage
+	pop hl		;hl = damage
+	add hl, bc	;hl = damage + 75% damage
+.proceed
 	ld a, h
 	ld [wCurDamage], a
 	ld a, l
