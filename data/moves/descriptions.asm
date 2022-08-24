@@ -1021,7 +1021,7 @@ SludgeBombDescription:
 
 MudSlapDescription:
 	db   "Reduces the foe's"
-	next "Special Attack.@"
+	next "Speed by 1 stage.@"
 
 OctazookaDescription:
 	db   "An attack that'll"
