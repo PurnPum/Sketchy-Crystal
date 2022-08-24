@@ -349,7 +349,7 @@ ArcanineEvosAttacks:
 	db 0 ; no more level-up moves
 
 PoliwagEvosAttacks:
-	db EVOLVE_LEVEL, 20, POLIWHIRL
+	db EVOLVE_LEVEL, 14, POLIWHIRL
 	db 0 ; no more evolutions
 	db 1, STRUGGLE
 	db 0 ; no more level-up moves
