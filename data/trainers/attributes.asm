@@ -130,25 +130,25 @@ TrainerClassAttributes:
 
 ; Youngster
 	db NO_ITEM, NO_ITEM ; items
-	db 4 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Schoolboy
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_OFTEN
 
 ; Bird Keeper
 	db NO_ITEM, NO_ITEM ; items
-	db 6 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_TYPES | AI_OFFENSIVE | AI_OPPORTUNIST | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Lass
 	db NO_ITEM, NO_ITEM ; items
-	db 6 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_OFTEN
 
@@ -214,7 +214,7 @@ TrainerClassAttributes:
 
 ; Bug Catcher
 	db NO_ITEM, NO_ITEM ; items
-	db 4 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -226,13 +226,13 @@ TrainerClassAttributes:
 
 ; Swimmerm
 	db NO_ITEM, NO_ITEM ; items
-	db 2 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_OFFENSIVE | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Swimmerf
 	db NO_ITEM, NO_ITEM ; items
-	db 5 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -244,7 +244,7 @@ TrainerClassAttributes:
 
 ; Super Nerd
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_TYPES | AI_SMART | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -256,19 +256,19 @@ TrainerClassAttributes:
 
 ; Guitarist
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Hiker
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_OFFENSIVE | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Biker
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_TYPES | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -298,7 +298,7 @@ TrainerClassAttributes:
 
 ; Blackbelt T
 	db NO_ITEM, NO_ITEM ; items
-	db 6 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_OFFENSIVE | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -310,19 +310,19 @@ TrainerClassAttributes:
 
 ; Psychic T
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Picnicker
 	db NO_ITEM, NO_ITEM ; items
-	db 5 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Camper
 	db NO_ITEM, NO_ITEM ; items
-	db 5 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_CAUTIOUS | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -334,7 +334,7 @@ TrainerClassAttributes:
 
 ; Sage
 	db NO_ITEM, NO_ITEM ; items
-	db 8 ; base reward
+	db 10 ; base reward
 	dw AI_BASIC | AI_SETUP | AI_TYPES | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
@@ -364,7 +364,7 @@ TrainerClassAttributes:
 
 ; Twins
 	db NO_ITEM, NO_ITEM ; items
-	db 5 ; base reward
+	db 10 ; base reward
 	dw NO_AI
 	dw CONTEXT_USE | SWITCH_OFTEN
 
