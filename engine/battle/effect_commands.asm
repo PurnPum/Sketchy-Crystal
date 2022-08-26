@@ -661,43 +661,64 @@ BattleCommand_CheckObedience:
 
 	; If the monster's id doesn't match the player's,
 	; some conditions need to be met.
-	ld a, MON_ID
-	call BattlePartyAttr
+	; Commented this so it applies to all mons, even non-traded ones
+	; ld a, MON_ID
+	; call BattlePartyAttr
 
-	ld a, [wPlayerID]
-	cp [hl]
-	jr nz, .obeylevel
-	inc hl
-	ld a, [wPlayerID + 1]
-	cp [hl]
-	ret z
+	; ld a, [wPlayerID]
+	; cp [hl]
+	; jr nz, .obeylevel
+	; inc hl
+	; ld a, [wPlayerID + 1]
+	; cp [hl]
+	; ret z
 
-.obeylevel
+;.obeylevel
 	; The maximum obedience level is constrained by owned badges:
 	ld hl, wJohtoBadges
 
 	; risingbadge
-	bit RISINGBADGE, [hl]
-	ld a, MAX_LEVEL + 1
+	;bit RISINGBADGE, [hl]
+	;ld a, MAX_LEVEL + 1 ;TBD
+	;jr nz, .getlevel
+
+	; glacierbadge
+	bit GLACIERBADGE, [hl]
+	ld a, MAX_LEVEL + 1 ;TBD
+	jr nz, .getlevel
+
+	; mineralbadge
+	bit MINERALBADGE, [hl]
+	ld a, 80 ;TBD
 	jr nz, .getlevel
 
 	; stormbadge
 	bit STORMBADGE, [hl]
-	ld a, 70
+	ld a, 70 ;TBD
 	jr nz, .getlevel
-
+	
 	; fogbadge
 	bit FOGBADGE, [hl]
-	ld a, 50
+	ld a, 60 ;TBD
+	jr nz, .getlevel
+
+	; plainbadge
+	bit PLAINBADGE, [hl]
+	ld a, 50 ;TBD
 	jr nz, .getlevel
 
 	; hivebadge
 	bit HIVEBADGE, [hl]
-	ld a, 30
+	ld a, 40 ;TBD
+	jr nz, .getlevel
+
+	; zephyrbadge
+	bit ZEPHYRBADGE, [hl]
+	ld a, 24
 	jr nz, .getlevel
 
 	; no badges
-	ld a, 10
+	ld a, 15
 
 .getlevel
 ; c = obedience level
