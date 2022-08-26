@@ -517,6 +517,8 @@ AideScript_GiveYouBalls:
 	writetextcheckdialogue AideText_GiveYouBalls, AideText_GiveYouBallsMin
 	promptbutton
 	verbosegiveitem EXP_SHARE, 5
+	verbosegiveitem HM_FLY
+	setevent EVENT_GOT_HM02_FLY
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
 	giveitem POKE_BALL, 5
