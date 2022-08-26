@@ -557,9 +557,10 @@ FlyFunction:
 	dw .FailFly
 
 .TryFly:
-	ld de, ENGINE_STORMBADGE
-	call CheckBadge
-	jr c, .nostormbadge
+; Fly, Commented this so it can be used anytime
+	;ld de, ENGINE_STORMBADGE
+	;call CheckBadge
+	;jr c, .nostormbadge
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -582,9 +583,9 @@ FlyFunction:
 	ld a, $1
 	ret
 
-.nostormbadge
-	ld a, $82
-	ret
+;.nostormbadge
+;	ld a, $82
+;	ret
 
 .indoors
 	ld a, $2
