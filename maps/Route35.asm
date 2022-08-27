@@ -474,7 +474,7 @@ Route35_MapEvents:
 
 	def_bg_events
 	bg_event  2,  6, BGEVENT_READ, Route35Sign
-	bg_event 10, 30, BGEVENT_READ, Route35Sign
+	bg_event  9, 25, BGEVENT_READ, Route35Sign
 
 	def_object_events
 	object_event  5, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperIvan, -1
