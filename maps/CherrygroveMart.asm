@@ -86,7 +86,7 @@ CherrygroveMartClerk2Scene:
 	setevent EVENT_MET_CLERK_CHERRYGROVE_CANDY_MACHINE
 	end
 
-_RareCandyVendingMachine:
+CherrygroveMartRareCandyVendingMachine:
 	farsjump RareCandyVendingMachine
 
 CherrygroveMartClerk2Movement:
@@ -202,8 +202,8 @@ CherrygroveMart_MapEvents:
 	coord_event 3,  5, SCENE_DEFAULT, CherrygroveMartClerk2Scene
 	
 	def_bg_events
-	bg_event  0,  5, BGEVENT_UP, _RareCandyVendingMachine
-	bg_event  1,  5, BGEVENT_UP, _RareCandyVendingMachine
+	bg_event  0,  5, BGEVENT_UP, CherrygroveMartRareCandyVendingMachine
+	bg_event  1,  5, BGEVENT_UP, CherrygroveMartRareCandyVendingMachine
 	
 	def_object_events
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CherrygroveMartClerkScript, -1
