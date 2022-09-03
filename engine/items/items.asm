@@ -566,34 +566,83 @@ ItemAttr_ReturnCarry:
 	scf
 	ret
 
-IncreasePriceByBadgesObtained: ; Inputs -> Price : de , Item : wCurItem
-	ld hl, wCurItem ;Store wCurItem in hl
-	ld a, [hl] ;Store the item ID in a to pass it to IsInArray
-	ld hl, IncreasinglyPriceyItems ;Load Array in hl to pass it to IsInArray
-	push de ;save de since we need to overwrite it
-	ld de, 1 ; The array is 1 byte wide so especify that to IsInArray
-	call IsInArray ;This will tell us if the item is in the list or not, the index is now stored in b, but it won't be needed
-	pop de ;restore de's value
-	ret nc ;if c is 0 then the item wasn't in the list, thus we can return back
-	ld hl, wBadges; Load the number of badges that we have in a bitmap stored in a word of 2 bytes
-	ld b, 2 ;b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
+IncreasePriceByBadgesObtained: 		; Inputs -> Price : de , Item : wCurItem
+	ld hl, wCurItem 				; Store wCurItem in hl
+	ld a, [hl] 						; Store the item ID in a to pass it to IsInArray
+	ld hl, IncreasinglyPriceyItems 	; Load Array in hl to pass it to IsInArray
+	push de 						; Save de since we need to overwrite it
+	ld de, 1 						; The array is 1 byte wide so especify that to IsInArray
+	call IsInArray 					; This will tell us if the item is in the list or not, the index is now stored in b, but it won't be needed
+	pop de 							; Restore de's value
+	ret nc 							; If c is 0 then the item wasn't in the list, thus we can return back
+	
+	ld hl, wBadges 		; Load the number of badges that we have in a bitmap stored in a word of 2 bytes
+	ld b, 2 			; b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
 	push de
-	call CountSetBits ;This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
+	call CountSetBits 	; This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
 	pop de
-	ld a, [wNumSetBits] ;Load the amount of badges in a
+	ld a, [wNumSetBits] ; Load the amount of badges in a
 	ld h, d
-	ld l, e ;This basically equals to ld hl, de
+	ld l, e 			; This basically equals to ld hl, de
+	and a 				; Compare 'a' to 0, if they match z becomes 1
+	ret z 				; Return to GetItemPrice if z is 1, Otherwise:
+	
+	ld hl, IncreasinglyPriceyMultipliers 	; Load the multipliers used to calculate the final price
+	dec a 									; a = a - l
+	add a 									; a = a + a
+	add l 									; a = l + a
+	jr nc, .done 							; If there is a carry then l overflew after the addition, so we have to inc h
+	inc h 									; h = h + 1
+	
+.done
+	ld l, a  					; l = a
+								; We do this so that 'a' points to the correct multiplier depending on the badges we have
+	call LoadDEAndMultiplyByHL 	; This stored the result in BC
+								; Now the next step is to multiply by the 2nd number from the list (the decimals, thus the result needs to be devided by 10)
+	push bc						; Save BC's value since its about to get overwritten
+	inc hl						; Increment hl so that it points to the 2nd number
+	call LoadDEAndMultiplyByHL	; Now BC holds the new result that needs to be divided by 10
+	ld a, b
+	ldh [hDividend + 0], a
+	ld a, c
+	ldh [hDividend + 1], a		; Use the first 2 bytes since we're going to tell Divide to only use 2
+	ld a, $0A 					; 10
+	ldh [hDivisor], a
+	ld b, 2						; We use 'b' to tell the Divide func to only use 2 bytes
+	call Divide					; Divide bc by 10
+	ldh a, [hQuotient + 2]
+	ld b, a
+	ldh a, [hQuotient + 3]
+	ld c, a						; Now bc is divided by 10
+	ld h, b
+	ld l, c			 			; This basically equals to ld hl, bc
+	pop bc						; Now BC is restored to the result we had calculated with the first number
+	add hl, bc					; So we add that to HL, meaning that HL is now the 2nd BC plus the first BC
+	ld d, h
+	ld e, l						; Lastly, overwrite DE with HL, which now is the final result
+	ret
+	
+LoadDEAndMultiplyByHL: ; Inputs: DE -> Number to multiply, HL -> Address pointing to Multiplier , Output -> BC
+	ld a, e
+	ldh [hMultiplicand + 2], a
+	ld a, d
+	ldh [hMultiplicand + 1], a
+	xor a
+	ldh [hMultiplicand + 0], a ; Insert the original price in hMultiplicand
+	ld a, [hl]
+	ldh [hMultiplier], a ; And insert the first number of the multiplier in hMultiplier
+	call Multiply	; Since we only use 2 bytes and the highest multiplier is 21.8, the max base price of an scaled item is 3006 before it overflows.
+	ldh a, [hProduct + 2]
+	ld b, a
+	ldh a, [hProduct + 3]
+	ld c, a	;bc now holds the original price multiplied by the first number
+	ldh a, [hProduct + 1] ;Load the 3rd byte just in case, if it is anything other than 0, set the price to FFFF (65535)
 	and a ;Compare 'a' to 0, if they match z becomes 1
-	ret z ;Return to GetItemPrice if z is 1, Otherwise:
-	
-.loopSketchOp
-	add hl, de ;Add 'de' to 'hl', effectively multiplying it by 'a' when the loop is over.
-	dec a ;Decrease 'a' by 1 and thus change 'z' to 0 unless 'a' decreased to 0, then 'z' would become 1.
-	jr nz, .loopSketchOp ;Jump back to the beggining of the loop until 'z' becomes 1
-	ld d, h ;Once the loop is over...
-	ld e, l ;This basically equals to ld de, hl
-	ret ;Return to GetItemPrice with the data at 'de' updated
-	
+	ret z ;if its 0 its all good and we return
+	ld b, $FF
+	ld c, $FF ;If 'a' isn't 0 then we overflew, so just set the highest poss
+	ret
+
 GetItemPrice:
 ; Return the price of wCurItem in de.
 	push hl
