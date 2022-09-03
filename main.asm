@@ -41,6 +41,7 @@ INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "data/items/increasing_price_items.asm"
+INCLUDE "data/items/increasing_price_multipliers.asm"
 
 
 SECTION "bank4", ROMX
