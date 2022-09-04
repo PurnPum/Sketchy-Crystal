@@ -64,7 +64,7 @@ Route32CooltrainerMContinueScene:
 	end
 
 .GivePotions:
-	writetext Route32CooltrainerMText_HaveThisSeed
+	writetextcheckdialogue Route32CooltrainerMText_HaveThisSeed, Route32CooltrainerMText_HaveThisSeedMin
 	promptbutton
 	verbosegiveitem POTION, 4
 	iffalse .BagFull
@@ -78,7 +78,7 @@ Route32CooltrainerMContinueScene:
 	end
 
 .GotPotions:
-	writetext Route32CooltrainerMText_ExperiencesShouldBeUseful
+	writetextcheckdialogue Route32CooltrainerMText_ExperiencesShouldBeUseful, Route32CooltrainerMText_ExperiencesShouldBeUsefulMin
 	waitbutton
 .BagFull:
 	closetext
@@ -127,16 +127,16 @@ SlowpokeTailSalesmanScript:
 _OfferToSellSlowpokeTail:
 	setscene SCENE_ROUTE32_NOTHING
 	opentext
-	writetext Text_MillionDollarSlowpokeTail
+	writetextcheckdialogue Text_MillionDollarSlowpokeTail, Text_MillionDollarSlowpokeTailMin
 	yesorno
 	iffalse .refused
-	writetext Text_ThoughtKidsWereLoaded
+	writetextcheckdialogue Text_ThoughtKidsWereLoaded, Text_ThoughtKidsWereLoadedMin
 	waitbutton
 	closetext
 	end
 
 .refused
-	writetext Text_RefusedToBuySlowpokeTail
+	writetextcheckdialogue Text_RefusedToBuySlowpokeTail, Text_RefusedToBuySlowpokeTailMin
 	waitbutton
 	closetext
 	end
@@ -552,10 +552,10 @@ Route32CooltrainerMText_HaveThisSeed:
 	para "As a souvenir of"
 	line "VIOLET CITY, take"
 	cont "this."
-
-	para "It increases the"
-	line "power of grass-"
-	cont "type moves."
+	done
+	
+Route32CooltrainerMText_HaveThisSeedMin:
+	text "Free crap!"
 	done
 
 Route32CooltrainerMText_ExperiencesShouldBeUseful:
@@ -564,6 +564,10 @@ Route32CooltrainerMText_ExperiencesShouldBeUseful:
 
 	para "should be useful"
 	line "for your journey."
+	done
+	
+Route32CooltrainerMText_ExperiencesShouldBeUsefulMin:
+	text "Now move!"
 	done
 
 Text_MillionDollarSlowpokeTail:
@@ -579,15 +583,28 @@ Text_MillionDollarSlowpokeTail:
 	para "You'll want this!"
 	done
 
+Text_MillionDollarSlowpokeTailMin:
+	text "Want to get"
+	line "scammed?"
+	done
+
 Text_ThoughtKidsWereLoaded:
 	text "Tch! I thought"
 	line "kids these days"
 	cont "were loaded…"
 	done
+	
+Text_ThoughtKidsWereLoadedMin:
+	text "Tch! You're broke…"
+	done
 
 Text_RefusedToBuySlowpokeTail:
 	text "You don't want it?"
 	line "Then scram. Shoo!"
+	done
+	
+Text_RefusedToBuySlowpokeTailMin:
+	text "Then gtfo"
 	done
 
 FisherJustinSeenText:
