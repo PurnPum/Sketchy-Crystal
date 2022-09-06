@@ -604,7 +604,7 @@ Text_RefusedToBuySlowpokeTail:
 	done
 	
 Text_RefusedToBuySlowpokeTailMin:
-	text "Then gtfo"
+	text "Then gtfo."
 	done
 
 FisherJustinSeenText:
