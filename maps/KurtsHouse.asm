@@ -489,22 +489,22 @@ KurtsHouseEntranceScene:
 	turnobject KURTSHOUSE_BUGSY, DOWN
 	showemote EMOTE_SHOCK, KURTSHOUSE_BUGSY, 15
 	opentext
-	writetext KurtsHouseBugsyCalledByKurtText
+	writetextcheckdialogue KurtsHouseBugsyCalledByKurtText, KurtsHouseBugsyCalledByKurtTextMin
 	waitbutton
 	closetext
 	applymovement KURTSHOUSE_BUGSY, KurtsHouseBugsyMovesAsideMovement
 	turnobject KURTSHOUSE_BUGSY, RIGHT
 	opentext
-	writetext KurtsHouseBugsyCalledByKurtAfterMovingText
+	writetextcheckdialogue KurtsHouseBugsyCalledByKurtAfterMovingText, KurtsHouseBugsyCalledByKurtAfterMovingTextMin
 	waitbutton
 	closetext
 	opentext
-	writetext KurtsHouseKurtMakingBallsMustWaitText
+	writetextcheckdialogue KurtsHouseKurtMakingBallsMustWaitText, KurtsHouseKurtMakingBallsMustWaitTextMin
 	waitbutton
 	closetext
 	showemote EMOTE_SHOCK, KURTSHOUSE_BUGSY, 15
 	opentext
-	writetext KurtsHouseKurtMakingBallsMustWaitBugsyAngryText
+	writetextcheckdialogue KurtsHouseKurtMakingBallsMustWaitBugsyAngryText, KurtsHouseKurtMakingBallsMustWaitBugsyAngryTextMin
 	waitbutton
 	closetext
 	special FadeOutMusic
@@ -518,7 +518,7 @@ KurtsHouseEntranceScene:
 	special RestartMapMusic
 	turnobject PLAYER, UP
 	opentext
-	writetext KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftText
+	writetextcheckdialogue KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftText, KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftTextMin
 	waitbutton
 	closetext
 	special FadeOutMusic
@@ -544,6 +544,10 @@ KurtsHouseBugsyCalledByKurtText:
 	cont "town."
 	done
 	
+KurtsHouseBugsyCalledByKurtTextMin:
+	text "BUGSY: Hi"
+	done
+	
 KurtsHouseBugsyCalledByKurtAfterMovingText:
 	text "BUGSY: This here"
 	line "is Kurt."
@@ -556,6 +560,11 @@ KurtsHouseBugsyCalledByKurtAfterMovingText:
 	
 	para "important, or so"
 	line "it seems."
+	done
+	
+KurtsHouseBugsyCalledByKurtAfterMovingTextMin:
+	text "This ol' fella"
+	line "here is Kurt."
 	done
 
 KurtsHouseKurtMakingBallsMustWaitText:
@@ -615,6 +624,11 @@ KurtsHouseKurtMakingBallsMustWaitText:
 	para "SLOWPOKETAILS"
 	line "for sale!"
 	done
+	
+KurtsHouseKurtMakingBallsMustWaitTextMin:
+	text "KURT: I'm not old"
+	line "Mr. Boy Scout."
+	done
 
 KurtsHouseKurtMakingBallsMustWaitBugsyAngryText:
 	text "BUGSY: WHAT?!"
@@ -624,6 +638,11 @@ KurtsHouseKurtMakingBallsMustWaitBugsyAngryText:
 	cont "show them!"
 	done
 	
+KurtsHouseKurtMakingBallsMustWaitBugsyAngryTextMin:
+	text "Lets go take down"
+	line "a criminal org."
+	done
+
 KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftText:
 	text "KURT: BUGSY is a"
 	line "very strong Gym"
@@ -644,6 +663,11 @@ KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftText:
 	para "and wait until the"
 	line "trash gets taken"
 	cont "out!"
+	done
+	
+KurtsHouseKurtMakingBallsMustWaitAfterBugsyLeftTextMin:
+	text "Beats making balls"
+	line "for kids."
 	done
 	
 KurtsHouseKurtHonoredToMakeBallsText:

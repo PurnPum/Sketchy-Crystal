@@ -7,7 +7,6 @@
 	const AZALEATOWN_SLOWPOKE2
 	const AZALEATOWN_SLOWPOKE3
 	const AZALEATOWN_SLOWPOKE4
-	const AZALEATOWN_FRUIT_TREE
 	const AZALEATOWN_RIVAL
 	const AZALEATOWN_AZALEA_ROCKET3
 	const AZALEATOWN_KURT_OUTSIDE
@@ -56,7 +55,7 @@ AzaleaTownRivalBattleScene2:
 AzaleaTownRivalBattleScript:
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
-	writetext AzaleaTownRivalBeforeText
+	writetextcheckdialogue AzaleaTownRivalBeforeText, AzaleaTownRivalBeforeTextMin
 	waitbutton
 	closetext
 	setevent EVENT_RIVAL_AZALEA_TOWN
@@ -64,7 +63,13 @@ AzaleaTownRivalBattleScript:
 	iftrue .Totodile
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .Chikorita
+	isdialogueminimal
+	iftrue .min1
 	winlosstext AzaleaTownRivalWinText, AzaleaTownRivalLossText
+	sjump .proceed1
+.min1
+	winlosstext AzaleaTownRivalWinTextMin, AzaleaTownRivalLossTextMin
+.proceed1
 	setlasttalked AZALEATOWN_RIVAL
 	loadtrainer RIVAL1, RIVAL1_2_TOTODILE
 	startbattle
@@ -73,7 +78,13 @@ AzaleaTownRivalBattleScript:
 	sjump .AfterBattle
 
 .Totodile:
+	isdialogueminimal
+	iftrue .min2
 	winlosstext AzaleaTownRivalWinText, AzaleaTownRivalLossText
+	sjump .proceed2
+.min2
+	winlosstext AzaleaTownRivalWinTextMin, AzaleaTownRivalLossTextMin
+.proceed2
 	setlasttalked AZALEATOWN_RIVAL
 	loadtrainer RIVAL1, RIVAL1_2_CHIKORITA
 	startbattle
@@ -82,7 +93,13 @@ AzaleaTownRivalBattleScript:
 	sjump .AfterBattle
 
 .Chikorita:
+	isdialogueminimal
+	iftrue .min3
 	winlosstext AzaleaTownRivalWinText, AzaleaTownRivalLossText
+	sjump .proceed3
+.min3
+	winlosstext AzaleaTownRivalWinTextMin, AzaleaTownRivalLossTextMin
+.proceed3
 	setlasttalked AZALEATOWN_RIVAL
 	loadtrainer RIVAL1, RIVAL1_2_CYNDAQUIL
 	startbattle
@@ -93,7 +110,7 @@ AzaleaTownRivalBattleScript:
 .AfterBattle:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
-	writetext AzaleaTownRivalAfterText
+	writetextcheckdialogue AzaleaTownRivalAfterText, AzaleaTownRivalAfterTextMin
 	waitbutton
 	closetext
 	turnobject PLAYER, LEFT
@@ -204,8 +221,6 @@ AzaleaTownPokecenterSign:
 AzaleaTownMartSign:
 	jumpstd MartSignScript
 
-WhiteApricornTree:
-	fruittree FRUITTREE_AZALEA_TOWN
 
 AzaleaTownHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_AZALEA_TOWN_HIDDEN_FULL_HEAL
@@ -266,6 +281,10 @@ AzaleaTownRivalBeforeText:
 	cont "good you are."
 	done
 
+AzaleaTownRivalBeforeTextMin:
+	text "C'mere punk."
+	done
+
 AzaleaTownRivalWinText:
 	text "… Humph! Useless"
 	line "#MON!"
@@ -275,6 +294,11 @@ AzaleaTownRivalWinText:
 
 	para "my #MON were"
 	line "weak."
+	done
+
+AzaleaTownRivalWinTextMin:
+	text "… Humph! Lucky"
+	line "ass dog."
 	done
 
 AzaleaTownRivalAfterText:
@@ -306,10 +330,19 @@ AzaleaTownRivalAfterText:
 	para "like you is only a"
 	line "distraction."
 	done
+	
+AzaleaTownRivalAfterTextMin:
+	text "Amusing, now get
+	line "lost!"
+	done
 
 AzaleaTownRivalLossText:
 	text "…Humph! I knew"
 	line "you were lying."
+	done
+	
+AzaleaTownRivalLossTextMin:
+	text "lol"
 	done
 
 AzaleaTownRocket1Text:
@@ -328,7 +361,7 @@ AzaleaTownYoungsterGymText:
 
 	para "Apparently he went"
 	line "to KURTS house,"
-	cont "which is north to"
+	cont "which is north of"
 	cont "the GYM."
 	done
 
@@ -498,7 +531,6 @@ AzaleaTown_MapEvents:
 	object_event 18, 13, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event 29, 13, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event  1, 14, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
-	object_event 13,  8, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhiteApricornTree, -1
 	object_event 11, 14, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
 	object_event 10, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownYoungsterGymScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
 	object_event  6,  9, SPRITE_KURT_OUTSIDE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownKurtScript, EVENT_AZALEA_TOWN_KURT
