@@ -17,10 +17,16 @@ AzaleaGymBugsyScript:
 	opentext
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
-	writetext BugsyText_INeverLose
+	writetextcheckdialogue BugsyText_INeverLose, BugsyText_INeverLoseMin
 	waitbutton
 	closetext
+	isdialogueminimal
+	iftrue .min1
 	winlosstext BugsyText_ResearchIncomplete, 0
+	sjump .proceed1
+.min1
+	winlosstext BugsyText_ResearchIncompleteMin, 0
+.proceed1
 	loadtrainer BUGSY, BUGSY1
 	startbattle
 	reloadmapafterbattle
@@ -39,12 +45,12 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
-	writetext BugsyText_HiveBadgeSpeech
+	writetextcheckdialogue BugsyText_HiveBadgeSpeech, BugsyText_HiveBadgeSpeechMin
 	promptbutton
 	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForFuryCutter
 	setevent EVENT_GOT_TM49_FURY_CUTTER
-	writetext BugsyText_FuryCutterSpeech
+	writetextcheckdialogue BugsyText_FuryCutterSpeech, BugsyText_FuryCutterSpeechMin
 	waitbutton
 	closetext
 	end
@@ -173,6 +179,11 @@ BugsyText_INeverLose:
 	cont "from my studies."
 	done
 
+BugsyText_INeverLoseMin:
+	text "Now it's"
+	line "showdown time."
+	done
+	
 BugsyText_ResearchIncomplete:
 	text "Whoa, amazing!"
 	line "You're an expert"
@@ -183,6 +194,11 @@ BugsyText_ResearchIncomplete:
 
 	para "OK, you win. Take"
 	line "this BADGE."
+	done
+	
+BugsyText_ResearchIncompleteMin:
+	text "Well, I got"
+	line "destroyed."
 	done
 
 Text_ReceivedHiveBadge:
@@ -210,7 +226,12 @@ BugsyText_HiveBadgeSpeech:
 	para "Here, I also want"
 	line "you to have this."
 	done
-
+	
+BugsyText_HiveBadgeSpeechMin:
+	text "Now you can cut"
+	line "bushes and such."
+	done
+	
 BugsyText_FuryCutterSpeech:
 	text "TM01 contains"
 	line "SKETCH."
@@ -222,7 +243,12 @@ BugsyText_FuryCutterSpeech:
 	para "Isn't that great?"
 	line "I discovered it!"
 	done
-
+	
+BugsyText_FuryCutterSpeechMin:
+	text "Here, the obliga-"
+	line "tory SKETCH TM."
+	done
+	
 BugsyText_BugMonsAreDeep:
 	text "Bug #MON are"
 	line "deep. There are"
