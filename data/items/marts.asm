@@ -6,6 +6,7 @@ Marts:
 	dw MartCherrygroveDex
 	dw MartViolet
 	dw MartAzalea
+	dw MartAzaleaBerryShop
 	dw MartCianwood
 	dw MartGoldenrod2F1
 	dw MartGoldenrod2F2
@@ -103,6 +104,19 @@ MartAzalea:
 	db PARLYZ_HEAL
 	db FLOWER_MAIL
 	db TM_SKETCH
+	db -1 ; end
+	
+MartAzaleaBerryShop:
+	db 9 ; # items
+	db BUGRESBERRY
+	db ROCKRESBERRY
+	db ICE_BERRY
+	db GRNDRESBERRY
+	db BURNT_BERRY
+	db ICERESBERRY
+	db BITTER_BERRY
+	db PSNRESBERRY
+	db ELECRESBERRY
 	db -1 ; end
 
 MartCianwood:

@@ -332,7 +332,7 @@ AzaleaTownRivalAfterText:
 	done
 	
 AzaleaTownRivalAfterTextMin:
-	text "Amusing, now get
+	text "Amusing, now get"
 	line "lost!"
 	done
 
@@ -492,6 +492,13 @@ AzaleaTownIlexForestSignText:
 	para "Enter through the"
 	line "gate."
 	done
+	
+AzaleaTownBerryShopSign:
+	jumptext AzaleaTownBerryShopSignText
+
+AzaleaTownBerryShopSignText:
+	text "Berry shop"
+	done	
 
 AzaleaTown_MapEvents:
 	db 0, 0 ; filler
@@ -505,6 +512,7 @@ AzaleaTown_MapEvents:
 	warp_event 31, 11, SLOWPOKE_WELL_B1F, 1
 	warp_event  2, 10, ILEX_FOREST_AZALEA_GATE, 3
 	warp_event  2, 11, ILEX_FOREST_AZALEA_GATE, 4
+	warp_event  3, 19, AZALEA_TOWN_BERRYSHOP, 1
 
 	def_coord_events
 	coord_event  5, 14, SCENE_AZALEATOWN_RIVAL_BATTLE, AzaleaTownRivalBattleScene1
@@ -520,7 +528,8 @@ AzaleaTown_MapEvents:
 	bg_event 16, 13, BGEVENT_READ, AzaleaTownPokecenterSign
 	bg_event 22,  9, BGEVENT_READ, AzaleaTownMartSign
 	bg_event  3, 13, BGEVENT_READ, AzaleaTownIlextForestSign
-	bg_event 31, 10, BGEVENT_ITEM, AzaleaTownHiddenFullHeal
+	bg_event 37,  8, BGEVENT_ITEM, AzaleaTownHiddenFullHeal
+	bg_event  4, 19, BGEVENT_READ, AzaleaTownBerryShopSign
 
 	def_object_events
 	object_event 31, 13, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownRocket1Script, EVENT_AZALEA_TOWN_SLOWPOKETAIL_ROCKET
@@ -528,7 +537,7 @@ AzaleaTown_MapEvents:
 	object_event 15, 17, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, AzaleaTownTeacherScript, -1
 	object_event  7, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, AzaleaTownYoungsterScript, -1
 	object_event 24,  6, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
-	object_event 18, 13, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
+	object_event 13,  8, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event 29, 13, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event  1, 14, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownSlowpokeScript, EVENT_AZALEA_TOWN_SLOWPOKES
 	object_event 11, 14, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
