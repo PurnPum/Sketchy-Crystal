@@ -615,7 +615,7 @@ KurtsHouseKurtMakingBallsMustWaitText:
 
 	para "KURT: Yeah, this"
 	line "morning they"
-	cont "settled in the"
+	cont "settled inside"
 	cont "SLOWPOKE's WELL."
 	
 	para "And they are"
