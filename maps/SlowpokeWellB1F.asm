@@ -70,7 +70,7 @@ TrainerGruntM1:
 	turnobject PLAYER, DOWN
 	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictory2MovementData
 	opentext
-	writetext KurtLeaveSlowpokeWellText
+	writetextcheckdialogue KurtLeaveSlowpokeWellText, KurtLeaveSlowpokeWellTextMin
 	waitbutton
 	closetext
 	setevent EVENT_CLEARED_SLOWPOKE_WELL
@@ -249,7 +249,12 @@ KurtLeaveSlowpokeWellText:
 	para "BUGSY: I'll go to"
 	line "the GYM. I can't"
 	cont "wait to fight you,"
-	cont "<PLAYER>."
+	cont "<PLAYER>!"
+	done
+	
+KurtLeaveSlowpokeWellTextMin:
+	text "KURT: Good job."
+	line "BUGSY: Let's leave"
 	done
 
 GruntM29SeenText:
