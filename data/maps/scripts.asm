@@ -325,6 +325,7 @@ INCLUDE "maps/CharcoalKiln.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/KurtsHouse.asm"
 INCLUDE "maps/AzaleaGym.asm"
+INCLUDE "maps/AzaleaTownBerryShop.asm"
 
 
 SECTION "Map Scripts 17", ROMX

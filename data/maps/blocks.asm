@@ -136,6 +136,7 @@ Route30BerryHouse_Blocks:
 	INCBIN "maps/House1.blk"
 
 Route29BerryShop_Blocks:
+AzaleaTownBerryShop_Blocks:
 	INCBIN "maps/BerryShop.blk"
 
 SafariZoneFuchsiaGateBeta_Blocks:

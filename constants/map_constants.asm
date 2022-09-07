@@ -221,6 +221,7 @@ ENDM
 	map_const AZALEA_GYM,                                   5,  8 ;  5
 	map_const ROUTE_33,                                    10, 11 ;  6
 	map_const AZALEA_TOWN,                                 20, 11 ;  7
+	map_const AZALEA_TOWN_BERRYSHOP,                        4,  4 ;  8
 	endgroup
 
 	newgroup LAKE_OF_RAGE                                         ;  9
