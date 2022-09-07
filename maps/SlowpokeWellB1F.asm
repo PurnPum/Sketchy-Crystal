@@ -23,6 +23,7 @@ SlowpokeWellB1FKurtScript:
 	faceplayer
 	opentext
 	writetext SlowpokeWellB1FKurtText
+	waitbutton
 	closetext
 	waitbutton
 	turnobject SLOWPOKEWELLB1F_KURT, LEFT
@@ -202,7 +203,7 @@ SlowpokeWellB1FKurtText:
 
 	para "However these 4"
 	line "grunts were wait-"
-	cont "-ing for us and we"
+	cont "ing for us and we"
 	cont "got ambushed!"
 
 	para "<PLAYER>, you'll"
