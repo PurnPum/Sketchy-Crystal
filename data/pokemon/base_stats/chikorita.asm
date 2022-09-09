@@ -17,6 +17,6 @@
 	dn EGG_MONSTER, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
+	tmhm SKETCH, PROTECT
 	; end
 
