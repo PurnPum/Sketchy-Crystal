@@ -69,5 +69,11 @@ IncreasinglyPriceyItems: ;List of items that increase on price by the amount of 
 	db SILVERPOWDER
 	db METAL_COAT
 	db SHARP_BEAK
+	db PP_UP
+	db CALCIUM
+	db PROTEIN
+	db IRON
+	db HP_UP
+	db CARBOS
 	db TM_SKETCH
 	db -1
