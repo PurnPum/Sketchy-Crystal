@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH
+	tmhm SKETCH, PROTECT
 	; end
