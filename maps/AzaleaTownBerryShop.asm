@@ -17,21 +17,15 @@ AzaleaTownBerryShopLassScript:
 	jumptextfaceplayer AzaleaTownBerryShopLassText
 	
 AzaleaTownBerryShopLassText:
-	text "There are many"
-	line "shops like this"
+	text "These resist"
+	line "berries are super"
+	cont "useful to try to"
 	
-	para "all around the"
-	line "region."
-	
-	para "However, there"
-	line "seems to be a"
-	cont "shortage of"
-	cont "berries now."
-	
-	para "I fear prices"
-	line "will increase in"
-	cont "the future."
+	para "SKETCH a move that"
+	line "your #MON is"
+	cont "weak to."
 	done
+	
 
 AzaleaTownBerryShop_MapEvents:
 	db 0, 0 ; filler
