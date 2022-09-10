@@ -229,26 +229,26 @@ CherrygroveCityFishingGuruScript:
 	opentext
 	checkevent EVENT_GOT_OLD_ROD
 	iftrue .GotOldRod
-	writetext CherrygroveCityFishingGuruText_Question
+	writetextcheckdialogue CherrygroveCityFishingGuruText_Question, CherrygroveCityFishingGuruText_QuestionMin
 	yesorno
 	iffalse .Refused
-	writetext CherrygroveCityFishingGuruText_Yes
+	writetextcheckdialogue CherrygroveCityFishingGuruText_Yes, CherrygroveCityFishingGuruText_YesMin
 	promptbutton
 	verbosegiveitem OLD_ROD
-	writetext CherrygroveCityFishingGuruText_GiveOldRod
+	writetextcheckdialogue CherrygroveCityFishingGuruText_GiveOldRod, CherrygroveCityFishingGuruText_GiveOldRodMin
 	waitbutton
 	closetext
 	setevent EVENT_GOT_OLD_ROD
 	end
 
 .Refused:
-	writetext CherrygroveCityFishingGuruText_No
+	writetextcheckdialogue CherrygroveCityFishingGuruText_No, CherrygroveCityFishingGuruText_NoMin
 	waitbutton
 	closetext
 	end
 
 .GotOldRod:
-	writetext CherrygroveCityFishingGuruText_After
+	writetextcheckdialogue CherrygroveCityFishingGuruText_After, CherrygroveCityFishingGuruText_AfterMin
 	waitbutton
 	closetext
 	end
@@ -264,6 +264,10 @@ CherrygroveCityFishingGuruText_Question:
 	para "Would you like one"
 	line "of my RODS?"
 	done
+	
+CherrygroveCityFishingGuruText_QuestionMin:
+	text "Take this ROD kid."
+	done
 
 CherrygroveCityFishingGuruText_Yes:
 	text "Heh, that's good"
@@ -271,6 +275,10 @@ CherrygroveCityFishingGuruText_Yes:
 
 	para "Now you're an"
 	line "angler too!"
+	done
+	
+CherrygroveCityFishingGuruText_YesMin:
+	text "Good choice."
 	done
 
 CherrygroveCityFishingGuruText_GiveOldRod:
@@ -282,15 +290,29 @@ CherrygroveCityFishingGuruText_GiveOldRod:
 	para "stream, try out"
 	line "your ROD."
 	done
+	
+CherrygroveCityFishingGuruText_GiveOldRodMin:
+	text "It'll get the job"
+	line "done."
+	done
 
 CherrygroveCityFishingGuruText_No:
 	text "Oh. That's rather"
 	line "disappointing…"
 	done
+	
+CherrygroveCityFishingGuruText_NoMin:
+	text "S H A M E"
+	done
 
 CherrygroveCityFishingGuruText_After:
 	text "Yo, kid. How are"
 	line "they biting?"
+	done
+	
+CherrygroveCityFishingGuruText_AfterMin:
+	text "There are only"
+	line "CORSOLA here…"
 	done
 
 CherrygroveCitySign:
@@ -607,22 +629,6 @@ CherrygroveYoungsterText_HavePokedex:
 
 	para "must take them to"
 	line "a #MON CENTER."
-	done
-
-MysticWaterGuyTextBefore:
-	text "A #MON I caught"
-	line "had an item."
-
-	para "I think it's"
-	line "MYSTIC WATER."
-
-	para "I don't need it,"
-	line "so do you want it?"
-	done
-
-MysticWaterGuyTextAfter:
-	text "Back to fishing"
-	line "for me, then."
 	done
 
 CherrygroveCitySignText:
