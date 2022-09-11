@@ -243,3 +243,5 @@
 	tilecoll WATER, WATER, WATER, WATER ; f2
 	tilecoll WATER, BUOY, WATER, BUOY ; f3
 	tilecoll WATER, WATER, WATER, WATER ; f4
+	tilecoll LADDER, LADDER, LADDER, LADDER ; f5
+	tilecoll LADDER, LADDER, LADDER, LADDER ; f6
