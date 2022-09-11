@@ -13,6 +13,12 @@ CutTreeBlockPointers:
 .johto:
 ; facing block, replacement block, animation
 	db $03, $02, 1 ; grass
+	db $8b, $84, 1 ; grass
+	db $95, $a4, 1 ; grass
+	db $9e, $02, 1 ; grass
+	db $a6, $a1, 1 ; grass
+	db $a7, $02, 1 ; grass
+	db $e2, $dc, 1 ; grass
 	db $5b, $3c, 0 ; tree
 	db $5f, $3d, 0 ; tree
 	db $63, $3f, 0 ; tree
@@ -21,17 +27,36 @@ CutTreeBlockPointers:
 
 .johto_goldenrod:
 ; facing block, replacement block, animation
-	db $03, $02, $01 ; grass
+	db $03, $02, 1 ; grass
+	db $b1, $02, 1 ; grass
+	db $b2, $02, 1 ; grass
+	db $b3, $02, 1 ; grass
 	db -1 ; end
 	
 .johto_ecruteak:
 ; facing block, replacement block, animation
-	db $03, $02, $01 ; grass
+	db $03, $02, 1 ; grass
+	db $a7, $02, 1 ; grass
+	db $a8, $02, 1 ; grass
+	db $95, $94, 1 ; grass
+	db $a6, $a4, 1 ; grass
+	db $5b, $3c, 0 ; tree
+	db $5f, $3d, 0 ; tree
+	db $63, $3f, 0 ; tree
+	db $67, $3e, 0 ; tree
 	db -1 ; end
 	
 .johto_olivine:
 ; facing block, replacement block, animation
-	db $03, $02, $01 ; grass
+	db $03, $02, 1 ; grass
+	db $a7, $02, 1 ; grass
+	db $a8, $02, 1 ; grass
+	db $95, $94, 1 ; grass
+	db $a6, $a4, 1 ; grass
+	db $5b, $3c, 0 ; tree
+	db $5f, $3d, 0 ; tree
+	db $63, $3f, 0 ; tree
+	db $67, $3e, 0 ; tree
 	db -1 ; end
 
 .kanto:

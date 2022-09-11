@@ -204,3 +204,4 @@
 	tilecoll FLOOR, WALL, FLOOR, WALL ; cb
 	tilecoll WATER, WATER, WATER, WATER ; cc
 	tilecoll WATER, WALL, WATER, WALL ; cd
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ce
