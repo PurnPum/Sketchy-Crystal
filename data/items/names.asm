@@ -207,21 +207,20 @@ ItemNames::
 	li "BUGRESBERRY"
 	li "STELRESBERRY"
 	li "FLYRESBERRY"
+	li "HAMMER"
+	li "SCYTHE"
+	li "BALLOONS"
+	li "SURF BOARD"
+	li "POWER GLOVES"
+	li "FLASHLIGHT"
+	li "PROPELLER"
+	li "WATER CANNON"
 	assert_list_length NUM_ITEMS
 	li "TM01"
+	assert_list_length NUM_ITEMS + NUM_TMS 
+	;D9-00
 	li "TERU-SAMA"
-	li "TM08"
 	li "TERU-SAMA"
-	assert_list_length NUM_ITEMS + NUM_TMS + 2 ; count ITEM_D3 and ITEM_D4
-	li "HM01"
-	li "HM02"
-	li "HM03"
-	li "HM04"
-	li "HM05"
-	li "HM06"
-	li "HM07"
-	assert_list_length NUM_ITEMS + NUM_TMS + 2 + NUM_HMS ; count ITEM_D3 and ITEM_D4
-	;DC-00
 	li "TERU-SAMA"
 	li "TERU-SAMA"
 	li "TERU-SAMA"

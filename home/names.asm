@@ -153,8 +153,8 @@ GetItemName::
 	push bc
 	ld a, [wNamedObjectIndex]
 
-	cp TM01
-	jr nc, .TM
+	;cp TM01
+	;jr nc, .TM 
 
 	ld [wCurSpecies], a
 	ld a, ITEM_NAME
@@ -178,14 +178,14 @@ GetTMHMName::
 	ld a, [wNamedObjectIndex]
 	push af
 
-; TM/HM prefix
-	cp HM01
-	push af
-	jr c, .TM
+; TM prefix (HM dont exist)
+	;cp HM01
+	;push af
+	;jr c, .TM
 
-	ld hl, .HMText
-	ld bc, .HMTextEnd - .HMText
-	jr .copy
+	;ld hl, .HMText
+	;ld bc, .HMTextEnd - .HMText
+	;jr .copy
 
 .TM:
 	ld hl, .TMText

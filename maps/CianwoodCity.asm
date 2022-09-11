@@ -83,7 +83,7 @@ CianwoodCitySuicuneAndEusine:
 CianwoodCityChucksWife:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM02_FLY
+	checkevent EVENT_GOT_BALLOONS_FLY
 	iftrue .GotFly
 	writetext ChucksWifeEasierToFlyText
 	promptbutton
@@ -97,9 +97,9 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	promptbutton
-	verbosegiveitem HM_FLY
+	verbosegiveitem BALLOONS ; TODO
 	iffalse .Done
-	setevent EVENT_GOT_HM02_FLY
+	setevent EVENT_GOT_BALLOONS_FLY
 	writetext ChucksWifeFlySpeechText
 	promptbutton
 .GotFly:

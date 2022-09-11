@@ -253,8 +253,8 @@ BattleAnimations::
 	dw BattleAnim_RockSmash
 	dw BattleAnim_Whirlpool
 	dw BattleAnim_BeatUp
-	dw BattleAnim_BattleSurf
 	assert_table_length NUM_ATTACKS + 1
+	dw BattleAnim_252
 	dw BattleAnim_253
 	dw BattleAnim_254
 	dw BattleAnim_SweetScent2
@@ -286,6 +286,7 @@ BattleAnimations::
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_0:
+BattleAnim_252:
 BattleAnim_253:
 BattleAnim_254:
 BattleAnim_MirrorMove:
@@ -1150,7 +1151,6 @@ BattleAnim_HydroPump:
 	anim_wait 16
 	anim_ret
 	
-BattleAnim_BattleSurf:
 BattleAnim_Surf:
 	anim_1gfx ANIM_GFX_BUBBLE
 	anim_bgeffect ANIM_BG_SURF, $0, $0, $0

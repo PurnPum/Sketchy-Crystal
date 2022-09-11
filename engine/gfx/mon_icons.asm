@@ -263,6 +263,20 @@ GetSpeciesIcon:
 	call GetIconGFX
 	ret
 
+GetBalloonsIcon:
+	ld a , ICON_BALLOONS
+	ld [wCurIcon], a
+	ld a, $08 ; starting tile in VRAM
+	call GetIconGFX
+	ret
+	
+FlyFunction_GetBalloonsOWIcon:
+	ld a , ICON_BALLOONSOW
+	ld [wCurIcon], a
+	ld a, e
+	call GetIcon_a
+	ret
+
 FlyFunction_GetMonIcon:
 	push de
 	ld a, [wTempIconSpecies]
@@ -273,14 +287,14 @@ FlyFunction_GetMonIcon:
 	call GetIcon_a
 	ret
 
-GetMonIconDE: ; unreferenced
-	push de
-	ld a, [wTempIconSpecies]
-	call ReadMonMenuIcon
-	ld [wCurIcon], a
-	pop de
-	call GetIcon_de
-	ret
+;GetMonIconDE: ; unreferenced
+;	push de
+;	ld a, [wTempIconSpecies]
+;	call ReadMonMenuIcon
+;	ld [wCurIcon], a
+;	pop de
+;	call GetIcon_de
+;	ret
 
 GetMemIconGFX:
 	ld a, [wCurIconTile]

@@ -208,15 +208,15 @@ ItemDescriptions:
 	dw BugResistBerryDesc
 	dw SteelResistBerryDesc
 	dw FlyingResistBerryDesc
+	dw HammerDesc
+	dw ScytheDesc
+	dw BalloonsDesc
+	dw SurfBoardDesc
+	dw PowerGlovesDesc
+	dw FlashlightDesc
+	dw PropellerDesc
+	dw WaterCannonDesc
 	assert_table_length NUM_ITEMS
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -1056,6 +1056,38 @@ SteelResistBerryDesc:
 FlyingResistBerryDesc:
 	db   "Halves S.Effective"
 	next "FLYING DMG (HOLD)@"
+
+HammerDesc:
+	db	 "Breaks cracked"
+	next "rocks.@"
+
+ScytheDesc:
+	db	 "Cuts small trees"
+	next "and grass.@"
+	
+BalloonsDesc:
+	db	 "Allows travelling"
+	next "to known areas.@"
+	
+SurfBoardDesc:
+	db	 "Allows the user to"
+	next "surf in water.@"
+	
+PowerGlovesDesc:
+	db	 "Lets the user lift"
+	next "big boulders.@"
+	
+FlashlightDesc:
+	db	 "Lits up any dark"
+	next "cave or area.@"
+	
+PropellerDesc:
+	db	 "Dissolves any"
+	next "whirlpools.@"
+	
+WaterCannonDesc:
+	db	 "Allows the user to"
+	next "climb waterfalls.@"
 
 TeruSama25Desc:
 	db   "?@"

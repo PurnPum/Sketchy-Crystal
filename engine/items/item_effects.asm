@@ -193,22 +193,46 @@ ItemEffects:
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
 	dw NoEffect            ; ITEM_B3
-	assert_table_length ITEM_B3
-; The items past ITEM_B3 do not have effect entries:
-;	BRICK_PIECE
-;	SURF_MAIL
-;	LITEBLUEMAIL
-;	PORTRAITMAIL
-;	LOVELY_MAIL
-;	EON_MAIL
-;	MORPH_MAIL
-;	BLUESKY_MAIL
-;	MUSIC_MAIL
-;	MIRAGE_MAIL
-;	ITEM_BE
+	dw NoEffect            ; BRICK_PIECE
+	dw NoEffect            ; SURF_MAIL
+	dw NoEffect            ; LITEBLUEMAIL
+	dw NoEffect            ; PORTRAITMAIL
+	dw NoEffect            ; LOVELY_MAIL
+	dw NoEffect            ; EON_MAIL
+	dw NoEffect            ; MORPH_MAIL
+	dw NoEffect            ; BLUESKY_MAIL
+	dw NoEffect            ; MUSIC_MAIL
+	dw NoEffect            ; MIRAGE_MAIL
+	dw NoEffect            ; ITEM_BE
+	dw NoEffect            ; NRMLRESBERRY
+	dw NoEffect            ; GRSSRESBERRY
+	dw NoEffect            ; FIRERESBERRY
+	dw NoEffect            ; WATERESBERRY
+	dw NoEffect            ; ICERESBERRY
+	dw NoEffect            ; FGHTRESBERRY
+	dw NoEffect            ; PSYRESBERRY
+	dw NoEffect            ; DARKRESBERRY
+	dw NoEffect            ; GHSTRESBERRY
+	dw NoEffect            ; DRGNRESBERRY
+	dw NoEffect            ; PSNRESBERRY
+	dw NoEffect            ; ROCKRESBERRY
+	dw NoEffect            ; GRNDRESBERRY
+	dw NoEffect            ; ELECRESBERRY
+	dw NoEffect            ; BUGRESBERRY
+	dw NoEffect            ; STELRESBERRY
+	dw NoEffect            ; FLYRESBERRY
+	dw HammerEffect        ; HAMMER
+	dw ScytheEffect        ; SCYTHE
+	dw BalloonsEffect      ; BALLOONS
+	dw SurfBoardEffect     ; SURF_BOARD
+	dw PowerGlovesEffect   ; POWER_GLOVES
+	dw FlashlightEffect    ; FLASHLIGHT
+	dw PropellerEffect     ; PROPELLER
+	dw WaterCannonEffect   ; WATER_CANNON
+	assert_table_length WATER_CANNON
+; The items past WATER_CANNON do not have effect entries:
 ; They all have the ITEMMENU_NOUSE attribute so they can't be used anyway.
 ; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
-; This applies to the resist berries too, they can't be used outside of battle.
 
 PokeBallEffect:
 ; BUG: The Dude's catching tutorial may crash if his Poké Ball can't be used (see docs/bugs_and_glitches.md)
@@ -2971,4 +2995,36 @@ GetMthMoveOfCurrentMon:
 	ld c, a
 	ld b, 0
 	add hl, bc
+	ret
+
+HammerEffect:
+	farcall MonMenu_RockSmash
+	ret
+
+ScytheEffect:
+	farcall MonMenu_Cut
+	ret
+
+BalloonsEffect:
+	farcall MonMenu_Fly
+	ret
+
+SurfBoardEffect:
+	farcall MonMenu_Surf
+	ret
+
+PowerGlovesEffect:
+	farcall MonMenu_Strength
+	ret
+
+FlashlightEffect:
+	farcall MonMenu_Flash
+	ret
+
+PropellerEffect:
+	farcall MonMenu_Whirlpool
+	ret
+
+WaterCannonEffect:
+	farcall MonMenu_Waterfall
 	ret

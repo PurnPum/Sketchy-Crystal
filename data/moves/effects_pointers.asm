@@ -174,4 +174,5 @@ MoveEffectsPointers:
 	dw ScaryFace
 	dw SweetKiss
 	dw SweetScent
+	dw Flash
 	assert_table_length NUM_MOVE_EFFECTS

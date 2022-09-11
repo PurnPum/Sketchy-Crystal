@@ -12,10 +12,10 @@ endr
 	assert_table_length NUM_TMS
 
 ; HMs
-for n, 1, NUM_HMS + 1
-	db HM{02d:n}_MOVE
-endr
-	assert_table_length NUM_TMS + NUM_HMS
+;for n, 1, NUM_HMS + 1
+;	db HM{02d:n}_MOVE
+;endr
+;	assert_table_length NUM_TMS + NUM_HMS
 
 ; Move tutors
 DEF n = 1
