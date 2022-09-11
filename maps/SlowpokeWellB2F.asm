@@ -10,19 +10,19 @@ SlowpokeWellB2F_MapScripts:
 SlowpokeWellB2FGymGuideScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_KINGS_ROCK_IN_SLOWPOKE_WELL
-	iftrue .GotKingsRock
+	checkevent EVENT_GOT_GREAT_BALLS_IN_SLOWPOKE_WELL
+	iftrue .GotGreatBalls
 	writetext SlowpokeWellB2FGymGuideText
 	promptbutton
-	verbosegiveitem KINGS_ROCK
+	verbosegiveitem GREAT_BALL, 5
 	iffalse .NoRoom
-	setevent EVENT_GOT_KINGS_ROCK_IN_SLOWPOKE_WELL
+	setevent EVENT_GOT_GREAT_BALLS_IN_SLOWPOKE_WELL
 .NoRoom:
 	closetext
 	end
 
-.GotKingsRock:
-	writetext SlowpokeWellB2FGymGuideText_GotKingsRock
+.GotGreatBalls:
+	writetext SlowpokeWellB2FGymGuideText_GotGreatBalls
 	waitbutton
 	closetext
 	end
@@ -45,12 +45,12 @@ SlowpokeWellB2FGymGuideText:
 	para "gets bitten by a"
 	line "SHELLDER."
 
-	para "Here, I'll share a"
-	line "KING'S ROCK with"
+	para "Here, I'll share"
+	line "some balls with"
 	cont "you."
 	done
 
-SlowpokeWellB2FGymGuideText_GotKingsRock:
+SlowpokeWellB2FGymGuideText_GotGreatBalls:
 	text "I'm going to be"
 	line "like SLOWPOKE."
 

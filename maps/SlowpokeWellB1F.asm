@@ -142,8 +142,8 @@ SlowpokeWellB1FTaillessSlowpokeScript:
 SlowpokeWellB1FBoulder:
 	jumpstd StrengthBoulderScript
 
-SlowpokeWellB1FSuperPotion:
-	itemball SUPER_POTION
+SlowpokeWellB1FFreshWater:
+	itemball FRESH_WATER, 4
 
 BugsySlowpokeWellVictoryMovementData:
 	step LEFT
@@ -422,4 +422,4 @@ SlowpokeWellB1F_MapEvents:
 	object_event  6,  2, SPRITE_SLOWPOKE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FTaillessSlowpokeScript, EVENT_SLOWPOKE_WELL_SLOWPOKES
 	object_event 17, 14, SPRITE_KURT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FKurtScript, EVENT_SLOWPOKE_WELL_KURT
 	object_event  3,  2, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeWellB1FBoulder, -1
-	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB1FSuperPotion, EVENT_SLOWPOKE_WELL_B1F_SUPER_POTION
+	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB1FFreshWater, EVENT_SLOWPOKE_WELL_B1F_FRESH_WATERS
