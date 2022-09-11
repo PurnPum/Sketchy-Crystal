@@ -2977,7 +2977,7 @@ wBadges::
 wJohtoBadges:: flag_array NUM_JOHTO_BADGES
 wKantoBadges:: flag_array NUM_KANTO_BADGES
 
-wTMsHMs:: ds NUM_TMS + NUM_HMS
+wTMsHMs:: ds NUM_TMS
 
 wNumItems:: db
 wItems:: ds MAX_ITEMS * 2 + 1

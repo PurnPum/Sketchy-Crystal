@@ -2352,3 +2352,19 @@ SweetScent:
 	statdownmessage
 	statdownfailtext
 	endmove
+
+Flash:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	specialattackdown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	specialdefensedown
+	statdownmessage
+	statdownfailtext
+	endmove

@@ -11,7 +11,7 @@ CharcoalKiln_MapScripts:
 CharcoalKilnBoss:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_SCYTHE_CUT
 	iftrue .GotCut
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .SavedSlowpoke
@@ -37,7 +37,7 @@ CharcoalKilnApprentice:
 	opentext
 	checkevent EVENT_GOT_STARDUST_IN_CHARCOAL_KILN
 	iftrue .YoureTheCoolest
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_SCYTHE_CUT
 	iftrue .Thanks
 	writetext CharcoalKilnApprenticeText1
 	waitbutton

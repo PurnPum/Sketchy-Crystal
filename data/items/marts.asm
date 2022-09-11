@@ -185,13 +185,11 @@ MartGoldenrod5F2:
 MartGoldenrod5F3:
 	db 2 ; # items
 	db TM_SKETCH
-	db TM_ROCK_SMASH
 	db -1 ; end
 
 MartGoldenrod5F4:
 	db 2 ; # items
 	db TM_SKETCH
-	db TM_ROCK_SMASH
 	db -1 ; end
 
 MartOlivine:

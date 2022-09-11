@@ -47,7 +47,7 @@ AskTeachTMHM:
 	push af
 	res NO_TEXT_SCROLL, [hl]
 	ld a, [wCurItem]
-	cp TM01
+	cp TM01 - 1
 	jr c, .NotTMHM
 	call GetTMHMItemMove
 	ld a, [wTempTMHM]
@@ -56,9 +56,9 @@ AskTeachTMHM:
 	call CopyName1
 	ld hl, BootedTMText ; Booted up a TM
 	ld a, [wCurItem]
-	cp HM01
-	jr c, .TM
-	ld hl, BootedHMText ; Booted up an HM
+	;cp HM01
+	;jr c, .TM
+	;ld hl, BootedHMText ; Booted up an HM
 .TM:
 	call PrintText
 	ld hl, ContainedMoveText
@@ -245,7 +245,7 @@ TMHM_ShowTMMoveDescription:
 	ld c, SCREEN_WIDTH - 2
 	call Textbox
 	ld a, [wCurItem]
-	cp NUM_TMS + NUM_HMS + 1
+	cp NUM_TMS + 1
 	jr nc, TMHM_JoypadLoop
 	ld [wTempTMHM], a
 	predef GetTMHMMove
@@ -274,7 +274,7 @@ TMHM_CheckHoveringOverCancel:
 .loop
 	inc c
 	ld a, c
-	cp NUM_TMS + NUM_HMS + 1
+	cp NUM_TMS + 1
 	jr nc, .okay
 	ld a, [hli]
 	and a
@@ -317,7 +317,7 @@ TMHM_ScrollPocket:
 .loop
 	inc c
 	ld a, c
-	cp NUM_TMS + NUM_HMS + 1
+	cp NUM_TMS + 1
 	jp nc, TMHM_JoypadLoop
 	ld a, [hli]
 	and a
@@ -343,7 +343,7 @@ TMHM_DisplayPocketItems:
 .loop2
 	inc c
 	ld a, c
-	cp NUM_TMS + NUM_HMS + 1
+	cp NUM_TMS + 1
 	jr nc, .NotTMHM
 	ld a, [hli]
 	and a
@@ -539,7 +539,7 @@ ConsumeTM:
 
 CountTMsHMs:
 	ld b, 0
-	ld c, NUM_TMS + NUM_HMS
+	ld c, NUM_TMS
 	ld hl, wTMsHMs
 .loop
 	ld a, [hli]

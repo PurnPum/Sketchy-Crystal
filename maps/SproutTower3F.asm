@@ -65,8 +65,8 @@ SproutTower3FRivalScene:
 SageLiScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM05_FLASH
-	iftrue .GotFlash
+	checkevent EVENT_GOT_FLASHLIGHT_FLASH
+	iftrue .GotFlashLight
 	writetextcheckdialogue SageLiSeenText, SageLiSeenTextMin
 	waitbutton
 	closetext
@@ -75,12 +75,12 @@ SageLiScript:
 	startbattle
 	reloadmapafterbattle
 	opentext
-	writetextcheckdialogue SageLiTakeThisFlashText, SageLiTakeThisFlashTextMin
+	writetextcheckdialogue SageLiTakeThisFlashLightText, SageLiTakeThisFlashLightTextMin
 	promptbutton
-	verbosegiveitem HM_FLASH
-	setevent EVENT_GOT_HM05_FLASH
+	verbosegiveitem FLASHLIGHT
+	setevent EVENT_GOT_FLASHLIGHT_FLASH
 	setevent EVENT_BEAT_SAGE_LI
-	writetextcheckdialogue SageLiFlashExplanationText, SageLiFlashExplanationTextMin
+	writetextcheckdialogue SageLiFlashLightExplanationText, SageLiFlashLightExplanationTextMin
 	waitbutton
 	closetext
 	showemote EMOTE_SHOCK, SPROUTTOWER3F_FALKNER, 15
@@ -103,7 +103,7 @@ SageLiScript:
 	special FadeInQuickly
 	end
 
-.GotFlash:
+.GotFlashLight:
 	writetext SageLiAfterBattleText
 	waitbutton
 	closetext
@@ -342,26 +342,25 @@ SageLiBeatenText:
 	text "Ah, excellent!"
 	done
 
-SageLiTakeThisFlashText:
-	text "You and your #-"
-	line "MON should have"
+SageLiTakeThisFlashLightText:
+	text "You should have"
+	line "no problem using"
+	cont "this item."
 
-	para "no problem using"
-	line "this move."
-
-	para "Take this FLASH"
-	line "HM."
+	para "Take this"
+	line "FLASHLIGHT."
 	done
 	
-SageLiTakeThisFlashTextMin:
-	text "Here take this"
+SageLiTakeThisFlashLightTextMin:
+	text "Here, take this"
 	line "junk."
 	done
 
-SageLiFlashExplanationText:
-	text "FLASH illuminates"
-	line "even the darkest"
-	cont "of all places."
+SageLiFlashLightExplanationText:
+	text "A FLASHLIGHT can"
+	line "illuminate even"
+	line "the darkest of"
+	cont "all places."
 
 	para "But to use it out"
 	line "of battle, you"
@@ -370,8 +369,9 @@ SageLiFlashExplanationText:
 	line "from VIOLET's GYM."
 	done
 
-SageLiFlashExplanationTextMin:
-	text "Just use a map…"
+SageLiFlashLightExplanationTextMin:
+	text "Batteries not"
+	line "included."
 	done
 
 SageLiAfterBattleText:

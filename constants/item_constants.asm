@@ -26,7 +26,7 @@
 	const POTION       ; 12
 	const ESCAPE_ROPE  ; 13
 	const REPEL        ; 14
-	const SUPER_ELIXER   ; 15
+	const SUPER_ELIXER ; 15
 	const FIRE_STONE   ; 16
 	const THUNDERSTONE ; 17
 	const WATER_STONE  ; 18
@@ -69,7 +69,7 @@
 	const SUPER_ROD    ; 3d
 	const PP_UP        ; 3e
 	const ETHER        ; 3f
-	const SUPER_ETHER    ; 40
+	const SUPER_ETHER  ; 40
 	const ELIXER       ; 41
 	const RED_SCALE    ; 42
 	const SECRETPOTION ; 43
@@ -213,6 +213,14 @@
 	const BUGRESBERRY  ; cd
 	const STELRESBERRY ; ce
 	const FLYRESBERRY  ; cf
+	const HAMMER	   ; d0
+	const SCYTHE	   ; d1
+	const BALLOONS	   ; d2
+	const SURF_BOARD   ; d3
+	const POWER_GLOVES ; d4
+	const FLASHLIGHT   ; d5
+	const PROPELLER    ; d6
+	const WATER_CANNON ; d7
 
 NUM_ITEMS EQU const_value - 1
 
@@ -235,10 +243,7 @@ ENDM
 
 ; see data/moves/tmhm_moves.asm for moves
 TM01 EQU const_value
-	add_tm SKETCH ; bf
-	const ITEM_C3       ; c3
-	add_tm ROCK_SMASH   ; c7
-	const ITEM_DC       ; dc
+	add_tm SKETCH ; d8
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
@@ -252,30 +257,30 @@ HM{02d:HM_VALUE}_MOVE = \1
 	add_tmnum \1
 ENDM
 
-HM01 EQU const_value
-	add_hm CUT          ; f3
-	add_hm FLY          ; f4
-	add_hm SURF         ; f5
-	add_hm STRENGTH     ; f6
-	add_hm FLASH        ; f7
-	add_hm WHIRLPOOL    ; f8
-	add_hm WATERFALL    ; f9
-NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
+;HM01 EQU const_value
+;	add_hm CUT          ; f3
+;	add_hm FLY          ; f4
+;	add_hm SURF         ; f5
+;	add_hm STRENGTH     ; f6
+;	add_hm FLASH        ; f7
+;	add_hm WHIRLPOOL    ; f8
+;	add_hm WATERFALL    ; f9
+;NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO
 ; Defines two constants:
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 58
 ; - MT##_MOVE: alias for the move id, equal to the value of \1
-MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
+MT_VALUE = __tmhm_value__ - NUM_TMS
 MT{02d:MT_VALUE}_MOVE = \1
 	add_tmnum \1
 ENDM
 
 MT01 EQU const_value
-	add_mt TELEPORT
-NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
+	add_mt PROTECT
+NUM_TUTORS = __tmhm_value__ - NUM_TMS - 1
 
-NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
+NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_TUTORS
 
 	const ITEM_FA       ; fa
 

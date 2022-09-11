@@ -8,17 +8,17 @@ OlivineCafe_MapScripts:
 
 	def_callbacks
 
-OlivineCafeStrengthSailorScript:
+OlivineCafePowerGlovesSailorScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM04_STRENGTH
-	iftrue .GotStrength
-	writetext OlivineCafeStrengthSailorText
+	checkevent EVENT_GOT_POWER_GLOVES_STRENGTH
+	iftrue .GotPowerGloves
+	writetext OlivineCafePowerGlovesSailorText
 	promptbutton
-	verbosegiveitem HM_STRENGTH
-	setevent EVENT_GOT_HM04_STRENGTH
-.GotStrength:
-	writetext OlivineCafeStrengthSailorText_GotStrength
+	verbosegiveitem POWER_GLOVES
+	setevent EVENT_GOT_POWER_GLOVES_STRENGTH
+.GotPowerGloves:
+	writetext OlivineCafePowerGlovesSailorText_GotPowerGloves
 	waitbutton
 	closetext
 	end
@@ -29,7 +29,7 @@ OlivineCafeFishingGuruScript:
 OlivineCafeSailorScript:
 	jumptextfaceplayer OlivineCafeSailorText
 
-OlivineCafeStrengthSailorText:
+OlivineCafePowerGlovesSailorText:
 	text "Hah! Your #MON"
 	line "sure look like"
 	cont "lightweights!"
@@ -43,7 +43,7 @@ OlivineCafeStrengthSailorText:
 	cont "STRENGTH!"
 	done
 
-OlivineCafeStrengthSailorText_GotStrength:
+OlivineCafePowerGlovesSailorText_GotPowerGloves:
 	text "On the sea, the"
 	line "only thing you can"
 
@@ -88,6 +88,6 @@ OlivineCafe_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  4,  3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCafeStrengthSailorScript, -1
+	object_event  4,  3, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCafePowerGlovesSailorScript, -1
 	object_event  7,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCafeFishingGuruScript, -1
 	object_event  6,  6, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCafeSailorScript, -1

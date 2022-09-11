@@ -506,9 +506,11 @@ TrySurfOW::
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld d, SURF
-	call CheckPartyMove
-	jr c, .quit
+	ld a, SURF_BOARD
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .quit
 
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
@@ -705,9 +707,11 @@ Script_UsedWaterfall:
 	text_end
 
 TryWaterfallOW::
-	ld d, WATERFALL
-	call CheckPartyMove
-	jr c, .failed
+	ld a, WATER_CANNON
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .failed
 	ld de, ENGINE_RISINGBADGE
 	call CheckEngineFlag
 	jr c, .failed
@@ -1057,9 +1061,11 @@ BouldersMayMoveText:
 	text_end
 
 TryStrengthOW:
-	ld d, STRENGTH
-	call CheckPartyMove
-	jr c, .nope
+	ld a, POWER_GLOVES
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .nope
 
 	ld de, ENGINE_PLAINBADGE
 	call CheckEngineFlag
@@ -1191,9 +1197,11 @@ DisappearWhirlpool:
 	ret
 
 TryWhirlpoolOW::
-	ld d, WHIRLPOOL
-	call CheckPartyMove
-	jr c, .failed
+	ld a, PROPELLER
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .failed
 	ld de, ENGINE_GLACIERBADGE
 	call CheckEngineFlag
 	jr c, .failed
@@ -1410,9 +1418,11 @@ AskRockSmashText:
 	text_end
 
 HasRockSmash:
-	ld d, ROCK_SMASH
-	call CheckPartyMove
-	jr nc, .yes
+	ld a, HAMMER
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .yes
 ; no
 	ld a, 1
 	jr .done
@@ -1761,9 +1771,11 @@ GotOffBikeText:
 	text_end
 
 TryCutOW::
-	ld d, CUT
-	call CheckPartyMove
-	jr c, .cant_cut
+	ld a, SCYTHE
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .cant_cut
 
 	ld de, ENGINE_HIVEBADGE
 	call CheckEngineFlag

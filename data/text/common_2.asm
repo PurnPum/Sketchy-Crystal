@@ -301,9 +301,8 @@ _CantUseItemText::
 	prompt
 
 _UseCutText::
-	text_ram wStringBuffer2
-	text " used"
-	line "CUT!"
+	text "<PLAYER> used"
+	line "the SCYTHE to CUT!"
 	prompt
 
 _CutNothingText::
@@ -312,22 +311,21 @@ _CutNothingText::
 	prompt
 
 _BlindingFlashText::
-	text "A blinding FLASH"
-	line "lights the area!@"
+	text "<PLAYER> turned"
+	line "the FLASHLIGHT on!@"
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
+	;text_end ; unreferenced
 
 _UsedSurfText::
-	text_ram wStringBuffer2
-	text " used"
-	line "SURF!"
+	text "<PLAYER> got"
+	line "on the SURF BOARD!"
 	done
 
 _CantSurfText::
-	text "You can't SURF"
-	line "here."
+	text "You can't use the"
+	line "SURF BOARD here."
 	prompt
 
 _AlreadySurfingText::
@@ -341,9 +339,8 @@ _AskSurfText::
 	done
 
 _UseWaterfallText::
-	text_ram wStringBuffer2
-	text " used"
-	line "WATERFALL!"
+	text "<PLAYER> used the"
+	line "WATER CANNON!"
 	done
 
 _HugeWaterfallText::
@@ -353,7 +350,7 @@ _HugeWaterfallText::
 
 _AskWaterfallText::
 	text "Do you want to use"
-	line "WATERFALL?"
+	line "the WATER CANNON?"
 	done
 
 _UseDigText::
@@ -385,28 +382,27 @@ _CantUseTeleportText::
 	done
 
 _AlreadyUsingStrengthText::
-	text "A #MON is using"
-	line "STRENGTH already."
+	text "You're already"
+	line "wearing the POWER"
+	cont "GLOVES."
 	prompt
 
 _UseStrengthText::
-	text_ram wStringBuffer2
-	text " used"
-	line "STRENGTH!"
+	text "<PLAYER> put the"
+	line "POWER GLOVES on."
 	done
 
 _MoveBoulderText::
-	text_ram wStringBuffer1
-	text " can"
+	text "<PLAYER> can now"
 	line "move boulders."
 	prompt
 
 _AskStrengthText::
-	text "A #MON may be"
-	line "able to move this."
+	text "An item may allow"
+	line "you to move this."
 
-	para "Want to use"
-	line "STRENGTH?"
+	para "Want to put the"
+	line "POWER GLOVES on?"
 	done
 
 _BouldersMoveText::
@@ -415,30 +411,30 @@ _BouldersMoveText::
 	done
 
 _BouldersMayMoveText::
-	text "A #MON may be"
-	line "able to move this."
+	text "An item may allow"
+	line "you to move this."
 	done
 
 _UseWhirlpoolText::
-	text_ram wStringBuffer2
-	text " used"
-	line "WHIRLPOOL!"
+	text "<PLAYER> used the"
+	line "PROPELLER to rem-"
+	cont "ove the whirlpool."
 	prompt
 
 _MayPassWhirlpoolText::
 	text "It's a vicious"
 	line "whirlpool!"
 
-	para "A #MON may be"
-	line "able to pass it."
+	para "An item may be"
+	line "able to remove it."
 	done
 
 _AskWhirlpoolText::
 	text "A whirlpool is in"
 	line "the way."
 
-	para "Want to use"
-	line "WHIRLPOOL?"
+	para "Want to remove it"
+	line "using a PROPELLER?"
 	done
 
 _UseHeadbuttText::
@@ -460,13 +456,12 @@ _AskHeadbuttText::
 	done
 
 _UseRockSmashText::
-	text_ram wStringBuffer2
-	text " used"
-	line "ROCK SMASH!"
+	text "<PLAYER> used"
+	line "the HAMMER!"
 	prompt
 
 _MaySmashText::
-	text "Maybe a #MON"
+	text "Maybe an item"
 	line "can break this."
 	done
 
@@ -474,8 +469,8 @@ _AskRockSmashText::
 	text "This rock looks"
 	line "breakable."
 
-	para "Want to use ROCK"
-	line "SMASH?"
+	para "Want to use the"
+	line "HAMMER?"
 	done
 
 _RodBiteText::
@@ -515,7 +510,8 @@ _AskCutText::
 	text "This tree can be"
 	line "CUT!"
 
-	para "Want to use CUT?"
+	para "Want to use the"
+	line "SCYTHE?"
 	done
 
 _CanCutText::
