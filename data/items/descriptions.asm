@@ -211,7 +211,7 @@ ItemDescriptions:
 	dw HammerDesc
 	dw ScytheDesc
 	dw BalloonsDesc
-	dw SurfBoardDesc
+	dw SwimSuitDesc
 	dw PowerGlovesDesc
 	dw FlashlightDesc
 	dw PropellerDesc
@@ -1069,9 +1069,9 @@ BalloonsDesc:
 	db	 "Allows travelling"
 	next "to known areas.@"
 	
-SurfBoardDesc:
+SwimSuitDesc:
 	db	 "Allows the user to"
-	next "surf in water.@"
+	next "swim in water.@"
 	
 PowerGlovesDesc:
 	db	 "Lets the user lift"

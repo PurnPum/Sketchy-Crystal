@@ -74,7 +74,7 @@ DanceTheaterSurfGuy:
 	opentext
 	writetext SurfGuyNeverLeftAScratchText
 	promptbutton
-	checkevent EVENT_GOT_SURF_BOARD_SURF
+	checkevent EVENT_GOT_SWIMSUIT_SURF
 	iftrue SurfGuyAlreadyGaveSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_NAOKO
 	iffalse .KimonoGirlsUndefeated
@@ -105,8 +105,8 @@ DanceTheaterSurfGuy:
 .GetSurf:
 	writetext SurfGuyLikeADanceText
 	promptbutton
-	verbosegiveitem SURF_BOARD
-	setevent EVENT_GOT_SURF_BOARD_SURF
+	verbosegiveitem SWIMSUIT
+	setevent EVENT_GOT_SWIMSUIT_SURF
 	writetext SurfGuySurfExplanationText
 	waitbutton
 	closetext
@@ -279,11 +279,11 @@ SurfGuyLikeADanceText:
 
 SurfGuySurfExplanationText:
 	text "That's a"
-	line "SURF BOARD."
+	line "SWIMSUIT."
 
 	para "It's an item that"
-	line "lets you ride the"
-	cont "waves across"
+	line "lets you swim"
+	cont "across bodies of"
 	cont "water."
 	done
 

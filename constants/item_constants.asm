@@ -216,7 +216,7 @@
 	const HAMMER	   ; d0
 	const SCYTHE	   ; d1
 	const BALLOONS	   ; d2
-	const SURF_BOARD   ; d3
+	const SWIMSUIT   ; d3
 	const POWER_GLOVES ; d4
 	const FLASHLIGHT   ; d5
 	const PROPELLER    ; d6

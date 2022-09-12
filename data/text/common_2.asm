@@ -319,23 +319,23 @@ _BlindingFlashText::
 	;text_end ; unreferenced
 
 _UsedSurfText::
-	text "<PLAYER> got"
-	line "on the SURF BOARD!"
+	text "<PLAYER> put"
+	line "the SWIMSUIT on!"
 	done
 
 _CantSurfText::
-	text "You can't use the"
-	line "SURF BOARD here."
+	text "You can't"
+	line "SWIM here."
 	prompt
 
 _AlreadySurfingText::
 	text "You're already"
-	line "SURFING."
+	line "SWIMMING."
 	prompt
 
 _AskSurfText::
 	text "The water is calm."
-	line "Want to SURF?"
+	line "Want to SWIM?"
 	done
 
 _UseWaterfallText::

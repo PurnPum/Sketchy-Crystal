@@ -271,7 +271,14 @@ GetBalloonsIcon:
 	ret
 	
 FlyFunction_GetBalloonsOWIcon:
-	ld a , ICON_BALLOONSOW
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr z, .male
+	ld a , ICON_BALLOONSKRISOW
+	jr .done
+.male
+	ld a , ICON_BALLOONSCHRISOW
+.done
 	ld [wCurIcon], a
 	ld a, e
 	call GetIcon_a

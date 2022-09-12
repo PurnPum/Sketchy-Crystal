@@ -506,7 +506,7 @@ TrySurfOW::
 	call CheckEngineFlag
 	jr c, .quit
 
-	ld a, SURF_BOARD
+	ld a, SWIMSUIT
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
