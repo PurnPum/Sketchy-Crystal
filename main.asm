@@ -313,8 +313,6 @@ INCLUDE "engine/battle/battle_transition.asm"
 INCLUDE "engine/events/field_moves.asm"
 INCLUDE "engine/events/magnet_train.asm"
 INCLUDE "engine/battle/battlestart_copytilemapatonce.asm"
-INCLUDE "engine/gfx/sprites.asm"
-INCLUDE "engine/gfx/mon_icons.asm"
 
 
 SECTION "bank24", ROMX
@@ -325,6 +323,11 @@ INCLUDE "engine/pokegear/pokegear.asm"
 INCLUDE "engine/events/fish.asm"
 INCLUDE "engine/games/slot_machine.asm"
 
+
+SECTION "bank25", ROMX
+
+INCLUDE "engine/gfx/sprites.asm"
+INCLUDE "engine/gfx/mon_icons.asm"
 
 SECTION "Phone Scripts 1", ROMX
 

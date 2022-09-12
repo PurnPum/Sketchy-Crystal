@@ -40,7 +40,8 @@
 	const ICON_SUDOWOODO
 	const ICON_BIGMON
 	const ICON_BALLOONS
-	const ICON_BALLOONSOW
+	const ICON_BALLOONSOWCHRIS
+	const ICON_BALLOONSOWKRIS
 DEF NUM_ICONS EQU const_value - 1
 
 ; LoadMenuMonIcon.Jumptable indexes (see engine/gfx/mon_icons.asm)
