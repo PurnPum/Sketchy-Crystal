@@ -31,7 +31,7 @@ DEF NUM_DECO_TYPES EQU const_value - 1
 	const VIRTUAL_BOY
 	const GOLD_TROPHY
 	const SILVER_TROPHY
-	const SURF_PIKA_DOLL
+	;const SURF_PIKA_DOLL
 	const _BED
 	const _CARPET
 	const _POSTER
@@ -114,7 +114,7 @@ ENDM
 ; FindOwnedOrnaments.ornaments values (see engine/overworld/decorations.asm)
 	const DOLLS
 	deco  PIKACHU_DOLL
-	deco  SURF_PIKACHU_DOLL
+	;deco  SURF_PIKACHU_DOLL
 	deco  CLEFAIRY_DOLL
 	deco  JIGGLYPUFF_DOLL
 	deco  BULBASAUR_DOLL

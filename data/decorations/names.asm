@@ -13,7 +13,7 @@ DecorationNames:
 	li "VIRTUAL BOY"
 	li "GOLD TROPHY"
 	li "SILVER TROPHY"
-	li "SURF PIKACHU DOLL"
+	;li "SURF PIKACHU DOLL"
 	li " BED"
 	li " CARPET"
 	li " POSTER"

@@ -224,7 +224,7 @@ ItemEffects:
 	dw HammerEffect        ; HAMMER
 	dw ScytheEffect        ; SCYTHE
 	dw BalloonsEffect      ; BALLOONS
-	dw SurfBoardEffect     ; SURF_BOARD
+	dw SwimSuitEffect      ; SWIMSUIT
 	dw PowerGlovesEffect   ; POWER_GLOVES
 	dw FlashlightEffect    ; FLASHLIGHT
 	dw PropellerEffect     ; PROPELLER
@@ -3009,7 +3009,7 @@ BalloonsEffect:
 	farcall MonMenu_Fly
 	ret
 
-SurfBoardEffect:
+SwimSuitEffect:
 	farcall MonMenu_Surf
 	ret
 

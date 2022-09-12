@@ -210,7 +210,7 @@ ItemNames::
 	li "HAMMER"
 	li "SCYTHE"
 	li "BALLOONS"
-	li "SURF BOARD"
+	li "SWIMSUIT"
 	li "POWER GLOVES"
 	li "FLASHLIGHT"
 	li "PROPELLER"
