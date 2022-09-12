@@ -274,10 +274,10 @@ FlyFunction_GetBalloonsOWIcon:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male
-	ld a , ICON_BALLOONSKRISOW
+	ld a, ICON_BALLOONSOWKRIS
 	jr .done
 .male
-	ld a , ICON_BALLOONSCHRISOW
+	ld a, ICON_BALLOONSOWCHRIS
 .done
 	ld [wCurIcon], a
 	ld a, e

@@ -41,5 +41,6 @@ IconPointers:
 	dw SudowoodoIcon
 	dw BigmonIcon
 	dw BalloonsIcon
-	dw BalloonsOWIcon
+	dw BalloonsOWChrisIcon
+	dw BalloonsOWKrisIcon
 	assert_table_length NUM_ICONS + 1
