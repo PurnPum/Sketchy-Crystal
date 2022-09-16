@@ -9145,13 +9145,24 @@ GetTrainerBackpic:
 	jr z, .Chris
 
 ; It's a girl.
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	jr nz, .not_swim ;Only jump if the player state is not surfing
+	farcall GetKrisSwimBackpic
+	ret
+.not_swim
 	farcall GetKrisBackpic
 	ret
 
 .Chris:
 ; It's a boy.
-	ld b, BANK(ChrisBackpic)
 	ld hl, ChrisBackpic
+	ld b, BANK(ChrisBackpic)
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	jr nz, .Decompress ;Only jump if the player state is not surfing
+	farcall GetChrisSwimBackpic
+	ret
 
 .Decompress:
 	ld de, vTiles2 tile $31
