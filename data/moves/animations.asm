@@ -3322,7 +3322,7 @@ BattleAnim_Rage:
 	anim_ret
 
 BattleAnim_FlashCannon:
-	anim_2gfx ANIM_GFX_CHARGE, ANIM_GFX_REFLECT
+	anim_3gfx ANIM_GFX_CHARGE, ANIM_GFX_REFLECT, ANIM_GFX_HIT
 	anim_sound 0, 0, SFX_SHINE
 	anim_bgeffect ANIM_BG_FADE_MON_TO_BLACK, $0, BG_EFFECT_USER, $40
 	anim_wait 8
@@ -3344,6 +3344,7 @@ BattleAnim_FlashCannon:
 	anim_obj ANIM_OBJ_RED_ENERGY_BALL, 54, 88, $2
 	anim_wait 42
 	anim_sound 0, 0, SFX_OUTRAGE
+	anim_obj ANIM_OBJ_HIT_BIG, 134, 48, $1
 	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $1
 	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $2
 	anim_obj ANIM_OBJ_OUTWARDS_RED_CHARGE, 134, 48, $3
