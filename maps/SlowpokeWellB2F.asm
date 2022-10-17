@@ -10,19 +10,19 @@ SlowpokeWellB2F_MapScripts:
 SlowpokeWellB2FGymGuideScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_GREAT_BALLS_IN_SLOWPOKE_WELL
-	iftrue .GotGreatBalls
+	checkevent EVENT_GOT_ULTRA_BALLS_IN_SLOWPOKE_WELL
+	iftrue .GotUltraBalls
 	writetext SlowpokeWellB2FGymGuideText
 	promptbutton
-	verbosegiveitem GREAT_BALL, 5
+	verbosegiveitem ULTRA_BALL, 5
 	iffalse .NoRoom
-	setevent EVENT_GOT_GREAT_BALLS_IN_SLOWPOKE_WELL
+	setevent EVENT_GOT_ULTRA_BALLS_IN_SLOWPOKE_WELL
 .NoRoom:
 	closetext
 	end
 
-.GotGreatBalls:
-	writetext SlowpokeWellB2FGymGuideText_GotGreatBalls
+.GotUltraBalls:
+	writetext SlowpokeWellB2FGymGuideText_GotUltraBalls
 	waitbutton
 	closetext
 	end
@@ -50,7 +50,7 @@ SlowpokeWellB2FGymGuideText:
 	cont "you."
 	done
 
-SlowpokeWellB2FGymGuideText_GotGreatBalls:
+SlowpokeWellB2FGymGuideText_GotUltraBalls:
 	text "I'm going to be"
 	line "like SLOWPOKE."
 
