@@ -480,14 +480,14 @@ DayCareSign:
 Route34Nugget:
 	itemball NUGGET
 	
-Route34SoftSand:
-	itemball SOFT_SAND
+Route34ThickClub:
+	itemball THICK_CLUB
 
-Route34HiddenRareCandy:
-	hiddenitem RARE_CANDY, EVENT_ROUTE_34_HIDDEN_RARE_CANDY
+Route34HiddenSodaPop:
+	hiddenitem SODA_POP, EVENT_ROUTE_34_HIDDEN_SODA_POP
 
-Route34HiddenSuperPotion:
-	hiddenitem SUPER_POTION, EVENT_ROUTE_34_HIDDEN_SUPER_POTION
+Route34HiddenSuperEther:
+	hiddenitem SUPER_ETHER, EVENT_ROUTE_34_HIDDEN_SUPER_ETHER
 
 Route34MovementData_DayCareManWalksBackInside:
 	slow_step LEFT
@@ -770,8 +770,8 @@ Route34_MapEvents:
 	bg_event 16,  6, BGEVENT_READ, Route34Sign
 	bg_event 17, 33, BGEVENT_READ, Route34TrainerTips
 	bg_event 14, 13, BGEVENT_READ, DayCareSign
-	bg_event 12, 32, BGEVENT_ITEM, Route34HiddenRareCandy
-	bg_event 21, 19, BGEVENT_ITEM, Route34HiddenSuperPotion
+	bg_event 23, 26, BGEVENT_ITEM, Route34HiddenSodaPop
+	bg_event 25, 16, BGEVENT_ITEM, Route34HiddenSuperEther
 
 	def_object_events
 	object_event 16,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1
@@ -786,5 +786,5 @@ Route34_MapEvents:
 	object_event 23, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainerfIrene, -1
 	object_event 17, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainerfJenn, -1
 	object_event 17, 22, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKate, -1
-	object_event 11, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
-	object_event 15, 46, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_ITEMBALL, 0, Route34SoftSand, EVENT_ROUTE_34_SOFTSAND
+	object_event 15, 49, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
+	object_event 14, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_ITEMBALL, 0, Route34ThickClub, EVENT_ROUTE_34_THICK_CLUB
