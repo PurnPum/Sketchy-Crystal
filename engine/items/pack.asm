@@ -480,6 +480,8 @@ UseItem:
 .Field:
 	call DoItemEffect
 	ld a, [wItemEffectSucceeded]
+	cp $02
+	ret z
 	and a
 	jr z, .Oak
 	ld a, PACKSTATE_QUITRUNSCRIPT
