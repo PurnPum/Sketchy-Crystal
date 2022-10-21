@@ -335,7 +335,7 @@ SageLiSeenText:
 	
 SageLiSeenTextMin:
 	text "One sec let me"
-	line "heal my bois."
+	line "heal my boys."
 	done
 	
 SageLiBeatenText:
