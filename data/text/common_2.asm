@@ -400,10 +400,7 @@ _MoveBoulderText::
 	prompt
 
 _AskStrengthText::
-	text "An item may allow"
-	line "you to move this."
-
-	para "Want to put the"
+	text "Want to put the"
 	line "POWER GLOVES on?"
 	done
 

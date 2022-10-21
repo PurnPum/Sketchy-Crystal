@@ -3075,7 +3075,7 @@ wGoldenrodGymSceneID::                            db
 wGoldenrodMagnetTrainStationSceneID::             db
 wGoldenrodPokecenter1FSceneID::                   db
 wOlivineCitySceneID::                             db
-wRoute34SceneID::                                 db
+wMountMortarB1FSceneID::                          db
 wRoute34IlexForestGateSceneID::                   db
 wEcruteakTinTowerEntranceSceneID::                db
 wWiseTriosRoomSceneID::                           db
