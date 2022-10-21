@@ -24,7 +24,7 @@ MountMortarB1FKiyoScript:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_HERACROSS_FROM_KIYO
-	iftrue .GotTyrogue
+	iftrue .GotHeracross
 	checkevent EVENT_BEAT_BLACKBELT_KIYO
 	iftrue .BeatKiyo
 	writetext MountMortarB1FKiyoIntroText
@@ -38,7 +38,7 @@ MountMortarB1FKiyoScript:
 	setscene SCENE_FINISHED
 	opentext
 .BeatKiyo:
-	writetext MountMortarB1FTyrogueRewardText
+	writetext MountMortarB1FHeracrossRewardText
 	promptbutton
 	waitsfx
 	readvar VAR_PARTYCOUNT
@@ -48,8 +48,8 @@ MountMortarB1FKiyoScript:
 	waitsfx
 	givepoke HERACROSS, 30 ;TBD
 	setevent EVENT_GOT_HERACROSS_FROM_KIYO
-.GotTyrogue:
-	writetext MountMortarB1FKiyoGotTyrogueText
+.GotHeracross:
+	writetext MountMortarB1FKiyoGotHeracrossText
 	waitbutton
 	closetext
 	end
@@ -101,7 +101,7 @@ MountMortarB1FKiyoWinText:
 	line "I'm beaten!"
 	done
 
-MountMortarB1FTyrogueRewardText:
+MountMortarB1FHeracrossRewardText:
 	text "I… I'm crushed…"
 
 	para "My training is"
@@ -119,21 +119,23 @@ MountMortarB1FTyrogueRewardText:
 
 MountMortarB1FReceiveMonText:
 	text "<PLAYER> received"
-	line "TYROGUE."
+	line "HERACROSS."
 	done
 
-MountMortarB1FKiyoGotTyrogueText:
-	text "TYROGUE is a"
+MountMortarB1FKiyoGotHeracrossText:
+	text "HERACROSS is a"
 	line "fighting-type."
 
-	para "It evolves into a"
-	line "tougher #MON."
+	para "It hates flying-"
+	line "type #MON."
 
-	para "Keep up the hard"
-	line "work. I'll keep"
-	cont "training too."
+	para "However, it can"
+	line "deal with psychic-"
+	cont "type pokemon if it"
+	cont "is faster."
 
-	para "Farewell!"
+	para "I leave for now,"
+	line "Farewell!"
 	done
 
 MountMortarB1FKiyoFullPartyText:
