@@ -15,7 +15,7 @@ TreeMons:
 	dw TreeMonSet_Forest
 	dw TreeMonSet_Rock
 	assert_table_length NUM_TREEMON_SETS
-	dw TreeMonSet_City ; unused
+	;dw TreeMonSet_City ; unused
 
 ; Two tables each (common, rare).
 ; Structure:
