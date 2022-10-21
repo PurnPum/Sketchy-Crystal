@@ -245,3 +245,4 @@
 	tilecoll WATER, WATER, WATER, WATER ; f4
 	tilecoll LADDER, LADDER, LADDER, LADDER ; f5
 	tilecoll LADDER, LADDER, LADDER, LADDER ; f6
+	tilecoll WATER, WATER, WATER, WATER ; f7

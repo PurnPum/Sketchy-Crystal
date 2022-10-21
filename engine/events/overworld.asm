@@ -1015,7 +1015,7 @@ Script_UsedStrength:
 	writetext .UseStrengthText
 	readmem wStrengthSpecies
 	cry 0 ; plays [wStrengthSpecies] cry
-	pause 3
+	pause 10
 	writetext .MoveBoulderText
 	closetext
 	end
