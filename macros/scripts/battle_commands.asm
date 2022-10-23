@@ -34,7 +34,7 @@ ENDM
 	command mirrormove              ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
-	command payday                  ; 1e
+	;command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
 	command storeenergy             ; 21
@@ -42,14 +42,14 @@ ENDM
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
-	command ohko                    ; 26
+	;command ohko                    ; 26
 	command recoil                  ; 27
 	command mist                    ; 28
 	command focusenergy             ; 29
 	command confuse                 ; 2a
 	command confusetarget           ; 2b
 	command heal                    ; 2c
-	command transform               ; 2d
+	;command transform               ; 2d
 	command screen                  ; 2e
 	command poison                  ; 2f
 	command paralyze                ; 30
@@ -58,7 +58,7 @@ ENDM
 	command mimic                   ; 33
 	command metronome               ; 34
 	command leechseed               ; 35
-	command splash                  ; 36
+	;command splash                  ; 36
 	command disable                 ; 37
 	command cleartext               ; 38
 	command charge                  ; 39
@@ -106,7 +106,7 @@ ENDM
 	command frustrationpower        ; 63
 	command safeguard               ; 64
 	command checksafeguard          ; 65
-	command getmagnitude            ; 66
+	;command getmagnitude            ; 66
 	command batonpass               ; 67
 	command pursuit                 ; 68
 	command clearhazards            ; 69
@@ -153,8 +153,8 @@ ENDM
 	command statupanim              ; 92
 	command switchturn              ; 93
 	command fakeout                 ; 94
-	command bellydrum               ; 95
-	command psychup                 ; 96
+	;command bellydrum               ; 95
+	;command psychup                 ; 96
 	command rage                    ; 97
 	command doubleflyingdamage      ; 98
 	command doubleundergrounddamage ; 99

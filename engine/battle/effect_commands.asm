@@ -5507,49 +5507,48 @@ BattleCommand_HeldFlinch:
 	set SUBSTATUS_FLINCHED, [hl]
 	ret
 
-BattleCommand_OHKO:
-	call ResetDamage
-	ld a, [wTypeModifier]
-	and $7f
-	jr z, .no_effect
-	ld hl, wEnemyMonLevel
-	ld de, wBattleMonLevel
-	ld bc, wPlayerMoveStruct + MOVE_ACC
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .got_move_accuracy
-	push hl
-	ld h, d
-	ld l, e
-	pop de
-	ld bc, wEnemyMoveStruct + MOVE_ACC
-.got_move_accuracy
-	ld a, [de]
-	sub [hl]
-	jr c, .no_effect
-	add a
-	ld e, a
-	ld a, [bc]
-	add e
-	jr nc, .finish_ohko
-	ld a, $ff
-.finish_ohko
-	ld [bc], a
-	call BattleCommand_CheckHit
-	ld hl, wCurDamage
-	ld a, $ff
-	ld [hli], a
-	ld [hl], a
-	ld a, $2
-	ld [wCriticalHit], a
-	ret
-
-.no_effect
-	ld a, $ff
-	ld [wCriticalHit], a
-	ld a, $1
-	ld [wAttackMissed], a
-	ret
+;BattleCommand_OHKO:
+;	call ResetDamage
+;	ld a, [wTypeModifier]
+;	and $7f
+;	jr z, .no_effect
+;	ld hl, wEnemyMonLevel
+;	ld de, wBattleMonLevel
+;	ld bc, wPlayerMoveStruct + MOVE_ACC
+;	ldh a, [hBattleTurn]
+;	and a
+;	jr z, .got_move_accuracy
+;	push hl
+;	ld h, d
+;	ld l, e
+;	pop de
+;	ld bc, wEnemyMoveStruct + MOVE_ACC
+;.got_move_accuracy
+;	ld a, [de]
+;	sub [hl]
+;	jr c, .no_effect
+;	add a
+;	ld e, a
+;	ld a, [bc]
+;	add e
+;	jr nc, .finish_ohko
+;	ld a, $ff
+;.finish_ohko
+;	ld [bc], a
+;	call BattleCommand_CheckHit
+;	ld hl, wCurDamage
+;	ld a, $ff
+;	ld [hli], a
+;	ld [hl], a
+;	ld a, $2
+;	ld [wCriticalHit], a
+;	ret
+;.no_effect
+;	ld a, $ff
+;	ld [wCriticalHit], a
+;	ld a, $1
+;	ld [wAttackMissed], a
+;	ret
 
 BattleCommand_CheckCharge:
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -5768,6 +5767,8 @@ BattleCommand_Recoil:
 	call GetBattleVar
 	cp EFFECT_RECOIL_HIT_4TH
 	jr z, .a_4th_of_recoil
+	cp EFFECT_SELFDESTRUCT
+	jp z, .boom_recoil ; handle the reworked self-destruct
 .a_3rd_of_recoil
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
@@ -5824,6 +5825,35 @@ BattleCommand_Recoil:
 	or c
 	jr nz, .min_damage
 	inc c
+	jr .min_damage
+.boom_recoil		; Recoil for Self-Destruct (75% of max HP)
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld d, a
+; get 3/4 max HP or 1 HP, whichever is higher (should never be 1 HP). Max HP is already in hl
+	ld a, [hli]
+	ld b, a
+	ld a, [hld]
+	ld c, a			; bc = Max HP
+	push de
+	srl b
+	rr c			; bc = 1/2 Max HP
+	ld d, b
+	ld e, c			; de = bc
+	srl b
+	rr c			; bc = 1/4 Max HP
+	push hl
+	ld hl, $00		; set hl to 0
+	add hl, de		; hl = hl+de = 1/2 Max HP
+	add hl, bc		; hl = hl+bc = 3/4 Max HP
+	ld b, h
+	ld c, l			; bc = 3/4 Max HP
+	pop hl
+	pop de
+	ld a, b
+	or c
+	jr nz, .min_damage
+	inc c
 .min_damage
 	ld a, [hli]
 	ld [wHPBuffer1 + 1], a
@@ -5861,6 +5891,12 @@ BattleCommand_Recoil:
 	predef AnimateHPBar
 	call RefreshBattleHuds
 	ld hl, RecoilText
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_SELFDESTRUCT
+	jr nz, .finish
+	ld hl, SelfDestructText
+.finish
 	jp StdBattleTextbox
 
 BattleCommand_ConfuseTarget:
@@ -5904,10 +5940,10 @@ BattleCommand_Confuse:
 
 .not_already_confused
 	call CheckSubstituteOpp
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, BattleCommand_Confuse_CheckSnore_ConfuseHit
 	ld a, [wAttackMissed]
 	and a
-	jr nz, BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit
+	jr nz, BattleCommand_Confuse_CheckSnore_ConfuseHit
 BattleCommand_FinishConfusingTarget:
 	ld bc, wEnemyConfuseCount
 	ldh a, [hBattleTurn]
@@ -5930,8 +5966,6 @@ BattleCommand_FinishConfusingTarget:
 	jr z, .got_effect
 	cp EFFECT_SNORE
 	jr z, .got_effect
-	cp EFFECT_SWAGGER
-	jr z, .got_effect
 	call AnimateCurrentMove
 
 .got_effect
@@ -5951,14 +5985,12 @@ BattleCommand_FinishConfusingTarget:
 	ld hl, UseConfusionHealingItem
 	jp CallBattleCore
 
-BattleCommand_Confuse_CheckSnore_Swagger_ConfuseHit:
+BattleCommand_Confuse_CheckSnore_ConfuseHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_CONFUSE_HIT
 	ret z
 	cp EFFECT_SNORE
-	ret z
-	cp EFFECT_SWAGGER
 	ret z
 	jp PrintDidntAffect2
 
@@ -6138,11 +6170,7 @@ INCLUDE "engine/battle/move_effects/mimic.asm"
 
 INCLUDE "engine/battle/move_effects/leech_seed.asm"
 
-INCLUDE "engine/battle/move_effects/splash.asm"
-
 INCLUDE "engine/battle/move_effects/disable.asm"
-
-INCLUDE "engine/battle/move_effects/pay_day.asm"
 
 INCLUDE "engine/battle/move_effects/conversion.asm"
 
@@ -6257,7 +6285,7 @@ BattleCommand_Heal:
 	ld hl, HPIsFullText
 	jp StdBattleTextbox
 
-INCLUDE "engine/battle/move_effects/transform.asm"
+;INCLUDE "engine/battle/move_effects/transform.asm"
 
 BattleEffect_ButItFailed:
 	call AnimateFailedMove
@@ -6545,7 +6573,7 @@ BattleCommand_CheckSafeguard:
 	call StdBattleTextbox
 	jp EndMoveEffect
 
-INCLUDE "engine/battle/move_effects/magnitude.asm"
+;INCLUDE "engine/battle/move_effects/magnitude.asm"
 
 INCLUDE "engine/battle/move_effects/baton_pass.asm"
 
@@ -6653,9 +6681,9 @@ INCLUDE "engine/battle/move_effects/rain_dance.asm"
 
 INCLUDE "engine/battle/move_effects/sunny_day.asm"
 
-INCLUDE "engine/battle/move_effects/belly_drum.asm"
+;INCLUDE "engine/battle/move_effects/belly_drum.asm"
 
-INCLUDE "engine/battle/move_effects/psych_up.asm"
+;INCLUDE "engine/battle/move_effects/psych_up.asm"
 
 INCLUDE "engine/battle/move_effects/mirror_coat.asm"
 

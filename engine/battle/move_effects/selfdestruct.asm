@@ -4,6 +4,11 @@ BattleCommand_Selfdestruct:
 	ld [wNumHits], a
 	ld c, 3
 	call DelayFrames
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp SELFDESTRUCT
+	jr z, .Selfdestruct
+	; Explosion only
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
 	xor a
@@ -26,4 +31,12 @@ BattleCommand_Selfdestruct:
 	farcall DrawPlayerHUD
 	farcall DrawEnemyHUD
 	call WaitBGMap
+	jp RefreshBattleHuds
+
+.Selfdestruct
+	ld a, $1
+	ld [wBattleAnimParam], a
+	call BattleCommand_LowerSub
+	call LoadMoveAnim
+	call BattleCommand_Recoil
 	jp RefreshBattleHuds

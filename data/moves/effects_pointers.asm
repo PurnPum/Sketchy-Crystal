@@ -39,11 +39,9 @@ MoveEffectsPointers:
 	dw FlinchHit
 	dw Heal
 	dw Toxic
-	dw PayDay
 	dw LightScreen
 	dw TriAttack
 	dw NormalHit
-	dw OHKOHit
 	dw RazorWind
 	dw SuperFang
 	dw StaticDamage
@@ -63,7 +61,6 @@ MoveEffectsPointers:
 	dw SpecialDefenseUp2
 	dw AccuracyUp2
 	dw EvasionUp2
-	dw Transform
 	dw AttackDown2
 	dw DefenseDown2
 	dw SpeedDown2
@@ -91,7 +88,6 @@ MoveEffectsPointers:
 	dw Mimic
 	dw Metronome
 	dw LeechSeed
-	dw Splash
 	dw Disable
 	dw StaticDamage
 	dw Psywave
@@ -111,7 +107,6 @@ MoveEffectsPointers:
 	dw HealBell
 	dw NormalHit
 	dw TripleKick
-	;dw Thief
 	dw MeanLook
 	dw Nightmare
 	dw FlameWheel
@@ -124,7 +119,6 @@ MoveEffectsPointers:
 	dw Sandstorm
 	dw Endure
 	dw Rollout
-	dw Swagger
 	dw FuryCutter
 	dw Attract
 	dw Return
@@ -132,7 +126,6 @@ MoveEffectsPointers:
 	dw Frustration
 	dw Safeguard
 	dw SacredFire
-	dw Magnitude
 	dw BatonPass
 	dw Pursuit
 	dw RapidSpin
@@ -148,8 +141,6 @@ MoveEffectsPointers:
 	dw AttackUpHit
 	dw AllUpHit
 	dw FakeOut
-	dw BellyDrum
-	dw PsychUp
 	dw MirrorCoat
 	dw SkullBash
 	dw Twister
@@ -162,7 +153,6 @@ MoveEffectsPointers:
 	dw Teleport
 	dw BeatUp
 	dw Fly
-	;dw DefenseCurl
 	dw SelfAttackDown
 	dw SelfSpecialAttackDown
 	dw UTurn

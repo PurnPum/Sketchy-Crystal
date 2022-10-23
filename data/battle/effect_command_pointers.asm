@@ -34,7 +34,7 @@ BattleCommandPointers:
 	dw BattleCommand_MirrorMove
 	dw BattleCommand_StatUp
 	dw BattleCommand_StatDown
-	dw BattleCommand_PayDay
+	;dw BattleCommand_PayDay
 	dw BattleCommand_Conversion
 	dw BattleCommand_ResetStats
 	dw BattleCommand_StoreEnergy
@@ -42,14 +42,14 @@ BattleCommandPointers:
 	dw BattleCommand_ForceSwitch
 	dw BattleCommand_EndLoop
 	dw BattleCommand_FlinchTarget
-	dw BattleCommand_OHKO
+	;dw BattleCommand_OHKO
 	dw BattleCommand_Recoil
 	dw BattleCommand_Mist
 	dw BattleCommand_FocusEnergy
 	dw BattleCommand_Confuse
 	dw BattleCommand_ConfuseTarget
 	dw BattleCommand_Heal
-	dw BattleCommand_Transform
+	;dw BattleCommand_Transform
 	dw BattleCommand_Screen
 	dw BattleCommand_Poison
 	dw BattleCommand_Paralyze
@@ -58,7 +58,6 @@ BattleCommandPointers:
 	dw BattleCommand_Mimic
 	dw BattleCommand_Metronome
 	dw BattleCommand_LeechSeed
-	dw BattleCommand_Splash
 	dw BattleCommand_Disable
 	dw BattleCommand_ClearText
 	dw BattleCommand_Charge
@@ -106,7 +105,7 @@ BattleCommandPointers:
 	dw BattleCommand_FrustrationPower
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
-	dw BattleCommand_GetMagnitude
+	;dw BattleCommand_GetMagnitude
 	dw BattleCommand_BatonPass
 	dw BattleCommand_Pursuit
 	dw BattleCommand_ClearHazards
@@ -153,8 +152,8 @@ BattleCommandPointers:
 	dw BattleCommand_StatUpAnim
 	dw BattleCommand_SwitchTurn
 	dw BattleCommand_FakeOut
-	dw BattleCommand_BellyDrum
-	dw BattleCommand_PsychUp
+	;dw BattleCommand_BellyDrum
+	;dw BattleCommand_PsychUp
 	dw BattleCommand_Rage
 	dw BattleCommand_DoubleFlyingDamage
 	dw BattleCommand_DoubleUndergroundDamage
