@@ -777,28 +777,6 @@ AllUpHit:
 	allstatsup
 	endmove
 
-PayDay:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	resistberry
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	payday
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Conversion:
 	checkobedience
 	usedmovetext
@@ -940,21 +918,6 @@ FlinchHit:
 	flinchtarget
 	endmove
 
-OHKOHit:
-	checkobedience
-	usedmovetext
-	doturn
-	stab
-	ohko
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	endmove
-
 RecoilHit4th:
 RecoilHit:
 	checkobedience
@@ -1028,13 +991,6 @@ Heal:
 	usedmovetext
 	doturn
 	heal
-	endmove
-
-Transform:
-	checkobedience
-	usedmovetext
-	doturn
-	transform
 	endmove
 
 LightScreen:
@@ -1192,13 +1148,6 @@ LeechSeed:
 	doturn
 	checkhit
 	leechseed
-	endmove
-
-Splash:
-	checkobedience
-	usedmovetext
-	doturn
-	splash
 	endmove
 
 Disable:
@@ -1608,24 +1557,6 @@ Rollout:
 	kingsrock
 	endmove
 
-Swagger:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	switchturn
-	attackup2
-	switchturn
-	lowersub
-	statupanim
-	raisesub
-	failuretext
-	switchturn
-	statupmessage
-	switchturn
-	confusetarget
-	endmove
-
 FuryCutter:
 	checkobedience
 	usedmovetext
@@ -1752,29 +1683,6 @@ SacredFire:
 	burntarget
 	endmove
 
-Magnitude:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	getmagnitude
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	doubleundergrounddamage
-	resistberry
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 BatonPass:
 	checkobedience
 	usedmovetext
@@ -1890,20 +1798,6 @@ FakeOut:
 	fakeout
 	moveanim
 	failuretext
-	endmove
-
-BellyDrum:
-	checkobedience
-	usedmovetext
-	doturn
-	bellydrum
-	endmove
-
-PsychUp:
-	checkobedience
-	usedmovetext
-	doturn
-	psychup
 	endmove
 
 MirrorCoat:

@@ -808,6 +808,11 @@ RecoilText:
 	line "hit with recoil!"
 	prompt
 
+SelfDestructText:
+	text "<USER>'s"
+	line "took heavy damage!"
+	prompt
+
 MadeSubstituteText:
 	text "<USER>"
 	line "made a SUBSTITUTE!"

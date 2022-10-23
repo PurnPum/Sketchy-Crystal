@@ -1391,7 +1391,7 @@ BattleAnim_Selfdestruct:
 .loop
 	anim_call BattleAnimSub_Explosion1
 	anim_wait 5
-	anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
+	;anim_bgeffect ANIM_BG_HIDE_MON, $0, BG_EFFECT_USER, $0
 	anim_loop 2, .loop
 	anim_wait 16
 	anim_ret

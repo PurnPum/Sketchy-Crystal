@@ -321,7 +321,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_HEAL,             AI_Smart_Heal
 	dbw EFFECT_TOXIC,            AI_Smart_Toxic
 	dbw EFFECT_LIGHT_SCREEN,     AI_Smart_LightScreen
-	dbw EFFECT_OHKO,             AI_Smart_Ohko
+;	dbw EFFECT_OHKO,             AI_Smart_Ohko
 	dbw EFFECT_RAZOR_WIND,       AI_Smart_RazorWind
 	dbw EFFECT_SUPER_FANG,       AI_Smart_SuperFang
 	dbw EFFECT_TRAP_TARGET,      AI_Smart_TrapTarget
@@ -361,11 +361,11 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SANDSTORM,        AI_Smart_Sandstorm
 	dbw EFFECT_ENDURE,           AI_Smart_Endure
 	dbw EFFECT_ROLLOUT,          AI_Smart_Rollout
-	dbw EFFECT_SWAGGER,          AI_Smart_Swagger
+	;dbw EFFECT_SWAGGER,          AI_Smart_Swagger
 	dbw EFFECT_FURY_CUTTER,      AI_Smart_FuryCutter
 	dbw EFFECT_ATTRACT,          AI_Smart_Attract
 	dbw EFFECT_SAFEGUARD,        AI_Smart_Safeguard
-	dbw EFFECT_MAGNITUDE,        AI_Smart_Magnitude
+;	dbw EFFECT_MAGNITUDE,        AI_Smart_Magnitude
 	dbw EFFECT_BATON_PASS,       AI_Smart_BatonPass
 	dbw EFFECT_PURSUIT,          AI_Smart_Pursuit
 	dbw EFFECT_RAPID_SPIN,       AI_Smart_RapidSpin
@@ -375,8 +375,8 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_HIDDEN_POWER,     AI_Smart_HiddenPower
 	dbw EFFECT_RAIN_DANCE,       AI_Smart_RainDance
 	dbw EFFECT_SUNNY_DAY,        AI_Smart_SunnyDay
-	dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
-	dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
+	;dbw EFFECT_BELLY_DRUM,       AI_Smart_BellyDrum
+	;dbw EFFECT_PSYCH_UP,         AI_Smart_PsychUp
 	dbw EFFECT_MIRROR_COAT,      AI_Smart_MirrorCoat
 	dbw EFFECT_SKULL_BASH,       AI_Smart_SkullBash
 	dbw EFFECT_TWISTER,          AI_Smart_Twister
@@ -982,19 +982,19 @@ AI_Smart_Reflect:
 	inc [hl]
 	ret
 
-AI_Smart_Ohko:
+;AI_Smart_Ohko:
 ; Dismiss this move if player's level is higher than enemy's level.
 ; Else, discourage this move is player's HP is below 50%.
 
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	cp b
-	jp c, AIDiscourageMove
-	call AICheckPlayerHalfHP
-	ret c
-	inc [hl]
-	ret
+;	ld a, [wBattleMonLevel]
+;	ld b, a
+;	ld a, [wEnemyMonLevel]
+;	cp b
+;	jp c, AIDiscourageMove
+;	call AICheckPlayerHalfHP
+;	ret c
+;	inc [hl]
+;	ret
 
 AI_Smart_TrapTarget:
 ; Bind, Wrap, Fire Spin, Clamp
@@ -2228,7 +2228,7 @@ AI_Smart_Rollout:
 	inc [hl]
 	ret
 
-AI_Smart_Swagger:
+;AI_Smart_Swagger:
 AI_Smart_Attract:
 ; 80% chance to encourage this move during the first turn of player's Pokemon.
 ; 80% chance to discourage this move otherwise.
@@ -2259,7 +2259,7 @@ AI_Smart_Safeguard:
 	inc [hl]
 	ret
 
-AI_Smart_Magnitude:
+;AI_Smart_Magnitude:
 AI_Smart_Earthquake:
 ; Greatly encourage this move if the player is underground and the enemy is faster.
 	ld a, [wLastPlayerCounterMove]
@@ -2473,85 +2473,6 @@ AIGoodWeatherType:
 	ret
 
 INCLUDE "data/battle/ai/sunny_day_moves.asm"
-
-AI_Smart_BellyDrum:
-; Dismiss this move if enemy's attack is higher than +2 or if enemy's HP is below 50%.
-; Else, discourage this move if enemy's HP is not full.
-
-	ld a, [wEnemyAtkLevel]
-	cp BASE_STAT_LEVEL + 3
-	jr nc, .discourage
-
-	call AICheckEnemyMaxHP
-	ret c
-
-	inc [hl]
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.discourage
-	ld a, [hl]
-	add 5
-	ld [hl], a
-	ret
-
-AI_Smart_PsychUp:
-	push hl
-	ld hl, wEnemyAtkLevel
-	ld b, NUM_LEVEL_STATS
-	ld c, 100
-
-; Calculate the sum of all enemy's stat level modifiers. Add 100 first to prevent underflow.
-; Put the result in c. c will range between 58 and 142.
-.enemy_loop
-	ld a, [hli]
-	sub BASE_STAT_LEVEL
-	add c
-	ld c, a
-	dec b
-	jr nz, .enemy_loop
-
-; Calculate the sum of all player's stat level modifiers. Add 100 first to prevent underflow.
-; Put the result in d. d will range between 58 and 142.
-	ld hl, wPlayerAtkLevel
-	ld b, NUM_LEVEL_STATS
-	ld d, 100
-
-.player_loop
-	ld a, [hli]
-	sub BASE_STAT_LEVEL
-	add d
-	ld d, a
-	dec b
-	jr nz, .player_loop
-
-; Greatly discourage this move if enemy's stat levels are higher than player's (if c>=d).
-	ld a, c
-	sub d
-	pop hl
-	jr nc, .discourage
-
-; Else, 80% chance to encourage this move unless player's accuracy level is lower than -1...
-	ld a, [wPlayerAccLevel]
-	cp BASE_STAT_LEVEL - 1
-	ret c
-
-; ...or enemy's evasion level is higher than +0.
-	ld a, [wEnemyEvaLevel]
-	cp BASE_STAT_LEVEL + 1
-	ret nc
-
-	call AI_80_20
-	ret c
-
-	dec [hl]
-	ret
-
-.discourage
-	inc [hl]
-	inc [hl]
-	ret
 
 AI_Smart_MirrorCoat:
 	push hl

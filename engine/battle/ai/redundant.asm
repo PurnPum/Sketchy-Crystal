@@ -20,7 +20,7 @@ AI_Redundant:
 	dbw EFFECT_MIST,         .Mist
 	dbw EFFECT_FOCUS_ENERGY, .FocusEnergy
 	dbw EFFECT_CONFUSE,      .Confuse
-	dbw EFFECT_TRANSFORM,    .Transform
+	;dbw EFFECT_TRANSFORM,    .Transform
 	dbw EFFECT_REFLECT,      .Reflect
 	dbw EFFECT_SUBSTITUTE,   .Substitute
 	dbw EFFECT_LEECH_SEED,   .LeechSeed
@@ -43,7 +43,7 @@ AI_Redundant:
 	dbw EFFECT_MORNING_SUN,  .MorningSun
 	dbw EFFECT_SYNTHESIS,    .Synthesis
 	dbw EFFECT_MOONLIGHT,    .Moonlight
-	dbw EFFECT_SWAGGER,      .Swagger
+	;dbw EFFECT_SWAGGER,      .Swagger
 	dbw EFFECT_FUTURE_SIGHT, .FutureSight
 	db -1
 
@@ -70,10 +70,10 @@ AI_Redundant:
 	bit SCREENS_SAFEGUARD, a
 	ret
 
-.Transform:
-	ld a, [wEnemySubStatus5]
-	bit SUBSTATUS_TRANSFORMED, a
-	ret
+;.Transform:
+;	ld a, [wEnemySubStatus5]
+;	bit SUBSTATUS_TRANSFORMED, a
+;	ret
 
 .Reflect:
 	ld a, [wEnemyScreens]
@@ -177,10 +177,10 @@ AI_Redundant:
 	jr z, .Redundant
 	jr .NotRedundant
 
-.Swagger:
-	ld a, [wPlayerSubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	ret
+;.Swagger:
+;	ld a, [wPlayerSubStatus3]
+;	bit SUBSTATUS_CONFUSED, a
+;	ret
 
 .FutureSight:
 	ld a, [wEnemyScreens]
