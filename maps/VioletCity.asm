@@ -177,8 +177,8 @@ VioletCitySpinningEarl_MovementData:
 	turn_head DOWN
 	step_end
 	
-GymGuideBlocksUntilSproutTowerIsDone:
-	jumptextfaceplayer VioletCityGymGuideText
+YoungsterBlocksUntilSproutTowerIsDone:
+	jumptextfaceplayer VioletCityGymYoungsterText
 
 Text_EarlAsksIfYouBeatFalkner:
 	text "Hello!"
@@ -279,14 +279,14 @@ EarlsPokemonAcademySignText:
 	line "ACADEMY"
 	done
 	
-VioletCityGymGuideText:
-	text "Hi! Falkner, the"
-	line "GYM Leader, is in"
-	cont "the Sprout tower!"
+VioletCityGymYoungsterText:
+	text "Hi! The Gym Leader"
+	line "is on the"
+	cont "Sprout tower!"
 	
 	para "If you want a"
 	line "battle then you"
-	cont "should go tell'em!"
+	cont "need to go there!"
 	done
 
 VioletCity_MapEvents:
@@ -323,5 +323,5 @@ VioletCity_MapEvents:
 	object_event  8,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityFreshWaters, EVENT_VIOLET_CITY_FRESH_WATERS
 	object_event  4,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityPPUp, EVENT_VIOLET_CITY_PP_UP
 	object_event 35,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityStarPiece, EVENT_VIOLET_CITY_STAR_PIECE
-	object_event 18, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GymGuideBlocksUntilSproutTowerIsDone, EVENT_BEAT_SAGE_LI
+	object_event 18, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, YoungsterBlocksUntilSproutTowerIsDone, EVENT_BEAT_SAGE_LI
 	
