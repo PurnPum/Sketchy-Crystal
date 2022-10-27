@@ -88,7 +88,7 @@ Route36WhitneyScript:
 	faceplayer
 	opentext
 	setevent EVENT_MET_WHITNEY
-	writetext WhitneyText1
+	writetextcheckdialogue WhitneyText1, WhitneyText1Min
 	waitbutton
 	closetext
 	turnobject ROUTE36_ELM, DOWN
@@ -96,14 +96,14 @@ Route36WhitneyScript:
 	turnobject ROUTE36_WHITNEY, UP
 	showemote EMOTE_SHOCK, ROUTE36_ELM, 10
 	opentext
-	writetext ElmText1
+	writetextcheckdialogue ElmText1, ElmText1Min
 	waitbutton
 	closetext
 	applymovement ROUTE36_ELM, ElmMovement1
 	disappear ROUTE36_ELM
 	turnobject ROUTE36_WHITNEY, DOWN
 	opentext
-	writetext WhitneyText2
+	writetextcheckdialogue WhitneyText2, WhitneyText2Min
 	waitbutton
 	closetext
 	applymovement PLAYER, PlayerMovement1
@@ -417,6 +417,11 @@ WhitneyText1:
 	cont "gets aggressive."
 	done
 
+WhitneyText1Min:
+	text "WHITNEY: I'll"
+	line "wrestle the tree."
+	done
+	
 ElmText1:
 	text "ELM: Oh hi again"
 	line "<PLAYER>."
@@ -455,6 +460,10 @@ ElmText1:
 	cont "the help, WHITNEY!"
 	done
 	
+ElmText1Min:
+	text "ELM: No, fuck off."
+	done
+	
 WhitneyText2:
 	text "WHITNEY: I could"
 	line "get a water source"
@@ -479,6 +488,11 @@ WhitneyText2:
 	para "I'll be waiting"
 	line "in the GYM, don't"
 	cont "be late!!"
+	done
+	
+WhitneyText2Min:
+	text "Then I'll wrestle"
+	line "you at the GYM."
 	done
 
 HammerGuyText1:
