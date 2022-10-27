@@ -12,8 +12,8 @@ FlowerShopTeacherScript:
 	iftrue .Lalala
 	checkevent EVENT_GOT_SQUIRTBOTTLE
 	iftrue .GotSquirtbottle
-	checkevent EVENT_MET_FLORIA
-	iffalse .HaventMetFloria
+	checkevent EVENT_MET_WHITNEY
+	iffalse .HaventMetWhitney
 	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
 	iffalse .Lalala
 	checkflag ENGINE_PLAINBADGE
@@ -25,8 +25,6 @@ FlowerShopTeacherScript:
 	verbosegiveitem SQUIRTBOTTLE
 	setevent EVENT_GOT_SQUIRTBOTTLE
 	closetext
-	setevent EVENT_FLORIA_AT_SUDOWOODO
-	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
 	end
 
 .Lalala:
@@ -43,7 +41,7 @@ FlowerShopTeacherScript:
 .NoPlainBadge:
 	jumptextfaceplayer GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText
 
-.HaventMetFloria:
+.HaventMetWhitney:
 	jumptextfaceplayer GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text
 
 FlowerShopFloriaScript:
@@ -57,8 +55,6 @@ FlowerShopFloriaScript:
 	waitbutton
 	closetext
 	setevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
-	setevent EVENT_FLORIA_AT_FLOWER_SHOP
-	clearevent EVENT_FLORIA_AT_SUDOWOODO
 	end
 
 .GotSquirtbottle:
@@ -89,14 +85,15 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
 	para "growing on ROUTE"
 	line "36?"
 
-	para "My little sister"
-	line "got all excited"
+	para "WHITNEY, the GYM"
+	line "Leader went there"
 
-	para "and went to see"
-	line "it…"
+	para "to figure out if"
+	line "it is dangerous."
 
-	para "I'm worried… Isn't"
-	line "it dangerous?"
+	para "Meanwhile my lil'"
+	line "sister is in front"
+	cont "of the GYM door."
 	done
 
 GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText:

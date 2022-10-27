@@ -5,7 +5,7 @@
 	const GOLDENRODCITY_COOLTRAINER_F2
 	const GOLDENRODCITY_YOUNGSTER2
 	const GOLDENRODCITY_LASS
-	const GOLDENRODCITY_GRAMPS
+	;const GOLDENRODCITY_GRAMPS
 	const GOLDENRODCITY_ROCKETSCOUT
 	const GOLDENRODCITY_ROCKET1
 	const GOLDENRODCITY_ROCKET2
@@ -14,21 +14,23 @@
 	const GOLDENRODCITY_ROCKET5
 	const GOLDENRODCITY_ROCKET6
 	const GOLDENRODCITY_MOVETUTOR
+	const GOLDENRODCITY_FLORIA
 
 GoldenrodCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, GoldenrodCityFlypointAndFloriaCallback
+	callback MAPCALLBACK_NEWMAP, GoldenrodCityFlypointAndWhitneyCallback
 	callback MAPCALLBACK_OBJECTS, GoldenrodCityMoveTutorCallback
 
-GoldenrodCityFlypointAndFloriaCallback:
+GoldenrodCityFlypointAndWhitneyCallback:
 	setflag ENGINE_FLYPOINT_GOLDENROD
 	setflag ENGINE_REACHED_GOLDENROD
-	checkevent EVENT_MET_FLORIA
-	iftrue .FloriaDone
-	clearevent EVENT_FLORIA_AT_SUDOWOODO
-.FloriaDone:
+	checkevent EVENT_MET_WHITNEY
+	iftrue .WhitneyDone
+	clearevent EVENT_WHITNEY_AT_SUDOWOODO
+	appear GOLDENRODCITY_FLORIA
+.WhitneyDone:
 	endcallback
 
 GoldenrodCityMoveTutorCallback:
@@ -266,6 +268,9 @@ GoldenrodCityPokecenterSign:
 
 GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
+
+GoldenrodFloriaGymBlock:
+	jumptextfaceplayer GoldenrodFloriaGymBlockText
 
 GoldenrodCityMoveTutorEnterGameCornerMovement:
 	step RIGHT
@@ -548,6 +553,22 @@ GoldenrodCityMoveTutorMoveText:
 	text_start
 	done
 
+GoldenrodFloriaGymBlockText:
+	text "Hi! I'm Floria."
+	
+	para "FLORIA: WHITNEY"
+	line "left to deal with"
+	cont "a weird tree that"
+	
+	para "is blocking the"
+	line "path at route 36."
+	
+	para "You can get there"
+	line "through route 35"
+	cont "and the National"
+	cont "Park. Go north!"	
+	done
+
 GoldenrodCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -591,12 +612,13 @@ GoldenrodCity_MapEvents:
 	object_event 36, 10, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 1, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityCooltrainerF2Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 14,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodCityYoungster2Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 20, 17, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodCityLassScript, EVENT_GOLDENROD_CITY_CIVILIANS
-	object_event 15, 35, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityGrampsScript, EVENT_GOLDENROD_CITY_CIVILIANS
+	;object_event 15, 35, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityGrampsScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event  8, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocketScoutScript, EVENT_GOLDENROD_CITY_ROCKET_SCOUT
 	object_event 32, 28, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket1Script, EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
 	object_event 12, 23, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket2Script, EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
-	object_event 20, 31, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket3Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event 32, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket3Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 33, 28, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket4Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 29, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket5Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 29, 18, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 16, 30, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
+	object_event 28, 16, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodFloriaGymBlock, EVENT_WHITNEY_AT_SUDOWOODO
