@@ -166,10 +166,14 @@ ENDM
 	map_const ECRUTEAK_MART,                                6,  4 ;  6
 	map_const ECRUTEAK_GYM,                                 5,  9 ;  7
 	map_const ECRUTEAK_ITEMFINDER_HOUSE,                    4,  4 ;  8
-	map_const ECRUTEAK_CITY,                               20, 18 ;  9
-	map_const ROUTE_35,                                    12, 19 ; 10
-	map_const ROUTE_36,                                    30,  9 ; 11
-	map_const ROUTE_37,                                    10,  9 ; 12
+	map_const ROUTE_35_GOLDENROD_GATE,                      5,  4 ;  9
+	map_const ROUTE_35_NATIONAL_PARK_GATE,                  4,  4 ; 10
+	map_const ROUTE_36_RUINS_OF_ALPH_GATE,                  5,  4 ; 11
+	map_const ROUTE_36_NATIONAL_PARK_GATE,                  5,  4 ; 12
+	map_const ECRUTEAK_CITY,                               20, 18 ; 13
+	map_const ROUTE_35,                                    12, 19 ; 14
+	map_const ROUTE_36,                                    31,  9 ; 15
+	map_const ROUTE_37,                                    10,  9 ; 16
 	endgroup
 
 	newgroup BLACKTHORN                                           ;  5
@@ -238,7 +242,7 @@ ENDM
 
 	newgroup VIOLET                                               ; 10
 	map_const ROUTE_32,                                    10, 45 ;  1
-	map_const VIOLET_CITY,                                 20, 18 ;  2
+	map_const VIOLET_CITY,                                 21, 18 ;  2
 	map_const VIOLET_MART,                                  6,  4 ;  3
 	map_const VIOLET_GYM,                                   5,  8 ;  4
 	map_const EARLS_POKEMON_ACADEMY,                        4,  8 ;  5
@@ -247,10 +251,7 @@ ENDM
 	map_const VIOLET_KYLES_HOUSE,                           4,  4 ;  8
 	map_const ROUTE_32_RUINS_OF_ALPH_GATE,                  5,  4 ;  9
 	map_const ROUTE_32_POKECENTER_1F,                       5,  4 ; 10
-	map_const ROUTE_35_GOLDENROD_GATE,                      5,  4 ; 11
-	map_const ROUTE_35_NATIONAL_PARK_GATE,                  4,  4 ; 12
-	map_const ROUTE_36_RUINS_OF_ALPH_GATE,                  5,  4 ; 13
-	map_const ROUTE_36_NATIONAL_PARK_GATE,                  5,  4 ; 14
+	map_const VIOLET_ROUTE_36_GATE,							5,  4 ; 11
 	endgroup
 
 	newgroup GOLDENROD                                            ; 11
