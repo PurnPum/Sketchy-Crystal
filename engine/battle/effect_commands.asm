@@ -3,9 +3,16 @@ DoPlayerTurn:
 
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
-	ret nz
-
-	jr DoTurn
+	
+	jr z, DoTurn
+	
+	push hl
+	ld hl, wPlayerTurnsTaken
+	ld a, [hl]
+	inc a
+	ld [hl], a
+	pop hl
+	ret 
 
 DoEnemyTurn:
 	call SetEnemyTurn
