@@ -592,7 +592,7 @@ IncreasePriceByBadgesObtained: 		; Inputs -> Price : de , Item : wCurItem
 	ret z 				; Return to GetItemPrice if z is 1, Otherwise:
 	
 	ld hl, IncreasinglyPriceyMultipliers 	; Load the multipliers used to calculate the final price
-	dec a 									; a = a - l
+	dec a 									; a = a - 1
 	add a 									; a = a + a
 	add l 									; a = l + a
 	jr nc, .done 							; If there is a carry then l overflew after the addition, so we have to inc h
@@ -626,25 +626,25 @@ IncreasePriceByBadgesObtained: 		; Inputs -> Price : de , Item : wCurItem
 	ld e, l						; Lastly, overwrite DE with HL, which now is the final result
 	ret
 	
-LoadDEAndMultiplyByHL: ; Inputs: DE -> Number to multiply, HL -> Address pointing to Multiplier , Output -> BC
+LoadDEAndMultiplyByHL: 			; Inputs: DE -> Number to multiply, HL -> Address pointing to Multiplier , Output -> BC
 	ld a, e
 	ldh [hMultiplicand + 2], a
 	ld a, d
 	ldh [hMultiplicand + 1], a
 	xor a
-	ldh [hMultiplicand + 0], a ; Insert the original price in hMultiplicand
+	ldh [hMultiplicand + 0], a 	; Insert the original price in hMultiplicand
 	ld a, [hl]
-	ldh [hMultiplier], a ; And insert the first number of the multiplier in hMultiplier
-	call Multiply	; Since we only use 2 bytes and the highest multiplier is 21.8, the max base price of an scaled item is 3006 before it overflows.
+	ldh [hMultiplier], a 		; And insert the first number of the multiplier in hMultiplier
+	call Multiply				; Since we only use 2 bytes and the highest multiplier is 21.8, the max base price of an scaled item is 3006 before it overflows.
 	ldh a, [hProduct + 2]
 	ld b, a
 	ldh a, [hProduct + 3]
-	ld c, a	;bc now holds the original price multiplied by the first number
-	ldh a, [hProduct + 1] ;Load the 3rd byte just in case, if it is anything other than 0, set the price to FFFF (65535)
-	and a ;Compare 'a' to 0, if they match z becomes 1
-	ret z ;if its 0 its all good and we return
+	ld c, a						; bc now holds the original price multiplied by the first number
+	ldh a, [hProduct + 1] 		; Load the 3rd byte just in case, if it is anything other than 0, set the price to FFFF (65535)
+	and a 						; Compare 'a' to 0, if they match z becomes 1
+	ret z 						; if its 0 its all good and we return
 	ld b, $FF
-	ld c, $FF ;If 'a' isn't 0 then we overflew, so just set the highest poss
+	ld c, $FF 					; If 'a' isn't 0 then we overflew, so just set the highest possible price
 	ret
 
 GetItemPrice:
