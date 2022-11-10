@@ -187,6 +187,39 @@ GotMoneyForWinningText:
 	text_start
 	line "for winning!"
 	prompt
+	
+TurnMoneyBonusMultiplierText:
+	text "Turn multiplier"
+	line "bonus: @"
+	text_decimal wStringBuffer3, 1, 1
+	text ".@"
+	text_decimal wStringBuffer3 + 1, 1, 2
+	text "!"
+	prompt
+
+LevelMoneyBonusMultiplierText:
+	text "Level multiplier"
+	line "bonus: @"
+	text_decimal wStringBuffer3, 1, 1
+	text ".@"
+	text_decimal wStringBuffer3 + 1, 1, 2
+	text "!"
+	prompt
+	
+FinalMoneyBonusMultiplierText:
+	text "Total multiplier"
+	line "bonus: @"
+	text_decimal wStringBuffer3, 1, 2
+	text ".@"
+	text_decimal wStringBuffer3 + 1, 1, 2
+	text "!"
+	prompt
+	
+FinalMoneyBonusText:
+	text "Final Bonus: ¥@"
+	text_decimal wStringBuffer5, 2, 5
+	text "!"
+	prompt
 
 BattleText_EnemyWasDefeated:
 	text "<ENEMY>"

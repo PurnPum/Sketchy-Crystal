@@ -172,6 +172,7 @@ SECTION "bank10", ROMX
 INCLUDE "engine/pokedex/pokedex.asm"
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
+INCLUDE "engine/battle/calculate_battle_money_bonus.asm"
 
 
 SECTION "bank11", ROMX
