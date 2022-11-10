@@ -118,7 +118,7 @@ Moves:
 	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,       100, 10,   0
 	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,       100, 20,   0
 	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,          100, 30,   0
-	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100,  5,   0
+	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100,  2,   0
 	move DRILL_RUN,    EFFECT_NORMAL_HIT,         80, GROUND,       100, 10,   0
 	move AQUA_JET,     EFFECT_PRIORITY_HIT,       40, WATER,        100, 30,   0
 	move POWER_TRIP,   EFFECT_SELF_SPATT_DOWN,   115, DARK,         100,  5, 100
@@ -148,7 +148,7 @@ Moves:
 	move CONSTRICT,    EFFECT_SPEED_DOWN_HIT,     20, NORMAL,       100, 30, 100
 	move ROCK_WRECKER, EFFECT_SELF_ATTACK_DOWN,  115, ROCK, 		100,  5, 100
 	move METEOR_MASH,  EFFECT_RECOIL_HIT_4TH,    105, STEEL,  		100, 10,   0
-	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,       100,  5,   0
+	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,       100,  2,   0
 	move HI_JUMP_KICK, EFFECT_JUMP_KICK,         105, FIGHTING,      85, 10,   0
 	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,       100, 10,   0
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       160, PSYCHIC_TYPE, 100, 15,   0
@@ -169,7 +169,7 @@ Moves:
 	move EXPLOSION,    EFFECT_SELFDESTRUCT,      250, NORMAL,       100,  5,   0
 	move FURY_SWIPES,  EFFECT_MULTI_HIT,          18, NORMAL,       100, 15,   0
 	move BONEMERANG,   EFFECT_DOUBLE_HIT,         50, GROUND,       100, 10,   0
-	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100, 10,   0
+	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100,  2,   0
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         75, ROCK,         100, 10,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       100, 10,  10
 	move FLARE_BLITZ,  EFFECT_RECOIL_HIT_4TH,    105, FIRE,         100, 10,   0
@@ -221,7 +221,7 @@ Moves:
 	move ROLLOUT,      EFFECT_ROLLOUT,            30, ROCK,          90, 20,   0
 	move FALSE_SWIPE,  EFFECT_FALSE_SWIPE,        40, NORMAL,       100, 40,   0
 	move X_SCISSOR,    EFFECT_NORMAL_HIT,         85, BUG,          100, 15,   0
-	move MILK_DRINK,   EFFECT_HEAL,                0, NORMAL,       100,  5,   0
+	move MILK_DRINK,   EFFECT_HEAL,                0, NORMAL,       100,  2,   0
 	move SPARK,        EFFECT_PARALYZE_HIT,       65, ELECTRIC,     100, 20,  30
 	move FURY_CUTTER,  EFFECT_FURY_CUTTER,        20, BUG,          100, 20,   0
 	move STEEL_WING,   EFFECT_DEFENSE_UP_HIT,     70, STEEL,        100, 25,  10
