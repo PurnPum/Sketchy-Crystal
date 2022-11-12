@@ -6910,6 +6910,8 @@ BattleCommand_PoisonGas:
 	call BattleCommand_StatDownMessage
 	call BattleCommand_SpecialAttackDown
 	call BattleCommand_StatDownMessage
+	call BattleCommand_AttackDown
+	call BattleCommand_StatDownMessage
 	ret
 
 INCLUDE "engine/battle/move_effects/triattack.asm"
