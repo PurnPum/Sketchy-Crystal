@@ -1066,7 +1066,7 @@ MACRO checksave
 ENDM
 
 	const isdialogueminimal_command ; $aa
-MACRO isdialogueminima
+MACRO isdialogueminimal
 	db isdialogueminimal_command
 ENDM
 

@@ -57,7 +57,7 @@ StdScripts::
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 
-POKEMONCENTERS_BASE_PRICE	EQU 1000
+DEF POKEMONCENTERS_BASE_PRICE	EQU 1000
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set

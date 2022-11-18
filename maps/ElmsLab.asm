@@ -496,7 +496,7 @@ AideScript_GivePotion:
 	writetextcheckdialogue AideText_AlwaysBusy, AideText_AlwaysBusyMin
 	waitbutton
 	closetext
-	setscene SCENE_ELMSLAB_NOTHING
+	setscene SCENE_ELMSLAB_NOOP
 	end
 
 AideScript_WalkBalls1:

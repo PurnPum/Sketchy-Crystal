@@ -374,7 +374,7 @@ CarbosDesc:
 	next "one #MON.@"
 
 LuckyPunchDesc:
-	db   "+2 Crit ratio of"
+	db   "2 Crit ratio for"
 	next "CHANSEY/BLISSEY.@"
 
 CalciumDesc:
