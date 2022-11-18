@@ -1,9 +1,9 @@
 	db GRANBULL ; 210
 
-	db  90, 120,  75,  45,  60,  60
+	db 105, 120, 105,  40,  60,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, NORMAL ; type
+	db NORMAL, FIGHTING ; type
 	db 75 ; catch rate
 	db 178 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_FAIRY ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

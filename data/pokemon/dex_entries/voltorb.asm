@@ -1,10 +1,10 @@
 	db "BALL@" ; species name
 	dw 108, 230 ; height, weight
 
-	db   "During the study"
-	next "of this #MON,"
-	next "it was discovered"
-
-	page "that its compo-"
-	next "nents are not"
-	next "found in nature.@"
+	db   "It rolls at really"
+	next "high speeds. When"
+	next "it does so, it"
+	
+	page "tend to leave a"
+	next "fiery trail on its"
+	next "path.@"

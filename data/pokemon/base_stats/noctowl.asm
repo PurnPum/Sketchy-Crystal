@@ -1,9 +1,9 @@
 	db NOCTOWL ; 164
 
-	db 100,  50,  50,  70,  76,  96
+	db 105,  50,  60,  50, 106, 106
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, FLYING ; type
+	db PSYCHIC_TYPE, FLYING ; type
 	db 90 ; catch rate
 	db 162 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

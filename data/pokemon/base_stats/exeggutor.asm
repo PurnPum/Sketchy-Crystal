@@ -1,6 +1,6 @@
 	db EXEGGUTOR ; 103
 
-	db  95,  95,  85,  55, 125,  65
+	db  95,  75, 105,  55, 125,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, PSYCHIC_TYPE ; type
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

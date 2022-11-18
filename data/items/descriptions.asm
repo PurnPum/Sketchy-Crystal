@@ -15,13 +15,13 @@ ItemDescriptions:
 	dw AwakeningDesc
 	dw ParlyzHealDesc
 	dw FullRestoreDesc
-	dw MaxPotionDesc
+	dw UltraPotionDesc
 	dw HyperPotionDesc
 	dw SuperPotionDesc
 	dw PotionDesc
 	dw EscapeRopeDesc
 	dw RepelDesc
-	dw MaxElixerDesc
+	dw SuperElixerDesc
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
@@ -64,7 +64,7 @@ ItemDescriptions:
 	dw SuperRodDesc
 	dw PPUpDesc
 	dw EtherDesc
-	dw MaxEtherDesc
+	dw SuperEtherDesc
 	dw ElixerDesc
 	dw RedScaleDesc
 	dw SecretPotionDesc
@@ -135,13 +135,13 @@ ItemDescriptions:
 	dw StarPieceDesc
 	dw BasementKeyDesc
 	dw PassDesc
-	dw TeruSama9Desc
-	dw TeruSama10Desc
-	dw TeruSama11Desc
+	dw DampRockDesc
+	dw SmoothRockDesc
+	dw HeatRockDesc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
-	dw TeruSama12Desc
+	dw IcyRockDesc
 	dw TeruSama13Desc
 	dw MetalCoatDesc
 	dw DragonFangDesc
@@ -191,32 +191,32 @@ ItemDescriptions:
 	dw MusicMailDesc
 	dw MirageMailDesc
 	dw TeruSama25Desc
+	dw NormalResistBerryDesc
+	dw GrassResistBerryDesc
+	dw FireResistBerryDesc
+	dw WaterResistBerryDesc
+	dw IceResistBerryDesc
+	dw FightingResistBerryDesc
+	dw PsychicResistBerryDesc
+	dw DarkResistBerryDesc
+	dw GhostResistBerryDesc
+	dw DragonResistBerryDesc
+	dw PoisonResistBerryDesc
+	dw RockResistBerryDesc
+	dw GroundResistBerryDesc
+	dw ElectricResistBerryDesc
+	dw BugResistBerryDesc
+	dw SteelResistBerryDesc
+	dw FlyingResistBerryDesc
+	dw HammerDesc
+	dw ScytheDesc
+	dw BalloonsDesc
+	dw SwimSuitDesc
+	dw PowerGlovesDesc
+	dw FlashlightDesc
+	dw PropellerDesc
+	dw WaterCannonDesc
 	assert_table_length NUM_ITEMS
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama26Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
-	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
 	dw TeruSama27Desc
@@ -314,21 +314,21 @@ FullRestoreDesc:
 	db   "Fully restores HP"
 	next "& status.@"
 
-MaxPotionDesc:
-	db   "Fully restores"
-	next "#MON HP.@"
+UltraPotionDesc:
+	db   "Restores #MON"
+	next "HP by 240.@"
 
 HyperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 200.@"
+	next "HP by 120.@"
 
 SuperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 60.@"
 
 PotionDesc:
 	db   "Restores #MON"
-	next "HP by 20.@"
+	next "HP by 30.@"
 
 EscapeRopeDesc:
 	db   "Use for escaping"
@@ -338,9 +338,9 @@ RepelDesc:
 	db   "Repels weak #-"
 	next "MON for 100 steps.@"
 
-MaxElixerDesc:
-	db   "Fully restores the"
-	next "PP of one #MON.@"
+SuperElixerDesc:
+	db   "Restores PP of all"
+	next "moves by 20.@"
 
 FireStoneDesc:
 	db   "Evolves certain"
@@ -374,8 +374,8 @@ CarbosDesc:
 	next "one #MON.@"
 
 LuckyPunchDesc:
-	db   "Ups critical hit"
-	next "ratio of CHANSEY.@"
+	db   "2 Crit ratio for"
+	next "CHANSEY/BLISSEY.@"
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"
@@ -423,7 +423,7 @@ GuardSpecDesc:
 
 SuperRepelDesc:
 	db   "Repels weak #-"
-	next "MON for 200 steps.@"
+	next "MON for 175 steps.@"
 
 MaxRepelDesc:
 	db   "Repels weak #-"
@@ -438,15 +438,15 @@ TeruSama3Desc:
 
 FreshWaterDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 45.@"
 
 SodaPopDesc:
 	db   "Restores #MON"
-	next "HP by 60.@"
+	next "HP by 80.@"
 
 LemonadeDesc:
 	db   "Restores #MON"
-	next "HP by 80.@"
+	next "HP by 200.@"
 
 XAttackDesc:
 	db   "Raises ATTACK."
@@ -506,9 +506,9 @@ EtherDesc:
 	db   "Restores PP of one"
 	next "move by 10.@"
 
-MaxEtherDesc:
-	db   "Fully restores PP"
-	next "of one move.@"
+SuperEtherDesc:
+	db   "Restores PP of one"
+	next "move by 20.@"
 
 ElixerDesc:
 	db   "Restores PP of all"
@@ -540,7 +540,7 @@ SilverWingDesc:
 
 MoomooMilkDesc:
 	db   "Restores #MON"
-	next "HP by 100.@"
+	next "HP by 160.@"
 
 QuickClawDesc:
 	db   "Raises 1st strike"
@@ -728,11 +728,11 @@ TeruSama8Desc:
 
 EnergyPowderDesc:
 	db   "Restores #MON"
-	next "HP by 50. Bitter.@"
+	next "HP by 100. Bitter.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"
-	next "HP by 200. Bitter.@"
+	next "HP by 300. Bitter.@"
 
 HealPowderDesc:
 	db   "Cures all status"
@@ -781,14 +781,17 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-TeruSama9Desc:
-	db   "?@"
+DampRockDesc:
+	db   "A rain-extending"
+	next "rare rock. (HOLD)@"
 
-TeruSama10Desc:
-	db   "?@"
+SmoothRockDesc:
+	db   "A sand-extending"
+	next "rare rock. (HOLD)@"
 
-TeruSama11Desc:
-	db   "?@"
+HeatRockDesc:
+	db   "A sun-extending"
+	next "rare rock. (HOLD)@"
 
 CharcoalDesc:
 	db   "Powers up fire-"
@@ -796,14 +799,15 @@ CharcoalDesc:
 
 BerryJuiceDesc:
 	db   "Restores #MON"
-	next "HP by 20.@"
+	next "HP by 25. (HOLD).@"
 
 ScopeLensDesc:
 	db   "Raises critical"
 	next "hit ratio. (HOLD)@"
 
-TeruSama12Desc:
-	db   "?@"
+IcyRockDesc:
+	db   "A hail-extending"
+	next "rare rock. (HOLD)@"
 
 TeruSama13Desc:
 	db   "?@"
@@ -925,7 +929,7 @@ BerryDesc:
 
 GoldBerryDesc:
 	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	next "item (25%HP, HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"
@@ -984,6 +988,106 @@ MusicMailDesc:
 MirageMailDesc:
 	db   "MEW-print MAIL."
 	next "(HOLD)@"
+
+NormalResistBerryDesc:
+	db   "Halves NORMAL-type"
+	next "damage (HOLD)@"
+
+GrassResistBerryDesc:
+	db   "Halves S.Effective"
+	next "GRASS DMG (HOLD)@"
+
+FireResistBerryDesc:
+	db   "Halves S.Effective"
+	next "FIRE DMG (HOLD)@"
+
+WaterResistBerryDesc:
+	db   "Halves S.Effective"
+	next "WATER DMG (HOLD)@"
+
+IceResistBerryDesc:
+	db   "Halves S.Effective"
+	next "ICE DMG (HOLD)@"
+
+FightingResistBerryDesc:
+	db   "Halves S.Effective"
+	next "FIGHT DMG (HOLD)@"
+
+PsychicResistBerryDesc:
+	db   "Halves S.Effective"
+	next "PSYCHIC DMG (HOLD)@"
+
+DarkResistBerryDesc:
+	db   "Halves S.Effective"
+	next "DARK DMG (HOLD)@"
+
+GhostResistBerryDesc:
+	db   "Halves S.Effective"
+	next "GHOST DMG (HOLD)@"
+
+DragonResistBerryDesc:
+	db   "Halves S.Effective"
+	next "DRAGON DMG (HOLD)@"
+
+PoisonResistBerryDesc:
+	db   "Halves S.Effective"
+	next "POISON DMG (HOLD)@"
+
+RockResistBerryDesc:
+	db   "Halves S.Effective"
+	next "ROCK DMG (HOLD)@"
+
+GroundResistBerryDesc:
+	db   "Halves S.Effective"
+	next "GROUND DMG (HOLD)@"
+
+ElectricResistBerryDesc:
+	db   "Halves S.Effective"
+	next "ELEC DMG (HOLD)@"
+
+BugResistBerryDesc:
+	db   "Halves S.Effective"
+	next "BUG DMG (HOLD)@"
+
+SteelResistBerryDesc:
+	db   "Halves S.Effective"
+	next "STEEL DMG (HOLD)@"
+
+FlyingResistBerryDesc:
+	db   "Halves S.Effective"
+	next "FLYING DMG (HOLD)@"
+
+HammerDesc:
+	db	 "Breaks cracked"
+	next "rocks.@"
+
+ScytheDesc:
+	db	 "Cuts small trees"
+	next "and grass.@"
+	
+BalloonsDesc:
+	db	 "Allows travelling"
+	next "to known areas.@"
+	
+SwimSuitDesc:
+	db	 "Allows the user to"
+	next "swim in water.@"
+	
+PowerGlovesDesc:
+	db	 "Lets the user lift"
+	next "big boulders.@"
+	
+FlashlightDesc:
+	db	 "Lits up any dark"
+	next "cave or area.@"
+	
+PropellerDesc:
+	db	 "Dissolves any"
+	next "whirlpools.@"
+	
+WaterCannonDesc:
+	db	 "Allows the user to"
+	next "climb waterfalls.@"
 
 TeruSama25Desc:
 	db   "?@"

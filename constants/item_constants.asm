@@ -20,13 +20,13 @@
 	const AWAKENING    ; 0c
 	const PARLYZ_HEAL  ; 0d
 	const FULL_RESTORE ; 0e
-	const MAX_POTION   ; 0f
+	const ULTRA_POTION ; 0f
 	const HYPER_POTION ; 10
 	const SUPER_POTION ; 11
 	const POTION       ; 12
 	const ESCAPE_ROPE  ; 13
 	const REPEL        ; 14
-	const MAX_ELIXER   ; 15
+	const SUPER_ELIXER ; 15
 	const FIRE_STONE   ; 16
 	const THUNDERSTONE ; 17
 	const WATER_STONE  ; 18
@@ -69,7 +69,7 @@
 	const SUPER_ROD    ; 3d
 	const PP_UP        ; 3e
 	const ETHER        ; 3f
-	const MAX_ETHER    ; 40
+	const SUPER_ETHER  ; 40
 	const ELIXER       ; 41
 	const RED_SCALE    ; 42
 	const SECRETPOTION ; 43
@@ -140,13 +140,13 @@
 	const STAR_PIECE   ; 84
 	const BASEMENT_KEY ; 85
 	const PASS         ; 86
-	const ITEM_87      ; 87
-	const ITEM_88      ; 88
-	const ITEM_89      ; 89
+	const DAMP_ROCK    ; 87
+	const SMOOTH_ROCK  ; 88
+	const HEAT_ROCK    ; 89
 	const CHARCOAL     ; 8a
 	const BERRY_JUICE  ; 8b
 	const SCOPE_LENS   ; 8c
-	const ITEM_8D      ; 8d
+	const ICY_ROCK     ; 8d
 	const ITEM_8E      ; 8e
 	const METAL_COAT   ; 8f
 	const DRAGON_FANG  ; 90
@@ -196,16 +196,42 @@
 	const MUSIC_MAIL   ; bc
 	const MIRAGE_MAIL  ; bd
 	const ITEM_BE      ; be
-NUM_ITEMS EQU const_value - 1
+	const NRMLRESBERRY ; bf
+	const GRSSRESBERRY ; c0
+	const FIRERESBERRY ; c1
+	const WATERESBERRY ; c2
+	const ICERESBERRY  ; c3
+	const FGHTRESBERRY ; c4
+	const PSYRESBERRY  ; c5
+	const DARKRESBERRY ; c6
+	const GHSTRESBERRY ; c7
+	const DRGNRESBERRY ; c8
+	const PSNRESBERRY  ; c9
+	const ROCKRESBERRY ; ca
+	const GRNDRESBERRY ; cb
+	const ELECRESBERRY ; cc
+	const BUGRESBERRY  ; cd
+	const STELRESBERRY ; ce
+	const FLYRESBERRY  ; cf
+	const HAMMER	   ; d0
+	const SCYTHE	   ; d1
+	const BALLOONS	   ; d2
+	const SWIMSUIT   ; d3
+	const POWER_GLOVES ; d4
+	const FLASHLIGHT   ; d5
+	const PROPELLER    ; d6
+	const WATER_CANNON ; d7
 
-__tmhm_value__ = 1
+DEF NUM_ITEMS EQU const_value - 1
 
-add_tmnum: MACRO
-\1_TMNUM EQU __tmhm_value__
-__tmhm_value__ = __tmhm_value__ + 1
+DEF __tmhm_value__ = 1
+
+MACRO add_tmnum
+	DEF \1_TMNUM EQU __tmhm_value__
+	DEF __tmhm_value__ += 1
 ENDM
 
-add_tm: MACRO
+MACRO add_tm
 ; Defines three constants:
 ; - TM_\1: the item id, starting at $bf
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 1
@@ -216,55 +242,52 @@ TM{02d:__tmhm_value__}_MOVE = \1
 ENDM
 
 ; see data/moves/tmhm_moves.asm for moves
-TM01 EQU const_value
-	add_tm SKETCH ; bf
-	const ITEM_C3       ; c3
-	add_tm ROCK_SMASH   ; c7
-	const ITEM_DC       ; dc
-NUM_TMS EQU __tmhm_value__ - 1
+DEF TM01 EQU const_value
+	add_tm SKETCH ; d8
+DEF NUM_TMS EQU __tmhm_value__ - 1
 
-add_hm: MACRO
+MACRO add_hm
 ; Defines three constants:
 ; - HM_\1: the item id, starting at $f3
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 51
 ; - HM##_MOVE: alias for the move id, equal to the value of \1
 	const HM_\1
-HM_VALUE = __tmhm_value__ - NUM_TMS
-HM{02d:HM_VALUE}_MOVE = \1
+	DEF HM_VALUE = __tmhm_value__ - NUM_TMS
+	DEF HM{02d:HM_VALUE}_MOVE = \1
 	add_tmnum \1
 ENDM
 
-HM01 EQU const_value
-	add_hm CUT          ; f3
-	add_hm FLY          ; f4
-	add_hm SURF         ; f5
-	add_hm STRENGTH     ; f6
-	add_hm FLASH        ; f7
-	add_hm WHIRLPOOL    ; f8
-	add_hm WATERFALL    ; f9
-NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
+;DEF HM01 EQU const_value
+;	add_hm CUT          ; f3
+;	add_hm FLY          ; f4
+;	add_hm SURF         ; f5
+;	add_hm STRENGTH     ; f6
+;	add_hm FLASH        ; f7
+;	add_hm WHIRLPOOL    ; f8
+;	add_hm WATERFALL    ; f9
+;DEF NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
-add_mt: MACRO
+MACRO add_mt
 ; Defines two constants:
 ; - \1_TMNUM: the learnable TM/HM flag, starting at 58
 ; - MT##_MOVE: alias for the move id, equal to the value of \1
-MT_VALUE = __tmhm_value__ - NUM_TMS - NUM_HMS
-MT{02d:MT_VALUE}_MOVE = \1
+	DEF MT_VALUE = __tmhm_value__ - NUM_TMS
+	DEF MT{02d:MT_VALUE}_MOVE = \1
 	add_tmnum \1
 ENDM
 
-MT01 EQU const_value
-	add_mt TELEPORT
-NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
+DEF MT01 EQU const_value
+	add_mt PROTECT
+DEF NUM_TUTORS = __tmhm_value__ - NUM_TMS - 1
 
-NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
+DEF NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_TUTORS
 
 	const ITEM_FA       ; fa
 
-USE_SCRIPT_VAR EQU $00
-ITEM_FROM_MEM  EQU $ff
+DEF USE_SCRIPT_VAR EQU $00
+DEF ITEM_FROM_MEM  EQU $ff
 
 ; leftovers from red
-SAFARI_BALL    EQU $08 ; MOON_STONE
-MOON_STONE_RED EQU $0a ; BURN_HEAL
-FULL_HEAL_RED  EQU $34 ; X_SPEED
+DEF SAFARI_BALL    EQU $08 ; MOON_STONE
+DEF MOON_STONE_RED EQU $0a ; BURN_HEAL
+DEF FULL_HEAL_RED  EQU $34 ; X_SPEED

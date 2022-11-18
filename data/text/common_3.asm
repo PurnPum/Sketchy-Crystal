@@ -3,6 +3,10 @@ _OakText6::
 	line "say your name was?"
 	prompt
 
+_OakText6Min::
+	text "Name?"
+	prompt
+
 _OakText7::
 	text "<PLAYER>, are you"
 	line "ready?"
@@ -24,6 +28,10 @@ _OakText7::
 	para "I'll be seeing you"
 	line "later!"
 	done
+	
+_OakText7Min::
+	text "Good luck…"
+	prompt
 
 _ClockTimeMayBeWrongText::
 	text "The clock's time"

@@ -1,6 +1,6 @@
 	db CHARMANDER ; 004
 
-	db  39,  52,  43,  65,  60,  50
+	db  39,  56,  43,  65,  65,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_DRAGON ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

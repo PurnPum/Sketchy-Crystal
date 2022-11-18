@@ -1,9 +1,9 @@
 	db REMORAID ; 223
 
-	db  35,  65,  35,  65,  65,  35
+	db  45,  35,  45,  65,  65,  45
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER ; type
+	db WATER, FIRE ; type
 	db 190 ; catch rate
 	db 78 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

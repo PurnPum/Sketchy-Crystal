@@ -1,9 +1,9 @@
 	db SEAKING ; 119
 
-	db  80,  92,  65,  68,  65,  80
+	db  85, 102,  80,  93,  75,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER ; type
+	db WATER, NORMAL ; type
 	db 60 ; catch rate
 	db 170 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_WATER_2, EGG_WATER_2 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

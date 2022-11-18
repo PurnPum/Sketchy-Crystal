@@ -1,6 +1,6 @@
 	db TENTACOOL ; 072
 
-	db  40,  40,  35,  70,  50, 100
+	db  40,  40,  35,  70,  60, 100
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_3, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

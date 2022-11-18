@@ -1,9 +1,9 @@
 	db AZUMARILL ; 184
 
-	db 100,  50,  80,  50,  50,  80
+	db 100, 128,  70,  40,  60,  70
 	;   hp  atk  def  spd  sat  sdf
 
-	db WATER, WATER ; type
+	db WATER, NORMAL ; type
 	db 75 ; catch rate
 	db 153 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_FAIRY ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

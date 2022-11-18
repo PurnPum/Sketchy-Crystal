@@ -1,10 +1,10 @@
 	db "HIBERNANT@" ; species name
 	dw 511, 2770 ; height, weight
 
-	db   "Although it has a"
-	next "large body, it is"
-	next "quite skilled at"
+	db   "It almost hunt"
+	next "SNUBBULL to extin-"
+	next "tion. Nowadays,"
 
-	page "climbing trees. It"
-	next "eats and sleeps in"
-	next "the treetops.@"
+	page "however, it needs"
+	next "to hide from angry"
+	next "GRANBULL.@"

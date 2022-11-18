@@ -650,21 +650,21 @@ AnimSeq_FlyFrom:
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	cp $40
+	cp $30
 	ret c
 
 	ld hl, SPRITEANIMSTRUCT_YCOORD
 	add hl, bc
 	dec [hl]
-	dec [hl]
+	;dec [hl]
 
 	ld hl, SPRITEANIMSTRUCT_VAR4
 	add hl, bc
 	ld a, [hl]
 	ld d, a
-	cp $40
+	cp $05
 	jr nc, .skip
-	add 8
+	add 4
 	ld [hl], a
 .skip
 	ld hl, SPRITEANIMSTRUCT_VAR3
@@ -691,7 +691,7 @@ AnimSeq_FlyLeaf:
 	add hl, bc
 	dec [hl]
 
-	ld d, $40
+	ld d, $10
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -731,8 +731,8 @@ AnimSeq_FlyTo:
 	ld hl, SPRITEANIMSTRUCT_VAR3
 	add hl, bc
 	ld a, [hl]
-	inc [hl]
-	call AnimSeqs_Cosine
+	;inc [hl]
+	;call AnimSeqs_Sine
 
 	ld hl, SPRITEANIMSTRUCT_XOFFSET
 	add hl, bc

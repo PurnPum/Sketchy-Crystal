@@ -6,6 +6,7 @@
 	const SPROUTTOWER3F_POKE_BALL1
 	const SPROUTTOWER3F_POKE_BALL2
 	const SPROUTTOWER3F_RIVAL
+	const SPROUTTOWER3F_FALKNER
 
 SproutTower3F_MapScripts:
 	def_scene_scripts
@@ -34,7 +35,7 @@ SproutTower3FRivalScene:
 	applymovement PLAYER, SproutTower3FPlayerApproachesRivalMovement
 	applymovement SPROUTTOWER3F_RIVAL, SproutTower3FRivalApproachesElderMovement
 	opentext
-	writetext SproutTowerElderLecturesRivalText
+	writetextcheckdialogue SproutTowerElderLecturesRivalText, SproutTowerElderLecturesRivalTextMin
 	waitbutton
 	closetext
 	showemote EMOTE_SHOCK, SPROUTTOWER3F_RIVAL, 15
@@ -43,7 +44,7 @@ SproutTower3FRivalScene:
 	applymovement SPROUTTOWER3F_RIVAL, SproutTower3FRivalLeavesElderMovement
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
-	writetext SproutTowerRivalOnlyCareAboutStrongText
+	writetextcheckdialogue SproutTowerRivalOnlyCareAboutStrongText, SproutTowerRivalOnlyCareAboutStrongTextMin
 	waitbutton
 	closetext
 	turnobject SPROUTTOWER3F_RIVAL, UP
@@ -64,9 +65,9 @@ SproutTower3FRivalScene:
 SageLiScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM05_FLASH
-	iftrue .GotFlash
-	writetext SageLiSeenText
+	checkevent EVENT_GOT_FLASHLIGHT_FLASH
+	iftrue .GotFlashLight
+	writetextcheckdialogue SageLiSeenText, SageLiSeenTextMin
 	waitbutton
 	closetext
 	winlosstext SageLiBeatenText, 0
@@ -74,17 +75,35 @@ SageLiScript:
 	startbattle
 	reloadmapafterbattle
 	opentext
-	writetext SageLiTakeThisFlashText
+	writetextcheckdialogue SageLiTakeThisFlashLightText, SageLiTakeThisFlashLightTextMin
 	promptbutton
-	verbosegiveitem HM_FLASH
-	setevent EVENT_GOT_HM05_FLASH
+	verbosegiveitem FLASHLIGHT
+	setevent EVENT_GOT_FLASHLIGHT_FLASH
 	setevent EVENT_BEAT_SAGE_LI
-	writetext SageLiFlashExplanationText
+	writetextcheckdialogue SageLiFlashLightExplanationText, SageLiFlashLightExplanationTextMin
 	waitbutton
 	closetext
+	showemote EMOTE_SHOCK, SPROUTTOWER3F_FALKNER, 15
+	applymovement SPROUTTOWER3F_FALKNER, SproutTower3FFalknerApproachesLiMovement
+	opentext
+	writetextcheckdialogue SproutTowerFalknerLikedBattleText, SproutTowerFalknerLikedBattleTextMin
+	setevent EVENT_FALKNER_SPROUT_TOWER
+	waitbutton
+	closetext
+	turnobject SPROUTTOWER3F_FALKNER, UP
+	opentext
+	writetext SproutTowerFalknerUsedEscapeRopeText
+	pause 15
+	closetext
+	playsound SFX_WARP_TO
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	disappear SPROUTTOWER3F_FALKNER
+	waitsfx
+	special FadeInQuickly
 	end
 
-.GotFlash:
+.GotFlashLight:
 	writetext SageLiAfterBattleText
 	waitbutton
 	closetext
@@ -129,17 +148,21 @@ SproutTower3FPainting:
 SproutTower3FStatue:
 	jumptext SproutTower3FStatueText
 
-SproutTower3FPotion:
-	itemball POTION
+SproutTower3FPokeBalls:
+	itemball POKE_BALL, 3
 
 SproutTower3FEscapeRope:
-	itemball ESCAPE_ROPE
+	itemball ESCAPE_ROPE, 5
 
 SproutTower3FPlayerApproachesRivalMovement:
 	step UP
 	step UP
 	step UP
 	step UP
+	step_end
+	
+SproutTower3FFalknerApproachesLiMovement:
+	step RIGHT
 	step_end
 
 SproutTower3FRivalApproachesElderMovement:
@@ -150,6 +173,81 @@ SproutTower3FRivalLeavesElderMovement:
 	step RIGHT
 	step DOWN
 	step_end
+	
+SproutTowerFalknerScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_FALKNER
+	iftrue .WelcomeBack
+	writetext SproutTowerFalknerBeforeLiBattle
+	waitbutton
+	closetext
+	end
+
+.WelcomeBack
+	writetext SproutTowerFalknerAfterGymBattle
+	waitbutton
+	closetext
+	end
+
+SproutTowerFalknerAfterGymBattle:
+	text "FALKNER: Li and I"
+	line "have trained"
+	cont "together since"
+	cont "I was a kid."
+	
+	para "He has been my"
+	line "fatherly figure"
+	cont "ever since the"
+	cont "aerostat accident."
+	
+	para "At least I still"
+	line "have his #MON…"
+	done
+
+SproutTowerFalknerLikedBattleText:
+	text "FALKNER: Wow!"
+	line "That was a great"
+	line "battle! It was as"
+	cont "fierce as a raging"
+	cont "Fearow!"
+	
+	para "Well done! I can't"
+	line "wait for our "
+	cont "battle to happen"
+	cont "at the GYM!"
+	
+	para "I'll see you"
+	line "there!"
+	done
+	
+SproutTowerFalknerLikedBattleTextMin:
+	text "FALKNER: Cool."
+	line "Back to the GYM."
+	done
+
+SproutTowerFalknerUsedEscapeRopeText:
+	text "FALKNER used an"
+	line "ESCAPE ROPE!"
+	done
+
+SproutTowerFalknerBeforeLiBattle:
+	text "FALKNER: I was"
+	line "training with my"
+	cont "old friend LI when"
+	cont "that boy appeared…"
+	
+	para "They looked very"
+	line "determined but"
+	cont "also quite angry…"
+	
+	para "Regardless, I can"
+	line "arbitrate a match"
+	cont "between you and LI"
+
+	para "Give it all"
+	line "you've got!"
+	done
 
 SproutTowerElderLecturesRivalText:
 	text "ELDER: You are in-"
@@ -170,6 +268,10 @@ SproutTowerElderLecturesRivalText:
 
 	para "#MON are not"
 	line "tools of war…"
+	done
+	
+SproutTowerElderLecturesRivalTextMin:
+	text "ELDER: Yo chill."
 	done
 
 SproutTowerRivalOnlyCareAboutStrongText:
@@ -196,6 +298,11 @@ SproutTowerRivalOnlyCareAboutStrongText:
 	para "I really couldn't"
 	line "care less about"
 	cont "weak #MON."
+	done
+	
+SproutTowerRivalOnlyCareAboutStrongTextMin:
+	text "Somehow he sucks"
+	line "more than you."
 	done
 
 SproutTowerRivalUsedEscapeRopeText:
@@ -225,32 +332,46 @@ SageLiSeenText:
 	para "your #MON and"
 	line "you!"
 	done
-
+	
+SageLiSeenTextMin:
+	text "One sec let me"
+	line "heal my boys."
+	done
+	
 SageLiBeatenText:
 	text "Ah, excellent!"
 	done
 
-SageLiTakeThisFlashText:
-	text "You and your #-"
-	line "MON should have"
+SageLiTakeThisFlashLightText:
+	text "You should have"
+	line "no problem using"
+	cont "this item."
 
-	para "no problem using"
-	line "this move."
-
-	para "Take this FLASH"
-	line "HM."
+	para "Take this"
+	line "FLASHLIGHT."
+	done
+	
+SageLiTakeThisFlashLightTextMin:
+	text "Here, take this"
+	line "junk."
 	done
 
-SageLiFlashExplanationText:
-	text "FLASH illuminates"
-	line "even the darkest"
-	cont "of all places."
+SageLiFlashLightExplanationText:
+	text "A FLASHLIGHT can"
+	line "illuminate even"
+	line "the darkest of"
+	cont "all places."
 
 	para "But to use it out"
 	line "of battle, you"
 
 	para "need the BADGE"
 	line "from VIOLET's GYM."
+	done
+
+SageLiFlashLightExplanationTextMin:
+	text "Batteries not"
+	line "included."
 	done
 
 SageLiAfterBattleText:
@@ -345,10 +466,11 @@ SproutTower3F_MapEvents:
 	bg_event 14, 15, BGEVENT_READ, SproutTower3FStatue
 
 	def_object_events
-	object_event  8, 13, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageJin, -1
-	object_event  8,  8, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerSageTroy, -1
+	object_event  9, 12, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageJin, -1
+	object_event  8,  9, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSageTroy, -1
 	object_event 10,  2, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SageLiScript, -1
-	object_event 11, 11, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageNeal, -1
-	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPotion, EVENT_SPROUT_TOWER_3F_POTION
-	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPE
+	object_event  9, 11, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSageNeal, -1
+	object_event  6, 14, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FPokeBalls, EVENT_SPROUT_TOWER_3F_POKE_BALLS
+	object_event 14,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower3FEscapeRope, EVENT_SPROUT_TOWER_3F_ESCAPE_ROPES
 	object_event 10,  4, SPRITE_RIVAL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_SPROUT_TOWER
+	object_event  7,  3, SPRITE_FALKNER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTowerFalknerScript, EVENT_FALKNER_SPROUT_TOWER

@@ -1,7 +1,8 @@
 ; HM moves can't be forgotten
 
 IsHM::
-	cp HM01
+	ret ;Dont do anything, there are no HMs
+	;cp HM01
 	jr c, .NotHM
 	scf
 	ret
@@ -15,11 +16,4 @@ IsHMMove::
 	jp IsInArray
 
 .HMMoves:
-	db CUT
-	db FLY
-	db SURF
-	db STRENGTH
-	db FLASH
-	db WATERFALL
-	db WHIRLPOOL
 	db -1 ; end

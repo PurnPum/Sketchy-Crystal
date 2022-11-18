@@ -1,6 +1,6 @@
 	db WOOPER ; 194
 
-	db  55,  45,  45,  15,  25,  25
+	db  65,  55,  55,  15,  25,  25
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, GROUND ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

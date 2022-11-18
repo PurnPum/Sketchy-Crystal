@@ -1,12 +1,12 @@
 	db PARASECT ; 047
 
-	db  60,  95,  80,  30,  60,  80
+	db 105, 105,  85,  25, 100,  85
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, GRASS ; type
 	db 75 ; catch rate
 	db 128 ; base exp
-	db TINYMUSHROOM, BIG_MUSHROOM ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

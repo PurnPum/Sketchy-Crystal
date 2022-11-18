@@ -1,6 +1,6 @@
 	db JUMPLUFF ; 189
 
-	db  75,  55,  70, 110,  55,  85
+	db  75,  85,  55, 135,  85,  65
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, FLYING ; type
@@ -17,5 +17,5 @@
 	dn EGG_FAIRY, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

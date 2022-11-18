@@ -1,6 +1,6 @@
 	db MAGCARGO ; 219
 
-	db  50,  50, 120,  30,  80,  80
+	db  70,  50, 120,  20, 130,  90
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, ROCK ; type
@@ -17,5 +17,5 @@
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

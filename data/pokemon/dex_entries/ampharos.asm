@@ -1,10 +1,10 @@
 	db "LIGHT@" ; species name
 	dw 407, 1360 ; height, weight
 
-	db   "When it gets dark,"
-	next "the light from its"
-	next "bright, shiny tail"
+	db   "In the past, when"
+	next "it had to fend off"
+	next "enemy dragons from"
 
-	page "can be seen from"
-	next "far away on the"
-	next "ocean's surface.@"
+	page "its nest, it used"
+	next "its dazzling tail"
+	next "to survive.@"

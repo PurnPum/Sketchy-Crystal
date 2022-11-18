@@ -1,10 +1,12 @@
 Marts:
 ; entries correspond to MART_* constants (see constants/mart_constants.asm)
 	table_width 2, Marts
+	dw MartRoute29BerryShop
 	dw MartCherrygrove
 	dw MartCherrygroveDex
 	dw MartViolet
 	dw MartAzalea
+	dw MartAzaleaBerryShop
 	dw MartCianwood
 	dw MartGoldenrod2F1
 	dw MartGoldenrod2F2
@@ -37,22 +39,41 @@ Marts:
 	dw MartUnderground
 	assert_table_length NUM_MARTS
 
+MartRoute29BerryShop:
+	db 9 ; # items
+	db BERRY
+	db GRSSRESBERRY
+	db PRZCUREBERRY
+	db NRMLRESBERRY
+	db PSNCUREBERRY
+	db FIRERESBERRY
+	db BITTER_BERRY
+	db WATERESBERRY
+	db FLYRESBERRY
+	db -1 ; end
+	
 MartCherrygrove:
-	db 4 ; # items
-	db POTION
+	db 8 ; # items
+	db RAGECANDYBAR
 	db ANTIDOTE
 	db PARLYZ_HEAL
+	db ETHER
 	db AWAKENING
+	db REPEL
+	db MYSTIC_WATER
 	db TM_SKETCH
 	db -1 ; end
 
 MartCherrygroveDex:
-	db 5 ; # items
+	db 9 ; # items
 	db POKE_BALL
-	db POTION
+	db RAGECANDYBAR
 	db ANTIDOTE
 	db PARLYZ_HEAL
+	db ETHER
 	db AWAKENING
+	db REPEL
+	db MYSTIC_WATER
 	db TM_SKETCH
 	db -1 ; end
 
@@ -63,26 +84,39 @@ MartViolet:
 	db ESCAPE_ROPE
 	db ANTIDOTE
 	db PARLYZ_HEAL
-	db AWAKENING
-	db X_DEFEND
-	db X_ATTACK
-	db X_SPEED
-	db FLOWER_MAIL
+	db BURN_HEAL
+	db REPEL
+	db ETHER
+	db PINK_BOW
+	db HARD_STONE
 	db TM_SKETCH
 	db -1 ; end
 
 MartAzalea:
 	db 10 ; # items
 	db CHARCOAL
-	db POKE_BALL
-	db POTION
-	db SUPER_POTION
+	db DAMP_ROCK
+	db HEAT_ROCK
+	db SMOOTH_ROCK
 	db ESCAPE_ROPE
 	db REPEL
 	db ANTIDOTE
 	db PARLYZ_HEAL
 	db FLOWER_MAIL
 	db TM_SKETCH
+	db -1 ; end
+	
+MartAzaleaBerryShop:
+	db 9 ; # items
+	db BUGRESBERRY
+	db ROCKRESBERRY
+	db ICE_BERRY
+	db GRNDRESBERRY
+	db BURNT_BERRY
+	db ICERESBERRY
+	db PSYRESBERRY
+	db PSNRESBERRY
+	db ELECRESBERRY
 	db -1 ; end
 
 MartCianwood:
@@ -151,13 +185,11 @@ MartGoldenrod5F2:
 MartGoldenrod5F3:
 	db 2 ; # items
 	db TM_SKETCH
-	db TM_ROCK_SMASH
 	db -1 ; end
 
 MartGoldenrod5F4:
 	db 2 ; # items
 	db TM_SKETCH
-	db TM_ROCK_SMASH
 	db -1 ; end
 
 MartOlivine:
@@ -217,7 +249,7 @@ MartBlackthorn:
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
-	db MAX_POTION
+	db ULTRA_POTION
 	db FULL_HEAL
 	db REVIVE
 	db MAX_REPEL
@@ -297,7 +329,7 @@ MartCeladon2F1:
 	db POTION
 	db SUPER_POTION
 	db HYPER_POTION
-	db MAX_POTION
+	db ULTRA_POTION
 	db REVIVE
 	db SUPER_REPEL
 	db MAX_REPEL
@@ -366,7 +398,7 @@ MartSaffron:
 	db GREAT_BALL
 	db ULTRA_BALL
 	db HYPER_POTION
-	db MAX_POTION
+	db ULTRA_POTION
 	db FULL_HEAL
 	db X_ATTACK
 	db X_DEFEND
@@ -390,7 +422,7 @@ MartIndigoPlateau:
 	db ULTRA_BALL
 	db MAX_REPEL
 	db HYPER_POTION
-	db MAX_POTION
+	db ULTRA_POTION
 	db FULL_RESTORE
 	db REVIVE
 	db FULL_HEAL

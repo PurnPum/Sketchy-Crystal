@@ -3,6 +3,10 @@ INCLUDE "data/moves/effects_pointers.asm"
 MoveEffects: ; used only for BANK(MoveEffects)
 
 NormalHit:
+BypassProtect:
+AlwaysCrit:
+AlwaysCritPoison:
+Extremespeed:
 	checkobedience
 	usedmovetext
 	doturn
@@ -12,6 +16,7 @@ NormalHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -41,6 +46,7 @@ PoisonHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -62,6 +68,7 @@ LeechHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -83,6 +90,7 @@ BurnHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -104,6 +112,7 @@ FreezeHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -125,6 +134,7 @@ ParalyzeHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -146,6 +156,7 @@ Selfdestruct:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	selfdestruct
 	moveanimnosub
 	failuretext
@@ -167,6 +178,7 @@ DreamEater:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -545,6 +557,7 @@ AttackDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -567,6 +580,7 @@ DefenseDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -591,6 +605,7 @@ SpeedDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -613,6 +628,7 @@ SpecialAttackDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -635,6 +651,7 @@ SpecialDefenseDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -657,6 +674,7 @@ AccuracyDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -679,6 +697,7 @@ EvasionDownHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -701,6 +720,7 @@ DefenseUpHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -724,6 +744,7 @@ AttackUpHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -746,6 +767,7 @@ AllUpHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -755,27 +777,6 @@ AllUpHit:
 	checkfaint
 	buildopponentrage
 	allstatsup
-	endmove
-
-PayDay:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	payday
-	checkfaint
-	buildopponentrage
-	kingsrock
 	endmove
 
 Conversion:
@@ -800,6 +801,7 @@ Bide:
 	unleashenergy
 	resettypematchup
 	checkhit
+	resistberry
 	moveanim
 	bidefailtext
 	applydamage
@@ -821,6 +823,7 @@ Rampage:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -852,6 +855,7 @@ MultiHit:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -879,6 +883,7 @@ PoisonMultiHit:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -903,6 +908,7 @@ FlinchHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -914,21 +920,7 @@ FlinchHit:
 	flinchtarget
 	endmove
 
-OHKOHit:
-	checkobedience
-	usedmovetext
-	doturn
-	stab
-	ohko
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	endmove
-
+RecoilHit4th:
 RecoilHit:
 	checkobedience
 	usedmovetext
@@ -939,6 +931,7 @@ RecoilHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -983,6 +976,7 @@ ConfuseHit:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1001,13 +995,6 @@ Heal:
 	heal
 	endmove
 
-Transform:
-	checkobedience
-	usedmovetext
-	doturn
-	transform
-	endmove
-
 LightScreen:
 Reflect:
 	checkobedience
@@ -1020,20 +1007,29 @@ TriAttack:
 	checkobedience
 	usedmovetext
 	doturn
+	startloop
+	lowersub
+	checkhit
 	critical
+	triattack
 	damagestats
 	damagecalc
 	stab
 	damagevariation
-	checkhit
-	moveanim
+	clearmissdamage
+	resistberry
+	moveanimnosub
 	failuretext
 	applydamage
 	criticaltext
+	cleartext
 	supereffectivetext
 	checkfaint
 	buildopponentrage
-	tristatuschance
+	kickcounter
+	endloop
+	raisesub
+	kingsrock
 	endmove
 
 Toxic:
@@ -1069,6 +1065,7 @@ SkyAttack:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1098,6 +1095,7 @@ HyperBeam:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1117,6 +1115,7 @@ Rage:
 	damagecalc
 	stab
 	checkhit
+	resistberry
 	ragedamage
 	damagevariation
 	moveanim
@@ -1153,13 +1152,6 @@ LeechSeed:
 	leechseed
 	endmove
 
-Splash:
-	checkobedience
-	usedmovetext
-	doturn
-	splash
-	endmove
-
 Disable:
 	checkobedience
 	usedmovetext
@@ -1172,6 +1164,7 @@ RazorWind:
 	checkcharge
 	checkobedience
 	doturn
+	skipraincharge
 	charge
 	usedmovetext
 	critical
@@ -1180,6 +1173,7 @@ RazorWind:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1202,6 +1196,7 @@ Fly:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanimnosub
 	raisesub
 	failuretext
@@ -1224,6 +1219,7 @@ TrapTarget:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1258,6 +1254,7 @@ Reversal:
 	constantdamage
 	stab
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1308,6 +1305,7 @@ Snore:
 	checkhit
 	effectchance
 	snore
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1382,6 +1380,7 @@ FalseSwipe:
 	damagevariation
 	falseswipe
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1413,6 +1412,7 @@ TripleKick:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -1427,27 +1427,27 @@ TripleKick:
 	kingsrock
 	endmove
 
-Thief:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	effectchance
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	thief
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
+;Thief:
+;	checkobedience
+;	usedmovetext
+;	doturn
+;	critical
+;	damagestats
+;	damagecalc
+;	stab
+;	damagevariation
+;	checkhit
+;	effectchance
+;	moveanim
+;	failuretext
+;	applydamage
+;	criticaltext
+;	supereffectivetext
+;	thief
+;	checkfaint
+;	buildopponentrage
+;	kingsrock
+;	endmove
 
 MeanLook:
 	checkobedience
@@ -1473,6 +1473,7 @@ FlameWheel:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1536,7 +1537,7 @@ Endure:
 	endmove
 
 Rollout:
-	checkcurl
+	;checkcurl
 	checkobedience
 	doturn
 	usedmovetext
@@ -1547,6 +1548,7 @@ Rollout:
 	checkhit
 	rolloutpower
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1555,24 +1557,6 @@ Rollout:
 	checkfaint
 	buildopponentrage
 	kingsrock
-	endmove
-
-Swagger:
-	checkobedience
-	usedmovetext
-	doturn
-	checkhit
-	switchturn
-	attackup2
-	switchturn
-	lowersub
-	statupanim
-	raisesub
-	failuretext
-	switchturn
-	statupmessage
-	switchturn
-	confusetarget
 	endmove
 
 FuryCutter:
@@ -1586,6 +1570,7 @@ FuryCutter:
 	checkhit
 	furycutter
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1615,6 +1600,7 @@ Return:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1637,6 +1623,7 @@ Present:
 	stab
 	damagevariation
 	clearmissdamage
+	resistberry
 	failuretext
 	applydamage
 	criticaltext
@@ -1657,6 +1644,7 @@ Frustration:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1684,6 +1672,7 @@ SacredFire:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1694,28 +1683,6 @@ SacredFire:
 	checkfaint
 	buildopponentrage
 	burntarget
-	endmove
-
-Magnitude:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	getmagnitude
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	doubleundergrounddamage
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
 	endmove
 
 BatonPass:
@@ -1736,6 +1703,7 @@ Pursuit:
 	damagevariation
 	pursuit
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1756,6 +1724,7 @@ RapidSpin:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1798,6 +1767,7 @@ HiddenPower:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1832,20 +1802,6 @@ FakeOut:
 	failuretext
 	endmove
 
-BellyDrum:
-	checkobedience
-	usedmovetext
-	doturn
-	bellydrum
-	endmove
-
-PsychUp:
-	checkobedience
-	usedmovetext
-	doturn
-	psychup
-	endmove
-
 MirrorCoat:
 	checkobedience
 	usedmovetext
@@ -1871,6 +1827,7 @@ SkullBash:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1895,6 +1852,7 @@ Twister:
 	damagevariation
 	doubleflyingdamage
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1917,6 +1875,7 @@ Earthquake:
 	damagevariation
 	doubleundergrounddamage
 	checkhit
+	resistberry
 	effectchance
 	moveanim
 	failuretext
@@ -1937,6 +1896,7 @@ FutureSight:
 	futuresight
 	damagevariation ; skip here if last turn
 	checkhit
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -1955,6 +1915,7 @@ Gust:
 	damagevariation
 	doubleflyingdamage
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1976,6 +1937,7 @@ Stomp:
 	doubleminimizedamage
 	checkhit
 	effectchance
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -1999,6 +1961,7 @@ Solarbeam:
 	stab
 	damagevariation
 	checkhit
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2021,6 +1984,7 @@ Thunder:
 	effectchance
 	stab
 	damagevariation
+	resistberry
 	moveanim
 	failuretext
 	applydamage
@@ -2035,7 +1999,7 @@ Teleport:
 	checkobedience
 	usedmovetext
 	doturn
-	teleport
+	uturn
 	endmove
 
 BeatUp:
@@ -2051,6 +2015,7 @@ BeatUp:
 	damagecalc
 	damagevariation
 	clearmissdamage
+	resistberry
 	moveanimnosub
 	failuretext
 	applydamage
@@ -2065,15 +2030,237 @@ BeatUp:
 	kingsrock
 	endmove
 
-DefenseCurl:
+;DefenseCurl:
+;	checkobedience
+;	usedmovetext
+;	doturn
+;	defenseup
+;	curl
+;	lowersub
+;	statupanim
+;	raisesub
+;	statupmessage
+;	statupfailtext
+;	endmove
+
+SelfAttackDown:
 	checkobedience
 	usedmovetext
 	doturn
-	defenseup
-	curl
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	resistberry
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	switchturn
+	attackdown
+	statdownmessage
+	switchturn
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+	
+SelfSpecialAttackDown:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	resistberry
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	switchturn
+	specialattackdown
+	statdownmessage
+	switchturn
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+
+UTurn:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	resistberry
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	uturn
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+	
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	starthail
+	endmove
+	
+Blizzard:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	blizzardaccuracy
+	checkhit
+	effectchance
+	stab
+	damagevariation
+	resistberry
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	freezetarget
+	endmove
+
+Bind:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	bindmultiplier
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	resistberry
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	endmove
+	
+PoisonGas:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	checkhit
+	resistberry
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	kingsrock
+	poisongas
+	endmove
+
+CottonSpore:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	speeddown
 	lowersub
-	statupanim
+	statdownanim
 	raisesub
-	statupmessage
-	statupfailtext
+	statdownmessage
+	statdownfailtext
+	attackdown
+	statdownmessage
+	statdownfailtext
+	endmove
+
+ScaryFace:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	speeddown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	specialattackdown
+	statdownmessage
+	statdownfailtext
+	endmove
+
+SweetKiss:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	checksafeguard
+	confuse
+	attackdown
+	statdownmessage
+	statdownfailtext
+	endmove
+
+SweetScent:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	evasiondown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	speeddown
+	statdownmessage
+	statdownfailtext
+	endmove
+
+Flash:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	specialattackdown
+	lowersub
+	statdownanim
+	raisesub
+	statdownmessage
+	statdownfailtext
+	specialdefensedown
+	statdownmessage
+	statdownfailtext
 	endmove

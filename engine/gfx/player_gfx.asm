@@ -1,13 +1,13 @@
-BetaLoadPlayerTrainerClass: ; unreferenced
-	ld c, CAL
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_class
-	ld c, KAREN ; not KRIS?
-.got_class
-	ld a, c
-	ld [wTrainerClass], a
-	ret
+;BetaLoadPlayerTrainerClass: ; unreferenced
+;	ld c, CAL
+;	ld a, [wPlayerGender]
+;	bit PLAYERGENDER_FEMALE_F, a
+;	jr z, .got_class
+;	ld c, KAREN ; not KRIS?
+;.got_class
+;	ld a, c
+;	ld [wTrainerClass], a
+;	ret
 
 MovePlayerPicRight:
 	hlcoord 6, 4
@@ -71,16 +71,16 @@ ShowPlayerNamingChoices:
 
 INCLUDE "data/player_names.asm"
 
-GetPlayerNameArray: ; unreferenced
-	ld hl, wPlayerName
-	ld de, MalePlayerNameArray
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_array
-	ld de, FemalePlayerNameArray
-.got_array
-	call InitName
-	ret
+;GetPlayerNameArray: ; unreferenced
+;	ld hl, wPlayerName
+;	ld de, MalePlayerNameArray
+;	ld a, [wPlayerGender]
+;	bit PLAYERGENDER_FEMALE_F, a
+;	jr z, .got_array
+;	ld de, FemalePlayerNameArray
+;.got_array
+;	call InitName
+;	ret
 
 GetPlayerIcon:
 	ld de, ChrisSpriteGFX
@@ -216,3 +216,25 @@ GetKrisBackpic:
 
 KrisBackpic:
 INCBIN "gfx/player/kris_back.2bpp"
+
+GetChrisSwimBackpic:
+; Uncompressed.
+	ld de, ChrisSwimBackpic
+	ld hl, vTiles2 tile $31
+	lb bc, BANK(ChrisSwimBackpic), 7 * 7 ; dimensions
+	call Get2bpp
+	ret
+
+GetKrisSwimBackpic:
+	ld de, KrisSwimBackpic
+	ld hl, vTiles2 tile $31
+	lb bc, BANK(KrisSwimBackpic), 7 * 7 ; dimensions
+	call Get2bpp
+	ret
+
+ChrisSwimBackpic:
+INCBIN "gfx/player/chris_back_swim4.2bpp"
+
+KrisSwimBackpic:
+INCBIN "gfx/player/kris_back_swim2.2bpp"
+

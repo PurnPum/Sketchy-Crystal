@@ -234,6 +234,9 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
+	dw Script_isdialogueminimal			 ; aa
+	dw Script_writetextcheckdialogue	 ; ab
+	dw Script_farwritetextcheckdialogue	 ; ac
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -673,8 +676,17 @@ Script_trainertext:
 	ld l, a
 	ld a, [wSeenTrainerBank]
 	ld b, a
+	call CheckDialogueMode
+	jr nz, .end
+	ld hl, MinimalDialogueTrainerSeenText
+	ld b, BANK(MinimalDialogueTrainerSeenText)
+.end
 	call MapTextbox
 	ret
+
+MinimalDialogueTrainerSeenText:
+	text "Battle!"
+	done
 
 Script_scripttalkafter:
 	ld hl, wScriptAfterPointer
@@ -1372,6 +1384,12 @@ StdScript:
 	ret
 
 SkipTwoScriptBytes:
+	call GetScriptByte
+	call GetScriptByte
+	ret
+	
+SkipThreeScriptBytes:
+	call GetScriptByte
 	call GetScriptByte
 	call GetScriptByte
 	ret
@@ -2359,3 +2377,34 @@ Script_checkver_duplicate: ; unreferenced
 
 .gs_version:
 	db GS_VERSION
+
+
+Script_isdialogueminimal:
+	xor a
+	ld [wScriptVar], a
+	call CheckDialogueMode
+	ret nz ; if z=0 we're in normal mode, therefore return since we already wrote 0 to wScriptVar (False)
+	xor a
+	inc a
+	ld [wScriptVar], a
+	ret
+	
+Script_writetextcheckdialogue:
+	call CheckDialogueMode
+	jr z, .minimal_mode
+	call Script_writetext ;If z=0 we're in normal mode, so only writetext the first 2 bytes which point to the normal text
+	call SkipTwoScriptBytes ;Then go past the 2 bytes that we no longer need
+	ret
+.minimal_mode
+	call SkipTwoScriptBytes
+	jp Script_writetext ;Otherwise skip the first 2 bytes and write the 3rd and 4th which hold the minimal text pointer
+
+Script_farwritetextcheckdialogue:
+	call CheckDialogueMode
+	jr z, .minimal_mode
+	call Script_farwritetext ;If z=0 we're in normal mode, so only writetext the first 2 bytes which point to the normal text
+	call SkipThreeScriptBytes ;Then go past the 3 bytes that we no longer need
+	ret
+.minimal_mode
+	call SkipThreeScriptBytes
+	jp Script_farwritetext ;Otherwise skip the first 3 bytes and write the 4th and 5th which hold the minimal text pointer

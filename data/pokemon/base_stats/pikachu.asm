@@ -1,6 +1,6 @@
 	db PIKACHU ; 025
 
-	db  35,  55,  30,  90,  50,  40
+	db  40,  50,  40,  95,  65,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db ELECTRIC, ELECTRIC ; type
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_FAIRY ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

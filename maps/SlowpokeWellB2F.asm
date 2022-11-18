@@ -10,19 +10,19 @@ SlowpokeWellB2F_MapScripts:
 SlowpokeWellB2FGymGuideScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_KINGS_ROCK_IN_SLOWPOKE_WELL
-	iftrue .GotKingsRock
+	checkevent EVENT_GOT_ULTRA_BALLS_IN_SLOWPOKE_WELL
+	iftrue .GotUltraBalls
 	writetext SlowpokeWellB2FGymGuideText
 	promptbutton
-	verbosegiveitem KINGS_ROCK
+	verbosegiveitem ULTRA_BALL, 5
 	iffalse .NoRoom
-	setevent EVENT_GOT_KINGS_ROCK_IN_SLOWPOKE_WELL
+	setevent EVENT_GOT_ULTRA_BALLS_IN_SLOWPOKE_WELL
 .NoRoom:
 	closetext
 	end
 
-.GotKingsRock:
-	writetext SlowpokeWellB2FGymGuideText_GotKingsRock
+.GotUltraBalls:
+	writetext SlowpokeWellB2FGymGuideText_GotUltraBalls
 	waitbutton
 	closetext
 	end
@@ -45,12 +45,12 @@ SlowpokeWellB2FGymGuideText:
 	para "gets bitten by a"
 	line "SHELLDER."
 
-	para "Here, I'll share a"
-	line "KING'S ROCK with"
+	para "Here, I'll share"
+	line "some balls with"
 	cont "you."
 	done
 
-SlowpokeWellB2FGymGuideText_GotKingsRock:
+SlowpokeWellB2FGymGuideText_GotUltraBalls:
 	text "I'm going to be"
 	line "like SLOWPOKE."
 
@@ -71,4 +71,4 @@ SlowpokeWellB2F_MapEvents:
 
 	def_object_events
 	object_event  5,  4, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WANDER, 1, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 1, SlowpokeWellB2FGymGuideScript, -1
-	object_event 15,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB2FTMRainDance, EVENT_SLOWPOKE_WELL_B2F_TM_RAIN_DANCE
+	object_event 15,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_ITEMBALL, 0, SlowpokeWellB2FTMRainDance, EVENT_SLOWPOKE_WELL_B2F_TM_RAIN_DANCE

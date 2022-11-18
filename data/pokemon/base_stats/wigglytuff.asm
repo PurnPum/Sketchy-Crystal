@@ -1,6 +1,6 @@
 	db WIGGLYTUFF ; 040
 
-	db 140,  70,  45,  45,  75,  50
+	db 148,  88,  88,  48,  48,  88
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
@@ -17,5 +17,5 @@
 	dn EGG_FAIRY, EGG_FAIRY ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

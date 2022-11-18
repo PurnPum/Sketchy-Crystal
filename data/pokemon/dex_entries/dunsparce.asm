@@ -2,9 +2,9 @@
 	dw 411, 310 ; height, weight
 
 	db   "It hides deep"
-	next "inside caves where"
-	next "no light ever"
+	next "inside caves."
+	next "It used to be much"
 
-	page "reaches it and"
-	next "remains virtually"
-	next "motionless there.@"
+	page "bigger in the past"
+	next "but evolution has"
+	next "its own ways.@"

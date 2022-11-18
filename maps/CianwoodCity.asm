@@ -83,7 +83,7 @@ CianwoodCitySuicuneAndEusine:
 CianwoodCityChucksWife:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM02_FLY
+	checkevent EVENT_GOT_BALLOONS_FLY
 	iftrue .GotFly
 	writetext ChucksWifeEasierToFlyText
 	promptbutton
@@ -97,9 +97,9 @@ CianwoodCityChucksWife:
 .BeatChuck:
 	writetext ChucksWifeGiveHMText
 	promptbutton
-	verbosegiveitem HM_FLY
+	verbosegiveitem BALLOONS ; TODO
 	iffalse .Done
-	setevent EVENT_GOT_HM02_FLY
+	setevent EVENT_GOT_BALLOONS_FLY
 	writetext ChucksWifeFlySpeechText
 	promptbutton
 .GotFly:
@@ -145,8 +145,8 @@ CianwoodCityRock:
 CianwoodCityHiddenRevive:
 	hiddenitem REVIVE, EVENT_CIANWOOD_CITY_HIDDEN_REVIVE
 
-CianwoodCityHiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_CIANWOOD_CITY_HIDDEN_MAX_ETHER
+CianwoodCityHiddenSuperEther:
+	hiddenitem SUPER_ETHER, EVENT_CIANWOOD_CITY_HIDDEN_SUPER_ETHER
 
 CianwoodCitySuicuneApproachMovement:
 	set_sliding
@@ -400,7 +400,7 @@ CianwoodCity_MapEvents:
 	bg_event  8, 32, BGEVENT_READ, CianwoodPhotoStudioSign
 	bg_event  8, 24, BGEVENT_READ, CianwoodPokeSeerSign
 	bg_event  4, 19, BGEVENT_ITEM, CianwoodCityHiddenRevive
-	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenMaxEther
+	bg_event  5, 29, BGEVENT_ITEM, CianwoodCityHiddenSuperEther
 
 	def_object_events
 	object_event 21, 37, SPRITE_STANDING_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodCityYoungster, -1

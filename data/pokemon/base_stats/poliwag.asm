@@ -1,6 +1,6 @@
 	db POLIWAG ; 060
 
-	db  40,  50,  40,  90,  40,  40
+	db  40,  40,  40,  90,  50,  40
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

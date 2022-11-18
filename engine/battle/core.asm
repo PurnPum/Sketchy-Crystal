@@ -1,6 +1,18 @@
 ; Core components of the battle engine.
 
 DoBattle:
+.route_33_rain
+	ld a, [wMapGroup]
+	cp $08 ;AZALEA
+	jr nz, .move_on
+	ld a, [wMapNumber]
+	cp $06 ;ROUTE_33
+	jr nz, .move_on
+	ld a, WEATHER_RAIN
+	ld [wBattleWeather], a
+	ld a, $FF
+	ld [wWeatherCount], a
+.move_on
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
@@ -157,6 +169,23 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	ret
 
 BattleTurn:
+	ld a, [wMapGroup]
+	cp $08 ;AZALEA
+	jr nz, .loop
+	ld a, [wMapNumber]
+	cp $06 ;ROUTE_33
+	jr nz, .loop
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	jr nz, .loop
+	push de
+	push hl
+	ld de, RAIN_DANCE
+	call Call_PlayBattleAnim
+	ld hl, BattleText_RainFallingAlready
+	call StdBattleTextbox
+	pop hl
+	pop de
 .loop
 	call Stubbed_Increments5_a89a
 	call CheckContestBattleOver
@@ -1003,7 +1032,7 @@ CheckIfHPIsZero:
 ResidualDamage:
 ; Return z if the user fainted before
 ; or as a result of residual damage.
-; For Sandstorm damage, see HandleWeather.
+; For Sandstorm/Hail damage, see HandleWeather.
 
 	call HasUserFainted
 	ret z
@@ -1074,7 +1103,7 @@ ResidualDamage:
 	call z, Call_PlayBattleAnim_OnlyIfVisible
 	call SwitchTurnCore
 
-	call GetEighthMaxHP
+	call GetTwelfthMaxHP
 	call SubtractHPFromUser
 	ld a, $1
 	ldh [hBGMapMode], a
@@ -1094,7 +1123,7 @@ ResidualDamage:
 	ld [wNumHits], a
 	ld de, ANIM_IN_NIGHTMARE
 	call Call_PlayBattleAnim_OnlyIfVisible
-	call GetQuarterMaxHP
+	call GetThirdMaxHP
 	call SubtractHPFromUser
 	ld hl, HasANightmareText
 	call StdBattleTextbox
@@ -1538,7 +1567,7 @@ HandleDefrost:
 	ret nz
 
 	call BattleRandom
-	cp 10 percent
+	cp 33 percent
 	ret nc
 	xor a
 	ld [wBattleMonStatus], a
@@ -1687,31 +1716,35 @@ HandleWeather:
 
 	ld hl, wWeatherCount
 	dec [hl]
-	jr z, .ended
+	jp z, .ended
 
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
-	ret nz
+	jr z, .proceed
+	cp WEATHER_HAIL
+	jr z, .proceed
+	ret 
 
+.proceed
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .enemy_first
 
 ; player first
 	call SetPlayerTurn
-	call .SandstormDamage
+	call .SandstormHailDamage
 	call SetEnemyTurn
-	jr .SandstormDamage
+	jr .SandstormHailDamage
 
 .enemy_first
 	call SetEnemyTurn
-	call .SandstormDamage
+	call .SandstormHailDamage
 	call SetPlayerTurn
 
-.SandstormDamage:
+.SandstormHailDamage:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVar
 	bit SUBSTATUS_UNDERGROUND, a
@@ -1722,7 +1755,37 @@ HandleWeather:
 	and a
 	jr z, .ok
 	ld hl, wEnemyMonType1
+	
 .ok
+	ld a, [wBattleWeather]
+	cp WEATHER_SANDSTORM
+	jr z, .ok_sand
+	cp WEATHER_HAIL
+	jr z, .ok_hail
+	ret
+	
+.ok_hail
+	ld a, [hli]
+	cp ICE
+	ret z
+
+	ld a, [hl]
+	cp ICE
+	ret z
+
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	ld de, ANIM_IN_HAIL
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	call GetEighthMaxHP
+	call SubtractHPFromUser
+
+	ld hl, HailStormPeltsText
+	jp StdBattleTextbox
+	
+.ok_sand
 	ld a, [hli]
 	cp ROCK
 	ret z
@@ -1775,12 +1838,14 @@ HandleWeather:
 	dw BattleText_RainContinuesToFall
 	dw BattleText_TheSunlightIsStrong
 	dw BattleText_TheSandstormRages
+	dw BattleText_HailKeepsPeltering
 
 .WeatherEndedMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_TheRainStopped
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
+	dw BattleText_TheHailIsOver
 
 SubtractHPFromTarget:
 	call SubtractHP
@@ -1835,6 +1900,12 @@ GetSixteenthMaxHP:
 .ok
 	ret
 
+GetTwelfthMaxHP:
+; output: bc
+	call GetQuarterMaxHP 
+	call GetThird
+	ret
+	
 GetEighthMaxHP:
 ; output: bc
 	call GetQuarterMaxHP
@@ -1868,6 +1939,49 @@ GetQuarterMaxHP:
 .end
 	ret
 
+GetThirdMaxHP:
+	call GetMaxHP
+	call GetThird
+	ret
+
+GetThird:
+; input : bc
+; output: bc
+; divide bc by 3
+	push de
+	ld a, 3
+	ld [hDivisor], a
+	ld a, b
+	ld [hDividend], a
+	ld a, c
+	ld [hDividend + 1], a
+	ld a, [hQuotient + 3]
+	ld e, a
+	xor a
+	ld [hQuotient + 3], a
+	ld a, [hQuotient + 2]
+	ld d, a
+	xor a
+	ld [hQuotient + 2], a
+	ld b, 2
+	call Divide
+	ld a, [hQuotient + 3]
+	ld c, a
+	ldh a, [hQuotient + 2]
+	ld b, a
+	ld a, d
+	ld [hQuotient + 3], a
+	ld a, e
+	ld [hQuotient + 2], a
+; at least 1
+	ld a, b
+	or c
+	jr nz, .end
+	inc c
+.end
+	pop de
+	ret
+
 GetHalfMaxHP:
 ; output: bc
 	call GetMaxHP
@@ -1883,6 +1997,7 @@ GetHalfMaxHP:
 	inc c
 .end
 	ret
+
 
 GetMaxHP:
 ; output: bc, wHPBuffer1
@@ -1900,25 +2015,6 @@ GetMaxHP:
 	ld a, [hl]
 	ld [wHPBuffer1], a
 	ld c, a
-	ret
-
-GetHalfHP: ; unreferenced
-	ld hl, wBattleMonHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wEnemyMonHP
-.ok
-	ld a, [hli]
-	ld b, a
-	ld a, [hli]
-	ld c, a
-	srl b
-	rr c
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
 	ret
 
 CheckUserHasEnoughHP:
@@ -2411,6 +2507,7 @@ WinTrainerBattle:
 	ret
 
 .give_money
+	farcall CalculateBattleMoneyMultipliers
 	ld a, [wAmuletCoin]
 	and a
 	call nz, .DoubleReward
@@ -2496,7 +2593,7 @@ WinTrainerBattle:
 	ld [hli], a
 	ld [hl], a
 	ret
-
+	
 .SentToMomTexts:
 ; entries correspond to MOM_SAVING_* constants
 	dw SentSomeToMomText
@@ -4265,8 +4362,30 @@ HandleHealingItems:
 HandleHPHealingItem:
 	callfar GetOpponentItem
 	ld a, b
+	cp HELD_BERRY_4TH
+	jr z, .get_4th
 	cp HELD_BERRY
-	ret nz
+	jr z, .proceed
+	ret
+.get_4th ;This code is used for Gold berries, that recover a 4th of your Max HP
+	ld a, [hBattleTurn]
+	and a
+	push bc
+	jr z, .swapZeroToOne
+.swapOneToZero
+	call SetPlayerTurn
+	call GetQuarterMaxHP ; This will set the value of "c" to 1/4th of the max HP of the mon
+	call SetEnemyTurn
+	jr .preproceed
+.swapZeroToOne
+	call SetEnemyTurn
+	call GetQuarterMaxHP ; This will set the value of "c" to 1/4th of the max HP of the mon
+	call SetPlayerTurn
+.preproceed
+	ld a, c
+	pop bc ;Restore b's value while keeping c
+	ld c, a
+.proceed
 	ld de, wEnemyMonHP + 1
 	ld hl, wEnemyMonMaxHP
 	ldh a, [hBattleTurn]
@@ -4360,6 +4479,23 @@ ItemRecoveryAnim:
 	push de
 	push bc
 	call EmptyBattleTextbox
+	ld a, RECOVER
+	ld [wFXAnimID], a
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	ld [wFXAnimID + 1], a
+	predef PlayBattleAnim
+	call SwitchTurnCore
+	pop bc
+	pop de
+	pop hl
+	ret
+	
+ItemRecoveryAnimKeepText:
+	push hl
+	push de
+	push bc
 	ld a, RECOVER
 	ld [wFXAnimID], a
 	call SwitchTurnCore
@@ -6315,7 +6451,8 @@ LoadEnemyMon:
 ; Are we in a trainer battle?
 	ld a, [wBattleMode]
 	cp TRAINER_BATTLE
-	jr z, .WildMoves ;TODO
+	jr nz, .WildMoves	;TODO: If we're randomizing don't use the party struct and instead use FillMoves2
+
 ; Then copy moves from the party struct
 	ld hl, wOTPartyMon1Moves
 	ld a, [wCurPartyMon]
@@ -6335,7 +6472,8 @@ LoadEnemyMon:
 	ld [hl], a
 	ld [wSkipMovesBeforeLevelUp], a
 ; Fill moves based on level
-	predef FillMoves2
+	;predef FillMoves2
+	predef FillMoves
 
 .PP:
 ; Trainer battle?
@@ -6488,17 +6626,6 @@ CheckUnownLetter:
 	ret
 
 INCLUDE "data/wild/unlocked_unowns.asm"
-
-SwapBattlerLevels: ; unreferenced
-	push bc
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	ld [wBattleMonLevel], a
-	ld a, b
-	ld [wEnemyMonLevel], a
-	pop bc
-	ret
 
 BattleWinSlideInEnemyTrainerFrontpic:
 	xor a
@@ -6851,20 +6978,6 @@ _LoadHPBar:
 	callfar LoadHPBar
 	ret
 
-LoadHPExpBarGFX: ; unreferenced
-	ld de, EnemyHPBarBorderGFX
-	ld hl, vTiles2 tile $6c
-	lb bc, BANK(EnemyHPBarBorderGFX), 4
-	call Get1bpp
-	ld de, HPExpBarBorderGFX
-	ld hl, vTiles2 tile $73
-	lb bc, BANK(HPExpBarBorderGFX), 6
-	call Get1bpp
-	ld de, ExpBarGFX
-	ld hl, vTiles2 tile $55
-	lb bc, BANK(ExpBarGFX), 8
-	jp Get2bpp
-
 EmptyBattleTextbox:
 	ld hl, .empty
 	jp BattleTextbox
@@ -7016,7 +7129,7 @@ GiveExperiencePoints:
 	inc hl
 	ld a, [de]
 	add [hl]
-	ld [de], a
+	;ld [de], a This will prevent the player from gaining stat EXP in battles
 	jr nc, .no_carry_stat_exp
 	dec de
 	ld a, [de]
@@ -7764,45 +7877,9 @@ GoodComeBackText:
 	text_far _GoodComeBackText
 	text_end
 
-TextJump_ComeBack: ; unreferenced
-	ld hl, ComeBackText
-	ret
-
 ComeBackText:
 	text_far _ComeBackText
 	text_end
-
-HandleSafariAngerEatingStatus: ; unreferenced
-	ld hl, wSafariMonEating
-	ld a, [hl]
-	and a
-	jr z, .angry
-	dec [hl]
-	ld hl, BattleText_WildMonIsEating
-	jr .finish
-
-.angry
-	dec hl
-	assert wSafariMonEating - 1 == wSafariMonAngerCount
-	ld a, [hl]
-	and a
-	ret z
-	dec [hl]
-	ld hl, BattleText_WildMonIsAngry
-	jr nz, .finish
-	push hl
-	ld a, [wEnemyMonSpecies]
-	ld [wCurSpecies], a
-	call GetBaseData
-	ld a, [wBaseCatchRate]
-	ld [wEnemyMonCatchRate], a
-	pop hl
-
-.finish
-	push hl
-	call SafeLoadTempTilemapToTilemap
-	pop hl
-	jp StdBattleTextbox
 
 FillInExpBar:
 	push hl
@@ -8030,10 +8107,6 @@ StartBattle:
 	scf
 	ret
 
-CallDoBattle: ; unreferenced
-	call DoBattle
-	ret
-
 BattleIntro:
 	farcall StubbedTrainerRankings_Battles ; mobile
 	call LoadTrainerOrWildMonPic
@@ -8201,57 +8274,6 @@ InitEnemyWildmon:
 	hlcoord 12, 0
 	lb bc, 7, 7
 	predef PlaceGraphic
-	ret
-
-FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
-	ld hl, wEnemyMonMoves
-	ld de, wListMoves_MoveIndicesBuffer
-	ld b, NUM_MOVES
-.loop
-	ld a, [de]
-	inc de
-	ld [hli], a
-	and a
-	jr z, .clearpp
-
-	push bc
-	push hl
-
-	push hl
-	dec a
-	ld hl, Moves + MOVE_PP
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	pop hl
-
-	ld bc, wEnemyMonPP - (wEnemyMonMoves + 1)
-	add hl, bc
-	ld [hl], a
-
-	pop hl
-	pop bc
-
-	dec b
-	jr nz, .loop
-	ret
-
-.clear
-	xor a
-	ld [hli], a
-
-.clearpp
-	push bc
-	push hl
-	ld bc, wEnemyMonPP - (wEnemyMonMoves + 1)
-	add hl, bc
-	xor a
-	ld [hl], a
-	pop hl
-	pop bc
-	dec b
-	jr nz, .clear
 	ret
 
 ExitBattle:
@@ -8989,13 +9011,24 @@ GetTrainerBackpic:
 	jr z, .Chris
 
 ; It's a girl.
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	jr nz, .not_swim ;Only jump if the player state is not surfing
+	farcall GetKrisSwimBackpic
+	ret
+.not_swim
 	farcall GetKrisBackpic
 	ret
 
 .Chris:
 ; It's a boy.
-	ld b, BANK(ChrisBackpic)
 	ld hl, ChrisBackpic
+	ld b, BANK(ChrisBackpic)
+	ld a, [wPlayerState]
+	cp PLAYER_SURF
+	jr nz, .Decompress ;Only jump if the player state is not surfing
+	farcall GetChrisSwimBackpic
+	ret
 
 .Decompress:
 	ld de, vTiles2 tile $31

@@ -11,7 +11,7 @@ CharcoalKiln_MapScripts:
 CharcoalKilnBoss:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_SCYTHE_CUT
 	iftrue .GotCut
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .SavedSlowpoke
@@ -35,9 +35,9 @@ CharcoalKilnBoss:
 CharcoalKilnApprentice:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
+	checkevent EVENT_GOT_STARDUST_IN_CHARCOAL_KILN
 	iftrue .YoureTheCoolest
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_SCYTHE_CUT
 	iftrue .Thanks
 	writetext CharcoalKilnApprenticeText1
 	waitbutton
@@ -47,9 +47,9 @@ CharcoalKilnApprentice:
 .Thanks:
 	writetext CharcoalKilnApprenticeText2
 	promptbutton
-	verbosegiveitem CHARCOAL
+	verbosegiveitem STARDUST
 	iffalse .Done
-	setevent EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
+	setevent EVENT_GOT_STARDUST_IN_CHARCOAL_KILN
 	closetext
 	end
 
@@ -125,12 +125,11 @@ CharcoalKilnApprenticeText2:
 	text "I'm sorry--I for-"
 	line "got to thank you."
 
-	para "This is CHARCOAL"
-	line "that I made."
+	para "This is STARDUST"
+	line "that I found."
 
-	para "Fire-type #MON"
-	line "would be happy to"
-	cont "hold that."
+	para "Shops would be"
+	line "happy to buy that."
 	done
 
 CharcoalKilnApprenticeText3:

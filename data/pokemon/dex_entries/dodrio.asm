@@ -1,10 +1,10 @@
 	db "TRIPLEBIRD@" ; species name
 	dw 511, 1880 ; height, weight
 
-	db   "An enemy that"
-	next "takes its eyes off"
-	next "any of the three"
+	db   "If DODRIO and FEA-"
+	next "ROW see each other"
+	next "they'll instantly"
 
-	page "heads--even for a"
-	next "second--will get"
-	next "pecked severely.@"
+	page "start fighting un-"
+	next "til one faints,"
+	next "natural selection.@"

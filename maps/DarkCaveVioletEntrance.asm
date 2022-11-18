@@ -1,9 +1,5 @@
 	object_const_def
 	const DARKCAVEVIOLETENTRANCE_POKE_BALL1
-	const DARKCAVEVIOLETENTRANCE_ROCK1
-	const DARKCAVEVIOLETENTRANCE_ROCK2
-	const DARKCAVEVIOLETENTRANCE_ROCK3
-	const DARKCAVEVIOLETENTRANCE_ROCK4
 	const DARKCAVEVIOLETENTRANCE_POKE_BALL2
 	const DARKCAVEVIOLETENTRANCE_POKE_BALL3
 	const DARKCAVEVIOLETENTRANCE_POKE_BALL4
@@ -13,43 +9,38 @@ DarkCaveVioletEntrance_MapScripts:
 
 	def_callbacks
 
-DarkCaveVioletEntrancePotion:
-	itemball POTION
+DarkCaveVioletEntranceElixers:
+	itemball ELIXER, 2
 
-DarkCaveVioletEntranceFullHeal:
-	itemball FULL_HEAL
+DarkCaveVioletEntranceParlyzHeal:
+	itemball PARLYZ_HEAL, 4
 
-DarkCaveVioletEntranceHyperPotion:
-	itemball HYPER_POTION
+DarkCaveVioletEntranceBurnHeals:
+	itemball BURN_HEAL, 4
 
-DarkCaveVioletEntranceDireHit:
-	itemball DIRE_HIT
+DarkCaveVioletEntranceNugget:
+	itemball NUGGET
 
 DarkCaveVioletEntranceRock:
 	jumpstd SmashRockScript
 
-DarkCaveVioletEntranceHiddenElixer:
-	hiddenitem ELIXER, EVENT_DARK_CAVE_VIOLET_ENTRANCE_HIDDEN_ELIXER
+DarkCaveVioletEntranceHiddenFreshWater:
+	hiddenitem FRESH_WATER, EVENT_DARK_CAVE_VIOLET_ENTRANCE_HIDDEN_FRESH_WATER
 
 DarkCaveVioletEntrance_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
 	warp_event  3, 15, ROUTE_31, 3
-	warp_event 17,  1, DARK_CAVE_BLACKTHORN_ENTRANCE, 2
 	warp_event 35, 33, ROUTE_46, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 26,  3, BGEVENT_ITEM, DarkCaveVioletEntranceHiddenElixer
+	bg_event 32,  6, BGEVENT_ITEM, DarkCaveVioletEntranceHiddenFreshWater
 
 	def_object_events
-	object_event  6,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntrancePotion, EVENT_DARK_CAVE_VIOLET_ENTRANCE_POTION
-	object_event 16, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DarkCaveVioletEntranceRock, -1
-	object_event 27,  6, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DarkCaveVioletEntranceRock, -1
-	object_event  7, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DarkCaveVioletEntranceRock, -1
-	object_event 36, 31, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DarkCaveVioletEntranceRock, -1
-	object_event 36, 22, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceFullHeal, EVENT_DARK_CAVE_VIOLET_ENTRANCE_FULL_HEAL
-	object_event 35,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceHyperPotion, EVENT_DARK_CAVE_VIOLET_ENTRANCE_HYPER_POTION
-	object_event 30, 28, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceDireHit, EVENT_DARK_CAVE_VIOLET_ENTRANCE_DIRE_HIT
+	object_event  6,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceElixers, EVENT_DARK_CAVE_VIOLET_ENTRANCE_ELIXERS
+	object_event 36, 22, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceParlyzHeal, EVENT_DARK_CAVE_VIOLET_ENTRANCE_PARALYZ_HEAL
+	object_event 37, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceBurnHeals, EVENT_DARK_CAVE_VIOLET_ENTRANCE_BURN_HEALS
+	object_event 16,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_ITEMBALL, 0, DarkCaveVioletEntranceNugget, EVENT_DARK_CAVE_VIOLET_ENTRANCE_NUGGET

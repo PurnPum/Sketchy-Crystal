@@ -17,8 +17,8 @@ TinTower4FPPUp:
 TinTower4FEscapeRope:
 	itemball ESCAPE_ROPE
 
-TinTower4FHiddenMaxPotion:
-	hiddenitem MAX_POTION, EVENT_TIN_TOWER_4F_HIDDEN_MAX_POTION
+TinTower4FHiddenUltraPotion:
+	hiddenitem ULTRA_POTION, EVENT_TIN_TOWER_4F_HIDDEN_ULTRA_POTION
 
 TinTower4F_MapEvents:
 	db 0, 0 ; filler
@@ -32,7 +32,7 @@ TinTower4F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 11,  6, BGEVENT_ITEM, TinTower4FHiddenMaxPotion
+	bg_event 11,  6, BGEVENT_ITEM, TinTower4FHiddenUltraPotion
 
 	def_object_events
 	object_event 14, 10, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TinTower4FUltraBall, EVENT_TIN_TOWER_4F_ULTRA_BALL

@@ -1,10 +1,10 @@
 	db "FIVE STAR@" ; species name
 	dw 407, 780 ; height, weight
 
-	db   "In the daytime"
-	next "when it gets warm,"
-	next "it curls up inside"
+	db   "It patrols the"
+	next "night, ready to"
+	next "defend any lone"
 
-	page "a big leaf and"
-	next "drifts off into"
-	next "a deep slumber.@"
+	page "#MON from any"
+	next "attacker, whoever"
+	next "it ends up being.@"

@@ -107,7 +107,7 @@ JohtoWaterWildMons:
 	db 5, MAGIKARP
 	end_water_wildmons
 
-	def_water_wildmons DARK_CAVE_BLACKTHORN_ENTRANCE
+	def_water_wildmons DARK_CAVE_ROUTE46_ENTRANCE
 	db 2 percent ; encounter rate
 	db 15, MAGIKARP
 	db 10, MAGIKARP

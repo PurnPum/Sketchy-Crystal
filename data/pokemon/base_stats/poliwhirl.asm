@@ -1,12 +1,12 @@
 	db POLIWHIRL ; 061
 
-	db  65,  65,  65,  90,  50,  50
+	db  65,  50,  65,  90,  70,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
 	db 120 ; catch rate
 	db 131 ; base exp
-	db KINGS_ROCK, KINGS_ROCK ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

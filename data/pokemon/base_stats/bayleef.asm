@@ -1,9 +1,9 @@
 	db BAYLEEF ; 153
 
-	db  60,  62,  80,  60,  63,  80
+	db  80,  57,  80,  50,  58,  80
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, GRASS ; type
+	db GRASS, DRAGON ; type
 	db 45 ; catch rate
 	db 141 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

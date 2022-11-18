@@ -1,10 +1,10 @@
 	db "BUTTERFLY@" ; species name
 	dw 307, 710 ; height, weight
 
-	db   "It flits from"
-	next "flower to flower,"
-	next "collecting honey."
+	db   "When flutters of"
+	next "BUTTERFREE and"
+	next "VENOMOTH collide,"
 
-	page "It can even"
-	next "identify distant"
-	next "flowers in bloom.@"
+	page "A war is sure to"
+	next "begin. Witnesses"
+	next "get bad headaches.@"

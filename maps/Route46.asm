@@ -159,14 +159,8 @@ TrainerHikerBailey:
 Route46Sign:
 	jumptext Route46SignText
 
-Route46XSpeed:
-	itemball X_SPEED
-
-Route46FruitTree1:
-	fruittree FRUITTREE_ROUTE_46_1
-
-Route46FruitTree2:
-	fruittree FRUITTREE_ROUTE_46_2
+Route46Potions:
+	itemball POTION, 4
 
 HikerBaileySeenText:
 	text "Awright! I'll show"
@@ -254,7 +248,8 @@ Route46_MapEvents:
 	def_warp_events
 	warp_event  7, 33, ROUTE_29_ROUTE_46_GATE, 1
 	warp_event  8, 33, ROUTE_29_ROUTE_46_GATE, 2
-	warp_event 14,  5, DARK_CAVE_VIOLET_ENTRANCE, 3
+	warp_event  8,  3, DARK_CAVE_VIOLET_ENTRANCE, 2
+	warp_event  2,  9, DARK_CAVE_ROUTE46_ENTRANCE, 1
 
 	def_coord_events
 
@@ -262,9 +257,7 @@ Route46_MapEvents:
 	bg_event  9, 27, BGEVENT_READ, Route46Sign
 
 	def_object_events
-	object_event 12, 19, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerBailey, -1
-	object_event  4, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperTed, -1
-	object_event  2, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerErin1, -1
-	object_event  7,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route46FruitTree1, -1
-	object_event  8,  6, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route46FruitTree2, -1
-	object_event  1, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route46XSpeed, EVENT_ROUTE_46_X_SPEED
+	object_event 11, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerBailey, -1
+	object_event  5, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperTed, -1
+	object_event  3, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPicnickerErin1, -1
+	object_event  1, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route46Potions, EVENT_ROUTE_46_POTIONS

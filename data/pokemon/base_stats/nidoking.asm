@@ -1,6 +1,6 @@
 	db NIDOKING ; 034
 
-	db  81,  92,  77,  85,  85,  75
+	db  81, 102,  77,  85,  85,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db POISON, GROUND ; type
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

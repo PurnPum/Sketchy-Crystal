@@ -1,6 +1,8 @@
 ElmPhoneCalleeScript:
 	readvar VAR_SPECIALPHONECALL
 	ifequal SPECIALCALL_POKERUS, .pokerus
+	checkevent EVENT_WHITNEY_AT_SUDOWOODO
+	iffalse .sudowoodo
 	checkevent EVENT_SHOWED_TOGEPI_TO_ELM
 	iftrue .discovery
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
@@ -19,6 +21,10 @@ ElmPhoneCalleeScript:
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue .sawmrpokemon
 	farwritetext ElmPhoneHealYourMonText
+	end
+
+.sudowoodo
+	farwritetext ElmPhoneSudowoodoText
 	end
 
 .sawmrpokemon
@@ -73,13 +79,13 @@ ElmPhoneCallerScript:
 	end
 
 .disaster
-	farwritetext ElmPhoneDisasterText
+	farwritetextcheckdialogue ElmPhoneDisasterText, ElmPhoneDisasterTextMin
 	specialphonecall SPECIALCALL_NONE
 	setevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
 	end
 
 .assistant
-	farwritetext ElmPhoneEggAssistantText
+	farwritetextcheckdialogue ElmPhoneEggAssistantText, ElmPhoneEggAssistantTextMin
 	specialphonecall SPECIALCALL_NONE
 	clearevent EVENT_ELMS_AIDE_IN_VIOLET_POKEMON_CENTER
 	setevent EVENT_ELMS_AIDE_IN_LAB

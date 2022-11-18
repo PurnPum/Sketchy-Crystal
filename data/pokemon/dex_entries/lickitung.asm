@@ -3,8 +3,8 @@
 
 	db   "It has a tongue"
 	next "that is over 6'6''"
-	next "long. It uses this"
+	next "long. LICKITUNG's"
 
-	page "long tongue to"
-	next "lick its body"
-	next "clean.@"
+	page "saliva is very"
+	next "corrosive, so it"
+	next "should be avoided.@"

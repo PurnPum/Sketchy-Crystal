@@ -1,10 +1,10 @@
 	db "CLEAR WING@" ; species name
 	dw 311, 840 ; height, weight
 
-	db   "It can see in all"
-	next "directions without"
-	next "moving its big"
+	db   "Even though this"
+	next "#MON looks big,"
+	next "it used to be"
 
-	page "eyes, helping it"
-	next "spot attackers and"
-	next "food right away.@"
+	page "enormous. It used"
+	next "to fight DRAGONITE"
+	next "for territory.@"

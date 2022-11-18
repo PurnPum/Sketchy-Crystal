@@ -440,6 +440,18 @@ UseItem:
 	dw .Field   ; ITEMMENU_CLOSE
 
 .Oak:
+	ld a, [wCurItem]
+	cp BALLOONS ;D2
+	jr z, .balloons ;Reload the backpack menu if exiting the fly map
+	cp HAMMER ;D0
+	jr c, .proceed ; Continue as normal if c = 1, which means that wCurItem's value is D1 or lower
+	ret
+.balloons
+	call Pack_InitGFX
+	call WaitBGMap_DrawPackGFX
+	call Pack_InitColors
+	ret
+.proceed
 	ld hl, OakThisIsntTheTimeText
 	call Pack_PrintTextNoScroll
 	ret
@@ -468,6 +480,8 @@ UseItem:
 .Field:
 	call DoItemEffect
 	ld a, [wItemEffectSucceeded]
+	cp $02
+	ret z
 	and a
 	jr z, .Oak
 	ld a, PACKSTATE_QUITRUNSCRIPT

@@ -1,6 +1,6 @@
 	db SLUGMA ; 218
 
-	db  40,  40,  40,  20,  70,  40
+	db  40,  40,  40,  70,  70,  40
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type
@@ -17,5 +17,5 @@
 	dn EGG_INDETERMINATE, EGG_INDETERMINATE ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

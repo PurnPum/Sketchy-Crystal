@@ -18,7 +18,7 @@ VioletPokecenter1F_ElmsAideScript:
 	opentext
 	checkevent EVENT_REFUSED_TO_TAKE_EGG_FROM_ELMS_AIDE
 	iftrue .SecondTimeAsking
-	writetext VioletPokecenterElmsAideFavorText
+	writetextcheckdialogue VioletPokecenterElmsAideFavorText, VioletPokecenterElmsAideFavorTextMin
 .AskTakeEgg:
 	yesorno
 	iffalse .RefusedEgg
@@ -31,7 +31,7 @@ VioletPokecenter1F_ElmsAideScript:
 	clearevent EVENT_ELMS_AIDE_IN_LAB
 	clearevent EVENT_TOGEPI_HATCHED
 	setmapscene ROUTE_32, SCENE_ROUTE32_OFFER_SLOWPOKETAIL
-	writetext VioletPokecenterElmsAideGiveEggText
+	writetextcheckdialogue VioletPokecenterElmsAideGiveEggText, VioletPokecenterElmsAideGiveEggTextMin
 	waitbutton
 	closetext
 	readvar VAR_FACING
@@ -116,6 +116,11 @@ VioletPokecenterElmsAideFavorText:
 	para "Would you take the"
 	line "#MON EGG?"
 	done
+	
+VioletPokecenterElmsAideFavorTextMin:
+	text "Sup, hatch this"
+	line "and notify us."
+	done
 
 VioletPokecenterElmsAideGiveEggText:
 	text "We discovered that"
@@ -135,6 +140,11 @@ VioletPokecenterElmsAideGiveEggText:
 	para "Please call PROF."
 	line "ELM when that EGG"
 	cont "hatches!"
+	done
+	
+VioletPokecenterElmsAideGiveEggTextMin:
+	text "Or don't, I could"
+	line "not care less."
 	done
 
 VioletCityElmsAideFullPartyText:

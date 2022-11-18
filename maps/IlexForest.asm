@@ -18,7 +18,7 @@ IlexForest_MapScripts:
 	callback MAPCALLBACK_OBJECTS, IlexForestFarfetchdCallback
 
 IlexForestFarfetchdCallback:
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_SCYTHE_CUT
 	iftrue .Static
 	readmem wFarfetchdPosition
 	ifequal  1, .PositionOne
@@ -345,12 +345,12 @@ IlexForestFarfetchdScript:
 IlexForestCharcoalMasterScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM01_CUT
+	checkevent EVENT_GOT_SCYTHE_CUT
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	promptbutton
-	verbosegiveitem HM_CUT
-	setevent EVENT_GOT_HM01_CUT
+	verbosegiveitem SCYTHE
+	setevent EVENT_GOT_SCYTHE_CUT
 	writetext Text_CharcoalMasterOutro
 	waitbutton
 	closetext
@@ -399,23 +399,23 @@ TrainerBugCatcherWayne:
 IlexForestLassScript:
 	jumptextfaceplayer Text_IlexForestLass
 
-IlexForestRevive:
-	itemball REVIVE
+IlexForestGreatBalls:
+	itemball GREAT_BALL, 5
 
-IlexForestXAttack:
-	itemball X_ATTACK
+IlexForestSuperPotions:
+	itemball SUPER_POTION, 4
 
-IlexForestAntidote:
-	itemball ANTIDOTE
+IlexForestNugget:
+	itemball NUGGET
 
-IlexForestEther:
-	itemball ETHER
+IlexForestElixers:
+	itemball ELIXER, 4
 
-IlexForestHiddenEther:
-	hiddenitem ETHER, EVENT_ILEX_FOREST_HIDDEN_ETHER
+IlexForestHiddenParlyzHeal:
+	hiddenitem PARLYZ_HEAL, EVENT_ILEX_FOREST_HIDDEN_PARLYZ_HEAL
 
-IlexForestHiddenSuperPotion:
-	hiddenitem SUPER_POTION, EVENT_ILEX_FOREST_HIDDEN_SUPER_POTION
+IlexForestHiddenSodaPop:
+	hiddenitem SUPER_POTION, EVENT_ILEX_FOREST_HIDDEN_SODA_POP
 
 IlexForestHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_ILEX_FOREST_HIDDEN_FULL_HEAL
@@ -943,28 +943,28 @@ IlexForest_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  1,  5, ROUTE_34_ILEX_FOREST_GATE, 3
-	warp_event  3, 42, ILEX_FOREST_AZALEA_GATE, 1
-	warp_event  3, 43, ILEX_FOREST_AZALEA_GATE, 2
+	warp_event  1, 11, ROUTE_34_ILEX_FOREST_GATE, 3
+	warp_event 21, 52, ILEX_FOREST_AZALEA_GATE, 1
+	warp_event 21, 53, ILEX_FOREST_AZALEA_GATE, 2
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  3, 17, BGEVENT_READ, IlexForestSignpost
-	bg_event 11,  7, BGEVENT_ITEM, IlexForestHiddenEther
-	bg_event 22, 14, BGEVENT_ITEM, IlexForestHiddenSuperPotion
-	bg_event  1, 17, BGEVENT_ITEM, IlexForestHiddenFullHeal
-	bg_event  8, 22, BGEVENT_UP, IlexForestShrineScript
+	bg_event  3, 23, BGEVENT_READ, IlexForestSignpost
+	bg_event 13, 14, BGEVENT_ITEM, IlexForestHiddenParlyzHeal
+	bg_event 17, 13, BGEVENT_ITEM, IlexForestHiddenSodaPop
+	bg_event  1, 23, BGEVENT_ITEM, IlexForestHiddenFullHeal
+	bg_event  8, 28, BGEVENT_UP, IlexForestShrineScript
 
 	def_object_events
-	object_event 14, 31, SPRITE_BIRD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
-	object_event  7, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalApprenticeScript, EVENT_ILEX_FOREST_APPRENTICE
-	object_event  5, 28, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalMasterScript, EVENT_ILEX_FOREST_CHARCOAL_MASTER
-	object_event 15, 14, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestHeadbuttGuyScript, -1
-	object_event 20, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestRevive, EVENT_ILEX_FOREST_REVIVE
-	object_event  8, 29, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ILEX_FOREST_KURT
-	object_event  3, 24, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestLassScript, EVENT_ILEX_FOREST_LASS
-	object_event 12,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerBugCatcherWayne, -1
-	object_event  9, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestXAttack, EVENT_ILEX_FOREST_X_ATTACK
-	object_event 17,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestAntidote, EVENT_ILEX_FOREST_ANTIDOTE
-	object_event 27,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestEther, EVENT_ILEX_FOREST_ETHER
+	object_event 14, 37, SPRITE_BIRD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
+	object_event  7, 34, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalApprenticeScript, EVENT_ILEX_FOREST_APPRENTICE
+	object_event  5, 34, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalMasterScript, EVENT_ILEX_FOREST_CHARCOAL_MASTER
+	object_event 15, 20, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestHeadbuttGuyScript, -1
+	object_event 20, 38, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestGreatBalls, EVENT_ILEX_FOREST_GREAT_BALLS
+	object_event  8, 35, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ILEX_FOREST_KURT
+	object_event  3, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestLassScript, EVENT_ILEX_FOREST_LASS
+	object_event 12,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerBugCatcherWayne, -1
+	object_event  9, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestSuperPotions, EVENT_ILEX_FOREST_SUPER_POTIONS
+	object_event 19, 47, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_ITEMBALL, 0, IlexForestNugget, EVENT_ILEX_FOREST_NUGGET
+	object_event 27,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestElixers, EVENT_ILEX_FOREST_ELIXERS

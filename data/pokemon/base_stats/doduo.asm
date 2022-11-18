@@ -1,9 +1,9 @@
 	db DODUO ; 084
 
-	db  35,  85,  45,  75,  35,  35
+	db  35,  85,  45,  85,  35,  35
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, FLYING ; type
+	db FIGHTING, FLYING ; type
 	db 190 ; catch rate
 	db 96 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

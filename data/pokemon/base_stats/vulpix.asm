@@ -1,12 +1,12 @@
 	db VULPIX ; 037
 
-	db  38,  41,  40,  65,  50,  65
+	db  38,  41,  40,  65,  65,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIRE, FIRE ; type
+	db FIRE, GHOST ; type
 	db 190 ; catch rate
 	db 63 ; base exp
-	db BURNT_BERRY, BURNT_BERRY ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F75 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

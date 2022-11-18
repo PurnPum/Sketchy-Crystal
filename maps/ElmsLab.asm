@@ -50,7 +50,9 @@ ElmsLabWalkUpToElmScript:
 	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
 	turnobject ELMSLAB_ELM, RIGHT
 	opentext
-	writetext ElmText_Intro
+	writetextcheckdialogue ElmText_Intro, ElmText_IntroMin
+	isdialogueminimal
+	iftrue .skip_bullshit
 .MustSayYes:
 	yesorno
 	iftrue .ElmGetsEmail
@@ -74,6 +76,7 @@ ElmsLabWalkUpToElmScript:
 	opentext
 	turnobject ELMSLAB_ELM, RIGHT
 	writetext ElmText_MissionFromMrPokemon
+.skip_bullshit:
 	waitbutton
 	closetext
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
@@ -81,7 +84,7 @@ ElmsLabWalkUpToElmScript:
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement2
 	turnobject PLAYER, RIGHT
 	opentext
-	writetext ElmText_ChooseAPokemon
+	writetextcheckdialogue ElmText_ChooseAPokemon, ElmText_ChooseAPokemonMin
 	waitbutton
 	setscene SCENE_ELMSLAB_CANT_LEAVE
 	closetext
@@ -166,12 +169,12 @@ CyndaquilPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeCyndaquilText
+	writetextcheckdialogue TakeCyndaquilText, TakeCyndaquilTextMin
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL1
 	setevent EVENT_GOT_CYNDAQUIL_FROM_ELM
-	writetext ChoseStarterText
+	writetextcheckdialogue ChoseStarterText, ChoseStarterTextMin
 	promptbutton
 	waitsfx
 	getmonname STRING_BUFFER_3, CYNDAQUIL
@@ -196,12 +199,12 @@ TotodilePokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeTotodileText
+	writetextcheckdialogue TakeTotodileText, TakeTotodileTextMin
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL2
 	setevent EVENT_GOT_TOTODILE_FROM_ELM
-	writetext ChoseStarterText
+	writetextcheckdialogue ChoseStarterText, ChoseStarterTextMin
 	promptbutton
 	waitsfx
 	getmonname STRING_BUFFER_3, TOTODILE
@@ -224,12 +227,12 @@ ChikoritaPokeBallScript:
 	waitbutton
 	closepokepic
 	opentext
-	writetext TakeChikoritaText
+	writetextcheckdialogue TakeChikoritaText, TakeChikoritaTextMin
 	yesorno
 	iffalse DidntChooseStarterScript
 	disappear ELMSLAB_POKE_BALL3
 	setevent EVENT_GOT_CHIKORITA_FROM_ELM
-	writetext ChoseStarterText
+	writetextcheckdialogue ChoseStarterText, ChoseStarterTextMin
 	promptbutton
 	waitsfx
 	getmonname STRING_BUFFER_3, CHIKORITA
@@ -251,10 +254,12 @@ DidntChooseStarterScript:
 ElmDirectionsScript:
 	turnobject PLAYER, UP
 	opentext
-	writetext ElmDirectionsText1
+	writetextcheckdialogue ElmDirectionsText1, ElmDirectionsText1Min
 	waitbutton
 	closetext
 	addcellnum PHONE_ELM
+	isdialogueminimal
+	iftrue .enough_bullshit
 	opentext
 	writetext GotElmsNumberText
 	playsound SFX_REGISTER_PHONE_NUMBER
@@ -271,6 +276,7 @@ ElmDirectionsScript:
 	writetext ElmDirectionsText3
 	waitbutton
 	closetext
+.enough_bullshit:
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POTION
@@ -292,6 +298,8 @@ LookAtElmPokeBallScript:
 
 ElmsLabHealingMachine:
 	opentext
+	checkevent EVENT_USED_ELMS_HEALING_MACHINE
+	iftrue .CantHeal
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .CanHeal
 	writetext ElmsLabHealingMachineText1
@@ -303,6 +311,13 @@ ElmsLabHealingMachine:
 	writetext ElmsLabHealingMachineText2
 	yesorno
 	iftrue ElmsLabHealingMachine_HealParty
+	setevent EVENT_USED_ELMS_HEALING_MACHINE
+	closetext
+	end
+	
+.CantHeal:
+	writetext ElmsLabHealingMachineText3
+	waitbutton
 	closetext
 	end
 
@@ -318,32 +333,33 @@ ElmsLabHealingMachine_HealParty:
 	end
 
 ElmAfterTheftDoneScript:
+	writetext ElmAfterTheftText7
 	waitbutton
 	closetext
 	end
 
 ElmAfterTheftScript:
-	writetext ElmAfterTheftText1
+	writetextcheckdialogue ElmAfterTheftText1, ElmAfterTheftText1Min
 	checkitem MYSTERY_EGG
 	iffalse ElmAfterTheftDoneScript
 	promptbutton
-	writetext ElmAfterTheftText2
+	writetextcheckdialogue ElmAfterTheftText2, ElmAfterTheftText2Min
 	waitbutton
 	takeitem MYSTERY_EGG
 	scall ElmJumpBackScript1
-	writetext ElmAfterTheftText3
+	writetextcheckdialogue ElmAfterTheftText3, ElmAfterTheftText3Min
 	waitbutton
 	scall ElmJumpBackScript2
-	writetext ElmAfterTheftText4
+	writetextcheckdialogue ElmAfterTheftText4, ElmAfterTheftText4Min
 	promptbutton
-	writetext ElmAfterTheftText5
+	writetextcheckdialogue ElmAfterTheftText5, ElmAfterTheftText5Min
 	promptbutton
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MAIN_MENU_MOBILE_CHOICES
 	setmapscene ROUTE_29, SCENE_ROUTE29_CATCH_TUTORIAL
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
 	setevent EVENT_ROUTE_30_BATTLE
-	writetext ElmAfterTheftText6
+	writetextcheckdialogue ElmAfterTheftText6, ElmAfterTheftText6Min
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
@@ -472,10 +488,12 @@ AideScript_WalkPotion2:
 
 AideScript_GivePotion:
 	opentext
-	writetext AideText_GiveYouPotion
+	writetextcheckdialogue AideText_GiveYouPotion, AideText_GiveYouPotionMin
 	promptbutton
 	verbosegiveitem POTION
-	writetext AideText_AlwaysBusy
+	verbosegiveitem BICYCLE
+	setevent EVENT_GOT_BICYCLE
+	writetextcheckdialogue AideText_AlwaysBusy, AideText_AlwaysBusyMin
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOOP
@@ -497,12 +515,15 @@ AideScript_WalkBalls2:
 
 AideScript_GiveYouBalls:
 	opentext
-	writetext AideText_GiveYouBalls
+	writetextcheckdialogue AideText_GiveYouBalls, AideText_GiveYouBallsMin
 	promptbutton
+	verbosegiveitem EXP_SHARE, 5
+	verbosegiveitem BALLOONS
+	setevent EVENT_GOT_BALLOONS_FLY
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
 	giveitem POKE_BALL, 5
-	writetext AideText_ExplainBalls
+	writetextcheckdialogue AideText_ExplainBalls, AideText_ExplainBallsMin
 	promptbutton
 	itemnotify
 	closetext
@@ -522,7 +543,7 @@ ElmsAideScript:
 	iftrue AideScript_ExplainBalls
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
-	writetext AideText_AlwaysBusy
+	writetextcheckdialogue AideText_AlwaysBusy, AideText_AlwaysBusyMin
 	waitbutton
 	closetext
 	end
@@ -553,10 +574,10 @@ MeetCopScript:
 CopScript:
 	turnobject ELMSLAB_OFFICER, LEFT
 	opentext
-	writetext ElmsLabOfficerText1
+	writetextcheckdialogue ElmsLabOfficerText1, ElmsLabOfficerText1Min
 	promptbutton
 	special NameRival
-	writetext ElmsLabOfficerText2
+	writetextcheckdialogue ElmsLabOfficerText2, ElmsLabOfficerText2Min
 	waitbutton
 	closetext
 	applymovement ELMSLAB_OFFICER, OfficerLeavesMovement
@@ -761,6 +782,10 @@ ElmText_Intro:
 	para "that I recently"
 	line "caught."
 	done
+	
+ElmText_IntroMin:
+	text "So you're here…"
+	done
 
 ElmText_Accepted:
 	text "Thanks, <PLAY_G>!"
@@ -844,6 +869,10 @@ ElmText_ChooseAPokemon:
 
 	para "Go on. Pick one!"
 	done
+	
+ElmText_ChooseAPokemonMin:
+	text "Pick a #MON."
+	done
 
 ElmText_LetYourMonBattleIt:
 	text "If a wild #MON"
@@ -862,16 +891,28 @@ TakeCyndaquilText:
 	cont "fire #MON?"
 	done
 
+TakeCyndaquilTextMin:
+	text "CYNDAQUIL?"
+	done
+
 TakeTotodileText:
 	text "ELM: Do you want"
 	line "TOTODILE, the"
 	cont "water #MON?"
+	done
+	
+TakeTotodileTextMin:
+	text "TOTODILE?"
 	done
 
 TakeChikoritaText:
 	text "ELM: So, you like"
 	line "CHIKORITA, the"
 	cont "grass #MON?"
+	done
+
+TakeChikoritaTextMin:
+	text "CHIKORITA?"
 	done
 
 DidntChooseStarterText:
@@ -886,6 +927,10 @@ ChoseStarterText:
 	text "ELM: I think"
 	line "that's a great"
 	cont "#MON too!"
+	done
+	
+ChoseStarterTextMin:
+	text "Okay…"
 	done
 
 ReceivedStarterText:
@@ -914,16 +959,25 @@ ElmDirectionsText1:
 	para "number. Call me if"
 	line "anything comes up!"
 	done
+	
+ElmDirectionsText1Min:
+	text "Now get outta here"
+	done
 
 ElmDirectionsText2:
 	text "If your #MON is"
-	line "hurt, you should"
+	line "hurt, you can heal"
 
-	para "heal it with this"
+	para "them with this"
 	line "machine."
 
-	para "Feel free to use"
-	line "it anytime."
+	para "However you can"
+	line "only use it once."
+	
+	para "Its very expensive"
+	line "to run this mach-"
+	cont "ine and we're low"
+	cont "in funds."
 	done
 
 ElmDirectionsText3:
@@ -962,6 +1016,11 @@ ElmsLabHealingMachineText2:
 	line "heal your #MON?"
 	done
 
+ElmsLabHealingMachineText3:
+	text "The machine is"
+	line "turned off."
+	done
+
 ElmAfterTheftText1:
 	text "ELM: <PLAY_G>, this"
 	line "is terrible…"
@@ -970,15 +1029,28 @@ ElmAfterTheftText1:
 	line "MR.#MON's big"
 	cont "discovery?"
 	done
+	
+ElmAfterTheftText1Min:
+	text "I'll beat that"
+	line "kid's ass later…"
+	done
 
 ElmAfterTheftText2:
 	text "<PLAYER> handed"
 	line "the MYSTERY EGG to"
 	cont "PROF.ELM."
 	done
-
+	
+ElmAfterTheftText2Min:
+	text "Transferring egg…"
+	done
+	
 ElmAfterTheftText3:
 	text "ELM: This?"
+	done
+
+ElmAfterTheftText3Min:
+	text "Uh?"
 	done
 
 ElmAfterTheftText4:
@@ -987,6 +1059,11 @@ ElmAfterTheftText4:
 
 	para "If it is, it is a"
 	line "great discovery!"
+	done
+	
+ElmAfterTheftText4Min:
+	text "What the hell"
+	line "is this???"
 	done
 
 ElmAfterTheftText5:
@@ -1022,6 +1099,11 @@ ElmAfterTheftText5:
 	line "would be the one"
 	cont "in VIOLET CITY."
 	done
+	
+ElmAfterTheftText5Min:
+	text "Sigh, now I gotta"
+	line "investigate this."
+	done
 
 ElmAfterTheftText6:
 	text "…<PLAY_G>. The"
@@ -1033,6 +1115,27 @@ ElmAfterTheftText6:
 	para "Before you leave,"
 	line "make sure that you"
 	cont "talk to your mom."
+	done
+	
+ElmAfterTheftText6Min:
+	text "Well, tell your"
+	line "mom I said hi."
+	done
+
+ElmAfterTheftText7:
+	text "Wtf, did you eat"
+	line "the egg he gave"
+	cont "you or wtf did you"
+	cont "do?"
+	
+	para "Oh, you stored it"
+	line "in the PC to see"
+	cont "if it would become"
+	cont "an Easter Egg?"
+	
+	para "Well, congrats on"
+	line "wasting our damn"
+	cont "time on this shit."
 	done
 
 ElmStudyingEggText:
@@ -1220,11 +1323,19 @@ AideText_GiveYouPotion:
 	line "you to have this"
 	cont "for your errand."
 	done
+	
+AideText_GiveYouPotionMin:
+	text "Free stuff!"
+	done
 
 AideText_AlwaysBusy:
 	text "There are only two"
 	line "of us, so we're"
 	cont "always busy."
+	done
+	
+AideText_AlwaysBusyMin:
+	text "So much work…"
 	done
 
 AideText_TheftTestimony:
@@ -1259,6 +1370,10 @@ AideText_GiveYouBalls:
 	line "#DEX quest!"
 	done
 
+AideText_GiveYouBallsMin:
+	text "More free stuff!"
+	done
+
 AideText_ExplainBalls:
 	text "To add to your"
 	line "#DEX, you have"
@@ -1267,6 +1382,11 @@ AideText_ExplainBalls:
 	para "Throw # BALLS"
 	line "at wild #MON"
 	cont "to get them."
+	done
+	
+AideText_ExplainBallsMin:
+	text "Throw ball, get"
+	line "#MON, simple."
 	done
 
 ElmsLabOfficerText1:
@@ -1289,6 +1409,11 @@ ElmsLabOfficerText1:
 	para "Did you happen to"
 	line "get his name?"
 	done
+	
+ElmsLabOfficerText1Min:
+	text "Sigh, just name"
+	line "the other kid, OK?"
+	done
 
 ElmsLabOfficerText2:
 	text "OK! So <RIVAL>"
@@ -1296,6 +1421,11 @@ ElmsLabOfficerText2:
 
 	para "Thanks for helping"
 	line "my investigation!"
+	done
+	
+ElmsLabOfficerText2Min:
+	text "'<RIVAL>'?"
+	line "It's OK, I guess…"
 	done
 
 ElmsLabWindowText1:

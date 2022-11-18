@@ -83,6 +83,11 @@ SandstormHitsText:
 	text "The SANDSTORM hits"
 	line "<USER>!"
 	prompt
+	
+HailStormPeltsText:
+	text "The HAIL pelts"
+	line "<USER>!"
+	prompt
 
 PerishCountText:
 	text "<USER>'s"
@@ -144,6 +149,11 @@ BattleText_TheSandstormRages:
 	text "The SANDSTORM"
 	line "rages."
 	prompt
+	
+BattleText_HailKeepsPeltering:
+	text "The HAILSTORM"
+	line "keeps on falling."
+	prompt
 
 BattleText_TheRainStopped:
 	text "The rain stopped."
@@ -158,6 +168,11 @@ BattleText_TheSandstormSubsided:
 	text "The SANDSTORM"
 	line "subsided."
 	prompt
+	
+BattleText_TheHailIsOver:
+	text "The HAILSTORM"
+	line "is over."
+	prompt
 
 BattleText_EnemyMonFainted:
 	text "Enemy @"
@@ -171,6 +186,39 @@ GotMoneyForWinningText:
 	text_decimal wBattleReward, 3, 6
 	text_start
 	line "for winning!"
+	prompt
+	
+TurnMoneyBonusMultiplierText:
+	text "Turn multiplier"
+	line "bonus: @"
+	text_decimal wStringBuffer3, 1, 1
+	text ".@"
+	text_decimal wStringBuffer3 + 1, 1, 2
+	text "!"
+	prompt
+
+LevelMoneyBonusMultiplierText:
+	text "Level multiplier"
+	line "bonus: @"
+	text_decimal wStringBuffer3, 1, 1
+	text ".@"
+	text_decimal wStringBuffer3 + 1, 1, 2
+	text "!"
+	prompt
+	
+FinalMoneyBonusMultiplierText:
+	text "Total multiplier"
+	line "bonus: @"
+	text_decimal wStringBuffer3, 1, 2
+	text ".@"
+	text_decimal wStringBuffer3 + 1, 1, 2
+	text "!"
+	prompt
+	
+FinalMoneyBonusText:
+	text "Final Bonus: ¥@"
+	text_decimal wStringBuffer5, 2, 5
+	text "!"
 	prompt
 
 BattleText_EnemyWasDefeated:
@@ -793,6 +841,11 @@ RecoilText:
 	line "hit with recoil!"
 	prompt
 
+SelfDestructText:
+	text "<USER>'s"
+	line "took heavy damage!"
+	prompt
+
 MadeSubstituteText:
 	text "<USER>"
 	line "made a SUBSTITUTE!"
@@ -1006,6 +1059,11 @@ SandstormBrewedText:
 	text "A SANDSTORM"
 	line "brewed!"
 	prompt
+	
+HailStartedText:
+	text "It started"
+	line "HAILING!"
+	prompt
 
 BracedItselfText:
 	text "<USER>"
@@ -1106,3 +1164,23 @@ BattleText_NoTimeLeftToday: ; unreferenced
 	text "There is no time"
 	line "left today!"
 	done
+
+BattleText_RainFallingAlready:
+	text "It is heavily"
+	line "raining!"
+	prompt
+	
+BattleText_ResistBerry:
+	text "<TARGET>"
+	line "took less damage"
+	cont "from @"
+	text_ram wStringBuffer1
+	text " "
+	prompt
+	
+BattleText_ResistBerry2:
+	text "by using its"
+	line "@"
+	text_ram wStringBuffer1
+	text "!"
+	prompt

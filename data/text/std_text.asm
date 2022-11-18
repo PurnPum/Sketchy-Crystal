@@ -52,10 +52,22 @@ PokeComNurseNiteText:
 NurseAskHealText:
 	text "We can heal your"
 	line "#MON to perfect"
-	cont "health."
+	cont "health for a fee."
 
 	para "Shall we heal your"
 	line "#MON?"
+	done
+
+NurseExplainCost:
+	text "This will cost"
+	line "you ¥@"
+	text_decimal wPokemonCenterPrice, 2, 5
+	text "."
+	done
+	
+NurseNotEnoughMoney:
+	text "Sorry, you can't"
+	line "afford this…"
 	done
 
 NurseTakePokemonText:

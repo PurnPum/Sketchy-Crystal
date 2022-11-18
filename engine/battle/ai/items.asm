@@ -271,7 +271,7 @@ AI_TryItem:
 
 AI_Items:
 	dbw FULL_RESTORE, .FullRestore
-	dbw MAX_POTION,   .MaxPotion
+	dbw ULTRA_POTION, .UltraPotion
 	dbw HYPER_POTION, .HyperPotion
 	dbw SUPER_POTION, .SuperPotion
 	dbw POTION,       .Potion
@@ -336,10 +336,11 @@ AI_Items:
 	call EnemyUsedFullRestore
 	jp .Use
 
-.MaxPotion:
+.UltraPotion:
 	call .HealItem
 	jp c, .DontUse
-	call EnemyUsedMaxPotion
+	ld b, 240
+	call EnemyUsedUltraPotion
 	jp .Use
 
 .HealItem:
@@ -381,21 +382,21 @@ AI_Items:
 .HyperPotion:
 	call .HealItem
 	jp c, .DontUse
-	ld b, 200
+	ld b, 120
 	call EnemyUsedHyperPotion
 	jp .Use
 
 .SuperPotion:
 	call .HealItem
 	jp c, .DontUse
-	ld b, 50
+	ld b, 60
 	call EnemyUsedSuperPotion
 	jp .Use
 
 .Potion:
 	call .HealItem
 	jp c, .DontUse
-	ld b, 20
+	ld b, 30
 	call EnemyUsedPotion
 	jp .Use
 
@@ -546,11 +547,6 @@ EnemyUsedFullHeal:
 	ld a, FULL_HEAL
 	jp PrintText_UsedItemOn_AND_AIUpdateHUD
 
-EnemyUsedMaxPotion:
-	ld a, MAX_POTION
-	ld [wCurEnemyItem], a
-	jr FullRestoreContinue
-
 EnemyUsedFullRestore:
 ; BUG: AI use of Full Heal does not cure confusion status (see docs/bugs_and_glitches.md)
 	call AI_HealStatus
@@ -585,17 +581,21 @@ FullRestoreContinue:
 
 EnemyUsedPotion:
 	ld a, POTION
-	ld b, 20
+	ld b, 30
 	jr EnemyPotionContinue
 
 EnemyUsedSuperPotion:
 	ld a, SUPER_POTION
-	ld b, 50
+	ld b, 60
 	jr EnemyPotionContinue
 
 EnemyUsedHyperPotion:
 	ld a, HYPER_POTION
-	ld b, 200
+	ld b, 120
+
+EnemyUsedUltraPotion:
+	ld a, ULTRA_POTION
+	ld b, 240
 
 EnemyPotionContinue:
 	ld [wCurEnemyItem], a

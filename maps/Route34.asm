@@ -351,8 +351,6 @@ TrainerPicnickerGina1:
 OfficerKeithScript:
 	faceplayer
 	opentext
-	checktime NITE
-	iffalse .NoFight
 	checkevent EVENT_BEAT_OFFICER_KEITH
 	iftrue .AfterScript
 	playmusic MUSIC_OFFICER_ENCOUNTER
@@ -418,7 +416,7 @@ TrainerCooltrainerfIrene:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	checkevent EVENT_BEAT_COOLTRAINERF_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfIreneAfterText1
 	waitbutton
@@ -437,7 +435,7 @@ TrainerCooltrainerfJenn:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	checkevent EVENT_BEAT_COOLTRAINERF_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfJennAfterText1
 	waitbutton
@@ -456,13 +454,10 @@ TrainerCooltrainerfKate:
 .Script:
 	endifjustbattled
 	opentext
-	checkevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	checkevent EVENT_BEAT_COOLTRAINERF_KATE
 	iftrue .GotSoftSand
 	writetext CooltrainerfKateOfferSoftSandText
-	promptbutton
-	verbosegiveitem SOFT_SAND
-	iffalse .BagFull
-	setevent EVENT_GOT_SOFT_SAND_FROM_KATE
+	setevent EVENT_BEAT_COOLTRAINERF_KATE
 .GotSoftSand:
 	writetext CooltrainerfKateAfterText
 	waitbutton
@@ -484,12 +479,15 @@ DayCareSign:
 
 Route34Nugget:
 	itemball NUGGET
+	
+Route34ThickClub:
+	itemball THICK_CLUB
 
-Route34HiddenRareCandy:
-	hiddenitem RARE_CANDY, EVENT_ROUTE_34_HIDDEN_RARE_CANDY
+Route34HiddenSodaPop:
+	hiddenitem SODA_POP, EVENT_ROUTE_34_HIDDEN_SODA_POP
 
-Route34HiddenSuperPotion:
-	hiddenitem SUPER_POTION, EVENT_ROUTE_34_HIDDEN_SUPER_POTION
+Route34HiddenSuperEther:
+	hiddenitem SUPER_ETHER, EVENT_ROUTE_34_HIDDEN_SUPER_ETHER
 
 Route34MovementData_DayCareManWalksBackInside:
 	slow_step LEFT
@@ -648,7 +646,8 @@ PokefanmBrandonAfterText:
 
 CooltrainerfIreneSeenText:
 	text "IRENE: Kyaaah!"
-	line "Someone found us!"
+	line "Someone challenges"
+	cont "us!"
 	done
 
 CooltrainerfIreneBeatenText:
@@ -664,10 +663,10 @@ CooltrainerfIreneAfterText1:
 
 CooltrainerfIreneAfterText2:
 	text "IRENE: Isn't this"
-	line "beach great?"
+	line "route great?"
 
-	para "It's our secret"
-	line "little getaway!"
+	para "It's our favourite"
+	line "place to train!"
 	done
 
 CooltrainerfJennSeenText:
@@ -708,9 +707,6 @@ CooltrainerfKateOfferSoftSandText:
 	text "KATE: You're too"
 	line "strong. I didn't"
 	cont "stand a chance."
-
-	para "Here. You deserve"
-	line "this."
 	done
 
 CooltrainerfKateAfterText:
@@ -718,10 +714,10 @@ CooltrainerfKateAfterText:
 	line "jumped you."
 
 	para "We never expected"
-	line "anyone to find us"
+	line "anyone to beat us"
 
-	para "here. You sure"
-	line "startled us."
+	para "You sure"
+	line "showed us."
 	done
 
 Route34IlexForestSignText:
@@ -762,32 +758,33 @@ Route34_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 13, 37, ROUTE_34_ILEX_FOREST_GATE, 1
-	warp_event 14, 37, ROUTE_34_ILEX_FOREST_GATE, 2
-	warp_event 11, 14, DAY_CARE, 1
-	warp_event 11, 15, DAY_CARE, 2
-	warp_event 13, 15, DAY_CARE, 3
+	warp_event 17, 37, ROUTE_34_ILEX_FOREST_GATE, 1
+	warp_event 18, 37, ROUTE_34_ILEX_FOREST_GATE, 2
+	warp_event 15, 14, DAY_CARE, 1
+	warp_event 15, 15, DAY_CARE, 2
+	warp_event 17, 15, DAY_CARE, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 12,  6, BGEVENT_READ, Route34Sign
-	bg_event 13, 33, BGEVENT_READ, Route34TrainerTips
-	bg_event 10, 13, BGEVENT_READ, DayCareSign
-	bg_event  8, 32, BGEVENT_ITEM, Route34HiddenRareCandy
-	bg_event 17, 19, BGEVENT_ITEM, Route34HiddenSuperPotion
+	bg_event 16,  6, BGEVENT_READ, Route34Sign
+	bg_event 17, 33, BGEVENT_READ, Route34TrainerTips
+	bg_event 14, 13, BGEVENT_READ, DayCareSign
+	bg_event 23, 26, BGEVENT_ITEM, Route34HiddenSodaPop
+	bg_event 25, 16, BGEVENT_ITEM, Route34HiddenSuperEther
 
 	def_object_events
-	object_event 13,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1
-	object_event 15, 32, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterSamuel, -1
-	object_event 11, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterIan, -1
-	object_event 10, 26, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerGina1, -1
-	object_event  9, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OfficerKeithScript, -1
-	object_event 18, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmBrandon, -1
-	object_event 15, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAY_CARE_MAN_ON_ROUTE_34
-	object_event 14, 18, SPRITE_DAY_CARE_MON_1, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon1Script, EVENT_DAY_CARE_MON_1
-	object_event 17, 19, SPRITE_DAY_CARE_MON_2, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon2Script, EVENT_DAY_CARE_MON_2
-	object_event 11, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerCooltrainerfIrene, -1
-	object_event  3, 48, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfJenn, -1
-	object_event  6, 51, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerCooltrainerfKate, -1
-	object_event  7, 30, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
+	object_event 16,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperTodd1, -1
+	object_event 16, 34, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterSamuel, -1
+	object_event 12, 18, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterIan, -1
+	object_event 14, 24, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerGina1, -1
+	object_event 13, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 3, OfficerKeithScript, -1
+	object_event 15, 21, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanmBrandon, -1
+	object_event 19, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareManScript_Outside, EVENT_DAY_CARE_MAN_ON_ROUTE_34
+	object_event 18, 18, SPRITE_DAY_CARE_MON_1, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon1Script, EVENT_DAY_CARE_MON_1
+	object_event 21, 19, SPRITE_DAY_CARE_MON_2, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DayCareMon2Script, EVENT_DAY_CARE_MON_2
+	object_event 23, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainerfIrene, -1
+	object_event 17, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 6, TrainerCooltrainerfJenn, -1
+	object_event 17, 22, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerfKate, -1
+	object_event 15, 49, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_ITEMBALL, 0, Route34Nugget, EVENT_ROUTE_34_NUGGET
+	object_event 14, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_ITEMBALL, 0, Route34ThickClub, EVENT_ROUTE_34_THICK_CLUB

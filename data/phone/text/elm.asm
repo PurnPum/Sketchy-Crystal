@@ -142,6 +142,11 @@ ElmPhoneDisasterText:
 	para "Please get back"
 	line "here now!"
 	done
+	
+ElmPhoneDisasterTextMin:
+	text "Come back some kid"
+	line "took our shit."
+	done
 
 ElmPhoneEggAssistantText:
 	text "Hello, <PLAY_G>? We"
@@ -156,6 +161,11 @@ ElmPhoneEggAssistantText:
 	para "in VIOLET CITY. "
 	line "Could you talk to"
 	cont "him?"
+	done
+	
+ElmPhoneEggAssistantTextMin:
+	text "Go take the egg at"
+	line "the scam center."
 	done
 
 ElmPhoneRadioTowerRocketTakeoverText:
@@ -208,4 +218,23 @@ ElmPhoneGotAholdOfSomethingNeatText:
 	line "and pick it up!"
 
 	para "See you later!"
+	done
+
+ElmPhoneSudowoodoText:
+	text "Hello, <PLAY_G>!"
+	line "I'm currently on"
+	cont "route 36."
+	
+	para "Some odd creature"
+	line "appeared there and"
+	cont "WHITNEY, a GYM"
+	cont "leader, called me."
+	
+	para "It may be a newly"
+	line "discovered species"
+	cont "of #MON!"
+	
+	para "Oh, you're going"
+	line "that way? I'll see"
+	cont "you there, then."
 	done

@@ -2,7 +2,7 @@
 	const INDIGOPLATEAUPOKECENTER1F_NURSE
 	const INDIGOPLATEAUPOKECENTER1F_CLERK
 	const INDIGOPLATEAUPOKECENTER1F_COOLTRAINER_M
-	const INDIGOPLATEAUPOKECENTER1F_SILVER
+	const INDIGOPLATEAUPOKECENTER1F_RIVAL
 	const INDIGOPLATEAUPOKECENTER1F_GRAMPS
 	const INDIGOPLATEAUPOKECENTER1F_ABRA
 	const INDIGOPLATEAUPOKECENTER1F_LANCE
@@ -13,21 +13,21 @@
 
 IndigoPlateauPokecenter1F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
+	scene_script IndigoPlateauPokecenter1FNoopScene, SCENE_INDIGOPLATEAUPOKECENTER1F_RIVAL_BATTLE
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .PrepareElite4
+	callback MAPCALLBACK_NEWMAP, IndigoPlateauPokecenter1FPrepareElite4Callback
 
-.DummyScene:
+IndigoPlateauPokecenter1FNoopScene:
 	end
 
-.PrepareElite4:
-	setmapscene WILLS_ROOM, SCENE_DEFAULT
-	setmapscene KOGAS_ROOM, SCENE_DEFAULT
-	setmapscene BRUNOS_ROOM, SCENE_DEFAULT
-	setmapscene KARENS_ROOM, SCENE_DEFAULT
-	setmapscene LANCES_ROOM, SCENE_DEFAULT
-	setmapscene HALL_OF_FAME, SCENE_DEFAULT
+IndigoPlateauPokecenter1FPrepareElite4Callback:
+	setmapscene WILLS_ROOM, SCENE_WILLSROOM_LOCK_DOOR
+	setmapscene KOGAS_ROOM, SCENE_KOGASROOM_LOCK_DOOR
+	setmapscene BRUNOS_ROOM, SCENE_BRUNOSROOM_LOCK_DOOR
+	setmapscene KARENS_ROOM, SCENE_KARENSROOM_LOCK_DOOR
+	setmapscene LANCES_ROOM, SCENE_LANCESROOM_LOCK_DOOR
+	setmapscene HALL_OF_FAME, SCENE_HALLOFFAME_ENTER
 	clearevent EVENT_WILLS_ROOM_ENTRANCE_CLOSED
 	clearevent EVENT_WILLS_ROOM_EXIT_OPEN
 	clearevent EVENT_KOGAS_ROOM_ENTRANCE_CLOSED
@@ -404,6 +404,8 @@ IndigoPlateauPokecenter1F_MapEvents:
 	warp_event  6, 13, ROUTE_23, 2
 	warp_event  0, 13, POKECENTER_2F, 1
 	warp_event 14,  3, WILLS_ROOM, 1
+
+	def_coord_events
 
 	def_bg_events
 

@@ -547,10 +547,12 @@ wBattleWeather::
 ; 01 rain
 ; 02 sun
 ; 03 sandstorm
-; 04 rain stopped
-; 05 sunliight faded
-; 06 sandstorm subsided
-	db
+; 04 hail
+; 05 rain stopped
+; 06 sunliight faded
+; 07 sandstorm subsided
+; 08 hail ended
+	ds 9
 
 wWeatherCount::
 ; # turns remaining
@@ -1811,9 +1813,10 @@ wGBPrinterBrightness::
 ;   darkest:  $7F
 	db
 wOptions2::
-; bit 1: menu account off/on
+; bit 0: menu account off/on
+; bit 1: dialogue mode normal/minimum
+; bits 2-7: not yet used
 	db
-	ds 2
 wOptionsEnd::
 
 ; Time buffer, for counting the amount of time since
@@ -2989,13 +2992,15 @@ wMomSavingMoney::
 ; bit 7: active
 	db
 
+wPokemonCenterPrice:: dw
+
 wCoins:: dw
 
 wBadges::
 wJohtoBadges:: flag_array NUM_JOHTO_BADGES
 wKantoBadges:: flag_array NUM_KANTO_BADGES
 
-wTMsHMs:: ds NUM_TMS + NUM_HMS
+wTMsHMs:: ds NUM_TMS
 
 wNumItems:: db
 wItems:: ds MAX_ITEMS * 2 + 1
@@ -3070,7 +3075,7 @@ wGoldenrodGymSceneID::                            db
 wGoldenrodMagnetTrainStationSceneID::             db
 wGoldenrodPokecenter1FSceneID::                   db
 wOlivineCitySceneID::                             db
-wRoute34SceneID::                                 db
+wMountMortarB1FSceneID::                          db
 wRoute34IlexForestGateSceneID::                   db
 wEcruteakTinTowerEntranceSceneID::                db
 wWiseTriosRoomSceneID::                           db
@@ -3114,8 +3119,10 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
+wKurtsHouseSceneID::							  db
+wCherrygroveMartSceneID::						  db
 
-	ds 49
+	ds 50
 
 ; fight counts
 wJackFightCount::    db
@@ -3339,6 +3346,8 @@ wDayCareMan::
 ; bit 5: monsters are compatible
 ; bit 0: monster 1 in day-care
 	db
+	
+
 
 wBreedMon1Nickname:: ds MON_NAME_LENGTH
 wBreedMon1OT:: ds NAME_LENGTH

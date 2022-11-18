@@ -1,9 +1,9 @@
 	db BELLSPROUT ; 069
 
-	db  50,  75,  35,  40,  70,  30
+	db  50,  50,  35,  70,  80,  30
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, POISON ; type
+	db GRASS, DARK ; type
 	db 255 ; catch rate
 	db 84 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

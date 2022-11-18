@@ -6,7 +6,7 @@
 	db DRAGON, DRAGON ; type
 	db 45 ; catch rate
 	db 144 ; base exp
-	db DRAGON_SCALE, DRAGON_SCALE ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 40 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_DRAGON ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

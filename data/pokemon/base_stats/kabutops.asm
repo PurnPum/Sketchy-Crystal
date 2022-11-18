@@ -1,6 +1,6 @@
 	db KABUTOPS ; 141
 
-	db  60, 115, 105,  80,  65,  70
+	db  60, 115, 115,  90,  65,  70
 	;   hp  atk  def  spd  sat  sdf
 
 	db ROCK, WATER ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

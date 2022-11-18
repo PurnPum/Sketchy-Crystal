@@ -1,12 +1,12 @@
 	db FARFETCH_D ; 083
 
-	db  52,  65,  55,  60,  58,  62
+	db  52, 100,  55,  97,  88,  62
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, FLYING ; type
+	db FLYING, GRASS ; type
 	db 45 ; catch rate
 	db 94 ; base exp
-	db NO_ITEM, STICK ; items
+	db STICK, STICK ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

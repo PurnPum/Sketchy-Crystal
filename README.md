@@ -109,27 +109,33 @@ end of route 32 has a level 34 farfetch'd. That trainer isn't meant to have that
 
 - Made the Bug Contests avaliable every day.
 
+- Ability to randomize trainer parties and wild pokemon (Needs further testing).
+
 ## CURRENTLY DOING:
 
 - Testing the initial release, looking for bugs.
 
-- Working on Randomizer on a different branch.
+
+- Working on the hard mode on a different branch.
 
 ## TODO:
 
-- Fix as many documented bugs from the original code as possible.
+- Make Evo Stones more avaliable
 
-- Add a Hard mode
+- Fix as many documented bugs from the original code as possible (low priority).
 
-- Add option to randomize encounters and/or trainer mons/attacks.
+- Add a Hard mode (WIP)
 
-- Overhaul the options menu when there isn't a saved game.
+- Change the options menu to allow the player to customize the game (with randomization and hard mode).
+
+- Document all changes that players will need (new teams, encounters, etc)
 
 ## See also
 
 - [**FAQ**](FAQ.md)
 - [**Documentation**][docs]
 - [**Wiki**][wiki] (includes [tutorials][tutorials])
+- [**Symbols**][symbols]
 - **Discord:** [pret][discord]
 - **IRC:** [libera#pret][irc]
 
@@ -155,6 +161,7 @@ Other disassembly projects:
 [docs]: https://pret.github.io/pokecrystal/
 [wiki]: https://github.com/pret/pokecrystal/wiki
 [tutorials]: https://github.com/pret/pokecrystal/wiki/Tutorials
+[symbols]: https://github.com/pret/pokecrystal/tree/symbols
 [discord]: https://discord.gg/d5dubZ3
 [irc]: https://web.libera.chat/?#pret
 [ci]: https://github.com/pret/pokecrystal/actions

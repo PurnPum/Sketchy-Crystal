@@ -1,9 +1,9 @@
 	db WEEPINBELL ; 070
 
-	db  65,  90,  50,  55,  85,  45
+	db  65,  60,  50,  90, 100,  45
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, POISON ; type
+	db GRASS, DARK ; type
 	db 120 ; catch rate
 	db 151 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

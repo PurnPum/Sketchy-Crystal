@@ -20,6 +20,9 @@ VioletMartGrannyScript:
 VioletMartCooltrainerMScript:
 	jumptextfaceplayer VioletMartCooltrainerMText
 
+VioletMartRareCandyVendingMachine:
+	farsjump RareCandyVendingMachine
+
 VioletMartGrannyText:
 	text "When you first"
 	line "catch a #MON,"
@@ -56,6 +59,8 @@ VioletMart_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  0,  5, BGEVENT_UP, VioletMartRareCandyVendingMachine
+	bg_event  1,  5, BGEVENT_UP, VioletMartRareCandyVendingMachine
 
 	def_object_events
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletMartClerkScript, -1

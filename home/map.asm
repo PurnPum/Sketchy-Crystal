@@ -146,10 +146,10 @@ LoadMetatiles::
 	ld e, l
 	ld d, h
 	; Set hl to the address of the current metatile data ([wTilesetBlocksAddress] + (a) tiles).
-; BUG: LoadMetatiles wraps around past 128 blocks (see docs/bugs_and_glitches.md)
-	add a
+; FIXED BUG: LoadMetatiles wraps around past 128 blocks (see docs/bugs_and_glitches.md)
 	ld l, a
 	ld h, 0
+	add hl, hl
 	add hl, hl
 	add hl, hl
 	add hl, hl
@@ -1379,7 +1379,11 @@ LoadTilesetGFX::
 	ld a, [wMapTileset]
 	cp TILESET_JOHTO
 	jr z, .load_roof
-	cp TILESET_JOHTO_MODERN
+	cp TILESET_JOHTO_GOLDENROD
+	jr z, .load_roof
+	cp TILESET_JOHTO_ECRUTEAK
+	jr z, .load_roof
+	cp TILESET_JOHTO_OLIVINE
 	jr z, .load_roof
 	cp TILESET_BATTLE_TOWER_OUTSIDE
 	jr z, .load_roof

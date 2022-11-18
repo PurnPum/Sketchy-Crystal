@@ -1,12 +1,12 @@
 	db HORSEA ; 116
 
-	db  30,  40,  70,  60,  70,  25
+	db  30,  40,  70,  60,  75,  25
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, WATER ; type
 	db 225 ; catch rate
 	db 83 ; base exp
-	db DRAGON_SCALE, DRAGON_SCALE ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F50 ; gender ratio
 	db 100 ; unknown 1
 	db 20 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_DRAGON ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

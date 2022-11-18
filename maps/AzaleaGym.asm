@@ -17,10 +17,16 @@ AzaleaGymBugsyScript:
 	opentext
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
-	writetext BugsyText_INeverLose
+	writetextcheckdialogue BugsyText_INeverLose, BugsyText_INeverLoseMin
 	waitbutton
 	closetext
+	isdialogueminimal
+	iftrue .min1
 	winlosstext BugsyText_ResearchIncomplete, 0
+	sjump .proceed1
+.min1
+	winlosstext BugsyText_ResearchIncompleteMin, 0
+.proceed1
 	loadtrainer BUGSY, BUGSY1
 	startbattle
 	reloadmapafterbattle
@@ -39,12 +45,12 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
-	writetext BugsyText_HiveBadgeSpeech
+	writetextcheckdialogue BugsyText_HiveBadgeSpeech, BugsyText_HiveBadgeSpeechMin
 	promptbutton
 	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForFuryCutter
 	setevent EVENT_GOT_TM49_FURY_CUTTER
-	writetext BugsyText_FuryCutterSpeech
+	writetextcheckdialogue BugsyText_FuryCutterSpeech, BugsyText_FuryCutterSpeechMin
 	waitbutton
 	closetext
 	end
@@ -148,11 +154,19 @@ AzaleaGymStatue:
 	jumpstd GymStatue2Script
 
 BugsyText_INeverLose:
-	text "I'm BUGSY!"
-	line "I never lose when"
-
-	para "it comes to bug"
-	line "#MON."
+	text "Hi <PLAYER>!"
+	
+	para "Thanks again for"
+	line "your help at the"
+	cont "well!"
+	
+	para "That aside, you're"
+	line "here to collect my"
+	cont "badge, right?"
+	
+	para "Well, I never lose"
+	line "when it comes down"
+	cont "to bug #MON."
 
 	para "My research is"
 	line "going to make me"
@@ -165,6 +179,11 @@ BugsyText_INeverLose:
 	cont "from my studies."
 	done
 
+BugsyText_INeverLoseMin:
+	text "Now it's"
+	line "showdown time."
+	done
+	
 BugsyText_ResearchIncomplete:
 	text "Whoa, amazing!"
 	line "You're an expert"
@@ -175,6 +194,11 @@ BugsyText_ResearchIncomplete:
 
 	para "OK, you win. Take"
 	line "this BADGE."
+	done
+	
+BugsyText_ResearchIncompleteMin:
+	text "Well, I got"
+	line "destroyed."
 	done
 
 Text_ReceivedHiveBadge:
@@ -202,7 +226,12 @@ BugsyText_HiveBadgeSpeech:
 	para "Here, I also want"
 	line "you to have this."
 	done
-
+	
+BugsyText_HiveBadgeSpeechMin:
+	text "Now you can cut"
+	line "bushes and such."
+	done
+	
 BugsyText_FuryCutterSpeech:
 	text "TM01 contains"
 	line "SKETCH."
@@ -214,7 +243,12 @@ BugsyText_FuryCutterSpeech:
 	para "Isn't that great?"
 	line "I discovered it!"
 	done
-
+	
+BugsyText_FuryCutterSpeechMin:
+	text "Here, the obliga-"
+	line "tory SKETCH TM."
+	done
+	
 BugsyText_BugMonsAreDeep:
 	text "Bug #MON are"
 	line "deep. There are"
@@ -370,9 +404,9 @@ AzaleaGym_MapEvents:
 
 	def_object_events
 	object_event  5,  7, SPRITE_BUGSY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, AzaleaGymBugsyScript, -1
-	object_event  5,  3, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBugCatcherBenny, -1
-	object_event  8,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherAl, -1
-	object_event  0,  2, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherJosh, -1
+	object_event  5,  3, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerBugCatcherBenny, -1
+	object_event  8,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBugCatcherAl, -1
+	object_event  0,  9, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherJosh, -1
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay1, -1
 	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsAmyandmay2, -1
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, AzaleaGymGuideScript, -1

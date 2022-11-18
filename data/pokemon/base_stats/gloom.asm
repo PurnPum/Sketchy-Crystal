@@ -1,6 +1,6 @@
 	db GLOOM ; 044
 
-	db  60,  65,  70,  40,  85,  75
+	db  60,  75,  85,  30,  80,  75
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, POISON ; type
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

@@ -1,6 +1,6 @@
 	db CATERPIE ; 010
 
-	db  45,  30,  35,  45,  20,  20
+	db  45,  55,  35,  50,  20,  20
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, BUG ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

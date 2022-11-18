@@ -1,9 +1,9 @@
 	db TANGELA ; 114
 
-	db  65,  55, 115,  60, 100,  40
+	db  95,  95, 110,  60, 100,  40
 	;   hp  atk  def  spd  sat  sdf
 
-	db GRASS, GRASS ; type
+	db GRASS, FIGHTING ; type
 	db 45 ; catch rate
 	db 166 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

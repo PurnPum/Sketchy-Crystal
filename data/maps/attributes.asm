@@ -112,7 +112,7 @@ ENDM
 
 	map_attributes AzaleaTown, AZALEA_TOWN, $05, WEST | EAST
 	connection west, Route34, ROUTE_34, -18
-	connection east, Route33, ROUTE_33, 0
+	connection east, Route33, ROUTE_33, 2
 
 	map_attributes CianwoodCity, CIANWOOD_CITY, $35, EAST
 	connection east, Route41, ROUTE_41, 0
@@ -174,7 +174,7 @@ ENDM
 
 	map_attributes Route33, ROUTE_33, $05, NORTH | WEST
 	connection north, Route32, ROUTE_32, 0
-	connection west, AzaleaTown, AZALEA_TOWN, 0
+	connection west, AzaleaTown, AZALEA_TOWN, -2
 
 	map_attributes Route34, ROUTE_34, $05, NORTH | EAST
 	connection north, GoldenrodCity, GOLDENROD_CITY, -5
@@ -182,7 +182,7 @@ ENDM
 
 	map_attributes Route35, ROUTE_35, $05, NORTH | SOUTH
 	connection north, Route36, ROUTE_36, 0
-	connection south, GoldenrodCity, GOLDENROD_CITY, -5
+	connection south, GoldenrodCity, GOLDENROD_CITY, -11
 
 	map_attributes Route36, ROUTE_36, $05, NORTH | SOUTH | EAST
 	connection north, Route37, ROUTE_37, 10
@@ -454,7 +454,7 @@ ENDM
 	map_attributes SilverCaveRoom3, SILVER_CAVE_ROOM_3, $09, 0
 	map_attributes SilverCaveItemRooms, SILVER_CAVE_ITEM_ROOMS, $09, 0
 	map_attributes DarkCaveVioletEntrance, DARK_CAVE_VIOLET_ENTRANCE, $09, 0
-	map_attributes DarkCaveBlackthornEntrance, DARK_CAVE_BLACKTHORN_ENTRANCE, $09, 0
+	map_attributes DarkCaveRoute46Entrance, DARK_CAVE_ROUTE46_ENTRANCE, $09, 0
 	map_attributes DragonsDen1F, DRAGONS_DEN_1F, $09, 0
 	map_attributes DragonsDenB1F, DRAGONS_DEN_B1F, $71, 0
 	map_attributes DragonShrine, DRAGON_SHRINE, $00, 0
@@ -674,6 +674,8 @@ ENDM
 	map_attributes DayOfWeekSiblingsHouse, DAY_OF_WEEK_SIBLINGS_HOUSE, $00, 0
 	map_attributes Route27SandstormHouse, ROUTE_27_SANDSTORM_HOUSE, $00, 0
 	map_attributes Route29Route46Gate, ROUTE_29_ROUTE_46_GATE, $00, 0
+	map_attributes Route29BerryShop, ROUTE_29_BERRYSHOP, $00, 0
+	map_attributes AzaleaTownBerryShop, AZALEA_TOWN_BERRYSHOP, $00, 0
 	map_attributes FightingDojo, FIGHTING_DOJO, $00, 0
 	map_attributes SaffronGym, SAFFRON_GYM, $00, 0
 	map_attributes SaffronMart, SAFFRON_MART, $00, 0
@@ -695,3 +697,6 @@ ENDM
 	map_attributes Route30BerryHouse, ROUTE_30_BERRY_HOUSE, $00, 0
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
+	map_attributes ShuckleCave, SHUCKLE_CAVE, $00, 0
+	map_attributes VioletRoute36Gate, VIOLET_ROUTE_36_GATE, $00, 0
+

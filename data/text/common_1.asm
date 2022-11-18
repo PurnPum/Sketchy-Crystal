@@ -4,14 +4,15 @@ _FruitBearingTreeText::
 	done
 
 _HeyItsFruitText::
-	text "Hey! It's"
-	line "@"
+	text "Hey! There are a"
+	line "lot of ripen"
+	cont "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 
 _ObtainedFruitText::
-	text "Obtained"
+	text "Obtained a lot of"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
@@ -23,8 +24,8 @@ _FruitPackIsFullText::
 	done
 
 _NothingHereText::
-	text "There's nothing"
-	line "here…"
+	text "These berries need"
+	line "to ripen more…"
 	done
 
 _WhichApricornText::
@@ -164,6 +165,10 @@ _OakTimeWokeUpText::
 	line "clock for me?"
 	prompt
 
+_OakTimeWokeUpTextMin::
+	text "Zzz…"
+	prompt
+	
 _OakTimeWhatTimeIsItText::
 	text "What time is it?"
 	done
@@ -355,13 +360,14 @@ _MomHiHowAreYouText::
 	prompt
 
 _MomFoundAnItemText::
-	text "I found a useful"
-	line "item shopping, so"
+	text "I found a bargain"
+	line "while shopping, so"
 	prompt
 
 _MomBoughtWithYourMoneyText::
-	text "I bought it with"
-	line "your money. Sorry!"
+	text "I bought it. I"
+	line "hope you can make"
+	cont "good use out of it"
 	prompt
 
 _MomItsInPCText::
@@ -1555,8 +1561,31 @@ _MomLeavingText1::
 	para "I know! I'll save"
 	line "money for you."
 
-	para "On a long journey,"
-	line "money's important."
+	para "On times like"
+	line "these, spending"
+	cont "money efficiently"
+	cont "is crucial to"
+	cont "survive."
+
+	para "I know a guy or 2,"
+	line "and can get some"
+	cont "sweet deals."
+	
+	para "However, you know"
+	line "we have the bare"
+	cont "minimum to survive"
+	
+	para "I won't be able to"
+	line "spend any of our"
+	cont "reserves on you…"
+	
+	para "So if you want me"
+	line "to get you some"
+	cont "good deals, I will"
+	cont "need you to send"
+	cont "me whatever money"
+	cont "you want me to"
+	cont "spend."
 
 	para "Do you want me to"
 	line "save your money?"
@@ -1572,9 +1601,10 @@ _MomLeavingText2::
 _MomLeavingText3::
 	text "Be careful."
 
-	para "#MON are your"
-	line "friends. You need"
-	cont "to work as a team."
+	para "Money is a limited"
+	line "resource. You need"
+	cont "to think before"
+	cont "you buy anything…"
 
 	para "Now, go on!"
 	done
@@ -1582,7 +1612,7 @@ _MomLeavingText3::
 _MomIsThisAboutYourMoneyText::
 	text "Hi! Welcome home!"
 	line "You're trying very"
-	cont "hard, I see."
+	cont "hard, good."
 
 	para "I've kept your"
 	line "room tidy."

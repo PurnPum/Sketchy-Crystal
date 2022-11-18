@@ -1,6 +1,6 @@
 	db RHYDON ; 112
 
-	db 105, 130, 120,  40,  45,  45
+	db 115, 130, 120,  40,  45,  45
 	;   hp  atk  def  spd  sat  sdf
 
 	db GROUND, ROCK ; type
@@ -17,5 +17,5 @@
 	dn EGG_MONSTER, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

@@ -1,6 +1,6 @@
 	db MURKROW ; 198
 
-	db  60,  85,  42,  91,  85,  42
+	db  60, 105,  42,  91,  70,  42
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, FLYING ; type
@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

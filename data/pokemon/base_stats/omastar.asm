@@ -1,6 +1,6 @@
 	db OMASTAR ; 139
 
-	db  70,  60, 125,  55, 115,  70
+	db  70,  60, 125,  55, 115,  90
 	;   hp  atk  def  spd  sat  sdf
 
 	db ROCK, WATER ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_WATER_3 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

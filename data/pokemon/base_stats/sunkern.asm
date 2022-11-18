@@ -1,6 +1,6 @@
 	db SUNKERN ; 191
 
-	db  30,  30,  30,  30,  30,  30
+	db  31,  31,  31,  31,  31,  31
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, GRASS ; type
@@ -17,5 +17,5 @@
 	dn EGG_PLANT, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

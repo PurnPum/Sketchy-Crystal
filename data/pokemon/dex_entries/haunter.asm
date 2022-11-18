@@ -1,10 +1,10 @@
 	db "GAS@" ; species name
 	dw 503, 2 ; height, weight
 
-	db   "It hides in the"
-	next "dark, planning to"
-	next "take the life of"
+	db   "Likes to attack"
+	next "from behind with"
+	next "its hands, choking"
 
-	page "the next living"
-	next "thing that wanders"
-	next "close by.@"
+	page "the victim while"
+	next "draining its life"
+	next "force.@"

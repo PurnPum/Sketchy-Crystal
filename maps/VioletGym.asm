@@ -14,7 +14,7 @@ VioletGymFalknerScript:
 	opentext
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
-	writetext FalknerIntroText
+	writetextcheckdialogue FalknerIntroText, FalknerIntroTextMin
 	waitbutton
 	closetext
 	winlosstext FalknerWinLossText, 0
@@ -36,12 +36,13 @@ VioletGymFalknerScript:
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOOP
 	specialphonecall SPECIALCALL_ASSISTANT
-	writetext FalknerZephyrBadgeText
+	writetextcheckdialogue FalknerZephyrBadgeText, FalknerZephyrBadgeTextMin
 	promptbutton
 	verbosegiveitem TM_SKETCH
 	iffalse .NoRoomForMudSlap
 	setevent EVENT_GOT_TM31_MUD_SLAP
-	writetext FalknerTMMudSlapText
+	writetextcheckdialogue FalknerTMMudSlapText, FalknerTMMudSlapTextMin
+	clearevent EVENT_FALKNER_SPROUT_TOWER
 	waitbutton
 	closetext
 	end
@@ -111,8 +112,9 @@ VioletGymStatue:
 	jumpstd GymStatue2Script
 
 FalknerIntroText:
-	text "I'm FALKNER, the"
-	line "VIOLET #MON GYM"
+	text "Hi again!"
+	line "I'm FALKNER, the"
+	cont "VIOLET #MON GYM"
 	cont "leader!"
 
 	para "People say you can"
@@ -131,6 +133,11 @@ FalknerIntroText:
 
 	para "magnificent bird"
 	line "#MON!"
+	done
+	
+FalknerIntroTextMin:
+	text "Let's see what"
+	line "you've got."
 	done
 
 FalknerWinLossText:
@@ -165,6 +172,11 @@ FalknerZephyrBadgeText:
 	para "Here--take this"
 	line "too."
 	done
+	
+FalknerZephyrBadgeTextMin:
+	text "Take this, you'll"
+	line "need it."
+	done
 
 FalknerTMMudSlapText:
 	text "By using a TM, a"
@@ -183,6 +195,11 @@ FalknerTMMudSlapText:
 
 	para "Hey don't look"
 	line "at me like that!"
+	done
+	
+FalknerTMMudSlapTextMin:
+	text "Welp, prices have"
+	line "just risen…"
 	done
 
 FalknerFightDoneText:
@@ -287,7 +304,7 @@ VioletGym_MapEvents:
 	bg_event  6, 13, BGEVENT_READ, VioletGymStatue
 
 	def_object_events
-	object_event  5,  1, SPRITE_FALKNER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VioletGymFalknerScript, -1
+	object_event  5,  1, SPRITE_FALKNER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VioletGymFalknerScript, EVENT_GOT_TM31_MUD_SLAP
 	object_event  7,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperRod, -1
 	object_event  2, 10, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperAbe, -1
 	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VioletGymGuideScript, -1

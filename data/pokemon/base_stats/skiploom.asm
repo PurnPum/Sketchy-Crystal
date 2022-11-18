@@ -1,6 +1,6 @@
 	db SKIPLOOM ; 188
 
-	db  55,  45,  50,  80,  45,  65
+	db  55,  65,  40, 105,  65,  50
 	;   hp  atk  def  spd  sat  sdf
 
 	db GRASS, FLYING ; type
@@ -17,5 +17,5 @@
 	dn EGG_FAIRY, EGG_PLANT ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

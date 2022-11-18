@@ -34,7 +34,7 @@ ENDM
 	command mirrormove              ; 1b
 	command statup                  ; 1c
 	command statdown                ; 1d
-	command payday                  ; 1e
+	;command payday                  ; 1e
 	command conversion              ; 1f
 	command resetstats              ; 20
 	command storeenergy             ; 21
@@ -42,14 +42,14 @@ ENDM
 	command forceswitch             ; 23
 	command endloop                 ; 24
 	command flinchtarget            ; 25
-	command ohko                    ; 26
+	;command ohko                    ; 26
 	command recoil                  ; 27
 	command mist                    ; 28
 	command focusenergy             ; 29
 	command confuse                 ; 2a
 	command confusetarget           ; 2b
 	command heal                    ; 2c
-	command transform               ; 2d
+	;command transform               ; 2d
 	command screen                  ; 2e
 	command poison                  ; 2f
 	command paralyze                ; 30
@@ -58,7 +58,7 @@ ENDM
 	command mimic                   ; 33
 	command metronome               ; 34
 	command leechseed               ; 35
-	command splash                  ; 36
+	;command splash                  ; 36
 	command disable                 ; 37
 	command cleartext               ; 38
 	command charge                  ; 39
@@ -84,7 +84,7 @@ ENDM
 	command kingsrock               ; 4d
 	command triplekick              ; 4e
 	command kickcounter             ; 4f
-	command thief                   ; 50
+	;command thief                   ; 50
 	command arenatrap               ; 51
 	command nightmare               ; 52
 	command defrost                 ; 53
@@ -95,7 +95,7 @@ ENDM
 	command perishsong              ; 58
 	command startsandstorm          ; 59
 	command endure                  ; 5a
-	command checkcurl               ; 5b
+	;command checkcurl               ; 5b
 	command rolloutpower            ; 5c
 	command effect0x5d              ; 5d
 	command furycutter              ; 5e
@@ -106,7 +106,7 @@ ENDM
 	command frustrationpower        ; 63
 	command safeguard               ; 64
 	command checksafeguard          ; 65
-	command getmagnitude            ; 66
+	;command getmagnitude            ; 66
 	command batonpass               ; 67
 	command pursuit                 ; 68
 	command clearhazards            ; 69
@@ -153,8 +153,8 @@ ENDM
 	command statupanim              ; 92
 	command switchturn              ; 93
 	command fakeout                 ; 94
-	command bellydrum               ; 95
-	command psychup                 ; 96
+	;command bellydrum               ; 95
+	;command psychup                 ; 96
 	command rage                    ; 97
 	command doubleflyingdamage      ; 98
 	command doubleundergrounddamage ; 99
@@ -163,23 +163,31 @@ ENDM
 	command futuresight             ; 9c
 	command doubleminimizedamage    ; 9d
 	command skipsuncharge           ; 9e
-	command thunderaccuracy         ; 9f
-	command teleport                ; a0
-	command beatup                  ; a1
-	command ragedamage              ; a2
-	command resettypematchup        ; a3
-	command allstatsup              ; a4
-	command bidefailtext            ; a5
-	command raisesubnoanim          ; a6
-	command lowersubnoanim          ; a7
-	command beatupfailtext          ; a8
-	command clearmissdamage         ; a9
-	command movedelay               ; aa
-	command moveanim                ; ab
-	command tristatuschance         ; ac
-	command supereffectivelooptext  ; ad
-	command startloop               ; ae
-	command curl                    ; af
+	command skipraincharge			; 9f
+	command thunderaccuracy         ; a0
+	;command teleport               ; a1
+	command beatup                  ; a2
+	command ragedamage              ; a3
+	command resettypematchup        ; a4
+	command allstatsup              ; a5
+	command bidefailtext            ; a6
+	command raisesubnoanim          ; a7
+	command lowersubnoanim          ; a8
+	command beatupfailtext          ; a9
+	command clearmissdamage         ; aa
+	command movedelay               ; ab
+	command moveanim                ; ac 
+	command tristatuschance         ; ad
+	command supereffectivelooptext  ; ae
+	command startloop               ; af
+	;command curl                    ; b0
+	command uturn					; b1
+	command starthail				; b2
+	command blizzardaccuracy		; b3
+	command bindmultiplier			; b4
+	command poisongas				; b5
+	command triattack				; b6
+	command resistberry				; b7
 DEF NUM_EFFECT_COMMANDS EQU const_value - 1
 
 	const_def -1, -1

@@ -1,9 +1,9 @@
 	db PRIMEAPE ; 057
 
-	db  65, 105,  60,  95,  60,  70
+	db  65, 105,  60,  95,  95,  60
 	;   hp  atk  def  spd  sat  sdf
 
-	db FIGHTING, FIGHTING ; type
+	db FIGHTING, FIRE ; type
 	db 75 ; catch rate
 	db 149 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

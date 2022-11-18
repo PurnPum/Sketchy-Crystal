@@ -1,6 +1,6 @@
 	db SHUCKLE ; 213
 
-	db  20,  10, 230,  05,  10, 230
+	db  40,  80, 185,  05,  10, 185
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, ROCK ; type
@@ -17,5 +17,5 @@
 	dn EGG_BUG, EGG_BUG ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

@@ -1,9 +1,9 @@
 	db SPEAROW ; 021
 
-	db  40,  60,  30,  70,  31,  31
+	db  40,  50,  30,  70,  61,  31
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, FLYING ; type
+	db DARK, FLYING ; type
 	db 255 ; catch rate
 	db 58 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_FLYING, EGG_FLYING ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

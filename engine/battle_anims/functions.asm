@@ -15,6 +15,7 @@ DoBattleAnimFrame:
 ; entries correspond to BATTLEANIMFUNC_* constants
 	dw BattleAnimFunction_Null
 	dw BattleAnimFunction_MoveFromUserToTarget
+	dw BattleAnimFunction_MoveDiagonallyToTarget
 	dw BattleAnimFunction_MoveFromUserToTargetAndDisappear
 	dw BattleAnimFunction_MoveInCircle
 	dw BattleAnimFunction_MoveWaveToTarget
@@ -24,6 +25,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_MoveFromUserToTargetSpinAround
 	dw BattleAnimFunction_Shake
 	dw BattleAnimFunction_FireBlast
+	dw BattleAnimFunction_OutwardsCharge
 	dw BattleAnimFunction_RazorLeaf
 	dw BattleAnimFunction_Bubble
 	dw BattleAnimFunction_Surf
@@ -88,6 +90,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_RapidSpin
 	dw BattleAnimFunction_BetaPursuit
 	dw BattleAnimFunction_RainSandstorm
+	dw BattleAnimFunction_Hail
 	dw BattleAnimFunction_AnimObjB0
 	dw BattleAnimFunction_PsychUp
 	dw BattleAnimFunction_AncientPower
@@ -233,7 +236,7 @@ BattleAnimFunction_MoveInCircle:
 	ret
 
 BattleAnimFunction_MoveFromUserToTarget:
-; Moves object diagonally at a ~30° angle towards opponent and stops when it reaches x coord $84. Obj Param changes the speed
+; Moves object diagonally at a ~30º angle towards opponent and stops when it reaches x coord $84. Obj Param changes the speed
 	call BattleAnim_AnonJumptable
 .anon_dw
 	dw .zero
@@ -252,6 +255,28 @@ BattleAnimFunction_MoveFromUserToTarget:
 	add hl, bc
 	ld a, [hl]
 	call BattleAnim_StepToTarget
+	ret
+	
+BattleAnimFunction_MoveDiagonallyToTarget:
+; Moves object diagonally at a ~30º angle towards opponent. Obj Param changes the speed
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+.one
+	call DeinitBattleAnimation
+	ret
+
+.zero
+	ld hl, BATTLEANIMSTRUCT_XCOORD
+	add hl, bc
+	ld a, [hl]
+	add $2
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_YCOORD
+	add hl, bc
+	inc [hl]
+	inc [hl]
 	ret
 
 BattleAnimFunction_MoveFromUserToTargetAndDisappear:
@@ -809,6 +834,57 @@ BattleAnimFunction_FireBlast:
 	inc [hl]
 .six
 	ret
+	
+BattleAnimFunction_OutwardsCharge:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+	dw .three
+	dw .four
+	dw .five
+	
+.zero
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	add hl, bc
+	ld [hl], a
+	ret
+
+.one
+	; Element that moves upward
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	dec [hl]
+	ret
+
+.four
+	; Element that moves down and left
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	inc [hl]
+.two
+	; Element that moves left
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	dec [hl]
+	ret
+
+.five
+	; Element that moves down and right
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	inc [hl]
+.three
+	; Element that moves right
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	inc [hl]
+	ret
+
 
 BattleAnimFunction_RazorLeaf:
 	call BattleAnim_AnonJumptable
@@ -1283,7 +1359,7 @@ BattleAnimFunction_WaterGun:
 	add hl, bc
 	ld a, [hl]
 	cp $30
-	jr c, .run_down
+	jr c, .run_down_mud
 	ld a, $2
 	call BattleAnim_StepToTarget
 	ld hl, BATTLEANIMSTRUCT_VAR1
@@ -1297,6 +1373,16 @@ BattleAnimFunction_WaterGun:
 	ld [hl], a
 	ret
 
+.run_down_mud
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .run_down
+	ld hl, BATTLEANIMSTRUCT_PALETTE
+	add hl, bc
+	ld a, PAL_BATTLE_OB_BROWN
+	ld [hl], a
 .run_down
 	call BattleAnim_IncAnonJumptableIndex
 	ld a, BATTLEANIMFRAMESET_28
@@ -3500,6 +3586,20 @@ BattleAnimFunction_StrengthSeismicToss:
 
 .switch_position
 	ld [hl], $4
+	ld hl, BATTLEANIMSTRUCT_FRAMESET_ID
+	add hl, bc
+	ld a, [hl]
+	cp BATTLEANIMFRAMESET_26
+	jr z, .power_gem
+	cp BATTLEANIMFRAMESET_BC
+	jr z, .power_gem
+	jr .proceed
+.power_gem
+	ld hl, BATTLEANIMSTRUCT_PALETTE
+	add hl, bc
+	ld a, PAL_BATTLE_OB_GRAY
+	ld [hl], a
+.proceed
 	ld hl, BATTLEANIMSTRUCT_VAR1
 	add hl, bc
 	ld a, [hl]
@@ -4140,6 +4240,78 @@ BattleAnimFunction_RainSandstorm:
 	ld a, [hl]
 	add $4
 	ld [hl], a
+	ret
+	
+BattleAnimFunction_Hail:
+; Object moves right 4 pixels at a time and down a variable distance
+; Obj Param: Defines variation in the movement
+;            $0: 1 pixels vertical movement
+;            $1: 4 pixels vertical movement
+;            $2: 2 pixels vertical movement
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+	dw .three
+
+.zero
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld hl, BATTLEANIMSTRUCT_JUMPTABLE_INDEX
+	add hl, bc
+	ld [hl], a
+	call BattleAnim_IncAnonJumptableIndex
+	ret
+
+.one ; Obj Param 0
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	cp $70
+	jr c, .dont_reset_x_offset_one
+	xor a
+.dont_reset_x_offset_one
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	inc [hl]
+	ret
+
+.two ; Obj Param 1
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	cp $70
+	jr c, .dont_reset_x_offset_two
+	xor a
+.dont_reset_x_offset_two
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	ld [hl], a
+	ret
+
+.three ; Obj Param 2
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	add $4
+	cp $70
+	jr c, .dont_reset_x_offset_three
+	xor a
+.dont_reset_x_offset_three
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld a, [hl]
+	inc [hl]
+	inc [hl]
 	ret
 
 BattleAnimFunction_AnimObjB0: ; unused

@@ -139,8 +139,6 @@ TrainerHikerAnthony:
 Route33Sign:
 	jumptext Route33SignText
 
-Route33FruitTree:
-	fruittree FRUITTREE_ROUTE_33
 
 HikerAnthony2SeenText:
 	text "I came through the"
@@ -196,7 +194,7 @@ Route33_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 11,  9, UNION_CAVE_1F, 3
+	warp_event 10,  9, UNION_CAVE_1F, 3
 
 	def_coord_events
 
@@ -204,6 +202,5 @@ Route33_MapEvents:
 	bg_event 11, 11, BGEVENT_READ, Route33Sign
 
 	def_object_events
-	object_event  6, 13, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerAnthony, -1
-	object_event 13, 16, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1
-	object_event 14, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route33FruitTree, -1
+	object_event  5, 14, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerAnthony, -1
+	object_event 11, 15, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route33LassScript, -1

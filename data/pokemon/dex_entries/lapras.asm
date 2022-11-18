@@ -3,8 +3,8 @@
 
 	db   "This gentle"
 	next "#MON loves to"
-	next "give people rides"
+	next "give people rides."
 
-	page "and provides a ve-"
-	next "ry comfortable way"
-	next "to get around.@"
+	page "However, all that"
+	next "gentleness is gone"
+	next "while on a battle.@"

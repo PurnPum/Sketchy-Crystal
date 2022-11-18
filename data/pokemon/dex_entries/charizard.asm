@@ -1,10 +1,10 @@
 	db "FLAME@" ; species name
 	dw 507, 2000 ; height, weight
 
-	db   "It uses its wings"
-	next "to fly high. The"
-	next "temperature of its"
+	db   "After evolving,"
+	next "its draconic genes"
+	next "woke up from a"
 
-	page "fire increases as"
-	next "it gains exper-"
-	next "ience in battle.@"
+	page "very long slumber."
+	next "Thus, it spends"
+	next "more time grounded@"

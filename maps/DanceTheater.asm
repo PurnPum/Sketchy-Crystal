@@ -74,7 +74,7 @@ DanceTheaterSurfGuy:
 	opentext
 	writetext SurfGuyNeverLeftAScratchText
 	promptbutton
-	checkevent EVENT_GOT_HM03_SURF
+	checkevent EVENT_GOT_SWIMSUIT_SURF
 	iftrue SurfGuyAlreadyGaveSurf
 	checkevent EVENT_BEAT_KIMONO_GIRL_NAOKO
 	iffalse .KimonoGirlsUndefeated
@@ -105,8 +105,8 @@ DanceTheaterSurfGuy:
 .GetSurf:
 	writetext SurfGuyLikeADanceText
 	promptbutton
-	verbosegiveitem HM_SURF
-	setevent EVENT_GOT_HM03_SURF
+	verbosegiveitem SWIMSUIT
+	setevent EVENT_GOT_SWIMSUIT_SURF
 	writetext SurfGuySurfExplanationText
 	waitbutton
 	closetext
@@ -278,11 +278,13 @@ SurfGuyLikeADanceText:
 	done
 
 SurfGuySurfExplanationText:
-	text "That's SURF."
+	text "That's a"
+	line "SWIMSUIT."
 
-	para "It's a move that"
-	line "lets #MON swim"
-	cont "across water."
+	para "It's an item that"
+	line "lets you swim"
+	cont "across bodies of"
+	cont "water."
 	done
 
 SurfGuyElegantKimonoGirlsText:

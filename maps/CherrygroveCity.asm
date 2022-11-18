@@ -110,14 +110,20 @@ CherrygroveRivalSceneNorth:
 	turnobject PLAYER, RIGHT
 	playmusic MUSIC_RIVAL_ENCOUNTER
 	opentext
-	writetext CherrygroveRivalText_Seen
+	writetextcheckdialogue CherrygroveRivalText_Seen, CherrygroveRivalText_SeenMin
 	waitbutton
 	closetext
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
 	iftrue .Totodile
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .Chikorita
+	isdialogueminimal
+	iftrue .min
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
+	sjump .proceed
+.min
+	winlosstext RivalCherrygroveWinTextMin, RivalCherrygroveLossTextMin
+.proceed
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_TOTODILE
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
@@ -128,7 +134,13 @@ CherrygroveRivalSceneNorth:
 	sjump .AfterYourDefeat
 
 .Totodile:
+	isdialogueminimal
+	iftrue .min2
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
+	sjump .proceed2
+.min2
+	winlosstext RivalCherrygroveWinTextMin, RivalCherrygroveLossTextMin
+.proceed2
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_CHIKORITA
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
@@ -139,7 +151,13 @@ CherrygroveRivalSceneNorth:
 	sjump .AfterYourDefeat
 
 .Chikorita:
+	isdialogueminimal
+	iftrue .min3
 	winlosstext RivalCherrygroveWinText, RivalCherrygroveLossText
+	sjump .proceed3
+.min3
+	winlosstext RivalCherrygroveWinTextMin, RivalCherrygroveLossTextMin
+.proceed3
 	setlasttalked CHERRYGROVECITY_RIVAL
 	loadtrainer RIVAL1, RIVAL1_1_CYNDAQUIL
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
@@ -152,7 +170,7 @@ CherrygroveRivalSceneNorth:
 .AfterVictorious:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
-	writetext CherrygroveRivalText_YouWon
+	writetextcheckdialogue CherrygroveRivalText_YouWon, CherrygroveRivalText_YouWonMin
 	waitbutton
 	closetext
 	sjump .FinishRival
@@ -160,7 +178,7 @@ CherrygroveRivalSceneNorth:
 .AfterYourDefeat:
 	playmusic MUSIC_RIVAL_AFTER
 	opentext
-	writetext CherrygroveRivalText_YouLost
+	writetextcheckdialogue CherrygroveRivalText_YouLost, CherrygroveRivalText_YouLostMin
 	waitbutton
 	closetext
 .FinishRival:
@@ -205,23 +223,97 @@ CherrygroveYoungsterScript:
 	waitbutton
 	closetext
 	end
-
-MysticWaterGuy:
+	
+CherrygroveCityFishingGuruScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
-	iftrue .After
-	writetext MysticWaterGuyTextBefore
+	checkevent EVENT_GOT_OLD_ROD
+	iftrue .GotOldRod
+	writetextcheckdialogue CherrygroveCityFishingGuruText_Question, CherrygroveCityFishingGuruText_QuestionMin
+	yesorno
+	iffalse .Refused
+	writetextcheckdialogue CherrygroveCityFishingGuruText_Yes, CherrygroveCityFishingGuruText_YesMin
 	promptbutton
-	verbosegiveitem MYSTIC_WATER
-	iffalse .Exit
-	setevent EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
-.After:
-	writetext MysticWaterGuyTextAfter
+	verbosegiveitem OLD_ROD
+	writetextcheckdialogue CherrygroveCityFishingGuruText_GiveOldRod, CherrygroveCityFishingGuruText_GiveOldRodMin
 	waitbutton
-.Exit:
+	closetext
+	setevent EVENT_GOT_OLD_ROD
+	end
+
+.Refused:
+	writetextcheckdialogue CherrygroveCityFishingGuruText_No, CherrygroveCityFishingGuruText_NoMin
+	waitbutton
 	closetext
 	end
+
+.GotOldRod:
+	writetextcheckdialogue CherrygroveCityFishingGuruText_After, CherrygroveCityFishingGuruText_AfterMin
+	waitbutton
+	closetext
+	end
+
+CherrygroveCityFishingGuruText_Question:
+	text "This is a great"
+	line "fishing spot."
+
+	para "You saw people"
+	line "fishing? How"
+	cont "about you?"
+
+	para "Would you like one"
+	line "of my RODS?"
+	done
+	
+CherrygroveCityFishingGuruText_QuestionMin:
+	text "Take this ROD kid."
+	done
+
+CherrygroveCityFishingGuruText_Yes:
+	text "Heh, that's good"
+	line "to hear."
+
+	para "Now you're an"
+	line "angler too!"
+	done
+	
+CherrygroveCityFishingGuruText_YesMin:
+	text "Good choice."
+	done
+
+CherrygroveCityFishingGuruText_GiveOldRod:
+	text "Fishing is great!"
+
+	para "If there's water,"
+	line "be it the sea or a"
+
+	para "stream, try out"
+	line "your ROD."
+	done
+	
+CherrygroveCityFishingGuruText_GiveOldRodMin:
+	text "It'll get the job"
+	line "done."
+	done
+
+CherrygroveCityFishingGuruText_No:
+	text "Oh. That's rather"
+	line "disappointing…"
+	done
+	
+CherrygroveCityFishingGuruText_NoMin:
+	text "S H A M E"
+	done
+
+CherrygroveCityFishingGuruText_After:
+	text "Yo, kid. How are"
+	line "they biting?"
+	done
+	
+CherrygroveCityFishingGuruText_AfterMin:
+	text "There are only"
+	line "CORSOLA here…"
+	done
 
 CherrygroveCitySign:
 	jumptext CherrygroveCitySignText
@@ -359,11 +451,11 @@ GuideGentPokecenterText:
 	para "your #MON in no"
 	line "time at all."
 
-	para "You'll be relying"
-	line "on them a lot, so"
-
-	para "you better learn"
-	line "about them."
+	para "They are quite"
+	line "expensive so try"
+	cont "to only use them"
+	cont "when it is abso-"
+	cont "lutely necessary."
 	done
 
 GuideGentMartText:
@@ -450,10 +542,18 @@ CherrygroveRivalText_Seen:
 	para "I'll show you"
 	line "what I mean!"
 	done
+	
+CherrygroveRivalText_SeenMin:
+	text "You suck."
+	done
 
 RivalCherrygroveWinText:
 	text "Humph. Are you"
 	line "happy you won?"
+	done
+	
+RivalCherrygroveWinTextMin:
+	text "K"
 	done
 
 CherrygroveRivalText_YouLost:
@@ -466,10 +566,19 @@ CherrygroveRivalText_YouLost:
 	cont "est #MON"
 	cont "trainer."
 	done
-
+	
+CherrygroveRivalText_YouLostMin:
+	text "Yawn…"
+	line "Out of my way."
+	done
+	
 RivalCherrygroveLossText:
 	text "Humph. That was a"
 	line "waste of time."
+	done
+	
+RivalCherrygroveLossTextMin:
+	text "See?"
 	done
 
 CherrygroveRivalText_YouWon:
@@ -481,6 +590,11 @@ CherrygroveRivalText_YouWon:
 	line "the world's great-"
 	cont "est #MON"
 	cont "trainer."
+	done
+	
+CherrygroveRivalText_YouWonMin:
+	text "Yawn…"
+	line "Out of my way."
 	done
 
 CherrygroveTeacherText_NoMapCard:
@@ -515,22 +629,6 @@ CherrygroveYoungsterText_HavePokedex:
 
 	para "must take them to"
 	line "a #MON CENTER."
-	done
-
-MysticWaterGuyTextBefore:
-	text "A #MON I caught"
-	line "had an item."
-
-	para "I think it's"
-	line "MYSTIC WATER."
-
-	para "I don't need it,"
-	line "so do you want it?"
-	done
-
-MysticWaterGuyTextAfter:
-	text "Back to fishing"
-	line "for me, then."
 	done
 
 CherrygroveCitySignText:
@@ -569,4 +667,4 @@ CherrygroveCity_MapEvents:
 	object_event 39,  6, SPRITE_RIVAL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_CHERRYGROVE_CITY
 	object_event 27, 12, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 23,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
-	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
+	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CherrygroveCityFishingGuruScript, -1

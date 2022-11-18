@@ -28,13 +28,13 @@ ItemEffects:
 	dw StatusHealingEffect ; AWAKENING
 	dw StatusHealingEffect ; PARLYZ_HEAL
 	dw FullRestoreEffect   ; FULL_RESTORE
-	dw RestoreHPEffect     ; MAX_POTION
+	dw RestoreHPEffect     ; ULTRA_POTION
 	dw RestoreHPEffect     ; HYPER_POTION
 	dw RestoreHPEffect     ; SUPER_POTION
 	dw RestoreHPEffect     ; POTION
 	dw EscapeRopeEffect    ; ESCAPE_ROPE
 	dw RepelEffect         ; REPEL
-	dw RestorePPEffect     ; MAX_ELIXER
+	dw RestorePPEffect     ; SUPER_ELIXER
 	dw EvoStoneEffect      ; FIRE_STONE
 	dw EvoStoneEffect      ; THUNDERSTONE
 	dw EvoStoneEffect      ; WATER_STONE
@@ -77,7 +77,7 @@ ItemEffects:
 	dw SuperRodEffect      ; SUPER_ROD
 	dw RestorePPEffect     ; PP_UP
 	dw RestorePPEffect     ; ETHER
-	dw RestorePPEffect     ; MAX_ETHER
+	dw RestorePPEffect     ; SUPER_ETHER
 	dw RestorePPEffect     ; ELIXER
 	dw NoEffect            ; RED_SCALE
 	dw NoEffect            ; SECRETPOTION
@@ -148,9 +148,9 @@ ItemEffects:
 	dw NoEffect            ; STAR_PIECE
 	dw BasementKeyEffect   ; BASEMENT_KEY
 	dw NoEffect            ; PASS
-	dw NoEffect            ; ITEM_87
-	dw NoEffect            ; ITEM_88
-	dw NoEffect            ; ITEM_89
+	dw NoEffect            ; DAMP_ROCK
+	dw NoEffect            ; SMOOTH_ROCK
+	dw NoEffect            ; HEAT_ROCK
 	dw NoEffect            ; CHARCOAL
 	dw RestoreHPEffect     ; BERRY_JUICE
 	dw NoEffect            ; SCOPE_LENS
@@ -187,25 +187,50 @@ ItemEffects:
 	dw NoEffect            ; ITEM_AB
 	dw NoEffect            ; UP_GRADE
 	dw RestoreHPEffect     ; BERRY
-	dw RestoreHPEffect     ; GOLD_BERRY
+	dw Restore4THHPEffect  ; GOLD_BERRY
 	dw SquirtbottleEffect  ; SQUIRTBOTTLE
 	dw NoEffect            ; ITEM_B0
 	dw PokeBallEffect      ; PARK_BALL
 	dw NoEffect            ; RAINBOW_WING
 	dw NoEffect            ; ITEM_B3
-	assert_table_length ITEM_B3
-; The items past ITEM_B3 do not have effect entries:
-;	BRICK_PIECE
-;	SURF_MAIL
-;	LITEBLUEMAIL
-;	PORTRAITMAIL
-;	LOVELY_MAIL
-;	EON_MAIL
-;	MORPH_MAIL
-;	BLUESKY_MAIL
-;	MUSIC_MAIL
-;	MIRAGE_MAIL
-;	ITEM_BE
+	dw NoEffect            ; BRICK_PIECE
+	dw NoEffect            ; SURF_MAIL
+	dw NoEffect            ; LITEBLUEMAIL
+	dw NoEffect            ; PORTRAITMAIL
+	dw NoEffect            ; LOVELY_MAIL
+	dw NoEffect            ; EON_MAIL
+	dw NoEffect            ; MORPH_MAIL
+	dw NoEffect            ; BLUESKY_MAIL
+	dw NoEffect            ; MUSIC_MAIL
+	dw NoEffect            ; MIRAGE_MAIL
+	dw NoEffect            ; ITEM_BE
+	dw NoEffect            ; NRMLRESBERRY
+	dw NoEffect            ; GRSSRESBERRY
+	dw NoEffect            ; FIRERESBERRY
+	dw NoEffect            ; WATERESBERRY
+	dw NoEffect            ; ICERESBERRY
+	dw NoEffect            ; FGHTRESBERRY
+	dw NoEffect            ; PSYRESBERRY
+	dw NoEffect            ; DARKRESBERRY
+	dw NoEffect            ; GHSTRESBERRY
+	dw NoEffect            ; DRGNRESBERRY
+	dw NoEffect            ; PSNRESBERRY
+	dw NoEffect            ; ROCKRESBERRY
+	dw NoEffect            ; GRNDRESBERRY
+	dw NoEffect            ; ELECRESBERRY
+	dw NoEffect            ; BUGRESBERRY
+	dw NoEffect            ; STELRESBERRY
+	dw NoEffect            ; FLYRESBERRY
+	dw HammerEffect        ; HAMMER
+	dw ScytheEffect        ; SCYTHE
+	dw BalloonsEffect      ; BALLOONS
+	dw SwimSuitEffect      ; SWIMSUIT
+	dw PowerGlovesEffect   ; POWER_GLOVES
+	dw FlashlightEffect    ; FLASHLIGHT
+	dw PropellerEffect     ; PROPELLER
+	dw WaterCannonEffect   ; WATER_CANNON
+	assert_table_length WATER_CANNON
+; The items past WATER_CANNON do not have effect entries:
 ; They all have the ITEMMENU_NOUSE attribute so they can't be used anyway.
 ; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
 
@@ -1171,7 +1196,7 @@ VitaminEffect:
 
 	add hl, bc
 	ld a, [hl]
-	cp 100
+	cp 246
 	jr nc, NoEffectMessage
 
 	add 10
@@ -1628,6 +1653,10 @@ BitterBerryEffect:
 RestoreHPEffect:
 	call ItemRestoreHP
 	jp StatusHealer_Jumptable
+	
+Restore4THHPEffect:
+	call ItemRestore4THHP
+	jp StatusHealer_Jumptable
 
 EnergypowderEffect:
 	ld c, HAPPINESS_BITTERPOWDER
@@ -1667,6 +1696,33 @@ ItemRestoreHP:
 	xor a
 	ld [wLowHealthAlarm], a
 	call GetHealingItemAmount
+	call RestoreHealth
+	call BattlemonRestoreHealth
+	call HealHP_SFX_GFX
+	ld a, PARTYMENUTEXT_HEAL_HP
+	ld [wPartyMenuActionText], a
+	call ItemActionTextWaitButton
+	call UseDisposableItem
+	ld a, 0
+	ret
+
+ItemRestore4THHP:
+	ld b, PARTYMENUACTION_HEALING_ITEM
+	call UseItem_SelectMon
+	ld a, 2
+	ret c
+
+	call IsMonFainted
+	ld a, 1
+	ret z
+
+	call IsMonAtFullHealth
+	ld a, 1
+	ret nc
+
+	xor a
+	ld [wLowHealthAlarm], a
+	call GetOneFourthMaxHP
 	call RestoreHealth
 	call BattlemonRestoreHealth
 	call HealHP_SFX_GFX
@@ -1956,6 +2012,25 @@ GetOneFifthMaxHP:
 	pop bc
 	ret
 
+GetOneFourthMaxHP:
+	push bc
+	ld a, MON_MAXHP
+	call GetPartyParamLocation
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld c, a
+	srl b
+	rr c
+	srl b
+	rr c
+	ld a, b
+	ld d, a
+	ld a, c
+	ld e, a
+	pop bc
+	ret
+
 GetHealingItemAmount:
 	push hl
 	ld a, [wCurItem]
@@ -2061,7 +2136,7 @@ EscapeRopeEffect:
 	ret
 
 SuperRepelEffect:
-	ld b, 200
+	ld b, 175
 	jr UseRepel
 
 MaxRepelEffect:
@@ -2295,7 +2370,7 @@ RestorePPEffect:
 
 .loop2
 	ld a, [wTempRestorePPItem]
-	cp MAX_ELIXER
+	cp SUPER_ELIXER
 	jp z, Elixer_RestorePPofAllMoves
 	cp ELIXER
 	jp z, Elixer_RestorePPofAllMoves
@@ -2482,11 +2557,12 @@ RestorePP:
 	jr nc, .dont_restore
 
 	ld a, [wTempRestorePPItem]
-	cp MAX_ELIXER
-	jr z, .restore_all
-	cp MAX_ETHER
-	jr z, .restore_all
-
+	ld c, 20
+	cp SUPER_ELIXER
+	jr z, .restore_some
+	cp SUPER_ETHER
+	jr z, .restore_some
+	
 	ld c, 5
 	cp MYSTERYBERRY
 	jr z, .restore_some
@@ -2919,4 +2995,36 @@ GetMthMoveOfCurrentMon:
 	ld c, a
 	ld b, 0
 	add hl, bc
+	ret
+
+HammerEffect:
+	farcall MonMenu_RockSmash
+	ret
+
+ScytheEffect:
+	farcall MonMenu_Cut
+	ret
+
+BalloonsEffect:
+	farcall MonMenu_Fly
+	ret
+
+SwimSuitEffect:
+	farcall MonMenu_Surf
+	ret
+
+PowerGlovesEffect:
+	farcall MonMenu_Strength
+	ret
+
+FlashlightEffect:
+	farcall MonMenu_Flash
+	ret
+
+PropellerEffect:
+	farcall MonMenu_Whirlpool
+	ret
+
+WaterCannonEffect:
+	farcall MonMenu_Waterfall
 	ret

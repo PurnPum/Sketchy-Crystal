@@ -1,12 +1,12 @@
 	db CLEFFA ; 173
 
-	db  50,  25,  28,  15,  45,  55
+	db  50,  25,  28,  15,  50,  60
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 150 ; catch rate
 	db 37 ; base exp
-	db MYSTERYBERRY, MOON_STONE ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F75 ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_NONE, EGG_NONE ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

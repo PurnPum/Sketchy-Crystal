@@ -1,9 +1,9 @@
 	db GIRAFARIG ; 203
 
-	db  70,  80,  65,  85,  90,  65
+	db  70, 100,  65,  95,  90,  65
 	;   hp  atk  def  spd  sat  sdf
 
-	db NORMAL, PSYCHIC_TYPE ; type
+	db GHOST, PSYCHIC_TYPE ; type
 	db 60 ; catch rate
 	db 149 ; base exp
 	db NO_ITEM, NO_ITEM ; items
@@ -17,5 +17,5 @@
 	dn EGG_GROUND, EGG_GROUND ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

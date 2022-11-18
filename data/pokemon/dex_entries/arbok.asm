@@ -1,10 +1,10 @@
 	db "COBRA@" ; species name
 	dw 1106, 1430 ; height, weight
 
-	db   "To intimidate"
-	next "foes, it spreads"
-	next "its chest wide and"
+	db   "It captures its"
+	next "prey by freezing"
+	next "it on the spot out"
 
-	page "makes eerie sounds"
-	next "by expelling air"
-	next "from its mouth.@"
+	page "of raw fear. ARBOK"
+	next "finishes the job"
+	next "going for the neck@"

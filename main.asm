@@ -40,6 +40,8 @@ INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
+INCLUDE "data/items/increasing_price_items.asm"
+INCLUDE "data/items/increasing_price_multipliers.asm"
 
 
 SECTION "bank4", ROMX
@@ -151,6 +153,10 @@ SECTION "Enemy Trainers", ROMX
 
 INCLUDE "engine/battle/ai/items.asm"
 INCLUDE "engine/battle/ai/scoring.asm"
+
+
+SECTION "Enemy Trainer Parties", ROMX
+
 INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
 
@@ -166,6 +172,7 @@ SECTION "bank10", ROMX
 INCLUDE "engine/pokedex/pokedex.asm"
 INCLUDE "data/moves/moves.asm"
 INCLUDE "engine/pokemon/evolve.asm"
+INCLUDE "engine/battle/calculate_battle_money_bonus.asm"
 
 
 SECTION "bank11", ROMX
@@ -307,8 +314,6 @@ INCLUDE "engine/battle/battle_transition.asm"
 INCLUDE "engine/events/field_moves.asm"
 INCLUDE "engine/events/magnet_train.asm"
 INCLUDE "engine/battle/battlestart_copytilemapatonce.asm"
-INCLUDE "engine/gfx/sprites.asm"
-INCLUDE "engine/gfx/mon_icons.asm"
 
 
 SECTION "bank24", ROMX
@@ -319,6 +324,11 @@ INCLUDE "engine/pokegear/pokegear.asm"
 INCLUDE "engine/events/fish.asm"
 INCLUDE "engine/games/slot_machine.asm"
 
+
+SECTION "bank25", ROMX
+
+INCLUDE "engine/gfx/sprites.asm"
+INCLUDE "engine/gfx/mon_icons.asm"
 
 SECTION "Phone Scripts 1", ROMX
 
@@ -408,9 +418,7 @@ INCLUDE "engine/events/trainer_scripts.asm"
 
 SECTION "bank32", ROMX
 
-INCLUDE "engine/battle_anims/bg_effects.asm"
 INCLUDE "data/moves/animations.asm"
-INCLUDE "engine/events/poisonstep_pals.asm"
 
 
 SECTION "Move Animations", ROMX
@@ -443,6 +451,8 @@ SECTION "Pic Animations 2", ROMX
 
 INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
+INCLUDE "engine/battle_anims/bg_effects.asm"
+INCLUDE "engine/events/poisonstep_pals.asm"
 
 
 SECTION "Pic Animations 3", ROMX

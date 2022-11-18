@@ -1,13 +1,13 @@
 ; GetOptionPointer.Pointers indexes
 	const_def
-	const OPT_TEXT_SPEED    ; 0
-	const OPT_BATTLE_SCENE  ; 1
-	const OPT_BATTLE_STYLE  ; 2
-	const OPT_SOUND         ; 3
-	const OPT_PRINT         ; 4
-	const OPT_MENU_ACCOUNT  ; 5
-	const OPT_FRAME         ; 6
-	const OPT_CANCEL        ; 7
+	const OPT_TEXT_SPEED   ; 0
+	const OPT_BATTLE_SCENE ; 1
+	const OPT_BATTLE_STYLE ; 2
+	const OPT_SOUND        ; 3
+	const OPT_DIALOGUE     ; 4
+	const OPT_MENU_ACCOUNT ; 5
+	const OPT_FRAME        ; 6
+	const OPT_CANCEL       ; 7
 DEF NUM_OPTIONS EQU const_value ; 8
 
 _Option:
@@ -83,7 +83,7 @@ StringOptions:
 	db "        :<LF>"
 	db "SOUND<LF>"
 	db "        :<LF>"
-	db "PRINT<LF>"
+	db "DIALOGUE<LF>"
 	db "        :<LF>"
 	db "MENU ACCOUNT<LF>"
 	db "        :<LF>"
@@ -100,15 +100,15 @@ GetOptionPointer:
 	dw Options_BattleScene
 	dw Options_BattleStyle
 	dw Options_Sound
-	dw Options_Print
+	dw Options_Dialogue
 	dw Options_MenuAccount
 	dw Options_Frame
 	dw Options_Cancel
 
 	const_def
 	const OPT_TEXT_SPEED_INST ; 0
-	const OPT_TEXT_SPEED_FAST  ; 1
-	const OPT_TEXT_SPEED_MED ; 2
+	const OPT_TEXT_SPEED_FAST ; 1
+	const OPT_TEXT_SPEED_MED  ; 2
 
 Options_TextSpeed:
 	call GetTextSpeed
@@ -314,106 +314,51 @@ Options_Sound:
 .Stereo: db "STEREO@"
 
 	const_def
-	const OPT_PRINT_LIGHTEST ; 0
-	const OPT_PRINT_LIGHTER  ; 1
-	const OPT_PRINT_NORMAL   ; 2
-	const OPT_PRINT_DARKER   ; 3
-	const OPT_PRINT_DARKEST  ; 4
+	const OPT_DIALOGUE_NORMAL ; 0
+	const OPT_DIALOGUE_MINIMUM  ; 1
 
-Options_Print:
-	call GetPrinterSetting
+Options_Dialogue:
+	ld hl, wOptions2
 	ldh a, [hJoyPressed]
 	bit D_LEFT_F, a
 	jr nz, .LeftPressed
 	bit D_RIGHT_F, a
 	jr z, .NonePressed
-	ld a, c
-	cp OPT_PRINT_DARKEST
-	jr c, .Increase
-	ld c, OPT_PRINT_LIGHTEST - 1
-
-.Increase:
-	inc c
-	ld a, e
-	jr .Save
+	bit MENU_DIALOGUE_NORMAL, [hl]
+	jr nz, .ToggleMinimum
+	jr .ToggleNormal
 
 .LeftPressed:
-	ld a, c
-	and a
-	jr nz, .Decrease
-	ld c, OPT_PRINT_DARKEST + 1
-
-.Decrease:
-	dec c
-	ld a, d
-
-.Save:
-	ld b, a
-	ld [wGBPrinterBrightness], a
+	bit MENU_DIALOGUE_NORMAL, [hl]
+	jr z, .ToggleNormal
+	jr .ToggleMinimum
 
 .NonePressed:
-	ld b, 0
-	ld hl, .Strings
-	add hl, bc
-	add hl, bc
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
+	bit MENU_DIALOGUE_NORMAL, [hl]
+	jr nz, .ToggleNormal
+
+.ToggleMinimum:
+	res MENU_DIALOGUE_NORMAL, [hl]
+	ld de, .Minimum
+	jr .Display
+
+.ToggleNormal:
+	set MENU_DIALOGUE_NORMAL, [hl]
+	ld de, .Normal
+
+.Display:
 	hlcoord 11, 11
 	call PlaceString
 	and a
 	ret
 
 .Strings:
-; entries correspond to OPT_PRINT_* constants
-	dw .Lightest
-	dw .Lighter
+; entries correspond to OPT_DIALOGUE_* constants
 	dw .Normal
-	dw .Darker
-	dw .Darkest
+	dw .Minimum
 
-.Lightest: db "LIGHTEST@"
-.Lighter:  db "LIGHTER @"
 .Normal:   db "NORMAL  @"
-.Darker:   db "DARKER  @"
-.Darkest:  db "DARKEST @"
-
-GetPrinterSetting:
-; converts GBPRINTER_* value in a to OPT_PRINT_* value in c,
-; with previous/next GBPRINTER_* values in d/e
-	ld a, [wGBPrinterBrightness]
-	and a
-	jr z, .IsLightest
-	cp GBPRINTER_LIGHTER
-	jr z, .IsLight
-	cp GBPRINTER_DARKER
-	jr z, .IsDark
-	cp GBPRINTER_DARKEST
-	jr z, .IsDarkest
-	; none of the above
-	ld c, OPT_PRINT_NORMAL
-	lb de, GBPRINTER_LIGHTER, GBPRINTER_DARKER
-	ret
-
-.IsLightest:
-	ld c, OPT_PRINT_LIGHTEST
-	lb de, GBPRINTER_DARKEST, GBPRINTER_LIGHTER
-	ret
-
-.IsLight:
-	ld c, OPT_PRINT_LIGHTER
-	lb de, GBPRINTER_LIGHTEST, GBPRINTER_NORMAL
-	ret
-
-.IsDark:
-	ld c, OPT_PRINT_DARKER
-	lb de, GBPRINTER_NORMAL, GBPRINTER_DARKEST
-	ret
-
-.IsDarkest:
-	ld c, OPT_PRINT_DARKEST
-	lb de, GBPRINTER_DARKER, GBPRINTER_LIGHTEST
-	ret
+.Minimum:  db "MINIMUM @"
 
 Options_MenuAccount:
 	ld hl, wOptions2
@@ -422,26 +367,26 @@ Options_MenuAccount:
 	jr nz, .LeftPressed
 	bit D_RIGHT_F, a
 	jr z, .NonePressed
-	bit MENU_ACCOUNT, [hl]
+	bit MENU_ACCOUNT_ON, [hl]
 	jr nz, .ToggleOff
 	jr .ToggleOn
 
 .LeftPressed:
-	bit MENU_ACCOUNT, [hl]
+	bit MENU_ACCOUNT_ON, [hl]
 	jr z, .ToggleOn
 	jr .ToggleOff
 
 .NonePressed:
-	bit MENU_ACCOUNT, [hl]
+	bit MENU_ACCOUNT_ON, [hl]
 	jr nz, .ToggleOn
 
 .ToggleOff:
-	res MENU_ACCOUNT, [hl]
+	res MENU_ACCOUNT_ON, [hl]
 	ld de, .Off
 	jr .Display
 
 .ToggleOn:
-	set MENU_ACCOUNT, [hl]
+	set MENU_ACCOUNT_ON, [hl]
 	ld de, .On
 
 .Display:

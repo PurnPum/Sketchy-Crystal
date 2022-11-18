@@ -41,7 +41,11 @@ InitClock:
 	call .ClearScreen
 	call WaitBGMap
 	call RotateFourPalettesRight
+	ld hl, OakTimeWokeUpTextMin
+	call CheckDialogueMode
+	jr z, .minimal_dialogue
 	ld hl, OakTimeWokeUpText
+.minimal_dialogue
 	call PrintText
 	ld hl, wTimeSetBuffer
 	ld bc, wTimeSetBufferEnd - wTimeSetBuffer
@@ -292,7 +296,11 @@ PrintTwoDigitNumberLeftAlign:
 OakTimeWokeUpText:
 	text_far _OakTimeWokeUpText
 	text_end
-
+	
+OakTimeWokeUpTextMin:
+	text_far _OakTimeWokeUpTextMin
+	text_end
+	
 OakTimeWhatTimeIsItText:
 	text_far _OakTimeWhatTimeIsItText
 	text_end

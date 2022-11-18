@@ -1,12 +1,12 @@
 	db CLEFABLE ; 036
 
-	db  95,  70,  73,  60,  85,  90
+	db 105,  70,  73,  60,  95,  90
 	;   hp  atk  def  spd  sat  sdf
 
 	db NORMAL, NORMAL ; type
 	db 25 ; catch rate
 	db 129 ; base exp
-	db MYSTERYBERRY, MOON_STONE ; items
+	db NO_ITEM, NO_ITEM ; items
 	db GENDER_F75 ; gender ratio
 	db 100 ; unknown 1
 	db 10 ; step cycles to hatch
@@ -17,5 +17,5 @@
 	dn EGG_FAIRY, EGG_FAIRY ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end

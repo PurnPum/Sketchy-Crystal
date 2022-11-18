@@ -9,14 +9,22 @@
 
 MountMortarB1F_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene0 ; SCENE_DEFAULT
+	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
+
+.DummyScene0:
+	end
+
+.DummyScene1:
+	end
 
 MountMortarB1FKiyoScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TYROGUE_FROM_KIYO
-	iftrue .GotTyrogue
+	checkevent EVENT_GOT_HERACROSS_FROM_KIYO
+	iftrue .GotHeracross
 	checkevent EVENT_BEAT_BLACKBELT_KIYO
 	iftrue .BeatKiyo
 	writetext MountMortarB1FKiyoIntroText
@@ -27,9 +35,10 @@ MountMortarB1FKiyoScript:
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLACKBELT_KIYO
+	setscene SCENE_FINISHED
 	opentext
 .BeatKiyo:
-	writetext MountMortarB1FTyrogueRewardText
+	writetext MountMortarB1FHeracrossRewardText
 	promptbutton
 	waitsfx
 	readvar VAR_PARTYCOUNT
@@ -37,10 +46,10 @@ MountMortarB1FKiyoScript:
 	writetext MountMortarB1FReceiveMonText
 	playsound SFX_CAUGHT_MON
 	waitsfx
-	givepoke TYROGUE, 10
-	setevent EVENT_GOT_TYROGUE_FROM_KIYO
-.GotTyrogue:
-	writetext MountMortarB1FKiyoGotTyrogueText
+	givepoke HERACROSS, 30 ;TBD
+	setevent EVENT_GOT_HERACROSS_FROM_KIYO
+.GotHeracross:
+	writetext MountMortarB1FKiyoGotHeracrossText
 	waitbutton
 	closetext
 	end
@@ -63,8 +72,8 @@ MountMortarB1FCarbos:
 MountMortarB1FFullRestore:
 	itemball FULL_RESTORE
 
-MountMortarB1FMaxEther:
-	itemball MAX_ETHER
+MountMortarB1FSuperEther:
+	itemball SUPER_ETHER
 
 MountMortarB1FPPUp:
 	itemball PP_UP
@@ -92,7 +101,7 @@ MountMortarB1FKiyoWinText:
 	line "I'm beaten!"
 	done
 
-MountMortarB1FTyrogueRewardText:
+MountMortarB1FHeracrossRewardText:
 	text "I… I'm crushed…"
 
 	para "My training is"
@@ -110,21 +119,23 @@ MountMortarB1FTyrogueRewardText:
 
 MountMortarB1FReceiveMonText:
 	text "<PLAYER> received"
-	line "TYROGUE."
+	line "HERACROSS."
 	done
 
-MountMortarB1FKiyoGotTyrogueText:
-	text "TYROGUE is a"
+MountMortarB1FKiyoGotHeracrossText:
+	text "HERACROSS is a"
 	line "fighting-type."
 
-	para "It evolves into a"
-	line "tougher #MON."
+	para "It hates flying-"
+	line "type #MON."
 
-	para "Keep up the hard"
-	line "work. I'll keep"
-	cont "training too."
+	para "However, it can"
+	line "deal with psychic-"
+	cont "type pokemon if it"
+	cont "is faster."
 
-	para "Farewell!"
+	para "I leave for now,"
+	line "Farewell!"
 	done
 
 MountMortarB1FKiyoFullPartyText:
@@ -136,19 +147,19 @@ MountMortarB1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  3,  3, MOUNT_MORTAR_1F_INSIDE, 5
-	warp_event 19, 29, MOUNT_MORTAR_1F_OUTSIDE, 7
+	warp_event  3,  3, MOUNT_MORTAR_1F_OUTSIDE, 12
+	warp_event 19, 29, MOUNT_MORTAR_1F_OUTSIDE, 8
 
 	def_coord_events
+	coord_event 16,  4, SCENE_DEFAULT, MountMortarB1FKiyoScript
 
 	def_bg_events
 	bg_event  4,  6, BGEVENT_ITEM, MountMortarB1FHiddenMaxRevive
 
 	def_object_events
-	object_event 29, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FHyperPotion, EVENT_MOUNT_MORTAR_B1F_HYPER_POTION
-	object_event  4, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FCarbos, EVENT_MOUNT_MORTAR_B1F_CARBOS
-	object_event  9, 10, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMortarB1FBoulder, -1
-	object_event 16,  4, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MountMortarB1FKiyoScript, -1
-	object_event 34, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FFullRestore, EVENT_MOUNT_MORTAR_B1F_FULL_RESTORE
-	object_event 32,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FMaxEther, EVENT_MOUNT_MORTAR_B1F_MAX_ETHER
+	object_event 10, 31, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FHyperPotion, EVENT_MOUNT_MORTAR_B1F_HYPER_POTION
+	object_event  2, 18, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FCarbos, EVENT_MOUNT_MORTAR_B1F_CARBOS
+	object_event 17,  4, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, MountMortarB1FKiyoScript, -1
+	object_event 37, 22, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FFullRestore, EVENT_MOUNT_MORTAR_B1F_FULL_RESTORE
+	object_event  9,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FSuperEther, EVENT_MOUNT_MORTAR_B1F_SUPER_ETHER
 	object_event 21, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, MountMortarB1FPPUp, EVENT_MOUNT_MORTAR_B1F_PP_UP

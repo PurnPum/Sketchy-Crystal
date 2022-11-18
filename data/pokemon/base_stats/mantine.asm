@@ -1,6 +1,6 @@
 	db MANTINE ; 226
 
-	db  65,  40,  70,  70,  80, 140
+	db  85,  40,  70,  70,  80, 140
 	;   hp  atk  def  spd  sat  sdf
 
 	db WATER, FLYING ; type
@@ -17,5 +17,5 @@
 	dn EGG_WATER_1, EGG_WATER_1 ; egg groups
 
 	; tm/hm learnset
-	tmhm SKETCH, CUT, FLY, SURF, STRENGTH, FLASH, WHIRLPOOL, WATERFALL, ROCK_SMASH, TELEPORT
+	tmhm SKETCH, PROTECT
 	; end
