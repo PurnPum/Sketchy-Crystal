@@ -73,19 +73,23 @@ PrintType:
 
 	jp PlaceString
 
+GetTypeName2:
+; Copy the name of type [wNamedObjectIndex] to wStringBuffer2.
+	ld de, wStringBuffer2
+	jr GetTypeName.start
 GetTypeName:
 ; Copy the name of type [wNamedObjectIndex] to wStringBuffer1.
-
+	ld de, wStringBuffer1
+.start
 	ld a, [wNamedObjectIndex]
 	ld hl, TypeNames
-	ld e, a
-	ld d, 0
-	add hl, de
-	add hl, de
+	ld c, a
+	ld b, 0
+	add hl, bc
+	add hl, bc
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld de, wStringBuffer1
 	ld bc, MOVE_NAME_LENGTH
 	jp CopyBytes
 

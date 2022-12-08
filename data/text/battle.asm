@@ -904,6 +904,17 @@ CoinsScatteredText:
 	prompt
 
 TransformedTypeText:
+	text "<USER>'s"
+	line "typing changed"
+	cont "to @"
+	text_ram wStringBuffer1
+	text " and"
+	cont "@"
+	text_ram wStringBuffer2
+	text "!"
+	prompt
+
+Transformed2TypeText:
 	text "<USER>"
 	line "transformed into"
 	cont "the @"
