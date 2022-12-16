@@ -1195,3 +1195,16 @@ BattleText_ResistBerry2:
 	text_ram wStringBuffer1
 	text "!"
 	prompt
+
+PoltergeistFailedText:
+	text "<TARGET>"
+	line "has no item…"
+	prompt
+
+PoltergeistText:
+	text "<TARGET>"
+	line "gets attacked by"
+	cont "its @"
+	text_ram wStringBuffer1
+	text "!"
+	prompt

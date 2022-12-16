@@ -217,7 +217,7 @@ BattleAnimations::
 	dw BattleAnim_Attract
 	dw BattleAnim_SleepTalk
 	dw BattleAnim_HealBell
-	dw BattleAnim_Return
+	dw BattleAnim_Poltergeist
 	dw BattleAnim_Present
 	dw BattleAnim_Frustration
 	dw BattleAnim_Safeguard
@@ -3774,19 +3774,19 @@ BattleAnim_Flail:
 	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
-BattleAnim_Conversion:
+BattleAnim_Conversion:	; Same as conversion2 after the move change
 	anim_1gfx ANIM_GFX_EXPLOSION
-	anim_bgeffect ANIM_BG_ALTERNATE_HUES, $0, $2, $0
 	anim_sound 63, 3, SFX_SHARPEN
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $0
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $8
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $10
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $18
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $20
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $28
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $30
-	anim_obj ANIM_OBJ_CONVERSION, 48, 88, $38
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $0
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $8
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $10
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $18
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $20
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $28
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $30
+	anim_obj ANIM_OBJ_CONVERSION2, 132, 44, $38
 	anim_wait 128
+	anim_wait 48
 	anim_ret
 
 BattleAnim_Aeroblast:
@@ -4433,20 +4433,19 @@ BattleAnim_HealBell:
 	anim_wait 64
 	anim_ret
 
-BattleAnim_Return:
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_2Row
-	anim_bgeffect ANIM_BG_BOUNCE_DOWN, $0, BG_EFFECT_USER, $0
-	anim_sound 0, 0, SFX_RETURN
-	anim_wait 64
-	anim_incbgeffect ANIM_BG_BOUNCE_DOWN
-	anim_wait 32
-	anim_bgeffect ANIM_BG_BODY_SLAM, $0, BG_EFFECT_USER, $0
+BattleAnim_Poltergeist:
+	anim_3gfx ANIM_GFX_ANGELS, ANIM_GFX_HIT, ANIM_GFX_STATUS
+	anim_sound 6, 2, SFX_WHIRLWIND
+	anim_obj ANIM_OBJ_DESTINY_BOND, 44, 120, $2
+	anim_wait 44
+	anim_sound 0, 1, SFX_THIEF_2
+	anim_obj ANIM_OBJ_POLTERGEIST, 130, 60, $6
+	anim_wait 104
+	anim_sound 0, 1, SFX_THROW_BALL
+	anim_wait 26
+	anim_sound 0, 1, SFX_MEGA_PUNCH
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 130, 68, $18
 	anim_wait 4
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_BIG, 136, 40, $0
-	anim_wait 8
-	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
 BattleAnim_Present:

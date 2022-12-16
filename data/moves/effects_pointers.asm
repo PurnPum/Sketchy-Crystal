@@ -5,6 +5,7 @@ MoveEffectsPointers:
 	dw BypassProtect
 	dw AlwaysCrit
 	dw AlwaysCritPoison
+	dw RockThrow
 	dw Extremespeed
 	dw DoSleep
 	dw PoisonHit
@@ -121,7 +122,7 @@ MoveEffectsPointers:
 	dw Rollout
 	dw FuryCutter
 	dw Attract
-	dw Return
+	dw Poltergeist
 	dw Present
 	dw Frustration
 	dw Safeguard

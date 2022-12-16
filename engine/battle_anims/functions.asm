@@ -96,6 +96,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_AncientPower
 	dw BattleAnimFunction_RockSmash
 	dw BattleAnimFunction_Cotton
+	dw BattleAnimFunction_Poltergeist
 
 BattleAnimFunction_Null:
 	call BattleAnim_AnonJumptable
@@ -4487,3 +4488,98 @@ BattleAnim_AbsCosinePrecise: ; unreferenced
 
 BattleAnimSineWave:
 	sine_table 32
+
+
+BattleAnimFunction_Poltergeist:
+; Moves object in a circle where the height is 1/8 the width, while also moving upward 2 pixels per frame for 24 frames after which it disappears
+; Obj Param: Is used internally only
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	
+.zero
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	ld a, [hl]
+	ld d, $10
+	push af
+	push de
+	call BattleAnim_Sine
+	sra a
+	sra a
+	sra a
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	add [hl]
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], a
+	pop de
+	pop af
+	call BattleAnim_Cosine
+	ld hl, BATTLEANIMSTRUCT_XOFFSET
+	add hl, bc
+	ld [hl], a
+	ld hl, BATTLEANIMSTRUCT_PARAM
+	add hl, bc
+	inc [hl]
+	;inc [hl]
+	ld a, [hl]
+	and $08
+	ret nz
+	ld hl, BATTLEANIMSTRUCT_VAR2
+	add hl, bc
+	ld a, [hl]
+	cp $ce
+	jr z, .next
+	dec [hl]
+	;dec [hl]
+	ret
+	
+.next
+	call BattleAnim_IncAnonJumptableIndex
+	ret
+
+.one
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	inc a
+	inc a
+	ld [hl], a
+	cp $02
+	jr z, .done
+	ret
+
+.done
+	call DeinitBattleAnimation
+	ret
+
+; Moves object up for 41 frames
+; Obj Param: Movement speed
+	; ld hl, BATTLEANIMSTRUCT_YOFFSET
+	; add hl, bc
+	; ld a, [hl]
+	; and a
+	; jr z, .move
+	; cp $b8
+	; jr nc, .move
+	; call DeinitBattleAnimation
+	; ret
+
+; .move
+	; ld hl, BATTLEANIMSTRUCT_PARAM
+	; add hl, bc
+	; ld d, [hl]
+	; ld hl, BATTLEANIMSTRUCT_YOFFSET
+	; add hl, bc
+	; ld a, [hl]
+	; sub d
+	; ld [hl], a
+	; ld d, $25
+	; call BattleAnim_Cosine
+	; ld hl, BATTLEANIMSTRUCT_XOFFSET
+	; add hl, bc
+	; ld [hl], a
+	; ret

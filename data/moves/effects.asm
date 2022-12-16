@@ -6,6 +6,7 @@ NormalHit:
 BypassProtect:
 AlwaysCrit:
 AlwaysCritPoison:
+RockThrow:
 Extremespeed:
 	checkobedience
 	usedmovetext
@@ -1589,17 +1590,17 @@ Attract:
 	attract
 	endmove
 
-Return:
+Poltergeist:
 	checkobedience
 	usedmovetext
 	doturn
 	critical
 	damagestats
-	happinesspower
 	damagecalc
 	stab
 	damagevariation
 	checkhit
+	poltergeist
 	resistberry
 	moveanim
 	failuretext

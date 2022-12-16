@@ -99,7 +99,7 @@ BattleCommandPointers:
 	dw BattleCommand_Unused5D
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
-	dw BattleCommand_HappinessPower
+	dw BattleCommand_Poltergeist
 	dw BattleCommand_Present
 	dw BattleCommand_DamageCalc
 	dw BattleCommand_FrustrationPower

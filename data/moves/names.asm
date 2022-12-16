@@ -215,7 +215,7 @@ MoveNames::
 	li "ATTRACT"
 	li "SLEEP TALK"
 	li "HEAL BELL"
-	li "RETURN"
+	li "POLTERGEIST"
 	li "PRESENT"
 	li "FRUSTRATION"
 	li "SAFEGUARD"

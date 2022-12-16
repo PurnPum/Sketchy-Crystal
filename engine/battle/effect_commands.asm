@@ -6543,7 +6543,7 @@ INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
 INCLUDE "engine/battle/move_effects/attract.asm"
 
-INCLUDE "engine/battle/move_effects/return.asm"
+INCLUDE "engine/battle/move_effects/poltergeist.asm"
 
 INCLUDE "engine/battle/move_effects/present.asm"
 
@@ -6783,40 +6783,45 @@ BattleCommand_ResistBerry: ; Func for the resist berries halving SE damage
 	push de
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
-	ld b, a ; Save the type of the move used in b
-	cp NORMAL ; If the move used is normal type, ignore the Supereffective check.
+	ld b, a 		; Save the type of the move used in b
+	cp NORMAL 		; If the move used is normal type, ignore the Supereffective check.
 	jr z, .normal
 	
 	ld a, [wTypeModifier]
-	res 7, a ; Reset the 'stab' bit for this calculation
+	res 7, a 		; Reset the 'stab' bit for this calculation
 	cp EFFECTIVE
-	jr z, .end ; if z=1 the move was normally effective, therefore finish.
-	jr c, .end ; if c=1 and z=0 the move was not very effective, therefore finish.
+	jr z, .end 		; if z=1 the move was normally effective, therefore finish.
+	jr c, .end 		; if c=1 and z=0 the move was not very effective, therefore finish.
 .normal
 	ld hl, ResistBerryTypes
 .next
-	ld a, [hli] ; 'a' now has the value of the type found on the list ResistBerryTypes
-	cp -1		; hl now points to the berry next to that type, if a is -1 we didnt find the type (shouldn't be possible)
+	ld a, [hli] 		; 'a' now has the value of the type found on the list ResistBerryTypes
+	cp -1				; hl now points to the berry next to that type, if a is -1 we didnt find the type (shouldn't be possible)
 	jr z, .NotFound
-	cp b		; 'b' has the value of the type of the move originally used
+	cp b				; 'b' has the value of the type of the move originally used
 	jr z, .done
-	inc hl		; next item in the list
+	inc hl				; next item in the list
 	jr .next
 
-.NotFound: ; This should never proc but its here just in case
+.NotFound: 			; This should never proc but its here just in case
 	pop de
 	pop hl
 	pop bc
 	ret
+
 .done
-	ld d, [hl] ;Save the item effect in d	
-	call GetOpponentItem ; Check opponent's item since we're looking from the perspective of whoever attacked.
-	ld a, b ; Save the item that we're holding in a	
-	cp d ; Compare that item with the one stored in 'd'
-	jr nz, .end ; If they dont match (not holding a resist berry or holding the incorrect resist berry) just exit.
+	ld d, [hl] 				; Save the item effect in d	
+	call GetOpponentItem 	; Check opponent's item since we're looking from the perspective of whoever attacked.
+	ld a, b 				; Save the item that we're holding in a	
+	cp d 					; Compare that item with the one stored in 'd'
+	jr nz, .end 			; If they dont match (not holding a resist berry or holding the incorrect resist berry) just exit.
 
 .halve_damage
 	callfar ItemRecoveryAnimKeepText ; Play the animation used when berries are consumed.
+	ld a, BATTLE_VARS_MOVE
+	call GetBattleVar
+	ld [wNamedObjectIndex], a
+	call GetMoveName
 	ld hl, BattleText_ResistBerry
 	call StdBattleTextbox
 	call GetOpponentItem
@@ -6826,7 +6831,7 @@ BattleCommand_ResistBerry: ; Func for the resist berries halving SE damage
 	callfar ConsumeHeldItem
 	ld hl, BattleText_ResistBerry2
 	call StdBattleTextbox
-	ld hl, wCurDamage ; Now halve the damage that we calculated earlier
+	ld hl, wCurDamage 				; Now halve the damage that we calculated earlier
 	ld a, [hli]
 	ld d, a
 	ld a, [hld]
@@ -6838,14 +6843,14 @@ BattleCommand_ResistBerry: ; Func for the resist berries halving SE damage
 	ld a, e
 	ld [hld], a
 	ld a, d
-	and d
-	jr nz, .end ;If z is 0 the damage was higher than 0
+	and a
+	jr nz, .end 					; If z is 0 the damage was higher than 0
 	ld a, e
-	and e
-	jr nz, .end ;Same as before
+	and a
+	jr nz, .end 					; Same as before
 	ld [hli], a
 	ld a, $01
-	ld [hl], a ;If the damage was zero after dividing it, change it to 1.
+	ld [hl], a 						; If the damage was zero after dividing it, change it to 1.
 .end
 	pop de
 	pop hl
