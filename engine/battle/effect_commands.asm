@@ -6547,8 +6547,6 @@ INCLUDE "engine/battle/move_effects/poltergeist.asm"
 
 INCLUDE "engine/battle/move_effects/present.asm"
 
-INCLUDE "engine/battle/move_effects/frustration.asm"
-
 INCLUDE "engine/battle/move_effects/safeguard.asm"
 
 SafeCheckSafeguard:

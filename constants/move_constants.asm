@@ -223,7 +223,7 @@
 	const HEAL_BELL    ; d7
 	const POLTERGEIST  ; d8
 	const PRESENT      ; d9
-	const FRUSTRATION  ; da
+	const CROSS_POISON ; da
 	const SAFEGUARD    ; db
 	const PAIN_SPLIT   ; dc
 	const SACRED_FIRE  ; dd

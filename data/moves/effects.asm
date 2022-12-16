@@ -1634,28 +1634,6 @@ Present:
 	kingsrock
 	endmove
 
-Frustration:
-	checkobedience
-	usedmovetext
-	doturn
-	critical
-	damagestats
-	frustrationpower
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	resistberry
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endmove
-
 Safeguard:
 	checkobedience
 	usedmovetext

@@ -124,7 +124,6 @@ MoveEffectsPointers:
 	dw Attract
 	dw Poltergeist
 	dw Present
-	dw Frustration
 	dw Safeguard
 	dw SacredFire
 	dw BatonPass

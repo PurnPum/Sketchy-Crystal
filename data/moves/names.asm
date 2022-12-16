@@ -217,7 +217,7 @@ MoveNames::
 	li "HEAL BELL"
 	li "POLTERGEIST"
 	li "PRESENT"
-	li "FRUSTRATION"
+	li "CROSS POISON"
 	li "SAFEGUARD"
 	li "PAIN SPLIT"
 	li "SACRED FIRE"

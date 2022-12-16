@@ -219,7 +219,7 @@ BattleAnimations::
 	dw BattleAnim_HealBell
 	dw BattleAnim_Poltergeist
 	dw BattleAnim_Present
-	dw BattleAnim_Frustration
+	dw BattleAnim_CrossPoison
 	dw BattleAnim_Safeguard
 	dw BattleAnim_PainSplit
 	dw BattleAnim_SacredFire
@@ -4476,27 +4476,39 @@ BattleAnim_Present:
 	anim_wait 128
 	anim_ret
 
-BattleAnim_Frustration:
-	anim_1gfx ANIM_GFX_MISC
-	anim_sound 0, 0, SFX_KINESIS_2
-	anim_obj ANIM_OBJ_ANGER, 72, 80, $0
+BattleAnim_CrossPoison:
+	anim_2gfx ANIM_GFX_CUT, ANIM_GFX_POISON
+	anim_sound 0, 1, SFX_CUT	
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 150, 38, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 112, 38, $0
+	anim_wait 12
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 110, 64, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 64, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 117, 58, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 145, 58, $0
+	anim_wait 6
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 124, 52, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 138, 52, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 131, 43, $0
+	anim_wait 8
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 138, 40, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 124, 40, $0
+	anim_wait 10
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 145, 34, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 117, 34, $0
+	anim_wait 10
+	anim_sound 0, 1, SFX_TOXIC
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 28, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 110, 28, $0
 	anim_wait 40
-	anim_1gfx ANIM_GFX_HIT
-	anim_call BattleAnim_TargetObj_1Row
-	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, BG_EFFECT_USER, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_YFIX, 120, 48, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_YFIX, 152, 48, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_COMET_PUNCH
-	anim_obj ANIM_OBJ_HIT_YFIX, 136, 48, $0
-	anim_wait 8
-	anim_incbgeffect ANIM_BG_WOBBLE_MON
-	anim_wait 1
-	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
 BattleAnim_Safeguard:

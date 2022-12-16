@@ -102,7 +102,7 @@ BattleCommandPointers:
 	dw BattleCommand_Poltergeist
 	dw BattleCommand_Present
 	dw BattleCommand_DamageCalc
-	dw BattleCommand_FrustrationPower
+	;dw BattleCommand_FrustrationPower
 	dw BattleCommand_Safeguard
 	dw BattleCommand_CheckSafeguard
 	;dw BattleCommand_GetMagnitude
