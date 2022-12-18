@@ -4479,35 +4479,18 @@ BattleAnim_Present:
 BattleAnim_CrossPoison:
 	anim_2gfx ANIM_GFX_CUT, ANIM_GFX_POISON
 	anim_sound 0, 1, SFX_CUT	
-	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 150, 38, $0
-	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 112, 38, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_LEFT, 150, 32, $0
+	anim_obj ANIM_OBJ_CUT_LONG_DOWN_RIGHT, 112, 32, $0
 	anim_wait 12
 	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 110, 64, $0
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 64, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 117, 58, $0
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 145, 58, $0
-	anim_wait 6
-	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 124, 52, $0
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 138, 52, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 131, 43, $0
-	anim_wait 8
-	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 138, 40, $0
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 124, 40, $0
-	anim_wait 10
-	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 145, 34, $0
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 117, 34, $0
-	anim_wait 10
-	anim_sound 0, 1, SFX_TOXIC
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 28, $0
-	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 110, 28, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 110, 62, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 62, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 124, 50, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 138, 50, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 138, 38, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 124, 38, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 152, 26, $0
+	anim_obj ANIM_OBJ_SLUDGE_CENTERED, 110, 26, $0
 	anim_wait 40
 	anim_ret
 
