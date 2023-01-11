@@ -51,7 +51,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_Sound
 	dw BattleAnimFunction_ConfuseRay
 	dw BattleAnimFunction_Dizzy
-	dw BattleAnimFunction_Amnesia
+	;dw BattleAnimFunction_Amnesia
 	dw BattleAnimFunction_FloatUp
 	dw BattleAnimFunction_Dig
 	dw BattleAnimFunction_String
@@ -97,6 +97,7 @@ DoBattleAnimFrame:
 	dw BattleAnimFunction_RockSmash
 	dw BattleAnimFunction_Cotton
 	dw BattleAnimFunction_Poltergeist
+	dw BattleAnimFunction_LifeDew
 
 BattleAnimFunction_Null:
 	call BattleAnim_AnonJumptable
@@ -2626,43 +2627,43 @@ BattleAnimFunction_Dizzy:
 	call ReinitBattleAnimFrameset
 	ret
 
-BattleAnimFunction_Amnesia:
-; Creates 3 objects based on Obj Param
-; Obj Param: How much to increase from base frameset, which is hardcoded as BATTLEANIMFRAMESET_63
-; anim_incobj is used to DeInit object (used by Present)
-	call BattleAnim_AnonJumptable
-.anon_dw
-	dw .zero
-	dw .one
-	dw .two
+; BattleAnimFunction_Amnesia:
+;; Creates 3 objects based on Obj Param
+;; Obj Param: How much to increase from base frameset, which is hardcoded as BATTLEANIMFRAMESET_63
+;; anim_incobj is used to DeInit object (used by Present)
+	; call BattleAnim_AnonJumptable
+; .anon_dw
+	; dw .zero
+	; dw .one
+	; dw .two
 
-.zero
-	call BattleAnim_IncAnonJumptableIndex
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld a, [hl]
-	add BATTLEANIMFRAMESET_63 ; BATTLEANIMFRAMESET_64 BATTLEANIMFRAMESET_65
-	call ReinitBattleAnimFrameset
-	ld hl, BATTLEANIMSTRUCT_PARAM
-	add hl, bc
-	ld e, [hl]
-	ld d, 0
-	ld hl, .AmnesiaOffsets
-	add hl, de
-	ld a, [hl]
-	ld hl, BATTLEANIMSTRUCT_YOFFSET
-	add hl, bc
-	ld [hl], a
-.one
-	ret
+; .zero
+	; call BattleAnim_IncAnonJumptableIndex
+	; ld hl, BATTLEANIMSTRUCT_PARAM
+	; add hl, bc
+	; ld a, [hl]
+	; add BATTLEANIMFRAMESET_63 ; BATTLEANIMFRAMESET_64 BATTLEANIMFRAMESET_65
+	; call ReinitBattleAnimFrameset
+	; ld hl, BATTLEANIMSTRUCT_PARAM
+	; add hl, bc
+	; ld e, [hl]
+	; ld d, 0
+	; ld hl, .AmnesiaOffsets
+	; add hl, de
+	; ld a, [hl]
+	; ld hl, BATTLEANIMSTRUCT_YOFFSET
+	; add hl, bc
+	; ld [hl], a
+; .one
+	; ret
 
-.two
-	; anim_incobj forces obj to deinit
-	call DeinitBattleAnimation
-	ret
+; .two
+	;; anim_incobj forces obj to deinit
+	; call DeinitBattleAnimation
+	; ret
 
-.AmnesiaOffsets: ; Hardcoded Y Offsets for each Obj Param
-	db $ec, $f8, $00
+; .AmnesiaOffsets: ; Hardcoded Y Offsets for each Obj Param
+	; db $ec, $f8, $00
 
 BattleAnimFunction_FloatUp:
 ; Object moves horizontally in a sine wave, while also moving up. Also used by Charm and the Nightmare status
@@ -4182,6 +4183,7 @@ BattleAnimFunction_RainSandstorm:
 	dw .one
 	dw .two
 	dw .three
+	dw .four
 
 .zero
 	ld hl, BATTLEANIMSTRUCT_PARAM
@@ -4241,6 +4243,10 @@ BattleAnimFunction_RainSandstorm:
 	ld a, [hl]
 	add $4
 	ld [hl], a
+	ret
+
+.four
+	call DeinitBattleAnimation
 	ret
 	
 BattleAnimFunction_Hail:
@@ -4524,7 +4530,7 @@ BattleAnimFunction_Poltergeist:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	inc [hl]
-	;inc [hl]
+
 	ld a, [hl]
 	and $08
 	ret nz
@@ -4534,7 +4540,6 @@ BattleAnimFunction_Poltergeist:
 	cp $ce
 	jr z, .next
 	dec [hl]
-	;dec [hl]
 	ret
 	
 .next
@@ -4556,30 +4561,41 @@ BattleAnimFunction_Poltergeist:
 	call DeinitBattleAnimation
 	ret
 
-; Moves object up for 41 frames
-; Obj Param: Movement speed
-	; ld hl, BATTLEANIMSTRUCT_YOFFSET
-	; add hl, bc
-	; ld a, [hl]
-	; and a
-	; jr z, .move
-	; cp $b8
-	; jr nc, .move
-	; call DeinitBattleAnimation
-	; ret
+BattleAnimFunction_LifeDew:
+	call BattleAnim_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+	dw .three
 
-; .move
-	; ld hl, BATTLEANIMSTRUCT_PARAM
-	; add hl, bc
-	; ld d, [hl]
-	; ld hl, BATTLEANIMSTRUCT_YOFFSET
-	; add hl, bc
-	; ld a, [hl]
-	; sub d
-	; ld [hl], a
-	; ld d, $25
-	; call BattleAnim_Cosine
-	; ld hl, BATTLEANIMSTRUCT_XOFFSET
-	; add hl, bc
-	; ld [hl], a
-	; ret
+.zero
+	call BattleAnim_IncAnonJumptableIndex
+.one
+	call BattleAnim_IncAnonJumptableIndex
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld [hl], $0
+	ld hl, BATTLEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld [hl], $30
+	ld hl, BATTLEANIMSTRUCT_OAMFLAGS
+	add hl, bc
+	ld a, [hl]
+	and $1
+	ld [hl], a
+.two
+	ld hl, BATTLEANIMSTRUCT_YOFFSET
+	add hl, bc
+	ld a, [hl]
+	cp $38
+	jr nc, .splash
+	inc [hl]
+	ret
+
+.splash
+	call BattleAnim_IncAnonJumptableIndex
+	ld a, BATTLEANIMFRAMESET_29
+	call ReinitBattleAnimFrameset
+.three
+	ret

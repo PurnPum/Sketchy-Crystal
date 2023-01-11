@@ -58,6 +58,7 @@ BattleCommandPointers:
 	dw BattleCommand_Mimic
 	dw BattleCommand_Metronome
 	dw BattleCommand_LeechSeed
+	;dw BattleCommand_Splash
 	dw BattleCommand_Disable
 	dw BattleCommand_ClearText
 	dw BattleCommand_Charge
@@ -100,7 +101,8 @@ BattleCommandPointers:
 	dw BattleCommand_FuryCutter
 	dw BattleCommand_Attract
 	dw BattleCommand_Poltergeist
-	dw BattleCommand_Present
+	;dw BattleCommand_Present
+	dw BattleCommand_HealSand
 	dw BattleCommand_DamageCalc
 	;dw BattleCommand_FrustrationPower
 	dw BattleCommand_Safeguard
@@ -109,9 +111,9 @@ BattleCommandPointers:
 	dw BattleCommand_BatonPass
 	dw BattleCommand_Pursuit
 	dw BattleCommand_ClearHazards
-	dw BattleCommand_HealMorn
-	dw BattleCommand_HealDay
-	dw BattleCommand_HealNite
+	dw BattleCommand_HealSun
+	dw BattleCommand_HealHail
+	dw BattleCommand_HealRain
 	dw BattleCommand_HiddenPower
 	dw BattleCommand_StartRain
 	dw BattleCommand_StartSun

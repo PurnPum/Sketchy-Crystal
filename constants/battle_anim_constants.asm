@@ -113,7 +113,7 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_SCREEN
 	const ANIM_OBJ_HARDEN
 	const ANIM_OBJ_CHICK
-	const ANIM_OBJ_AMNESIA
+	;const ANIM_OBJ_AMNESIA
 	const ANIM_OBJ_ASLEEP
 	const ANIM_OBJ_SKULL
 	const ANIM_OBJ_DIG_SAND
@@ -258,6 +258,8 @@ DEF BATTLEANIM_BASE_TILE EQU 7 * 7  ; Maximum size of a pokemon picture
 	const ANIM_OBJ_BEAM_GRAY
 	const ANIM_OBJ_BEAM_TIP_GRAY
 	const ANIM_OBJ_POLTERGEIST
+	const ANIM_OBJ_LIFE_DEW
+	const ANIM_OBJ_CRYOGENICE
 DEF NUM_ANIM_OBJS EQU const_value
 
 ; DoBattleAnimFrame arguments (see engine/battle_anims/functions.asm)
@@ -300,7 +302,7 @@ DEF NUM_ANIM_OBJS EQU const_value
 	const BATTLEANIMFUNC_SOUND
 	const BATTLEANIMFUNC_CONFUSE_RAY
 	const BATTLEANIMFUNC_DIZZY
-	const BATTLEANIMFUNC_AMNESIA
+	;const BATTLEANIMFUNC_AMNESIA
 	const BATTLEANIMFUNC_FLOAT_UP
 	const BATTLEANIMFUNC_DIG
 	const BATTLEANIMFUNC_STRING
@@ -346,6 +348,7 @@ DEF NUM_ANIM_OBJS EQU const_value
 	const BATTLEANIMFUNC_ROCK_SMASH
 	const BATTLEANIMFUNC_COTTON
 	const BATTLEANIMFUNC_POLTERGEIST
+	const BATTLEANIMFUNC_LIFE_DEW
 DEF NUM_BATTLEANIMFUNCS EQU const_value
 
 ; BattleAnimFrameData indexes (see data/battle_anims/framesets.asm)

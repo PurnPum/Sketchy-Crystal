@@ -1232,7 +1232,6 @@ TrapTarget:
 	endmove
 
 SuperFang:
-Psywave:
 StaticDamage:
 	checkobedience
 	usedmovetext
@@ -1246,6 +1245,13 @@ StaticDamage:
 	checkfaint
 	buildopponentrage
 	kingsrock
+	endmove
+
+LifeDew:
+	checkobedience
+	usedmovetext
+	doturn
+	healrain
 	endmove
 
 Reversal:
@@ -1428,28 +1434,6 @@ TripleKick:
 	kingsrock
 	endmove
 
-;Thief:
-;	checkobedience
-;	usedmovetext
-;	doturn
-;	critical
-;	damagestats
-;	damagecalc
-;	stab
-;	damagevariation
-;	checkhit
-;	effectchance
-;	moveanim
-;	failuretext
-;	applydamage
-;	criticaltext
-;	supereffectivetext
-;	thief
-;	checkfaint
-;	buildopponentrage
-;	kingsrock
-;	endmove
-
 MeanLook:
 	checkobedience
 	usedmovetext
@@ -1612,26 +1596,11 @@ Poltergeist:
 	kingsrock
 	endmove
 
-Present:
+ShoreUp:
 	checkobedience
 	usedmovetext
 	doturn
-	checkhit
-	critical
-	damagestats
-	present
-	damagecalc
-	stab
-	damagevariation
-	clearmissdamage
-	resistberry
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
+	healsand
 	endmove
 
 Safeguard:
@@ -1716,24 +1685,12 @@ RapidSpin:
 	endmove
 
 MorningSun:
-	checkobedience
-	usedmovetext
-	doturn
-	healmorn
-	endmove
-
 Synthesis:
-	checkobedience
-	usedmovetext
-	doturn
-	healday
-	endmove
-
 Moonlight:
 	checkobedience
 	usedmovetext
 	doturn
-	healnite
+	healsun
 	endmove
 
 HiddenPower:
@@ -1794,32 +1751,13 @@ MirrorCoat:
 	kingsrock
 	endmove
 
-SkullBash:
-	checkcharge
+Cryogenice:
 	checkobedience
-	doturn
-	charge
 	usedmovetext
-	critical
-	damagestats
-	damagecalc
-	stab
-	damagevariation
-	checkhit
-	resistberry
-	moveanim
-	failuretext
-	applydamage
-	criticaltext
-	supereffectivetext
-	checkfaint
-	buildopponentrage
-	kingsrock
-	endturn
-	defenseup
-	statupmessage
+	doturn
+	healhail
 	endmove
-
+	
 Twister:
 	checkobedience
 	usedmovetext
@@ -2008,19 +1946,6 @@ BeatUp:
 	raisesub
 	kingsrock
 	endmove
-
-;DefenseCurl:
-;	checkobedience
-;	usedmovetext
-;	doturn
-;	defenseup
-;	curl
-;	lowersub
-;	statupanim
-;	raisesub
-;	statupmessage
-;	statupfailtext
-;	endmove
 
 SelfAttackDown:
 	checkobedience

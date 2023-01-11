@@ -135,7 +135,7 @@
 	const WATERFALL    ; 7f
 	const CLAMP        ; 80
 	const SWIFT        ; 81
-	const SKULL_BASH   ; 82
+	const CRYOGENICE   ; 82
 	const SPIKE_CANNON ; 83
 	const CONSTRICT    ; 84
 	const ROCK_WRECKER ; 85
@@ -154,7 +154,7 @@
 	const DIZZY_PUNCH  ; 92
 	const BI_WINGBEAT  ; 93
 	const FLASH        ; 94
-	const PSYWAVE      ; 95
+	const LIFE_DEW     ; 95
 	const STEEL_BEAM   ; 96
 	const POISON_JAB   ; 97
 	const HYDRO_CANNON ; 98
@@ -222,7 +222,7 @@
 	const SLEEP_TALK   ; d6
 	const HEAL_BELL    ; d7
 	const POLTERGEIST  ; d8
-	const PRESENT      ; d9
+	const SHORE_UP     ; d9
 	const CROSS_POISON ; da
 	const SAFEGUARD    ; db
 	const PAIN_SPLIT   ; dc

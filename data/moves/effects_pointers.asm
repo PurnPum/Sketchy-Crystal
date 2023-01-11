@@ -91,7 +91,7 @@ MoveEffectsPointers:
 	dw LeechSeed
 	dw Disable
 	dw StaticDamage
-	dw Psywave
+	dw LifeDew
 	dw Counter
 	dw Encore
 	dw PainSplit
@@ -123,7 +123,7 @@ MoveEffectsPointers:
 	dw FuryCutter
 	dw Attract
 	dw Poltergeist
-	dw Present
+	dw ShoreUp
 	dw Safeguard
 	dw SacredFire
 	dw BatonPass
@@ -142,7 +142,7 @@ MoveEffectsPointers:
 	dw AllUpHit
 	dw FakeOut
 	dw MirrorCoat
-	dw SkullBash
+	dw Cryogenice
 	dw Twister
 	dw Earthquake
 	dw FutureSight

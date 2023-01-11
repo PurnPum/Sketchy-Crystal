@@ -161,8 +161,8 @@ GetItemName::
 	ld [wNamedObjectType], a
 	call GetName
 	jr .Copied
-.TM:
-	call GetTMHMName
+;.TM:
+	;call GetTMHMName
 .Copied:
 	ld de, wStringBuffer1
 	pop bc

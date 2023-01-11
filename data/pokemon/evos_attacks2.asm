@@ -122,7 +122,7 @@ SquirtleEvosAttacks2:
 	db 23, RAPID_SPIN
 	db 28, PROTECT
 	db 33, RAIN_DANCE
-	db 40, SKULL_BASH
+	db 40, STRUGGLE
 	db 47, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -140,7 +140,7 @@ WartortleEvosAttacks2:
 	db 25, RAPID_SPIN
 	db 31, PROTECT
 	db 37, RAIN_DANCE
-	db 45, SKULL_BASH
+	db 45, STRUGGLE
 	db 53, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -158,7 +158,7 @@ BlastoiseEvosAttacks2:
 	db 25, RAPID_SPIN
 	db 31, PROTECT
 	db 42, RAIN_DANCE
-	db 55, SKULL_BASH
+	db 55, STRUGGLE
 	db 68, HYDRO_PUMP
 	db 0 ; no more level-up moves
 
@@ -2690,7 +2690,7 @@ SlowkingEvosAttacks2:
 MisdreavusEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, GROWL
-	db 1, PSYWAVE
+	db 1, STRUGGLE
 	db 6, SPITE
 	db 12, CONFUSE_RAY
 	db 19, MEAN_LOOK
@@ -3004,7 +3004,6 @@ OctilleryEvosAttacks2:
 
 DelibirdEvosAttacks2:
 	db 0 ; no more evolutions
-	db 1, PRESENT
 	db 0 ; no more level-up moves
 
 MantineEvosAttacks2:

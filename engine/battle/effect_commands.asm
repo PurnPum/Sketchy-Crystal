@@ -1106,8 +1106,6 @@ BattleCommand_DoTurn:
 
 .continuousmoves
 	db EFFECT_RAZOR_WIND
-	db EFFECT_SKY_ATTACK
-	db EFFECT_SKULL_BASH
 	db EFFECT_SOLARBEAM
 	db EFFECT_FLY
 	db EFFECT_ROLLOUT
@@ -1963,10 +1961,6 @@ BattleCommand_LowerSub:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_RAZOR_WIND
-	jr z, .charge_turn
-	cp EFFECT_SKY_ATTACK
-	jr z, .charge_turn
-	cp EFFECT_SKULL_BASH
 	jr z, .charge_turn
 	cp EFFECT_SOLARBEAM
 	jr z, .charge_turn
@@ -3225,8 +3219,6 @@ BattleCommand_ConstantDamage:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_PSYWAVE
-	jr z, .psywave
 
 	cp EFFECT_SUPER_FANG
 	jr z, .super_fang
@@ -3238,21 +3230,6 @@ BattleCommand_ConstantDamage:
 	call GetBattleVar
 	ld b, a
 	ld a, $0
-	jr .got_power
-
-.psywave
-	ld a, b
-	srl a
-	add b
-	ld b, a
-.psywave_loop
-	call BattleRandom
-	and a
-	jr z, .psywave_loop
-	cp b
-	jr nc, .psywave_loop
-	ld b, a
-	ld a, 0
 	jr .got_power
 
 .super_fang
@@ -5514,49 +5491,6 @@ BattleCommand_HeldFlinch:
 	set SUBSTATUS_FLINCHED, [hl]
 	ret
 
-;BattleCommand_OHKO:
-;	call ResetDamage
-;	ld a, [wTypeModifier]
-;	and $7f
-;	jr z, .no_effect
-;	ld hl, wEnemyMonLevel
-;	ld de, wBattleMonLevel
-;	ld bc, wPlayerMoveStruct + MOVE_ACC
-;	ldh a, [hBattleTurn]
-;	and a
-;	jr z, .got_move_accuracy
-;	push hl
-;	ld h, d
-;	ld l, e
-;	pop de
-;	ld bc, wEnemyMoveStruct + MOVE_ACC
-;.got_move_accuracy
-;	ld a, [de]
-;	sub [hl]
-;	jr c, .no_effect
-;	add a
-;	ld e, a
-;	ld a, [bc]
-;	add e
-;	jr nc, .finish_ohko
-;	ld a, $ff
-;.finish_ohko
-;	ld [bc], a
-;	call BattleCommand_CheckHit
-;	ld hl, wCurDamage
-;	ld a, $ff
-;	ld [hli], a
-;	ld [hl], a
-;	ld a, $2
-;	ld [wCriticalHit], a
-;	ret
-;.no_effect
-;	ld a, $ff
-;	ld [wCriticalHit], a
-;	ld a, $1
-;	ld [wAttackMissed], a
-;	ret
-
 BattleCommand_CheckCharge:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
@@ -5639,11 +5573,11 @@ BattleCommand_Charge:
 	ld hl, .UsedText
 	call BattleTextbox
 
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_SKULL_BASH
-	ld b, endturn_command
-	jp z, SkipToBattleCommand
+	; ld a, BATTLE_VARS_MOVE_EFFECT
+	; call GetBattleVar
+	; cp EFFECT_SKULL_BASH
+	; ld b, endturn_command
+	; jp z, SkipToBattleCommand
 	jp EndMoveEffect
 
 .UsedText:
@@ -5657,14 +5591,6 @@ BattleCommand_Charge:
 
 	cp SOLARBEAM
 	ld hl, .BattleTookSunlightText
-	jr z, .done
-
-	cp SKULL_BASH
-	ld hl, .BattleLoweredHeadText
-	jr z, .done
-
-	cp SKY_ATTACK
-	ld hl, .BattleGlowingText
 	jr z, .done
 
 	cp FLY
@@ -5683,14 +5609,6 @@ BattleCommand_Charge:
 
 .BattleTookSunlightText:
 	text_far _BattleTookSunlightText
-	text_end
-
-.BattleLoweredHeadText:
-	text_far _BattleLoweredHeadText
-	text_end
-
-.BattleGlowingText:
-	text_far _BattleGlowingText
 	text_end
 
 .BattleFlewText:
@@ -6545,7 +6463,7 @@ INCLUDE "engine/battle/move_effects/attract.asm"
 
 INCLUDE "engine/battle/move_effects/poltergeist.asm"
 
-INCLUDE "engine/battle/move_effects/present.asm"
+;INCLUDE "engine/battle/move_effects/present.asm"
 
 INCLUDE "engine/battle/move_effects/safeguard.asm"
 
@@ -6586,20 +6504,24 @@ INCLUDE "engine/battle/move_effects/pursuit.asm"
 
 INCLUDE "engine/battle/move_effects/rapid_spin.asm"
 
-BattleCommand_HealMorn:
-	ld b, MORN_F
-	jr BattleCommand_TimeBasedHealContinue
+BattleCommand_HealSand:
+	ld b, WEATHER_SANDSTORM
+	jr BattleCommand_WeatherBasedHealContinue
 
-BattleCommand_HealDay:
-	ld b, DAY_F
-	jr BattleCommand_TimeBasedHealContinue
+BattleCommand_HealSun:
+	ld b, WEATHER_SUN
+	jr BattleCommand_WeatherBasedHealContinue
 
-BattleCommand_HealNite:
-	ld b, NITE_F
-	; fallthrough
+BattleCommand_HealHail:
+	ld b, WEATHER_HAIL
+	jr BattleCommand_WeatherBasedHealContinue
 
-BattleCommand_TimeBasedHealContinue:
-; Time- and weather-sensitive heal.
+BattleCommand_HealRain:
+	ld b, WEATHER_RAIN
+	; Fallthrough
+
+BattleCommand_WeatherBasedHealContinue:
+; Weather-sensitive heal.
 
 	ld hl, wBattleMonMaxHP
 	ld de, wBattleMonHP
@@ -6612,34 +6534,32 @@ BattleCommand_TimeBasedHealContinue:
 .start
 ; Index for .Multipliers
 ; Default restores half max HP.
-	ld c, 2
+	ld c, 1
 
 ; Don't bother healing if HP is already full.
 	push bc
+	ld c, 2
 	call CompareBytes
 	pop bc
 	jr z, .Full
 
 ; Don't factor in time of day in link battles.
-	ld a, [wLinkMode]
-	and a
-	jr nz, .Weather
-
-	ld a, [wTimeOfDay]
-	cp b
-	jr z, .Weather
-	dec c ; double
+; CHANGE: No longer use time of day to influence these moves
+	;ld a, [wLinkMode]
+	;and a
+	;jr nz, .Weather
+	;ld a, [wTimeOfDay]
+	;cp b
+	;jr z, .Weather
+	;dec c ; double
 
 .Weather:
 	ld a, [wBattleWeather]
 	and a
-	jr z, .Heal
-
-; x2 in sun
-; /2 in rain/sandstorm
+	jr z, .Heal				; Just heal 1/2 if no weather is up
 	inc c
-	cp WEATHER_SUN
-	jr z, .Heal
+	cp b					; Compare The current weather with the beneficial weather inputed earlier
+	jr z, .Heal				; If it matches, heal 2/3rds, if not heal 1/4th
 	dec c
 	dec c
 
@@ -6675,10 +6595,9 @@ BattleCommand_TimeBasedHealContinue:
 	jp StdBattleTextbox
 
 .Multipliers:
-	dw GetEighthMaxHP
 	dw GetQuarterMaxHP
 	dw GetHalfMaxHP
-	dw GetMaxHP
+	dw GetTwoThirdsMaxHP
 
 INCLUDE "engine/battle/move_effects/hidden_power.asm"
 

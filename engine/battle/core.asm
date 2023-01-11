@@ -1944,6 +1944,12 @@ GetThirdMaxHP:
 	call GetThird
 	ret
 
+GetTwoThirdsMaxHP:
+	call GetThirdMaxHP
+	sla b
+	rl c
+	ret
+
 GetThird:
 ; input : bc
 ; output: bc
