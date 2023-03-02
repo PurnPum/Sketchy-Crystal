@@ -83,7 +83,7 @@ BattleAnimations::
 	dw BattleAnim_EnergyBall
 	dw BattleAnim_PetalDance
 	dw BattleAnim_StringShot
-	dw BattleAnim_DragonRage
+	dw BattleAnim_WideBreaker
 	dw BattleAnim_FireSpin
 	dw BattleAnim_Thundershock
 	dw BattleAnim_Thunderbolt
@@ -933,14 +933,41 @@ BattleAnim_FireSpin:
 	anim_wait 96
 	anim_ret
 
-BattleAnim_DragonRage:
-	anim_1gfx ANIM_GFX_FIRE
-.loop
-	anim_sound 6, 2, SFX_EMBER
-	anim_obj ANIM_OBJ_DRAGON_RAGE, 64, 92, $0
-	anim_wait 3
-	anim_loop 16, .loop
-	anim_wait 64
+BattleAnim_WideBreaker:
+	anim_1gfx ANIM_GFX_HIT
+	anim_obp0 $0
+	anim_sound 0, 0, SFX_OUTRAGE
+	anim_call BattleAnim_TargetObj_1Row
+	anim_wait 4
+	anim_1gfx ANIM_GFX_HIT
+	anim_resetobp0
+	anim_bgeffect ANIM_BG_WOBBLE_MON, $0, BG_EFFECT_USER, $0
+	anim_wait 16
+	anim_sound 0, 1, SFX_MEGA_KICK
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 98, 42, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 102, 45, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 106, 48, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 112, 50, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 118, 52, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_BIG_YFIX, 126, 54, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 134, 52, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_YFIX, 140, 50, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 146, 48, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 150, 45, $0
+	anim_wait 2
+	anim_obj ANIM_OBJ_HIT_SMALL_YFIX, 154, 42, $0
+	anim_wait 8
+	anim_incbgeffect ANIM_BG_WOBBLE_MON
+	anim_call BattleAnim_ShowMon_0
 	anim_ret
 
 BattleAnim_Flamethrower:

@@ -73,7 +73,7 @@ CharmanderEvosAttacks2:
 	db 25, SCARY_FACE
 	db 31, FLAMETHROWER
 	db 37, SLASH
-	db 43, DRAGON_RAGE
+	db 43, WIDE_BREAKER
 	db 49, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -89,7 +89,7 @@ CharmeleonEvosAttacks2:
 	db 27, SCARY_FACE
 	db 34, FLAMETHROWER
 	db 41, SLASH
-	db 48, DRAGON_RAGE
+	db 48, WIDE_BREAKER
 	db 55, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -106,7 +106,7 @@ CharizardEvosAttacks2:
 	db 34, FLAMETHROWER
 	db 36, WING_ATTACK
 	db 44, SLASH
-	db 54, DRAGON_RAGE
+	db 54, WIDE_BREAKER
 	db 64, FIRE_SPIN
 	db 0 ; no more level-up moves
 
@@ -1759,7 +1759,7 @@ GyaradosEvosAttacks2:
 	db 0 ; no more evolutions
 	db 1, THRASH
 	db 20, BITE
-	db 25, DRAGON_RAGE
+	db 25, WIDE_BREAKER
 	db 30, LEER
 	db 35, TWISTER
 	db 40, HYDRO_PUMP
@@ -1984,7 +1984,7 @@ DratiniEvosAttacks2:
 	db 1, LEER
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
-	db 22, DRAGON_RAGE
+	db 22, WIDE_BREAKER
 	db 29, STRUGGLE
 	db 36, STRUGGLE
 	db 43, SAFEGUARD
@@ -2001,7 +2001,7 @@ DragonairEvosAttacks2:
 	db 1, TWISTER
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
-	db 22, DRAGON_RAGE
+	db 22, WIDE_BREAKER
 	db 29, STRUGGLE
 	db 38, STRUGGLE
 	db 47, SAFEGUARD
@@ -2017,7 +2017,7 @@ DragoniteEvosAttacks2:
 	db 1, TWISTER
 	db 8, THUNDER_WAVE
 	db 15, TWISTER
-	db 22, DRAGON_RAGE
+	db 22, WIDE_BREAKER
 	db 29, STRUGGLE
 	db 38, STRUGGLE
 	db 47, SAFEGUARD

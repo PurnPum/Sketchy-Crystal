@@ -336,7 +336,7 @@ HorseaEggMoves:
 	db AURORA_BEAM
 	db OCTAZOOKA
 	db DISABLE
-	db DRAGON_RAGE
+	db WIDE_BREAKER
 	db -1 ; end
 
 GoldeenEggMoves:

@@ -81,7 +81,7 @@ MoveNames::
 	li "ENERGY BALL"
 	li "PETAL DANCE"
 	li "STRING SHOT"
-	li "DRAGON RAGE"
+	li "WIDE BREAKER"
 	li "FIRE SPIN"
 	li "THUNDERSHOCK"
 	li "THUNDERBOLT"
