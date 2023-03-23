@@ -5295,13 +5295,26 @@ BattleCommand_EndLoop:
 	jr z, .beat_up
 	cp EFFECT_TRIPLE_KICK
 	jr nz, .not_triple_kick
+	
+	; The old code of this subroutine did this: First hit's chance of Triple kick-like moves is determined by its accuracy
+	; The other 2 hits are 33% each (33% 1+0 hits ; 33% 1+1 hits and 33% 1+2 hits)
+	; The new code changes the hit chances to the following:
+	;	80% chance to hit 3 times
+	;	13.33% chance to hit 2 times
+	;	6.66% chance to hit 1 time
+	;	0% chance to miss
 .reject_triple_kick_sample
-	call BattleRandom
-	and $3
+	call BattleRandom					
+	and $F								; Generate a number between 1 and 15
 	jr z, .reject_triple_kick_sample
-	dec a
-	jr nz, .double_hit
+	cp %00001101						; Compare the number to 13
 	ld a, 1
+	jr z, .zero_hits					; If its 13, you get no extra hits. (1/15 = 6.66%)
+	jr nc, .one_hit						; If its 14 or 15, you get 1 extra hit. (2/15 = 13.33%)
+	inc a								; If its 12 or lower, you get 2 extra hits. (12/15 = 80%)
+.one_hit
+	jr .double_hit
+.zero_hits
 	ld [bc], a
 	jr .done_loop
 
