@@ -6,7 +6,6 @@ NormalHit:
 BypassProtect:
 AlwaysCrit:
 AlwaysCritPoison:
-RockThrow:
 Extremespeed:
 	checkobedience
 	usedmovetext
