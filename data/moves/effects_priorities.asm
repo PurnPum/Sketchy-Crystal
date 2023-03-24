@@ -1,7 +1,7 @@
 MoveEffectPriorities:
-	db EFFECT_SKETCH,		4
+	db EFFECT_SKETCH,		5
+	db EFFECT_PROTECT,      4
 	db EFFECT_BIDE,			3
-	db EFFECT_PROTECT,      3
 	db EFFECT_ENDURE,       3
 	db EFFECT_EXTREMESPEED,	3
 	db EFFECT_MIST,			2
