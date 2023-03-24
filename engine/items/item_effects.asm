@@ -1196,10 +1196,10 @@ VitaminEffect:
 
 	add hl, bc
 	ld a, [hl]
-	cp 246
+	cp 252		; Stat exp can only be gained through vitamins so we can only reach 252 after using 21 vitamins
 	jr nc, NoEffectMessage
 
-	add 10
+	add 12		; Increased from 10. 12*21 = 252
 	ld [hl], a
 	call UpdateStatsAfterItem
 
