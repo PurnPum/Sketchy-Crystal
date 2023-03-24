@@ -82,7 +82,7 @@ MoveDescriptions::
 	dw EnergyBallDescription
 	dw PetalDanceDescription
 	dw StringShotDescription
-	dw DragonRageDescription
+	dw WideBreakerDescription
 	dw FireSpinDescription
 	dw ThundershockDescription
 	dw ThunderboltDescription
@@ -130,7 +130,7 @@ MoveDescriptions::
 	dw WaterfallDescription
 	dw ClampDescription
 	dw SwiftDescription
-	dw SkullBashDescription
+	dw CryogeniceDescription
 	dw SpikeCannonDescription
 	dw ConstrictDescription
 	dw RockWreckerDescription
@@ -149,7 +149,7 @@ MoveDescriptions::
 	dw DizzyPunchDescription
 	dw BiWingBeatDescription
 	dw FlashDescription
-	dw PsywaveDescription
+	dw LifeDewDescription
 	dw SteelBeamDescription
 	dw PoisonJabDescription
 	dw HydroCannonDescription
@@ -216,9 +216,9 @@ MoveDescriptions::
 	dw AttractDescription
 	dw SleepTalkDescription
 	dw HealBellDescription
-	dw ReturnDescription
-	dw PresentDescription
-	dw FrustrationDescription
+	dw PoltergeistDescription
+	dw ShoreUpDescription
+	dw CrossPoisonDescription
 	dw SafeguardDescription
 	dw PainSplitDescription
 	dw SacredFireDescription
@@ -280,8 +280,8 @@ DoubleslapDescription:
 	next "twice.@"
 
 CometPunchDescription:
-	db   "Repeatedly punches"
-	next "2-5 times.@"
+	db   "Strikes 2-5 times,"
+	next "most often 3 or 4.@"
 
 MegaPunchDescription:
 	db   "A powerful punch"
@@ -289,7 +289,7 @@ MegaPunchDescription:
 
 LeafStormDescription:
 	db   "A storm of leaves."
-	next "Lowers SpAtt by 1.@"
+	next "Drops SP.ATK by 1.@"
 
 FirePunchDescription:
 	db   "A fiery punch. May"
@@ -308,28 +308,28 @@ ScratchDescription:
 	next "sharp claws.@"
 
 VicegripDescription:
-	db   "Grips with power-"
-	next "ful pincers.@"
+	db   "Grips with pincers"
+	next "and can flinch.@"
 
 BulldozeDescription:
 	db   "A grounded stomp,"
-	next "lowers speed.@"
+	next "lowers SPEED.@"
 
 RazorWindDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "A 2 turn attack"
+	next "unless it rains.@"
 
 WildChargeDescription:
-	db   "A smashing zapped"
-	next "hit with recoil.@"
+	db   "A charged attack."
+	next "Causes 1/4 recoil.@"
 
 CutDescription:
 	db   "Cuts using claws,"
 	next "scythes, etc.@"
 
 GustDescription:
-	db   "Whips up a strong"
-	next "gust of wind.@"
+	db   "Stronger in rain,"
+	next "weaker if sunny.@"
 
 WingAttackDescription:
 	db   "Strikes the target"
@@ -340,7 +340,7 @@ WhirlwindDescription:
 	next "& ends battle.@"
 
 FlyDescription:
-	db   "1st turn: Fly"
+	db   "1st turn: Immune"
 	next "2nd turn: Attack@"
 
 BindDescription:
@@ -349,7 +349,7 @@ BindDescription:
 
 OverheatDescription:
 	db   "A scorching blast,"
-	next "Lowers SpAtt by 1.@"
+	next "Drops SP.ATK by 1.@"
 
 VineWhipDescription:
 	db   "Whips the foe with"
@@ -368,16 +368,16 @@ MegaKickDescription:
 	next "attack.@"
 
 JumpKickDescription:
-	db   "May miss, damaging"
-	next "the user.@"
+	db   "Hurts the user if"
+	next "the foe protects.@"
 
 RollingKickDescription:
 	db   "A fast, spinning"
-	next "kick.@"
+	next "kick. Can flinch.@"
 
 LungeDescription:
 	db   "A brutal lunge."
-	next "Lowers Att. by 1.@"
+	next "Causes 1/4 recoil.@"
 
 HeadbuttDescription:
 	db   "An attack that may"
@@ -388,8 +388,8 @@ HornAttackDescription:
 	next "horn to jab.@"
 
 FuryAttackDescription:
-	db   "Jabs the target"
-	next "2-5 times.@"
+	db   "Hits three times"
+	next "with rising power.@"
 
 UTurnDescription:
 	db   "Hits the target,"
@@ -404,12 +404,12 @@ BodySlamDescription:
 	next "cause paralysis.@"
 
 WrapDescription:
-	db   "Squeezes the foe"
+	db   "Traps the foe"
 	next "for 2-5 turns.@"
 
 TakeDownDescription:
-	db   "A tackle that also"
-	next "hurts the user.@"
+	db   "A powerful tackle."
+	next "Causes 1/4 recoil.@"
 
 ThrashDescription:
 	db   "Works 2-3 turns"
@@ -417,7 +417,7 @@ ThrashDescription:
 
 DoubleEdgeDescription:
 	db   "A tackle that also"
-	next "hurts the user.@"
+	next "Lowers ATK. by 1.@"
 
 TailWhipDescription:
 	db   "Lowers the foe's"
@@ -429,11 +429,11 @@ PoisonStingDescription:
 
 TwineedleDescription:
 	db   "Jabs the foe twice"
-	next "using stingers.@"
+	next "and may poison.@"
 
 PinMissileDescription:
-	db   "Fires pins that"
-	next "strike 2-5 times.@"
+	db   "Strikes 2-5 times,"
+	next "most often 3 or 4.@"
 
 LeerDescription:
 	db   "Reduces the foe's"
@@ -452,8 +452,8 @@ RoarDescription:
 	next "to end battle.@"
 
 DragonRushDescription:
-	db   "A menacing tackle"
-	next "with some recoil.@"
+	db   "A menacing tackle."
+	next "Causes 1/4 recoil.@"
 
 SupersonicDescription:
 	db   "Sound waves that"
@@ -476,8 +476,8 @@ EmberDescription:
 	next "inflict a burn.@"
 
 FlamethrowerDescription:
-	db   "An attack that may"
-	next "inflict a burn.@"
+	db   "A powerful attack"
+	next "but can't burn.@"
 
 MistDescription:
 	db   "Prevents stat"
@@ -496,28 +496,28 @@ SurfDescription:
 	next "type attack.@"
 
 IceBeamDescription:
-	db   "An attack that may"
-	next "freeze the foe.@"
+	db   "A powerful attack"
+	next "but can't freeze.@"
 
 BlizzardDescription:
-	db   "An attack that may"
-	next "freeze the foe.@"
+	db   "Wont miss if it"
+	next "hails. May freeze.@"
 
 PsybeamDescription:
 	db   "An attack that may"
 	next "confuse the foe.@"
 
 BubblebeamDescription:
-	db   "An attack that may"
-	next "lower SPEED.@"
+	db   "An attack that"
+	next "will lower SPEED.@"
 
 AuroraBeamDescription:
-	db   "An attack that may"
+	db   "A move that will"
 	next "lower ATTACK.@"
 
 HyperBeamDescription:
-	db   "1st turn: Attack"
-	next "2nd turn: Rest@"
+	db   "Recharge needed"
+	next "unless foe is KO.@"
 
 PeckDescription:
 	db   "Jabs the foe with"
@@ -528,8 +528,8 @@ DrillPeckDescription:
 	next "ning-peck attack.@"
 
 SubmissionDescription:
-	db   "An attack that al-"
-	next "so hurts the user.@"
+	db   "A brutal charge."
+	next "Causes 1/4 recoil.@"
 
 LowKickDescription:
 	db   "An attack that may"
@@ -541,11 +541,11 @@ CounterDescription:
 
 SeismicTossDescription:
 	db   "The user's level"
-	next "equals damage HP.@"
+	next "equals damage done@"
 
 StrengthDescription:
-	db   "A powerful physi-"
-	next "cal attack.@"
+	db   "Throws a boulder."
+	next "Causes 1/4 recoil.@"
 
 AbsorbDescription:
 	db   "Steals 1/2 of the"
@@ -568,32 +568,32 @@ RazorLeafDescription:
 	next "cal hit ratio.@"
 
 SolarbeamDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "A 2 turn attack"
+	next "unless its sunny.@"
 
 PoisonpowderDescription:
 	db   "Deals damage and"
 	next "always poisons.@"
 
 StunSporeDescription:
-	db   "A move that may"
+	db   "A move that will"
 	next "paralyze the foe.@"
 
 EnergyBallDescription:
-	db   "A ball of natural"
-	next "energy is fired.@"
+	db   "An attack that may"
+	next "lower SP.DEF.@"
 
 PetalDanceDescription:
 	db   "Works 2-3 turns"
 	next "and confuses user.@"
 
 StringShotDescription:
-	db   "A move that lowers"
+	db   "Sharply lowers"
 	next "the foe's SPEED.@"
 
-DragonRageDescription:
-	db   "Always inflicts"
-	next "40HP damage.@"
+WideBreakerDescription:
+	db   "Lowers foe's"
+	next "ATTACK by 1 stage.@"
 
 FireSpinDescription:
 	db   "Traps foe in fire"
@@ -604,31 +604,31 @@ ThundershockDescription:
 	next "cause paralysis.@"
 
 ThunderboltDescription:
-	db   "An attack that may"
+	db   "Strong but cannot"
 	next "cause paralysis.@"
 
 ThunderWaveDescription:
-	db   "A move that may"
+	db   "A move that will"
 	next "cause paralysis.@"
 
 ThunderDescription:
-	db   "An attack that may"
-	next "cause paralysis.@"
+	db   "Wont miss if foe"
+	next "used FLY or rain.@"
 
 RockThrowDescription:
 	db   "Drops rocks on the"
 	next "enemy.@"
 
 EarthquakeDescription:
-	db   "Tough but useless"
-	next "vs. flying foes.@"
+	db   "Does double damage"
+	next "vs. digging foes.@"
 
 ShadowClawDescription:
 	db   "A shadowy high-"
 	next "crit slash.@"
 
 DigDescription:
-	db   "1st turn: Burrow"
+	db   "1st turn: Immune"
 	next "2nd turn: Attack@"
 
 ToxicDescription:
@@ -641,7 +641,7 @@ ConfusionDescription:
 
 PsychicMDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 ExtrasensoryDescription:
 	db   "An odd, unseeable"
@@ -649,11 +649,11 @@ ExtrasensoryDescription:
 
 PsychoBoostDescription:
 	db   "A huge psy-blast."
-	next "Lowers SpAtt by 1.@"
+	next "Drops SP.ATK by 1.@"
 
 FlashCannonDescription:
-	db   "Sharply increases"
-	next "the user's SPEED.@"
+	db   "Fires a light beam"
+	next "may lower SP.DEF.@"
 
 QuickAttackDescription:
 	db   "Lets the user get"
@@ -665,11 +665,11 @@ RageDescription:
 
 TeleportDescription:
 	db   "A move for fleeing"
-	next "from battle.@"
+	next "or switching out.@"
 
 NightShadeDescription:
 	db   "The user's level"
-	next "equals damage HP.@"
+	next "equals damage done@"
 
 MimicDescription:
 	db   "Copies a move used"
@@ -680,8 +680,8 @@ ScreechDescription:
 	next "the foe's DEFENSE.@"
 
 IceShardDescription:
-	db   "Heightens evasive-"
-	next "ness.@"
+	db   "Ice shards thrown"
+	next "fast. Goes first.@"
 
 RecoverDescription:
 	db   "Restores HP by 1/2"
@@ -697,15 +697,15 @@ AquaJetDescription:
 
 PowerTripDescription:
 	db   "An excess of power"
-	next "lowers SpAtt by 1.@"
+	next "Drops SP.ATK by 1.@"
 
 ConfuseRayDescription:
 	db   "A move that causes"
 	next "confusion.@"
 
 MagnetBombDescription:
-	db   "These homing bombs"
-	next "can bypass protect@"
+	db   "Uses homing bombs."
+	next "Bypasses protect.@"
 
 BulletPunchDescription:
 	db   "Will almost always"
@@ -716,7 +716,7 @@ PowerGemDescription:
 	next "from a gemstone.@"
 
 LightScreenDescription:
-	db   "Ups SPCL.DEF with"
+	db   "Ups SP.DEF with"
 	next "a wall of light.@"
 
 HazeDescription:
@@ -744,12 +744,12 @@ MirrorMoveDescription:
 	next "same move.@"
 
 SelfdestructDescription:
-	db   "Powerful but makes"
-	next "the user faint.@"
+	db   "Powerful but deals"
+	next "3/4 HP in recoil.@"
 
 EggBombDescription:
-	db   "Eggs are hurled at"
-	next "the foe.@"
+	db   "Blasts seedy orbs."
+	next "Causes 1/4 recoil.@"
 
 LickDescription:
 	db   "An attack that may"
@@ -783,25 +783,25 @@ SwiftDescription:
 	db   "Homing stars that"
 	next "can bypass protect@"
 
-SkullBashDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+CryogeniceDescription:
+	db   "Heals 2/3rds under"
+	next "a hailstorm.@"
 
 SpikeCannonDescription:
-	db   "Fires spikes to"
-	next "hit 2-5 times.@"
+	db   "Strikes 2-5 times,"
+	next "most often 3 or 4.@"
 
 ConstrictDescription:
-	db   "An attack that may"
-	next "lower SPEED.@"
+	db   "An attack that"
+	next "will lower SPEED.@"
 
 RockWreckerDescription:
 	db   "Throws a huge rock"
-	next "Lowers Att. by 1.@"
+	next "Lowers ATK. by 1.@"
 
 MeteorMashDescription:
-	db   "Reduces the foe's"
-	next "accuracy.@"
+	db   "A precise strike."
+	next "Causes 1/4 recoil.@"
 
 SoftboiledDescription:
 	db   "Restores HP by 1/2"
@@ -812,7 +812,7 @@ HiJumpKickDescription:
 	next "the user.@"
 
 GlareDescription:
-	db   "A move that may"
+	db   "A move that will"
 	next "cause paralysis.@"
 
 DreamEaterDescription:
@@ -820,12 +820,12 @@ DreamEaterDescription:
 	next "sleeping victim.@"
 
 PoisonGasDescription:
-	db   "Lowers Speed and"
-	next "SpAtt if poisoned.@"
+	db   "SPEED, SP.ATK and"
+	next "SP.DEF drop if PSN@"
 
 BarrageDescription:
-	db   "Throws orbs to hit"
-	next "2-5 times.@"
+	db   "Strikes 2-5 times,"
+	next "most often 3 or 4.@"
 
 LeechLifeDescription:
 	db   "Steals 1/2 of the"
@@ -836,16 +836,16 @@ AccelerockDescription:
 	next "that goes first.@"
 
 SkyAttackDescription:
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "Very strong move,"
+	next "drops ATK. by 1.@"
 
 MudShotDescription:
 	db   "Hurls mud at the"
-	next "foe, lowers speed.@"
+	next "foe, lowers SP.ATK@"
 
 BubbleDescription:
-	db   "An attack that may"
-	next "reduce SPEED.@"
+	db   "An attack that"
+	next "reduces SPEED.@"
 
 DizzyPunchDescription:
 	db   "An attack that may"
@@ -856,16 +856,16 @@ BiWingBeatDescription:
 	next "twice with wings.@"
 
 FlashDescription:
-	db   "Blinds the foe to"
-	next "reduce accuracy.@"
+	db   "Blinds to reduce"
+	next "SP.ATK and SP.DEF.@"
 
-PsywaveDescription:
-	db   "An attack with"
-	next "variable power.@"
+LifeDewDescription:
+	db   "Heals 2/3rds if it"
+	next "is raining."
 
 SteelBeamDescription:
 	db   "A steely beam,"
-	next "Lowers Att. by 1.@"
+	next "Lowers ATK. by 1.@"
 
 PoisonJabDescription:
 	db   "A stab with an arm"
@@ -873,15 +873,15 @@ PoisonJabDescription:
 
 HydroCannonDescription:
 	db   "A huge water blast"
-	next "Lowers SpAtt by 1.@"
+	next "Drops SP.ATK by 1.@"
 
 ExplosionDescription:
 	db   "Very powerful but"
 	next "makes user faint.@"
 
 FurySwipesDescription:
-	db   "Quickly scratches"
-	next "2-5 times.@"
+	db   "Strikes 2-5 times,"
+	next "most often 3 or 4.@"
 
 BonemerangDescription:
 	db   "An attack that"
@@ -900,20 +900,20 @@ HyperFangDescription:
 	next "cause flinching.@"
 
 FlareBlitzDescription:
-	db   "A fire-cloaked ta-"
-	next "-ckle with recoil.@"
+	db   "A fiery tackle."
+	next "Causes 1/4 recoil.@"
 
 ConversionDescription:
 	db   "Change user's type"
-	next "to a move's type.@"
+	next "to match foe's.@"
 
 TriAttackDescription:
-	db   "Fires three kinds"
-	next "of beams at once.@"
+	db   "Fires three beams"
+	next "of various types.@"
 
 SuperFangDescription:
 	db   "Cuts the foe's HP"
-	next "by 1/2.@"
+	next "by 1/2. Goes last.@"
 
 SlashDescription:
 	db   "Has a high criti-"
@@ -956,8 +956,8 @@ FlameWheelDescription:
 	next "cause a burn.@"
 
 SnoreDescription:
-	db   "An attack useable"
-	next "only while asleep.@"
+	db   "Only usable while"
+	next "asleep. May flinch@"
 
 ShadowSneakDescription:
 	db   "Attacks first with"
@@ -968,8 +968,8 @@ FlailDescription:
 	next "user's HP is low.@"
 
 Conversion2Description:
-	db   "The user's type is"
-	next "made resistant.@"
+	db   "Changes type to"
+	next "resist last move.@"
 
 AeroblastDescription:
 	db   "Has a high criti-"
@@ -977,14 +977,14 @@ AeroblastDescription:
 
 CottonSporeDescription:
 	db   "Reduces the foe's"
-	next "Attack and speed.@"
+	next "ATTACK and SPEED.@"
 
 ReversalDescription:
 	db   "Stronger if the"
 	next "user's HP is low.@"
 
 SpiteDescription:
-	db   "Cuts the PP of the"
+	db   "Cuts 5 PP of the"
 	next "foe's last move.@"
 
 PowderSnowDescription:
@@ -1001,14 +1001,14 @@ MachPunchDescription:
 
 ScaryFaceDescription:
 	db   "Reduces the foe's"
-	next "Sp. Att and speed.@"
+	next "SP.ATK and SPEED.@"
 
 FaintAttackDescription:
 	db   "A sudden attack"
 	next "that beats protect@"
 
 SweetKissDescription:
-	db   "Lowers attack and"
+	db   "Lowers ATTACK and"
 	next "causes confusion.@"
 
 TripleAxelDescription:
@@ -1021,23 +1021,23 @@ SludgeBombDescription:
 
 MudSlapDescription:
 	db   "Reduces the foe's"
-	next "Speed by 1 stage.@"
+	next "SPEED by 1 stage.@"
 
 OctazookaDescription:
-	db   "An attack that'll"
-	next "reduce attack.@"
+	db   "An ink blast that"
+	next "reduces ATTACK.@"
 
 SpikesDescription:
 	db   "Hurts foes when"
-	next "they switch out.@"
+	next "they switch in.@"
 
 ZapCannonDescription:
 	db   "An attack that"
 	next "always paralyzes.@"
 
 ForesightDescription:
-	db   "Negates accuracy"
-	next "reduction moves.@"
+	db   "Removes immunities"
+	next "from GHOST-types.@"
 
 DestinyBondDescription:
 	db   "The foe faints if"
@@ -1057,11 +1057,11 @@ DetectDescription:
 
 MudBombDescription:
 	db   "Throws a mud ball,"
-	next "may lower SpAtt.@"
+	next "may lower SP.ATK.@"
 
 LockOnDescription:
-	db   "Ensures the next"
-	next "attack will hit.@"
+	db   "Aims precisely to"
+	next "increase accuracy.@"
 
 OutrageDescription:
 	db   "Works 2-3 turns"
@@ -1093,7 +1093,7 @@ FalseSwipeDescription:
 
 XScissorDescription:
 	db   "A slash with claws"
-	next "or scythes crossed@"
+	next "or crossed scythes@"
 
 MilkDrinkDescription:
 	db   "Restores HP by 1/2"
@@ -1105,11 +1105,11 @@ SparkDescription:
 
 FuryCutterDescription:
 	db   "Successive hits"
-	next "raise power.@"
+	next "double the power.@"
 
 SteelWingDescription:
 	db   "Stiff wings strike"
-	next "the foe.@"
+	next "and may up DEFENSE@"
 
 MeanLookDescription:
 	db   "Prevents fleeing"
@@ -1124,20 +1124,20 @@ SleepTalkDescription:
 	next "while asleep.@"
 
 HealBellDescription:
-	db   "Eliminates all"
+	db   "Eliminates team's"
 	next "status problems.@"
 
-ReturnDescription:
-	db   "An attack that is"
-	next "based on loyalty.@"
+PoltergeistDescription:
+	db   "Attacks by using"
+	next "the foe's item.@"
 
-PresentDescription:
-	db   "A bomb that may"
-	next "restore HP.@"
+ShoreUpDescription:
+	db   "Heals 2/3rds under"
+	next "a sandstorm.@"
 
-FrustrationDescription:
-	db   "An attack based on"
-	next "lack of loyalty.@"
+CrossPoisonDescription:
+	db   "A slashing attack."
+	next "Causes 1/4 recoil.@"
 
 SafeguardDescription:
 	db   "Prevents all"
@@ -1153,19 +1153,19 @@ SacredFireDescription:
 
 DischargeDescription:
 	db   "An electrical fla-"
-	next "-re. Can paralyze.@"
+	next "re. Can paralyze.@"
 
 DynamicpunchDescription:
 	db   "An attack that"
 	next "always confuses.@"
 
 MegahornDescription:
-	db   "A powerful charge"
-	next "attack.@"
+	db   "A powerful charge."
+	next "Lowers ATK. by 1.@"
 
 DragonbreathDescription:
-	db   "A strong breath"
-	next "attack.@"
+	db   "A breath attack,"
+	next "may paralyze.@"
 
 BatonPassDescription:
 	db   "Switches while"
@@ -1180,11 +1180,11 @@ PursuitDescription:
 	next "switching #MON.@"
 
 RapidSpinDescription:
-	db   "A high-speed"
-	next "spinning attack.@"
+	db   "Removes traps and"
+	next "Leech Seed.@"
 
 SweetScentDescription:
-	db   "Lowers foe's speed"
+	db   "Lowers foe's SPEED"
 	next "and evasiveness.@"
 
 IronTailDescription:
@@ -1200,16 +1200,16 @@ VitalThrowDescription:
 	next "bypasses protect.@"
 
 MorningSunDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Heals 2/3rds if it"
+	next "is sunny.@"
 
 SynthesisDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Heals 2/3rds if it"
+	next "is sunny.@"
 
 MoonlightDescription:
-	db   "Restores HP"
-	next "(varies by time).@"
+	db   "Heals 2/3rds if it"
+	next "is sunny.@"
 
 HiddenPowerDescription:
 	db   "The power varies"
@@ -1220,8 +1220,8 @@ CrossChopDescription:
 	next "cal hit ratio.@"
 
 TwisterDescription:
-	db   "Whips up a tornado"
-	next "to attack.@"
+	db   "Stronger in rain,"
+	next "weaker if sunny.@"
 
 RainDanceDescription:
 	db   "Boosts water-type"
@@ -1233,15 +1233,15 @@ SunnyDayDescription:
 
 CrunchDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower SP.DEF.@"
 
 MirrorCoatDescription:
-	db   "Counters a SPCL."
+	db   "Counters a SP."
 	next "ATK move double.@"
 
 GunkShotDescription:
 	db   "Throws gross trash"
-	next "Lowers Att. by 1.@"
+	next "Lowers ATK. by 1.@"
 
 ExtremespeedDescription:
 	db   "A powerful first-"
@@ -1253,15 +1253,15 @@ AncientpowerDescription:
 
 ShadowBallDescription:
 	db   "An attack that may"
-	next "lower SPCL.DEF.@"
+	next "lower DEFENSE.@"
 
 FutureSightDescription:
 	db   "An attack that"
 	next "hits on 3rd turn.@"
 
 RockSmashDescription:
-	db   "An attack that may"
-	next "lower DEFENSE.@"
+	db   "An attack that"
+	next "lowers DEFENSE.@"
 
 WhirlpoolDescription:
 	db   "Traps the foe for"
