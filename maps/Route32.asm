@@ -906,7 +906,7 @@ Route32UnionCaveSignText:
 	done
 
 Route32ChallengeSignText:
-	text "Trainer Tips:"
+	text "TRAINER TIPS"
 	
 	para "Some areas become"
 	line "accesible once a"
@@ -942,7 +942,7 @@ Route32_MapEvents:
 	bg_event 13,  5, BGEVENT_READ, Route32Sign
 	bg_event  9,  1, BGEVENT_READ, Route32RuinsSign
 	bg_event 10, 84, BGEVENT_READ, Route32UnionCaveSign
-	bg_event  3, 67, BGEVENT_READ, Route32ChallengeSign
+	bg_event  5, 63, BGEVENT_READ, Route32ChallengeSign
 	bg_event 12, 73, BGEVENT_READ, Route32PokecenterSign
 	bg_event 12, 67, BGEVENT_ITEM, Route32HiddenLightBall
 	bg_event  6, 53, BGEVENT_ITEM, Route32HiddenRevive

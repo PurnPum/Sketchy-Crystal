@@ -506,9 +506,20 @@ NationalParkBattleNoticeText:
 NationalParkTrainerTipsText:
 	text "TRAINER TIPS"
 
-	para "Print out MAIL by"
-	line "opening it then"
-	cont "pressing START."
+	para "If a #MON uses"
+	line "a move with a type"
+	cont "same as its own,"
+	cont "it'll get a boost."
+	
+	para "Usually this boost"
+	line "is a 50% increase"
+	cont "in damage, also"
+	cont "known as STAB."
+	
+	para "However, if the"
+	line "#MON only has"
+	cont "a single type, the"
+	cont "boost will be 75%!"
 	done
 
 NationalPark_MapEvents:

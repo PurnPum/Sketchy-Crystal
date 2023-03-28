@@ -619,32 +619,39 @@ RuinsOfAlphNorthSignText:
 Route36TrainerTips1Text:
 	text "TRAINER TIPS"
 
-	para "#MON stats"
-	line "vary--even within"
-	cont "the same species."
-
-	para "Their stats may be"
-	line "similar at first."
-
-	para "However, differ-"
-	line "ences will become"
-
-	para "pronounced as the"
-	line "#MON grow."
+	para "It is impossible"
+	line "for a #MON to"
+	cont "gain STAT EXP/EVs"
+	cont "during battle."
+	
+	para "If you want to"
+	line "increase these,"
+	cont "you'll need to use"
+	cont "vitamins such as"
+	cont "PROTEIN or CARBOS."
+	
+	para "Vitamins can get"
+	line "up to 98 percent"
+	cont "of the maximum EVs"
+	cont "possible with only"
+	cont "21 intakes each."
 	done
 
 Route36TrainerTips2Text:
 	text "TRAINER TIPS"
 
-	para "Use DIG to return"
-	line "to the entrance of"
-	cont "any place."
-
-	para "It is convenient"
-	line "for exploring"
-
-	para "caves and other"
-	line "landmarks."
+	para "Any #MON will"
+	line "start disobeying"
+	cont "after reaching a"
+	cont "specific level"
+	cont "depending on your"
+	cont "badges."
+	
+	para "Generally speaking"
+	line "this level will be"
+	cont "very close to the"
+	cont "next GYM LEADER'S"
+	cont "ace #MON's."
 	done
 
 Route36_MapEvents:

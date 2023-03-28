@@ -329,16 +329,12 @@ MoomooFarmSignText:
 Route39TrainerTipsText:
 	text "TRAINER TIPS"
 
-	para "Use HEADBUTT on"
-	line "trees to shake"
-	cont "#MON out."
+	para "Remember that"
+	line "overworld weather"
+	cont "can't be changed"
+	cont "by field moves"
+	cont "such as SUNNY DAY."
 
-	para "Different kinds of"
-	line "#MON drop out"
-	cont "of trees."
-
-	para "Use HEADBUTT on"
-	line "any tree you see!"
 	done
 
 Route39_MapEvents:

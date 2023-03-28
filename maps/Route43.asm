@@ -479,23 +479,13 @@ Route43Sign2Text:
 Route43TrainerTipsText:
 	text "TRAINER TIPS"
 
-	para "All #MON have"
-	line "pros and cons"
-
-	para "depending on their"
-	line "types."
-
-	para "If their types"
-	line "differ, a higher-"
-
-	para "level #MON may"
-	line "lose in battle."
-
-	para "Learn which types"
-	line "are strong and"
-
-	para "weak against your"
-	line "#MON's type."
+	para "Remember that you"
+	line "can disable most"
+	cont "of the dialogues"
+	cont "by going to the"
+	cont "settings and chan-"
+	cont "ging the dialogue"
+	cont "mode to MINIMUM."
 	done
 
 Route43_MapEvents:

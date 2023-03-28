@@ -375,12 +375,21 @@ MrPokemonsHouseSignText:
 Route30TrainerTipsText:
 	text "TRAINER TIPS"
 
-	para "No stealing other"
-	line "people's #MON!"
-
-	para "# BALLS are to"
-	line "be thrown only at"
-	cont "wild #MON!"
+	para "After defeating a"
+	line "trainer, a fourth"
+	cont "of the prize money"
+	cont "will get a bonus"
+	cont "multiplier!"
+	
+	para "This multiplier"
+	line "changes depending"
+	cont "on the amount of"
+	cont "turns taken and"
+	cont "the level diff."
+	
+	para "Careful, as the"
+	line "multipler can be"
+	cont "as low as zero!"
 	done
 
 YoungsterJoeyText_GiveHPUpAfterBattle:

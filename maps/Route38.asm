@@ -457,17 +457,27 @@ Route38SignText:
 Route38TrainerTipsText:
 	text "TRAINER TIPS"
 
-	para "If a #MON is"
-	line "trying to evolve,"
-	cont "you can stop it."
+	para "Some moves combo"
+	line "well with weather:"
+	
+	para "THUNDER won't miss"
+	line "under rain."
+	
+	para "BLIZZARD won't"
+	line "miss if it hails."
+	
+	para "RAZOR WIND charges"
+	line "instantly if it is"
+	cont "raining."
+	
+	para "SOLARBEAM charges"
+	line "instantly if it is"
+	cont "sunny."
+	
+	para "GUST and TWISTER"
+	line "double in power if"
+	cont "it is raining..."
 
-	para "Press the B But-"
-	line "ton during evolu-"
-	cont "tion."
-
-	para "That startles the"
-	line "#MON and stops"
-	cont "its evolution."
 	done
 
 Route38_MapEvents:
