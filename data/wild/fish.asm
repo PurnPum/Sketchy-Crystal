@@ -18,7 +18,9 @@ FishGroups:
 	fishgroup 95 percent + 1, .VIOLET_Old,				.VIOLET_Good,				.VIOLET_Super
 	fishgroup 95 percent + 1, .RUINSALPH_Old,			.RUINSALPH_Good,			.RUINSALPH_Super
 	fishgroup 95 percent + 1, .ROUTE32_Old,				.ROUTE32_Good,				.ROUTE32_Super
-	fishgroup 95 percent + 1, .UNION_Old,				.UNION_Good,				.UNION_Super
+	fishgroup 95 percent + 1, .UNION1F_Old,				.UNION1F_Good,				.UNION1F_Super
+	fishgroup 95 percent + 1, .UNIONB1F_Old,			.UNIONB1F_Good,				.UNIONB1F_Super
+	fishgroup 95 percent + 1, .UNIONB2F_Old,			.UNIONB2F_Good,				.UNIONB2F_Super
 	fishgroup 95 percent + 1, .SLOWPOKEWELL_Old,		.SLOWPOKEWELL_Good,			.SLOWPOKEWELL_Super
 	fishgroup 95 percent + 1, .AZALEA_Old,				.AZALEA_Good,				.AZALEA_Super
 	fishgroup 95 percent + 1, .ILEX_Old,				.ILEX_Good,					.ILEX_Super
@@ -145,67 +147,85 @@ FishGroups:
 	db 100 percent,	GOLDUCK,	7
 
 .ROUTE32_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	REMORAID,	8
 
 .ROUTE32_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	REMORAID,	8
 
 .ROUTE32_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	OCTILLERY,	8
 
-.UNION_Old:
-	db 100 percent,	KRABBY,	10
+.UNION1F_Old:
+	db 100 percent,	OMANYTE,	9
 
-.UNION_Good:
-	db 100 percent,	KRABBY,	10
+.UNION1F_Good:
+	db 100 percent,	OMANYTE,	9
 
-.UNION_Super:
-	db 100 percent,	KRABBY,	10
+.UNION1F_Super:
+	db 100 percent,	OMASTAR,	9
+
+.UNIONB1F_Old:
+	db 100 percent,	KABUTO,		9
+
+.UNIONB1F_Good:
+	db 100 percent,	KABUTO,		9
+
+.UNIONB1F_Super:
+	db 100 percent,	KABUTOPS,	9
+	
+.UNIONB2F_Old:
+	db 100 percent,	SQUIRTLE,	9
+
+.UNIONB2F_Good:
+	db 100 percent,	WARTORTLE,	9
+
+.UNIONB2F_Super:
+	db 100 percent,	BLASTOISE,	9
 
 .SLOWPOKEWELL_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SEEL,		11
 
 .SLOWPOKEWELL_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SEEL,		11
 
 .SLOWPOKEWELL_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	DEWGONG,	11
 	
 .AZALEA_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	QWILFISH,	11
 
 .AZALEA_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	QWILFISH,	11
 
 .AZALEA_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	QWILFISH,	11
 
 .ILEX_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	CHINCHOU,	15
 
 .ILEX_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	LANTURN,	15
 
 .ILEX_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	LANTURN,	15
 
 .ROUTE34_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	GOLDEEN,	15
 
 .ROUTE34_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SEAKING,	15
 
 .ROUTE34_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	SEAKING,	15
 
 .GOLDENROD_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	STARYU,		16
 
 .GOLDENROD_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	STARYU,		16
 
 .GOLDENROD_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	STARMIE,	16
 
 .ROUTE35_Old:
 	db 100 percent,	KRABBY,	10
