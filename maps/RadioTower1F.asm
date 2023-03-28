@@ -116,12 +116,12 @@ RadioTower1FRadioCardWomanScript:
 	opentext
 	checkflag ENGINE_RADIO_CARD
 	iftrue .GotCard
-	writetext RadioTower1FRadioCardWomanOfferQuizText
+	writetextcheckdialogue RadioTower1FRadioCardWomanOfferQuizText, RadioTower1FRadioCardWomanOfferQuizTextMin
 	yesorno
 	iffalse .NoQuiz
 	writetext RadioTower1FRadioCardWomanQuestion1Text
 	yesorno
-	iffalse .WrongAnswer
+	iftrue .WrongAnswer
 	playsound SFX_ELEVATOR_END
 	waitsfx
 	writetext RadioTower1FRadioCardWomanQuestion2Text
@@ -136,12 +136,12 @@ RadioTower1FRadioCardWomanScript:
 	waitsfx
 	writetext RadioTower1FRadioCardWomanQuestion4Text
 	yesorno
-	iffalse .WrongAnswer
+	iftrue .WrongAnswer
 	playsound SFX_ELEVATOR_END
 	waitsfx
 	writetext RadioTower1FRadioCardWomanQuestion5Text
 	yesorno
-	iftrue .WrongAnswer
+	iffalse .WrongAnswer
 	playsound SFX_ELEVATOR_END
 	waitsfx
 	writetext RadioTower1FRadioCardWomanYouWinText
@@ -319,59 +319,63 @@ RadioTower1FRadioCardWomanOfferQuizText:
 	para "Would you like to"
 	line "take the quiz?"
 	done
+	
+RadioTower1FRadioCardWomanOfferQuizTextMin:
+	text "I hate my job."
+	line "Just take the quiz"
+	done
 
 RadioTower1FRadioCardWomanQuestion1Text:
 	text "Question 1:"
 
-	para "Is there a #MON"
-	line "that appears only"
-	cont "in the morning?"
+	para "Is a GHOST/PSYCHIC"
+	line "#MON weak to"
+	cont "BUG-type attacks?"
 	done
 
 RadioTower1FRadioCardWomanQuestion2Text:
-	text "Correct!"
-	line "Question 2:"
+	text "Correct, it takes"
+	line "neutral damage."
+	cont "Question 2:"
 
-	para "Is this statement"
-	line "correct?"
-
-	para "You can't buy a"
-	line "BERRY at a MART."
+	para "Does RAICHU have"
+	line "a higher SP.ATK"
+	cont "than ZAPDOS?"
 	done
 
 RadioTower1FRadioCardWomanQuestion3Text:
-	text "Bull's-eye!"
-	line "Question 3:"
+	text "Yes, RAICHU is 5"
+	line "points higher."
+	cont "Question 3:"
 
-	para "Does HM01 contain"
-	line "the move FLASH?"
+	para "Is ICE the only"
+	line "type without any"
+	cont "monotype #MON?"
 	done
 
 RadioTower1FRadioCardWomanQuestion4Text:
-	text "So far so good!"
-	line "Question 4:"
+	text "Right, STEEL also"
+	line "has none."
+	cont "Question 4:"
 
-	para "Is FALKNER the"
-	line "VIOLET GYM LEADER"
-
-	para "who uses bird"
-	line "#MON?"
+	para "Does HYPER BEAM"
+	line "require a recharge"
+	cont "turn after faint-"
+	cont "ing a foe?"	
 	done
 
 RadioTower1FRadioCardWomanQuestion5Text:
-	text "Wow! Right again!"
-	line "Here's the final"
+	text "Indeed, it doesn't"
+	
+	para "Here's the final"
 	cont "question:"
 
-	para "Do GOLDENROD GAME"
-	line "CORNER's slots"
-
-	para "have CHARMANDER"
-	line "on their reels?"
+	para "Can METRONOME call"
+	line "the move COUNTER?"
 	done
 
 RadioTower1FRadioCardWomanYouWinText:
-	text "Bingo! You got it!"
+	text "Yup, It can."
 	line "Congratulations!"
 
 	para "Here's your prize,"
