@@ -115,7 +115,7 @@ Moves:
 	move RAGE,         EFFECT_RAGE,               20, NORMAL,       100, 20,   0
 	move TELEPORT,     EFFECT_TELEPORT,            0, PSYCHIC_TYPE, 100, 20,   0
 	move NIGHT_SHADE,  EFFECT_LEVEL_DAMAGE,        1, GHOST,        100, 15,   0
-	move MIMIC,        EFFECT_MIMIC,               0, NORMAL,       100, 10,   0
+	move MIMIC,        EFFECT_MIMIC,               0, PSYCHIC_TYPE, 100, 10,   0
 	move SCREECH,      EFFECT_DEFENSE_DOWN_2,      0, NORMAL,       100, 20,   0
 	move ICE_SHARD,    EFFECT_PRIORITY_HIT,       40, ICE,          100, 30,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       100,  5,   0
@@ -140,7 +140,7 @@ Moves:
 	move SLUDGE,       EFFECT_POISON_HIT,         65, POISON,       100, 20,  30
 	move BONE_CLUB,    EFFECT_FLINCH_HIT,         65, GROUND,       100, 20,  10
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          110, FIRE,          85,  5,  10
-	move WATERFALL,    EFFECT_NORMAL_HIT,	      80, WATER,        100, 15,   0
+	move WATERFALL,    EFFECT_FLINCH_HIT,	      80, WATER,        100, 15,  20
 	move CLAMP,        EFFECT_TRAP_TARGET,        35, WATER,        100, 10,   0
 	move SWIFT,        EFFECT_BYPASS_PROTECT,     65, NORMAL,       100, 20,   0
 	move CRYOGENICE,   EFFECT_CRYOGENICE,          0, ICE,          100,  5,   0
@@ -173,7 +173,7 @@ Moves:
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         70, ROCK,         100, 10,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       100, 10,  10
 	move FLARE_BLITZ,  EFFECT_RECOIL_HIT_4TH,    100, FIRE,         100, 10,   0
-	move CONVERSION,   EFFECT_CONVERSION,          0, NORMAL,       100, 30,   0
+	move CONVERSION,   EFFECT_CONVERSION,          0, ELECTRIC,     100, 30,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         30, CURSE_TYPE,   100, 10,   0
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,       100, 10,   0
 	move SLASH,        EFFECT_NORMAL_HIT,         70, NORMAL,       100, 20,   0
@@ -189,7 +189,7 @@ Moves:
 	move SNORE,        EFFECT_SNORE,              70, NORMAL,       100, 15,  30
 	move SHADOW_SNEAK, EFFECT_PRIORITY_HIT,       40, GHOST,   		100, 30,   0
 	move FLAIL,        EFFECT_REVERSAL,            1, NORMAL,       100, 15,   0
-	move CONVERSION2,  EFFECT_CONVERSION2,         0, NORMAL,       100, 30,   0
+	move CONVERSION2,  EFFECT_CONVERSION2,         0, ELECTRIC,     100, 30,   0
 	move AEROBLAST,    EFFECT_NORMAL_HIT,        100, FLYING,       100,  5,   0
 	move COTTON_SPORE, EFFECT_COTTON_SPORE,        0, GRASS,        100, 40,   0
 	move REVERSAL,     EFFECT_REVERSAL,            1, FIGHTING,     100, 15,   0
@@ -228,11 +228,11 @@ Moves:
 	move MEAN_LOOK,    EFFECT_MEAN_LOOK,           0, DARK,         100,  5,   0
 	move ATTRACT,      EFFECT_ATTRACT,             0, NORMAL,       100, 15,   0
 	move SLEEP_TALK,   EFFECT_SLEEP_TALK,          0, PSYCHIC_TYPE, 100, 10,   0
-	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, NORMAL,       100,  5,   0
+	move HEAL_BELL,    EFFECT_HEAL_BELL,           0, PSYCHIC_TYPE, 100,  5,   0
 	move POLTERGEIST,  EFFECT_POLTERGEIST,       100, GHOST,        100,  5,   0
 	move SHORE_UP,     EFFECT_SHORE_UP,            0, GROUND, 		100,  5,   0
 	move CROSS_POISON, EFFECT_RECOIL_HIT_4TH,    100, POISON,       100, 10,   0
-	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, NORMAL,       100, 25,   0
+	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, PSYCHIC_TYPE, 100, 25,   0
 	move PAIN_SPLIT,   EFFECT_PAIN_SPLIT,          0, GHOST,        100, 20,   0
 	move SACRED_FIRE,  EFFECT_SACRED_FIRE,       100, FIRE,         100,  5,  50
 	move DISCHARGE,    EFFECT_PARALYZE_HIT,       80, ELECTRIC,     100, 15,  30
