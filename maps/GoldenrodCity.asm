@@ -452,9 +452,7 @@ GoldenrodCitySignText:
 	done
 
 GoldenrodCityBikeShopSignText:
-	text "The World is a"
-	line "Cycle Path!"
-	cont "BIKE SHOP"
+	text "CLOSED BIKE SHOP"
 	done
 
 GoldenrodCityGameCornerSignText:
@@ -597,7 +595,7 @@ GoldenrodCity_MapEvents:
 	bg_event 30, 35, BGEVENT_READ, GoldenrodDeptStoreSign
 	bg_event 30, 17, BGEVENT_READ, GoldenrodGymSign
 	bg_event 26, 26, BGEVENT_READ, GoldenrodCitySign
-	bg_event 32, 39, BGEVENT_READ, GoldenrodCityBikeShopSign
+	bg_event 32, 38, BGEVENT_READ, GoldenrodCityBikeShopSign
 	bg_event 20, 30, BGEVENT_READ, GoldenrodCityGameCornerSign
 	bg_event 16, 15, BGEVENT_READ, GoldenrodCityNameRaterSign
 	bg_event 12, 15, BGEVENT_READ, GoldenrodCityUndergroundSignNorth
