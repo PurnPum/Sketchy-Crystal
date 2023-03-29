@@ -6,7 +6,6 @@ DEF GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_PRICE EQU 300
 	const GOLDENRODUNDERGROUND_SUPER_NERD2
 	const GOLDENRODUNDERGROUND_SUPER_NERD3
 	const GOLDENRODUNDERGROUND_SUPER_NERD4
-	const GOLDENRODUNDERGROUND_POKE_BALL
 	const GOLDENRODUNDERGROUND_GRAMPS
 	const GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
 	const GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
@@ -50,66 +49,12 @@ GoldenrodUndergroundCheckBasementKeyCallback:
 	endcallback
 
 GoldenrodUndergroundCheckDayOfWeekCallback:
-	readvar VAR_WEEKDAY
-	ifequal MONDAY, .Monday
-	ifequal TUESDAY, .Tuesday
-	ifequal WEDNESDAY, .Wednesday
-	ifequal THURSDAY, .Thursday
-	ifequal FRIDAY, .Friday
-	ifequal SATURDAY, .Saturday
-
-; Sunday
 	disappear GOLDENRODUNDERGROUND_GRAMPS
-	disappear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
+	appear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
 	appear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
 	appear GOLDENRODUNDERGROUND_GRANNY
 	endcallback
 
-.Monday:
-	disappear GOLDENRODUNDERGROUND_GRAMPS
-	checktime MORN
-	iffalse .NotMondayMorning
-	appear GOLDENRODUNDERGROUND_GRAMPS
-.NotMondayMorning:
-	disappear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_GRANNY
-	endcallback
-
-.Tuesday:
-	disappear GOLDENRODUNDERGROUND_GRAMPS
-	appear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_GRANNY
-	endcallback
-
-.Wednesday:
-	disappear GOLDENRODUNDERGROUND_GRAMPS
-	disappear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
-	appear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_GRANNY
-	endcallback
-
-.Thursday:
-	disappear GOLDENRODUNDERGROUND_GRAMPS
-	appear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_GRANNY
-	endcallback
-
-.Friday:
-	disappear GOLDENRODUNDERGROUND_GRAMPS
-	disappear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
-	appear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_GRANNY
-	endcallback
-
-.Saturday:
-	disappear GOLDENRODUNDERGROUND_GRAMPS
-	appear GOLDENRODUNDERGROUND_OLDER_HAIRCUT_BROTHER
-	disappear GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	appear GOLDENRODUNDERGROUND_GRANNY
-	endcallback
 
 TrainerSupernerdEric:
 	trainer SUPER_NERD, ERIC, EVENT_BEAT_SUPER_NERD_ERIC, SupernerdEricSeenText, SupernerdEricBeatenText, 0, .Script
@@ -157,40 +102,16 @@ TrainerPokemaniacDonald:
 
 BitterMerchantScript:
 	opentext
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .Open
-	ifequal SATURDAY, .Open
-	sjump GoldenrodUndergroundScript_ShopClosed
-
-.Open:
 	pokemart MARTTYPE_BITTER, MART_UNDERGROUND
 	closetext
 	end
 
 BargainMerchantScript:
 	opentext
-	checkflag ENGINE_GOLDENROD_UNDERGROUND_MERCHANT_CLOSED
-	iftrue GoldenrodUndergroundScript_ShopClosed
-	readvar VAR_WEEKDAY
-	ifequal MONDAY, .CheckMorn
 	sjump GoldenrodUndergroundScript_ShopClosed
-
-.CheckMorn:
-	checktime MORN
-	iffalse GoldenrodUndergroundScript_ShopClosed
-	pokemart MARTTYPE_BARGAIN, 0
-	closetext
-	end
 
 OlderHaircutBrotherScript:
 	opentext
-	readvar VAR_WEEKDAY
-	ifequal TUESDAY, .DoHaircut
-	ifequal THURSDAY, .DoHaircut
-	ifequal SATURDAY, .DoHaircut
-	sjump GoldenrodUndergroundScript_ShopClosed
-
-.DoHaircut:
 	checkflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
 	iftrue .AlreadyGotHaircut
 	special PlaceMoneyTopRight
@@ -267,13 +188,6 @@ OlderHaircutBrotherScript:
 
 YoungerHaircutBrotherScript:
 	opentext
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .DoHaircut
-	ifequal WEDNESDAY, .DoHaircut
-	ifequal FRIDAY, .DoHaircut
-	sjump GoldenrodUndergroundScript_ShopClosed
-
-.DoHaircut:
 	checkflag ENGINE_GOLDENROD_UNDERGROUND_GOT_HAIRCUT
 	iftrue .AlreadyGotHaircut
 	special PlaceMoneyTopRight
@@ -403,20 +317,17 @@ GoldenrodUndergroundScript_ShopClosed:
 	closetext
 	end
 
-GoldenrodUndergroundCoinCase:
-	itemball COIN_CASE
-
 GoldenrodUndergroundNoEntrySign:
 	jumptext GoldenrodUndergroundNoEntryText
 
 GoldenrodUndergroundHiddenParlyzHeal:
-	hiddenitem PARLYZ_HEAL, EVENT_GOLDENROD_UNDERGROUND_HIDDEN_PARLYZ_HEAL
+	hiddenitem GREAT_BALL, EVENT_GOLDENROD_UNDERGROUND_HIDDEN_GREAT_BALL
 
 GoldenrodUndergroundHiddenSuperPotion:
-	hiddenitem SUPER_POTION, EVENT_GOLDENROD_UNDERGROUND_HIDDEN_SUPER_POTION
+	hiddenitem SODA_POP, EVENT_GOLDENROD_UNDERGROUND_HIDDEN_SODA_POP
 
 GoldenrodUndergroundHiddenAntidote:
-	hiddenitem ANTIDOTE, EVENT_GOLDENROD_UNDERGROUND_HIDDEN_ANTIDOTE
+	hiddenitem BERRY_JUICE, EVENT_GOLDENROD_UNDERGROUND_HIDDEN_BERRY_JUICE
 
 SupernerdEricSeenText:
 	text "I got booted out"
@@ -663,16 +574,15 @@ GoldenrodUnderground_MapEvents:
 	def_bg_events
 	bg_event 18,  6, BGEVENT_READ, BasementDoorScript
 	bg_event 19,  6, BGEVENT_READ, GoldenrodUndergroundNoEntrySign
-	bg_event  6, 13, BGEVENT_ITEM, GoldenrodUndergroundHiddenParlyzHeal
-	bg_event  4, 18, BGEVENT_ITEM, GoldenrodUndergroundHiddenSuperPotion
-	bg_event 17,  8, BGEVENT_ITEM, GoldenrodUndergroundHiddenAntidote
+	bg_event  5,  4, BGEVENT_ITEM, GoldenrodUndergroundHiddenParlyzHeal
+	bg_event  2, 19, BGEVENT_ITEM, GoldenrodUndergroundHiddenSuperPotion
+	bg_event  2,  9, BGEVENT_ITEM, GoldenrodUndergroundHiddenAntidote
 
 	def_object_events
-	object_event  5, 31, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdEric, -1
+	object_event 21, 25, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdEric, -1
 	object_event 22, 28, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerSupernerdTeru, -1
-	object_event 19, 27, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacIssac, -1
+	object_event 21, 27, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPokemaniacIssac, -1
 	object_event 20, 30, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacDonald, -1
-	object_event  7, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GoldenrodUndergroundCoinCase, EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
 	object_event  7, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BargainMerchantScript, EVENT_GOLDENROD_UNDERGROUND_GRAMPS
 	object_event  7, 14, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OlderHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_OLDER_HAIRCUT_BROTHER
 	object_event  7, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, YoungerHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_YOUNGER_HAIRCUT_BROTHER
