@@ -181,19 +181,12 @@ PokecenterNurseScript:
 	end
 
 GetPriceToHealMons:
-	ld hl, wBadges; Load the number of badges that we have in a bitmap stored in a word of 2 bytes
-	ld b, 2 ;b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
-	call CountSetBits ;This func will set the word 'wNumSetBits' to the amount of bits that are 1 for the given bytes in 'hl'
-	ld a, [wNumSetBits] ;Load the amount of badges in a
-	ld bc, POKEMONCENTERS_BASE_PRICE
-	inc a ;0=1, ...
-	ld h,0
-	ld l,0
-	call AddNTimes ;Do bc*a and save it in hl
-	ld a, h
+	ld de, POKEMONCENTERS_BASE_PRICE
+	farcall IncreasePriceByBadgesObtained2
+	ld a, d
 	ld [wStringBuffer2 + 1], a
 	ld [wPokemonCenterPrice], a
-	ld a, l
+	ld a, e
 	ld [wStringBuffer2 + 2], a
 	ld [wPokemonCenterPrice + 1], a
 	ret
@@ -201,6 +194,9 @@ GetPriceToHealMons:
 TakeMoneyBeforeHeal:
 	ld de, wMoney
 	ld bc, wStringBuffer2
+	ld hl, wStringBuffer2
+	xor a
+	ld [hl], a	; Set the first byte to 0 so that the comparison works
 	farcall CompareMoney
 	jr c, .not_enough_money
 	farcall TakeMoney
