@@ -84,6 +84,12 @@ DidntCatchSudowoodo:
 	special RefreshSprites
 	end
 
+Route36ElmScript:
+	turnobject ROUTE36_ELM, RIGHT
+	jumptext Route36ElmText
+	turnobject ROUTE36_ELM, LEFT
+	end
+
 Route36WhitneyScript:
 	faceplayer
 	opentext
@@ -653,6 +659,12 @@ Route36TrainerTips2Text:
 	cont "next GYM LEADER'S"
 	cont "ace #MON's."
 	done
+	
+Route36ElmText:
+	text "Stop trying to"
+	line "break the game, I"
+	cont "got shit to do."
+	done
 
 Route36_MapEvents:
 	db 0, 0 ; filler
@@ -683,4 +695,4 @@ Route36_MapEvents:
 	object_event 44,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36HammerGuyScript, -1
 	object_event 35, 10, SPRITE_WHITNEY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route36WhitneyScript, EVENT_WHITNEY_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36
-	object_event 36,  9, SPRITE_ELM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route36WhitneyScript, EVENT_WHITNEY_AT_SUDOWOODO
+	object_event 36,  9, SPRITE_ELM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route36ElmScript, EVENT_WHITNEY_AT_SUDOWOODO
