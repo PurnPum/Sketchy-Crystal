@@ -2,7 +2,6 @@
 	const ROUTE29_COOLTRAINER_M1
 	const ROUTE29_YOUNGSTER
 	const ROUTE29_TEACHER1
-	const ROUTE29_FRUIT_TREE
 	const ROUTE29_FISHER
 	const ROUTE29_COOLTRAINER_M2
 	const ROUTE29_POKE_BALL
@@ -153,9 +152,6 @@ Route29Sign1:
 
 Route29Sign2:
 	jumptext Route29Sign2Text
-
-Route29FruitTree:
-	fruittree FRUITTREE_ROUTE_29
 
 Route29RageCandyBars:
 	itemball RAGECANDYBAR, 5
@@ -311,58 +307,6 @@ Route29CooltrainerMText_WaitingForMorning:
 
 	para "appear only in the"
 	line "morning."
-	done
-
-MeetTuscanyText:
-	text "TUSCANY: I do be-"
-	line "lieve that this is"
-
-	para "the first time"
-	line "we've met?"
-
-	para "Please allow me to"
-	line "introduce myself."
-
-	para "I am TUSCANY of"
-	line "Tuesday."
-	done
-
-TuscanyGivesGiftText:
-	text "By way of intro-"
-	line "duction, please"
-
-	para "accept this gift,"
-	line "a PINK BOW."
-	done
-
-TuscanyGaveGiftText:
-	text "TUSCANY: Wouldn't"
-	line "you agree that it"
-	cont "is most adorable?"
-
-	para "It strengthens"
-	line "normal-type moves."
-
-	para "I am certain it"
-	line "will be of use."
-	done
-
-TuscanyTuesdayText:
-	text "TUSCANY: Have you"
-	line "met MONICA, my"
-	cont "older sister?"
-
-	para "Or my younger"
-	line "brother, WESLEY?"
-
-	para "I am the second of"
-	line "seven children."
-	done
-
-TuscanyNotTuesdayText:
-	text "TUSCANY: Today is"
-	line "not Tuesday. That"
-	cont "is unfortunate…"
 	done
 
 Route29Sign1Text:

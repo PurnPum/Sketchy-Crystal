@@ -1,7 +1,6 @@
 	object_const_def
 	const ROUTE33_POKEFAN_M
 	const ROUTE33_LASS
-	const ROUTE33_FRUIT_TREE
 
 Route33_MapScripts:
 	def_scene_scripts

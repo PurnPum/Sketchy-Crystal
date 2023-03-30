@@ -1,7 +1,6 @@
 	object_const_def
 	const MOUNTMORTARB1F_POKE_BALL1
 	const MOUNTMORTARB1F_POKE_BALL2
-	const MOUNTMORTARB1F_BOULDER
 	const MOUNTMORTARB1F_KIYO
 	const MOUNTMORTARB1F_POKE_BALL3
 	const MOUNTMORTARB1F_POKE_BALL4
@@ -59,9 +58,6 @@ MountMortarB1FKiyoScript:
 	waitbutton
 	closetext
 	end
-
-MountMortarB1FBoulder:
-	jumpstd StrengthBoulderScript
 
 MountMortarB1FHyperPotion:
 	itemball HYPER_POTION

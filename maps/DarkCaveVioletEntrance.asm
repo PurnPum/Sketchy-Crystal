@@ -21,9 +21,6 @@ DarkCaveVioletEntranceBurnHeals:
 DarkCaveVioletEntranceNugget:
 	itemball NUGGET
 
-DarkCaveVioletEntranceRock:
-	jumpstd SmashRockScript
-
 DarkCaveVioletEntranceHiddenFreshWater:
 	hiddenitem FRESH_WATER, EVENT_DARK_CAVE_VIOLET_ENTRANCE_HIDDEN_FRESH_WATER
 
