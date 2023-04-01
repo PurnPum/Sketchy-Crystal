@@ -298,6 +298,14 @@ SpriteMovementData::
 	db 0 ; flags2
 	db SWIMMING ; palette flags
 
+; SPRITEMOVEDATA_RAIN
+	db SPRITEMOVEFN_RAIN ; movement function
+	db DOWN ; facing
+	db OBJECT_ACTION_STAND ; action
+	db WONT_DELETE | NOCLIP_TILES | MOVE_ANYWHERE | NOCLIP_OBJS ; flags1
+	db HIGH_PRIORITY ; flags2
+	db 0 ; palette flags
+
 	assert_table_length NUM_SPRITEMOVEDATA
 
 ; unused

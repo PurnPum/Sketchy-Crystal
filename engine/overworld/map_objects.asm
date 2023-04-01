@@ -553,6 +553,7 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_Rain				 ; 1c
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_Null:
@@ -978,6 +979,118 @@ MovementFunction_ShakingGrass:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_TRACKING_OBJECT
+	ret
+	
+MovementFunction_Rain:
+; Object moves down at a variable distance. Horizontal movement is slightly randomized
+;            $0: 7 pixels movement
+;            $1: 8 pixels movement
+;            $2: 10 pixels movement
+;            $3: 11 pixels movement
+	call ObjectMovement_AnonJumptable
+.anon_dw
+	dw .zero
+	dw .one
+	dw .two
+	dw .three
+	dw .four
+
+.zero
+	;call CopyLastCoordsToCoords
+	call Random
+	ldh a, [hRandomAdd]
+	and %00000011
+	ld hl, OBJECT_MOVEMENT_INDEX
+	add hl, bc
+	ld [hl], a
+	call ObjectMovement_IncAnonJumptableIndex
+	ret
+
+.one
+	call .center_obj
+	ld hl, OBJECT_SPRITE_Y_OFFSET
+	add hl, bc
+	ld a, [hl]
+	add $7
+	ld [hl], a
+	call Random
+	ldh a, [hRandomAdd]
+	and %00000011
+	or %00000001	; 1 or 3
+	ld hl, OBJECT_SPRITE_X_OFFSET
+	add hl, bc
+	ld d, a
+	ld a, [hl]
+	add d
+	ld [hl], a
+	ret
+
+.two
+	call .center_obj
+	ld hl, OBJECT_SPRITE_Y_OFFSET
+	add hl, bc
+	ld a, [hl]
+	add $8
+	ld [hl], a
+	call Random
+	ldh a, [hRandomAdd]
+	and %00000011
+	or %00000010	; 2 or 3
+	ld hl, OBJECT_SPRITE_X_OFFSET
+	add hl, bc
+	ld d, a
+	ld a, [hl]
+	add d
+	ld [hl], a
+	ret
+
+.three
+	call .center_obj
+	ld hl, OBJECT_SPRITE_Y_OFFSET
+	add hl, bc
+	ld a, [hl]
+	add $0a
+	ld [hl], a
+	call Random
+	ldh a, [hRandomAdd]
+	and %00000011
+	or %00000001	; 1 or 3
+	ld hl, OBJECT_SPRITE_X_OFFSET
+	add hl, bc
+	ld d, a
+	ld a, [hl]
+	add d
+	ld [hl], a
+	ret
+	
+.four
+	call .center_obj
+	ld hl, OBJECT_SPRITE_Y_OFFSET
+	add hl, bc
+	ld a, [hl]
+	add $0b
+	ld [hl], a
+	call Random
+	ldh a, [hRandomAdd]
+	and %00000011
+	or %00000010	; 2 or 3
+	ld hl, OBJECT_SPRITE_X_OFFSET
+	add hl, bc
+	ld d, a
+	ld a, [hl]
+	add d
+	ld [hl], a
+	ret
+	
+.center_obj
+	ld hl, OBJECT_MAP_X
+	add hl, bc
+	ld a, [wXCoord]
+	ld [hl], a
+	ld hl, OBJECT_MAP_Y
+	add hl, bc
+	ld a, [wYCoord]
+	ld [hl], a
 	ret
 
 InitMovementField1dField1e:
