@@ -49,6 +49,9 @@ CutTreeBlockPointers:
 	db $a8, $02, 1 ; grass
 	db $95, $94, 1 ; grass
 	db $a6, $a4, 1 ; grass
+	db $f8, $03, 1 ; long grass
+	db $f9, $fa, 1 ; long grass
+	db $fa, $02, 1 ; grass
 	db $5b, $3c, 0 ; tree
 	db $5f, $3d, 0 ; tree
 	db $63, $3f, 0 ; tree

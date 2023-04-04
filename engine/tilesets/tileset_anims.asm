@@ -48,6 +48,8 @@ TilesetKantoAnim:
 	dw NULL,  AnimateGrassTile
 	dw NULL,  AnimateTreeTopLeftTile
 	dw NULL,  AnimateTreeTopRightTile
+	dw vTiles2 tile $29,  AnimateSeaWeedTile
+	dw vTiles2 tile $2A,  AnimateBubblesTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
@@ -62,8 +64,6 @@ TilesetParkAnim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw NULL,  AnimateGrassTile
-	dw NULL,  AnimateTreeTopLeftTile
-	dw NULL,  AnimateTreeTopRightTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame8
@@ -85,6 +85,8 @@ TilesetForestAnim:
 	dw NULL,  AnimateTreeTopLeftTile
 	dw NULL,  AnimateTreeTopRightTile
 	dw vTiles2 tile $14, AnimateWaterTile
+	dw vTiles2 tile $48,  AnimateSeaWeedTile
+	dw vTiles2 tile $49,  AnimateBubblesTile
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  StandingTileFrame8
 	dw NULL,  DoneTileAnimation
@@ -105,6 +107,8 @@ TilesetJohtoAnim:
 	dw vTiles2 tile $09,  AnimateRainSplashTile2
 	dw vTiles2 tile $27,  AnimateRainSplashTile3
 	dw vTiles2 tile $28,  AnimateRainSplashTile4
+	dw vTiles2 tile $4E,  AnimateSeaWeedTile
+	dw vTiles2 tile $4F,  AnimateBubblesTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
@@ -1301,14 +1305,14 @@ AnimateRainSplashTile1:
 	jp WriteTile
 
 .RainSplashTileFramesPointers:
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
 	
 AnimateRainSplashTile2:
 ; Save the stack pointer in bc for WriteTile to restore
@@ -1340,14 +1344,14 @@ AnimateRainSplashTile2:
 	jp WriteTile
 
 .RainSplashTileFramesPointers:
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
 	
 AnimateRainSplashTile3:
 ; Save the stack pointer in bc for WriteTile to restore
@@ -1379,14 +1383,14 @@ AnimateRainSplashTile3:
 	jp WriteTile
 
 .RainSplashTileFramesPointers:
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
 	
 AnimateRainSplashTile4:
 ; Save the stack pointer in bc for WriteTile to restore
@@ -1418,19 +1422,111 @@ AnimateRainSplashTile4:
 	jp WriteTile
 
 .RainSplashTileFramesPointers:
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
-	dw RainSplashDarkTile4
-	dw RainSplashDarkTile1
-	dw RainSplashDarkTile2
-	dw RainSplashDarkTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
+	dw RainSplashTile4
+	dw RainSplashTile1
+	dw RainSplashTile2
+	dw RainSplashTile3
 
-RainSplashDarkTile1: INCBIN "gfx/tilesets/rainsplash/splash1.2bpp"
-RainSplashDarkTile2: INCBIN "gfx/tilesets/rainsplash/splash2.2bpp"
-RainSplashDarkTile3: INCBIN "gfx/tilesets/rainsplash/splash3.2bpp"
-RainSplashDarkTile4: INCBIN "gfx/tilesets/rainsplash/splash4.2bpp"
+RainSplashTile1: INCBIN "gfx/tilesets/rainsplash/splash1.2bpp"
+RainSplashTile2: INCBIN "gfx/tilesets/rainsplash/splash2.2bpp"
+RainSplashTile3: INCBIN "gfx/tilesets/rainsplash/splash3.2bpp"
+RainSplashTile4: INCBIN "gfx/tilesets/rainsplash/splash4.2bpp"
+
+AnimateSeaWeedTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .SeaWeedTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.SeaWeedTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.SeaWeedTileFramesPointers:
+	dw .SeaWeedTile1
+	dw .SeaWeedTile2
+	dw .SeaWeedTile3
+	dw .SeaWeedTile4
+	dw .SeaWeedTile4
+	dw .SeaWeedTile3
+	dw .SeaWeedTile2
+	dw .SeaWeedTile1
+
+.SeaWeedTile1: INCBIN "gfx/tilesets/seaweed/seaweed1.2bpp"
+.SeaWeedTile2: INCBIN "gfx/tilesets/seaweed/seaweed2.2bpp"
+.SeaWeedTile3: INCBIN "gfx/tilesets/seaweed/seaweed3.2bpp"
+.SeaWeedTile4: INCBIN "gfx/tilesets/seaweed/seaweed4.2bpp"
+
+AnimateBubblesTile:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+	ld hl, .BubblesTileFramesPointers
+
+; A cycle of 8 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %111
+
+; hl = [.BubblesTileFramesPointers + a * 2]
+	add a
+	add l
+	ld l, a
+	jr nc, .okay
+	inc h
+.okay
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
+.BubblesTileFramesPointers:
+	dw .BubblesTile1
+	dw .BubblesTile2
+	dw .BubblesTile3
+	dw .BubblesTile4
+	dw .BubblesTile5
+	dw .BubblesTile6
+	dw .BubblesTile7
+	dw .BubblesTile8
+
+.BubblesTile1: INCBIN "gfx/tilesets/bubbles/bubbles1.2bpp"
+.BubblesTile2: INCBIN "gfx/tilesets/bubbles/bubbles2.2bpp"
+.BubblesTile3: INCBIN "gfx/tilesets/bubbles/bubbles3.2bpp"
+.BubblesTile4: INCBIN "gfx/tilesets/bubbles/bubbles4.2bpp"
+.BubblesTile5: INCBIN "gfx/tilesets/bubbles/bubbles5.2bpp"
+.BubblesTile6: INCBIN "gfx/tilesets/bubbles/bubbles6.2bpp"
+.BubblesTile7: INCBIN "gfx/tilesets/bubbles/bubbles7.2bpp"
+.BubblesTile8: INCBIN "gfx/tilesets/bubbles/bubbles8.2bpp"
 
 AnimateTreeTopLeftTile:
 ; Save the stack pointer in bc for WriteTile to restore

@@ -221,19 +221,32 @@
 	tilecoll BUOY, WALL, BUOY, WALL ; dc
 	tilecoll WATER, WATER, WATER, WATER ; dd
 	tilecoll WATER, WATER, WATER, WATER ; de
-	tilecoll LADDER, LADDER, WATER, WATER ; df
-	tilecoll WATER, LADDER, WATER, LADDER ; e0
-	tilecoll WATER, LADDER, WATER, WATER ; e1
+	tilecoll FLOOR, FLOOR, WATER, WATER ; df
+	tilecoll WATER, FLOOR, WATER, FLOOR ; e0
+	tilecoll WATER, FLOOR, WATER, WATER ; e1
 	tilecoll FLOOR, FLOOR, WATER, WATER ; e2
-	tilecoll FLOOR, FLOOR, WATER, LADDER ; e3
+	tilecoll FLOOR, FLOOR, WATER, FLOOR ; e3
 	tilecoll FLOOR, FLOOR, WATER, WATER ; e4
-	tilecoll LADDER, LADDER, LADDER, WALL ; e5
+	tilecoll FLOOR, FLOOR, FLOOR, WALL ; e5
 	tilecoll WATER, WATER, WATER, WATER ; e6
 	tilecoll WATER, WATER, WATER, WATER ; e7
 	tilecoll WATER, WATER, WATER, WATER ; e8
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; e9
-	tilecoll LADDER, LADDER, LADDER, LADDER ; ea
-	tilecoll LADDER, LADDER, LADDER, LADDER ; eb
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ea
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; eb
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; ec
 	tilecoll WATER, WATER, WATER, WATER ; ed
 	tilecoll BUOY, BUOY, WATER, WATER ; ee
+	tilecoll WATER, WATER, WATER, WATER ; ef
+	tilecoll WATER, WATER, WATER, WATER ; f0
+	tilecoll WATER, WATER, WATER, WATER ; f1
+	tilecoll WATER, WATER, WATER, WATER ; f2
+	tilecoll WATER, WATER, WATER, WATER ; f3
+	tilecoll WATER, WATER, WATER, WATER ; f4
+	tilecoll WATER, WATER, WATER, WATER ; f5
+	tilecoll WATER, WATER, WATER, WATER ; f6
+	tilecoll WATER, WATER, WATER, WATER ; f7
+	tilecoll LONG_GRASS, LONG_GRASS, LONG_GRASS, LONG_GRASS ; f8
+	tilecoll LONG_GRASS, LONG_GRASS, TALL_GRASS, TALL_GRASS ; f9
+	tilecoll TALL_GRASS, TALL_GRASS, FLOOR, FLOOR ; fa
+	tilecoll WATER, WATER, FLOOR, FLOOR ; fb
