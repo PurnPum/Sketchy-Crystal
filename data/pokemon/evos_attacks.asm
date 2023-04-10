@@ -117,7 +117,7 @@ PidgeotEvosAttacks:
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
-	db EVOLVE_LEVEL, 14, RATICATE
+	db EVOLVE_LEVEL, 15, RATICATE
 	db 0 ; no more evolutions
 	db 1, STRUGGLE
 	db 0 ; no more level-up moves
@@ -901,7 +901,7 @@ FeraligatrEvosAttacks:
 	db 0 ; no more level-up moves
 
 SentretEvosAttacks:
-	db EVOLVE_LEVEL, 14, FURRET
+	db EVOLVE_LEVEL, 15, FURRET
 	db 0 ; no more evolutions
 	db 1, STRUGGLE
 	db 0 ; no more level-up moves
@@ -1001,7 +1001,7 @@ XatuEvosAttacks:
 	db 0 ; no more level-up moves
 
 MareepEvosAttacks:
-	db EVOLVE_LEVEL, 14, FLAAFFY
+	db EVOLVE_LEVEL, 15, FLAAFFY
 	db 0 ; no more evolutions
 	db 1, STRUGGLE
 	db 0 ; no more level-up moves
