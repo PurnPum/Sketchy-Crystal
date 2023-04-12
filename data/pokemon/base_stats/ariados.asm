@@ -1,6 +1,6 @@
 	db ARIADOS ; 168
 
-	db  80, 110,  70,  25,  80,  70
+	db  95, 110,  70,  25,  75,  70
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, DARK ; type

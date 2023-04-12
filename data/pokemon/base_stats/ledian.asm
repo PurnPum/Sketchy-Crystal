@@ -1,6 +1,6 @@
 	db LEDIAN ; 166
 
-	db  55, 110,  55, 105,  40, 70
+	db  65, 110,  55, 105,  40, 70
 	;   hp  atk  def  spd  sat  sdf
 
 	db BUG, FIGHTING ; type
