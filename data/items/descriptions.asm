@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw TeruSama2Desc
+	dw ThickWebDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -45,7 +45,7 @@ ItemDescriptions:
 	dw SuperRepelDesc
 	dw MaxRepelDesc
 	dw DireHitDesc
-	dw TeruSama3Desc
+	dw SturdyGloveDesc
 	dw FreshWaterDesc
 	dw SodaPopDesc
 	dw LemonadeDesc
@@ -354,8 +354,9 @@ WaterStoneDesc:
 	db   "Evolves certain"
 	next "kinds of #MON.@"
 
-TeruSama2Desc:
-	db   "?@"
+ThickWebDesc:
+	db   "Doubles ARIADOS/"
+	next "SPINARAK DEFENSE.@"
 
 HPUpDesc:
 	db   "Raises the HP of"
@@ -433,9 +434,10 @@ DireHitDesc:
 	db   "Ups critical hit"
 	next "ratio. (1 BTL)@"
 
-TeruSama3Desc:
-	db   "?@"
-
+SturdyGloveDesc:
+	db   "Makes LEDIAN immu-"
+	next "ne to recoil dmg.@"
+	
 FreshWaterDesc:
 	db   "Restores #MON"
 	next "HP by 45.@"

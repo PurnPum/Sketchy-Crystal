@@ -2618,9 +2618,9 @@ PlayerAttackDamage:
 
 ; physical
 	ld hl, wEnemyMonDefense
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
+	call ThickWebBoost
+	ld b, h
+	ld c, l
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_REFLECT, a
@@ -2634,9 +2634,9 @@ PlayerAttackDamage:
 	jr c, .thickclub
 
 	ld hl, wEnemyDefense
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
+	call ThickWebBoost
+	ld b, h
+	ld c, l
 	ld hl, wPlayerAttack
 	jr .thickclub
 
@@ -2775,6 +2775,23 @@ CheckDamageStatsCritical:
 	pop hl
 	ret
 
+ThickWebBoost:
+; Return in hl the stat value at hl.
+
+; If the defending monster is Ariados/Spinarak and
+; it's holding a Thick Web, double it.
+	push bc
+	push de
+	ld b, ARIADOS
+	ld c, SPINARAK
+	ld d, THICK_WEB
+	call BattleCommand_SwitchTurn
+	call SpeciesItemBoost
+	call BattleCommand_SwitchTurn
+	pop de
+	pop bc
+	ret
+
 ThickClubBoost:
 ; Return in hl the stat value at hl.
 
@@ -2846,6 +2863,30 @@ SpeciesItemBoost:
 	rl h
 	ret
 
+SpeciesItemCheck:
+; Returns z=1 if item and species match with the attacking mon
+
+; If the attacking monster is species b and
+; it's holding item c, return z=1.
+
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+
+	ldh a, [hBattleTurn]
+	and a
+	ld a, [hl]
+	jr z, .CompareSpecies
+	ld a, [wTempEnemyMonSpecies]
+.CompareSpecies:
+	cp b
+	ret nz	; If the species doesn't match, z is 0 and we return
+	push bc
+	call GetUserItem
+	pop bc
+	ld a, [hl]
+	cp c
+	ret		; Same as before, if the item doesn't match, z will be 0
+
 EnemyAttackDamage:
 	call ResetDamage
 
@@ -2862,9 +2903,9 @@ EnemyAttackDamage:
 
 ; physical
 	ld hl, wBattleMonDefense
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
+	call ThickWebBoost
+	ld b, h
+	ld c, l
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
@@ -2878,9 +2919,9 @@ EnemyAttackDamage:
 	jr c, .thickclub
 
 	ld hl, wPlayerDefense
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
+	call ThickWebBoost
+	ld b, h
+	ld c, l
 	ld hl, wEnemyAttack
 	jr .thickclub
 
@@ -5684,7 +5725,6 @@ BattleCommand_TrapTarget:
 	jp StdBattleTextbox
 
 .Traps:
-	dbw BIND,      UsedBindText      ; 'used BIND on'
 	dbw WRAP,      WrappedByText     ; 'was WRAPPED by'
 	dbw FIRE_SPIN, FireSpinTrapText  ; 'was trapped!'
 	dbw CLAMP,     ClampedByText     ; 'was CLAMPED by'
@@ -5703,10 +5743,18 @@ BattleCommand_Recoil:
 .got_hp
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
+	cp EFFECT_SELFDESTRUCT
+	jp z, .boom_recoil 	; Handle the reworked self-destruct, Ledian is not immune to this damage even with Sturdy Glove
+	ld b, LEDIAN
+	ld c, STURDY_GLOVE
+	push hl
+	call SpeciesItemCheck
+	pop hl
+	jp z, .no_recoil	; If the attacker is a Ledian holding a Sturdy Glove, ignore all recoil except explosion/selfdestruct
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
 	cp EFFECT_RECOIL_HIT_4TH
 	jr z, .a_4th_of_recoil
-	cp EFFECT_SELFDESTRUCT
-	jp z, .boom_recoil ; handle the reworked self-destruct
 .a_3rd_of_recoil
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
@@ -5835,6 +5883,9 @@ BattleCommand_Recoil:
 	jr nz, .finish
 	ld hl, SelfDestructText
 .finish
+	jp StdBattleTextbox
+.no_recoil
+	ld hl, LedianNoRecoilText
 	jp StdBattleTextbox
 
 BattleCommand_ConfuseTarget:

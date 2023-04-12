@@ -845,6 +845,11 @@ SelfDestructText:
 	text "<USER>'s"
 	line "took heavy damage!"
 	prompt
+	
+LedianNoRecoilText:
+	text "<USER>"
+	line "evaded recoil dmg!"
+	prompt
 
 MadeSubstituteText:
 	text "<USER>"

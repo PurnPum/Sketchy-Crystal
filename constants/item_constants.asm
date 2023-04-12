@@ -30,7 +30,7 @@
 	const FIRE_STONE   ; 16
 	const THUNDERSTONE ; 17
 	const WATER_STONE  ; 18
-	const ITEM_19      ; 19
+	const THICK_WEB    ; 19
 	const HP_UP        ; 1a
 	const PROTEIN      ; 1b
 	const IRON         ; 1c
@@ -50,7 +50,7 @@
 	const SUPER_REPEL  ; 2a
 	const MAX_REPEL    ; 2b
 	const DIRE_HIT     ; 2c
-	const ITEM_2D      ; 2d
+	const STURDY_GLOVE ; 2d
 	const FRESH_WATER  ; 2e
 	const SODA_POP     ; 2f
 	const LEMONADE     ; 30
@@ -216,7 +216,7 @@
 	const HAMMER	   ; d0
 	const SCYTHE	   ; d1
 	const BALLOONS	   ; d2
-	const SWIMSUIT   ; d3
+	const SWIMSUIT     ; d3
 	const POWER_GLOVES ; d4
 	const FLASHLIGHT   ; d5
 	const PROPELLER    ; d6
