@@ -3028,6 +3028,20 @@ HitSelfInConfusion:
 	ld e, a
 	ret
 
+Delibird_Check:
+	ld b, DELIBIRD				; Otherwise check if the attacker was a DELIBIRD
+	ld c, GIFT_SACK				; Holding a Gift Sack
+	call SpeciesItemCheck		; returning z=1 if so
+	ret nz						; If z=0 then just leave as usual
+	ld a, BATTLE_VARS_MOVE_TYPE	; Now check if the attack was Ice type.
+	call GetBattleVar
+	cp ICE
+	ret nz
+	xor a
+	inc a
+	ld [wCriticalHit], a
+	ret
+
 BattleCommand_DamageCalc:
 ; Return a damage value for move power d, player level e, enemy defense c and player attack b.
 ; BUG: Confusion damage is affected by type-boosting items and Explosion/Self-Destruct doubling (see docs/bugs_and_glitches.md)
@@ -3237,6 +3251,7 @@ DEF DAMAGE_CAP EQU MAX_DAMAGE - MIN_DAMAGE
 	ret
 
 .CriticalMultiplier:
+	call Delibird_Check		; If a Delibird holding a Gift Sack uses an ICE-type move, it will always crit.
 	ld a, [wCriticalHit]
 	and a
 	ret z
