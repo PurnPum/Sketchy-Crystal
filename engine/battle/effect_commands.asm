@@ -2177,6 +2177,7 @@ BattleCommand_FailureText:
 	jp EndMoveEffect
 
 BattleCommand_ApplyDamage:
+	call Beedrill_Check
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
@@ -2404,6 +2405,23 @@ BattleCommand_SuperEffectiveText:
 .print
 	jp StdBattleTextbox
 
+; Poison the enemy if the attacker is a Beedrill holding a Venom Spear and using a BUG/POISON type move
+Beedrill_Check:
+	ld b, BEEDRILL				; Otherwise check if the attacker was a BEEDRILL
+	ld c, VENOM_SPEAR			; Holding a Venom Spear
+	call SpeciesItemCheck		; returning z=1 if so
+	ret nz						; If z=0 then just leave as usual
+	ld a, BATTLE_VARS_MOVE_TYPE	; Now check if the attack was BUG or POISON type.
+	call GetBattleVar
+	cp BUG
+	jr nz, .poisontype
+	call z, BattleCommand_PoisonTarget	; If the move was BUG type, poison the foe.
+	ret
+.poisontype
+	cp POISON
+	call z, BattleCommand_PoisonTarget	; Same if the move was POISON type.
+	ret
+
 BattleCommand_CheckFaint:
 ; Faint the opponent if its HP reached zero
 ;  and faint the user along with it if it used Destiny Bond.
@@ -2418,7 +2436,7 @@ BattleCommand_CheckFaint:
 .got_hp
 	ld a, [hli]
 	or [hl]
-	ret nz
+	jp nz, Beedrill_Check		; If the mon didn't faint, check if we poison it before finishing
 
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
 	call GetBattleVar

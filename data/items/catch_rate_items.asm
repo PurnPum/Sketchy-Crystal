@@ -5,7 +5,7 @@
 TimeCapsule_CatchRateItems:
 	db THICK_WEB, BERRY
 	db STURDY_GLOVE, BERRY
-	db ITEM_32, BERRY
+	db VENOM_SPEAR, BERRY
 	db ITEM_5A, BERRY
 	db ITEM_64, BERRY
 	db ITEM_78, BERRY

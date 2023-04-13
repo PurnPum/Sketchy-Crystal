@@ -1,6 +1,6 @@
 BattleCommand_UTurn:
 ; batonpass
-
+	call Beedrill_Check		; We need to do this or uturn wouldn't poison if used by a Beedrill with Venom Spear
 	ldh a, [hBattleTurn]
 	and a
 	jp nz, .Enemy
