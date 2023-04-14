@@ -2660,9 +2660,9 @@ PlayerAttackDamage:
 
 .special
 	ld hl, wEnemyMonSpclDef
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
+	call MagicDustBoost
+	ld b, h
+	ld c, l
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -2676,9 +2676,9 @@ PlayerAttackDamage:
 	jr c, .lightball
 
 	ld hl, wEnemySpDef
-	ld a, [hli]
-	ld b, a
-	ld c, [hl]
+	call MagicDustBoost
+	ld b, h
+	ld c, l
 	ld hl, wPlayerSpAtk
 
 .lightball
@@ -2796,13 +2796,30 @@ CheckDamageStatsCritical:
 ThickWebBoost:
 ; Return in hl the stat value at hl.
 
-; If the defending monster is Ariados/Spinarak and
+; If the defending monster is Ariados/Spinarak, and
 ; it's holding a Thick Web, double it.
 	push bc
 	push de
 	ld b, ARIADOS
 	ld c, SPINARAK
 	ld d, THICK_WEB
+	call BattleCommand_SwitchTurn
+	call SpeciesItemBoost
+	call BattleCommand_SwitchTurn
+	pop de
+	pop bc
+	ret
+	
+MagicDustBoost:
+; Return in hl the stat value at hl.
+
+; If the defending monster is Butterfree, and
+; it's holding a Magic Dust, double it.
+	push bc
+	push de
+	ld b, BUTTERFREE
+	ld c, BUTTERFREE
+	ld d, MAGIC_DUST
 	call BattleCommand_SwitchTurn
 	call SpeciesItemBoost
 	call BattleCommand_SwitchTurn

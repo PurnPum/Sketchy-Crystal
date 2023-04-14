@@ -90,7 +90,7 @@ ItemDescriptions:
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw TeruSama6Desc
+	dw MagicDustDesc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -611,8 +611,9 @@ SilverPowderDesc:
 BluApricornDesc:
 	db   "A blue APRICORN.@"
 
-TeruSama6Desc:
-	db   "?@"
+MagicDustDesc:
+	db   "Doubles BUTTERFREE"
+	next "SPECIAL DEFENSE.@"
 
 AmuletCoinDesc:
 	db   "Doubles monetary"
