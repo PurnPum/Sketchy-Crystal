@@ -2411,15 +2411,26 @@ Beedrill_Check:
 	ld c, VENOM_SPEAR			; Holding a Venom Spear
 	call SpeciesItemCheck		; returning z=1 if so
 	ret nz						; If z=0 then just leave as usual
+	ld a, [wEffectFailed]		; Save the value of EffectFailed so moves that can already poison become 100%
+	ld b, a						; And store it in b
+	xor a
+	ld [wEffectFailed], a		; Set this to 0 so poisoning works regardless of the move's effect chance.
+	push bc
 	ld a, BATTLE_VARS_MOVE_TYPE	; Now check if the attack was BUG or POISON type.
 	call GetBattleVar
 	cp BUG
 	jr nz, .poisontype
-	call z, BattleCommand_PoisonTarget	; If the move was BUG type, poison the foe.
+	call z, BattleCommand_PoisonTarget	; If the move was BUG type, poison the foe, even steel types but not poison types.
+	pop bc
+	ld a, b
+	ld [wEffectFailed], a				; Restore wEffectFailed
 	ret
 .poisontype
 	cp POISON
 	call z, BattleCommand_PoisonTarget	; Same if the move was POISON type.
+	pop bc
+	ld a, b
+	ld [wEffectFailed], a				; Restore wEffectFailed
 	ret
 
 BattleCommand_CheckFaint:
