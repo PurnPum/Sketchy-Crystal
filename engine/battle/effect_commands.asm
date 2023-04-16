@@ -5506,9 +5506,9 @@ BattleCommand_EndLoop:
 	ld a, [de]
 	inc a
 	ld [de], a
-	; ld a, [bc]
-	; inc a
-	; ld [bc], a
+	ld a, [bc]
+	inc a
+	ld [bc], a
 	jr .loop_back_to_critical
 .actually_done
 	ld a, BATTLE_VARS_SUBSTATUS3
