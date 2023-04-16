@@ -2384,6 +2384,16 @@ BattleCommand_StartLoop:
 .ok
 	xor a
 	ld [hl], a
+	push bc
+	ld b, AIPOM
+	ld c, HANDY_TAIL
+	call SpeciesItemCheck			; If the attacker is an aipom holding a Handy Tailç
+	pop bc
+	ret nz
+	ld a, BATTLE_VARS_SUBSTATUS2	; set this substatus for later
+	call GetBattleVarAddr
+	set SUBSTATUS_EXTRA_HIT, [hl]
+	xor a
 	ret
 
 BattleCommand_SuperEffectiveLoopText:
@@ -5482,6 +5492,25 @@ BattleCommand_EndLoop:
 	ld [de], a
 	jr nz, .loop_back_to_critical
 .done_loop
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_EXTRA_HIT, [hl]
+	jr z, .actually_done			; If we fallthrough, it means we're handling the extra hit from an Aipom holding a Handy Tail
+	res SUBSTATUS_EXTRA_HIT, [hl]
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_TRI_ATTACK
+	jr z, .actually_done
+	cp EFFECT_BEAT_UP
+	jr z, .actually_done			; Dont give an extra attack to these moves
+	ld a, [de]
+	inc a
+	ld [de], a
+	; ld a, [bc]
+	; inc a
+	; ld [bc], a
+	jr .loop_back_to_critical
+.actually_done
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	res SUBSTATUS_IN_LOOP, [hl]
