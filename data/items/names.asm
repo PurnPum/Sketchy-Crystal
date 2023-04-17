@@ -141,7 +141,7 @@ ItemNames::
 	li "BERRY JUICE"
 	li "SCOPE LENS"
 	li "ICY ROCK"
-	li "TERU-SAMA"
+	li "BLACK HAT"
 	li "METAL COAT"
 	li "DRAGON FANG"
 	li "TERU-SAMA"

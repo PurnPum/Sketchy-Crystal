@@ -147,7 +147,7 @@
 	const BERRY_JUICE  ; 8b
 	const SCOPE_LENS   ; 8c
 	const ICY_ROCK     ; 8d
-	const ITEM_8E      ; 8e
+	const BLACK_HAT    ; 8e
 	const METAL_COAT   ; 8f
 	const DRAGON_FANG  ; 90
 	const ITEM_91      ; 91

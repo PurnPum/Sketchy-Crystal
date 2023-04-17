@@ -142,7 +142,7 @@ ItemDescriptions:
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
 	dw IcyRockDesc
-	dw TeruSama13Desc
+	dw BlackHatDesc
 	dw MetalCoatDesc
 	dw DragonFangDesc
 	dw TeruSama14Desc
@@ -815,8 +815,9 @@ IcyRockDesc:
 	db   "A hail-extending"
 	next "rare rock. (HOLD)@"
 
-TeruSama13Desc:
-	db   "?@"
+BlackHatDesc:
+	db   "MURKROW does extra"
+	next "dmg to flying foes@"
 
 MetalCoatDesc:
 	db   "Powers up steel-"

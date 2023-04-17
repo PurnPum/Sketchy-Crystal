@@ -3164,6 +3164,23 @@ BattleCommand_DamageCalc:
 	call Divide
 
 ; Item boosts
+; First check for the Black Hat held by a murkrow, then the rest of items
+	push bc
+	ld b, MURKROW
+	ld c, BLACK_HAT
+	call SpeciesItemCheck
+	jr nz, .preproceed
+	push de
+	ld d, FLYING
+	call CheckIfTargetIsXType
+	pop de
+	pop bc
+	jr nz, .proceed
+	ld c, 50		; 50% boost
+	jr .operate
+.preproceed
+	pop bc
+.proceed
 	call GetUserItem
 
 	ld a, b
@@ -3190,6 +3207,7 @@ BattleCommand_DamageCalc:
 	jr nz, .DoneItem
 
 ; * 100 + item effect amount
+.operate
 	ld a, c
 	add 100
 	ldh [hMultiplier], a
@@ -3846,7 +3864,10 @@ BattleCommand_PoisonTarget:
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckIfTargetIsPoisonType
+	ld d, POISON
+	push bc
+	call CheckIfTargetIsXType
+	pop bc
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -3875,7 +3896,10 @@ BattleCommand_Poison:
 	and $7f
 	jp z, .failed
 
-	call CheckIfTargetIsPoisonType
+	ld d, POISON
+	push bc
+	call CheckIfTargetIsXType
+	pop bc
 	jp z, .failed
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -3976,7 +4000,8 @@ BattleCommand_Poison:
 	cp EFFECT_TOXIC
 	ret
 
-CheckIfTargetIsPoisonType:
+CheckIfTargetIsXType: ; This func now requires the type to be an input in 'd'
+	ld b, d
 	ld de, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
@@ -3985,10 +4010,10 @@ CheckIfTargetIsPoisonType:
 .ok
 	ld a, [de]
 	inc de
-	cp POISON
+	cp b
 	ret z
 	ld a, [de]
-	cp POISON
+	cp b
 	ret
 
 PoisonOpponent:
