@@ -145,9 +145,9 @@ ItemDescriptions:
 	dw BlackHatDesc
 	dw MetalCoatDesc
 	dw DragonFangDesc
-	dw TeruSama14Desc
+	dw CoralBranchDesc
 	dw LeftoversDesc
-	dw TeruSama15Desc
+	dw UnworbDesc
 	dw TeruSama16Desc
 	dw TeruSama17Desc
 	dw MysteryBerryDesc
@@ -827,15 +827,17 @@ DragonFangDesc:
 	db   "Powers up dragon-"
 	next "type moves. (HOLD)@"
 
-TeruSama14Desc:
-	db   "?@"
+CoralBranchDesc:
+	db   "CORSOLA's defenses"
+	next "go up if rain/sand@"
 
 LeftoversDesc:
 	db   "Restores HP during"
 	next "battle. (HOLD)@"
 
-TeruSama15Desc:
-	db   "?@"
+UnworbDesc:
+	db   "More dmg if UNOWN"
+	next "matches move name.@"
 
 TeruSama16Desc:
 	db   "?@"

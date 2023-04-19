@@ -1,3 +1,6 @@
+GetUnownLetterFar:
+	ld h, b		; farcalls overwrite hl so this helps handle those
+	ld l, c
 GetUnownLetter:
 ; Return Unown letter in wUnownLetter based on DVs at hl
 

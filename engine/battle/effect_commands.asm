@@ -3115,8 +3115,23 @@ BattleCommand_DamageCalc:
 	and a
 	jr nz, .not_dividing_by_zero
 	ld c, 1
-.not_dividing_by_zero
-
+.not_dividing_by_zero	; Do the unown code earlier to avoid overwritting the Divide/Multiply results
+	push bc
+	push de
+	ld b, UNOWN
+	ld c, UNWORB
+	call SpeciesItemCheck
+	jr nz, .done_unown
+	ld bc, wBattleMonDVs
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_DVs
+	ld bc, wEnemyMonDVs
+.got_DVs
+	farcall GetUnownLetterFar	; Get Unown letter number (1-26) and write it to wUnownLetter
+.done_unown
+	pop de
+	pop bc
 	xor a
 	ld hl, hDividend
 	ld [hli], a
@@ -3164,22 +3179,50 @@ BattleCommand_DamageCalc:
 	call Divide
 
 ; Item boosts
-; First check for the Black Hat held by a murkrow, then the rest of items
-	push bc
+; First check for the Black Hat held by a Murkrow
 	ld b, MURKROW
 	ld c, BLACK_HAT
 	call SpeciesItemCheck
-	jr nz, .preproceed
-	push de
+	jr nz, .coralbranch
 	ld d, FLYING
 	call CheckIfTargetIsXType
-	pop de
-	pop bc
-	jr nz, .proceed
-	ld c, 50		; 50% boost
+	jp nz, .DoneItem	; Item is Black hat so don't check for others
+	ld c, 50			; 50% boost
 	jr .operate
-.preproceed
-	pop bc
+.coralbranch			; Here check for a Coral Branch held by a Corsola
+	call BattleCommand_SwitchTurn
+	ld b, CORSOLA
+	ld c, CORAL_BRANCH
+	call SpeciesItemCheck
+	jr nz, .unworb
+	call BattleCommand_SwitchTurn
+	ld bc, wBattleWeather
+	ld a, [bc]
+	cp WEATHER_RAIN
+	jr z, .ok_weather
+	cp WEATHER_SANDSTORM
+	jr nz, .proceed		; We checked for the defenser's side so still check for other items
+.ok_weather
+	ld c, -50			; equals to +100% defensive boost to the target (halves damage)
+	jr .operate
+.unworb					; Lastly check for unworb held by unown
+	call BattleCommand_SwitchTurn
+	ld b, UNOWN
+	ld c, UNWORB
+	call SpeciesItemCheck
+	jr nz, .proceed
+	ld a, [wUnownLetter]
+	ld b, a						; Save the value to b
+	ld a, BATTLE_VARS_MOVE
+	call GetBattleVar
+	ld [wNamedObjectIndex], a
+	call GetMoveName			; de = wStringBuffer1, first byte should be the first letter of the move
+	ld a, [de]
+	sub $7F						; Reduce the value by 7F since 'A' = $80, thus reducing it to a 1-26 scale, same as wUnownLetter
+	cp b						; Compare it with the wUnownLetter value
+	jr nz, .DoneItem
+	ld c, 50					; 50% boost
+	jr .operate
 .proceed
 	call GetUserItem
 
