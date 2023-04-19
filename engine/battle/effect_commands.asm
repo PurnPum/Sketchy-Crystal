@@ -1202,8 +1202,8 @@ BattleCommand_Critical:
 	cp STICK
 	jr nz, .FocusEnergy
 
-; +2 critical level
-	ld c, 2
+; +4 critical level
+	ld c, 4
 	jr .Tally
 
 .FocusEnergy:
