@@ -570,7 +570,7 @@ ItemAttr_ReturnCarry:
 	scf
 	ret
 
-IncreasePriceByBadgesObtained: 		; Inputs -> Price : de , Item : wCurItem
+IncreasePriceByBadgesObtained::		; Inputs -> Price : de , Item : wCurItem
 	ld hl, wCurItem 				; Store wCurItem in hl
 	ld a, [hl] 						; Store the item ID in a to pass it to IsInArray
 	ld hl, IncreasinglyPriceyItems 	; Load Array in hl to pass it to IsInArray
@@ -579,7 +579,7 @@ IncreasePriceByBadgesObtained: 		; Inputs -> Price : de , Item : wCurItem
 	call IsInArray 					; This will tell us if the item is in the list or not, the index is now stored in b, but it won't be needed
 	pop de 							; Restore de's value
 	ret nc 							; If c is 0 then the item wasn't in the list, thus we can return back
-IncreasePriceByBadgesObtained2: 	; The previous subroutine just fallsthrough, this is used when calculating other things like Pokemon Center cost.
+IncreasePriceByBadgesObtained2:: 	; The previous subroutine just fallsthrough, this is used when calculating other things like Pokemon Center cost.
 	ld hl, wBadges 		; Load the number of badges that we have in a bitmap stored in a word of 2 bytes
 	ld b, 2 			; b needs to be 2 since there are 2 bytes (one for johto's badges and another for kanto's badges)
 	push de

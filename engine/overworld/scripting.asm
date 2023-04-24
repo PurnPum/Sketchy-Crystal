@@ -237,6 +237,9 @@ ScriptCommandTable:
 	dw Script_isdialogueminimal			 ; aa
 	dw Script_writetextcheckdialogue	 ; ab
 	dw Script_farwritetextcheckdialogue	 ; ac
+	dw Script_getscaledprice			 ; ad
+	dw Script_checkscaledmoney			 ; ae
+	dw Script_takescaledmoney			 ; af
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -464,11 +467,11 @@ Script_verbosegiveitem:
 	ld de, GiveItemScript
 	jp ScriptCall
 
-GiveItemScript_DummyFunction:
-	ret
+; GiveItemScript_DummyFunction:
+	; ret
 
 GiveItemScript:
-	callasm GiveItemScript_DummyFunction
+	; callasm GiveItemScript_DummyFunction
 	writetext .ReceivedItemText
 	iffalse .Full
 	waitsfx
@@ -2190,9 +2193,9 @@ Script_warpcheck:
 	farcall EnableEvents
 	ret
 
-Script_enableevents: ; unreferenced
-	farcall EnableEvents
-	ret
+; Script_enableevents: ; unreferenced
+	; farcall EnableEvents
+	; ret
 
 Script_newloadmap:
 	call GetScriptByte
@@ -2220,8 +2223,8 @@ Script_writeunusedbyte:
 	ld [wUnusedScriptByte], a
 	ret
 
-UnusedClosetextScript: ; unreferenced
-	closetext
+; UnusedClosetextScript: ; unreferenced
+	; closetext
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -2284,8 +2287,8 @@ Script_end:
 
 Script_endcallback:
 	call ExitScriptSubroutine
-	jr c, .dummy
-.dummy
+	; jr c, .dummy
+; .dummy
 	ld hl, wScriptFlags
 	res 0, [hl]
 	call StopScript
@@ -2370,13 +2373,13 @@ Script_checksave:
 	ld [wScriptVar], a
 	ret
 
-Script_checkver_duplicate: ; unreferenced
-	ld a, [.gs_version]
-	ld [wScriptVar], a
-	ret
+; Script_checkver_duplicate: ; unreferenced
+	; ld a, [.gs_version]
+	; ld [wScriptVar], a
+	; ret
 
-.gs_version:
-	db GS_VERSION
+; .gs_version:
+	; db GS_VERSION
 
 
 Script_isdialogueminimal:
@@ -2408,3 +2411,41 @@ Script_farwritetextcheckdialogue:
 .minimal_mode
 	call SkipThreeScriptBytes
 	jp Script_farwritetext ;Otherwise skip the first 3 bytes and write the 4th and 5th which hold the minimal text pointer
+	
+Script_getscaledprice:
+	call GetScriptByte
+	ld e, a
+	call GetScriptByte
+	ld d, a				; DE now holds the price
+	farcall IncreasePriceByBadgesObtained2
+	ld a, d
+	ld [wScaledPrice], a
+	ld a, e
+	ld [wScaledPrice + 1], a
+	ret
+
+Script_checkscaledmoney:
+	call GetMoneyAccount
+	call LoadScaledMoneyAmountToMem
+	farcall CompareMoney
+	jp CompareMoneyAction
+
+Script_takescaledmoney:
+	call GetMoneyAccount
+	call LoadScaledMoneyAmountToMem
+	farcall TakeMoney
+	ret
+	
+LoadScaledMoneyAmountToMem:
+	ld bc, hMoneyTemp
+	push bc
+	xor a
+	ld [bc], a
+	inc bc
+	ld a, [wScaledPrice]
+	ld [bc], a
+	inc bc
+	ld a, [wScaledPrice + 1]
+	ld [bc], a
+	pop bc
+	ret

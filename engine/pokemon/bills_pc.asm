@@ -1826,7 +1826,7 @@ PayBeforeWithdrawing:
 	ld de, PCString_PayBeforeWithdrawal
 	call BillsPC_PlaceString
 	farcall GetPriceToHealMons
-	ld hl, wPokemonCenterPrice
+	ld hl, wScaledPrice
 	ld a, [hli]
 	ld d, a
 	ld a, [hld]
@@ -1839,7 +1839,7 @@ PayBeforeWithdrawing:
 	ld [hli], a
 	ld a, e
 	ld [hld], a ;Store the changed value into the same address
-	ld de, wPokemonCenterPrice
+	ld de, wScaledPrice
 	lb bc, PRINTNUM_LEADINGZEROS | PRINTNUM_LEFTALIGN | PRINTNUM_MONEY | 2, 4
 	ld hl, wStringBuffer5
 	call PrintNum ;This will print the number from 'de' into whatever hl points to (in this case wStringBuffer5)
@@ -1867,7 +1867,7 @@ PayBeforeWithdrawing:
 	and a ;If a > 0 (and thus z=0) then we have at least 65536 pokedollars, so we skip further fund checks.
 	jr nz, .CanAfford
 	ld de, wMoney + 1 ;If we're here the first byte of wMoney is 00, so we only use the last 2 bytes, making it simpler to compare funds
-	ld bc, wPokemonCenterPrice
+	ld bc, wScaledPrice
 	ld a, 2 ;Use only 2 bytes as the price will never surpass 4 digits ($2710=d10000)
 	call PCCompareFunds ;Use a copy of the far function CompareFunds to avoid 'a' being overwritten by the farcall
 	jr c, .CantAfford
@@ -1875,17 +1875,17 @@ PayBeforeWithdrawing:
 	ld de, SFX_TRANSACTION
 	call WaitPlaySFX
 	call WaitSFX
-	ld a, [wPokemonCenterPrice - 1] ;Load the byte before wPokemonCenterPrice to save it since we'll override it with 00
+	ld a, [wScaledPrice - 1] ;Load the byte before wScaledPrice to save it since we'll override it with 00
 	ld b, a ;Save the old value in b
 	xor a
-	ld [wPokemonCenterPrice - 1], a ;Write 00 there so we can use 3 bytes for wPokemonCenterPrice
+	ld [wScaledPrice - 1], a ;Write 00 there so we can use 3 bytes for wScaledPrice
 	push bc
 	ld de, wMoney
-	ld bc, wPokemonCenterPrice - 1
+	ld bc, wScaledPrice - 1
 	farcall TakeMoney
 	pop bc ;Restore b's value
 	ld a, b
-	ld [wPokemonCenterPrice - 1], a ;Restore whatever value was held there earlier
+	ld [wScaledPrice - 1], a ;Restore whatever value was held there earlier
 	ret
 	
 .CantAfford:

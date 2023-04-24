@@ -61,7 +61,7 @@ NurseAskHealText:
 NurseExplainCost:
 	text "This will cost"
 	line "you ¥@"
-	text_decimal wPokemonCenterPrice, 2, 5
+	text_decimal wScaledPrice, 2, 5
 	text "."
 	done
 	

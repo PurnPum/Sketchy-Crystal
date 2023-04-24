@@ -185,10 +185,10 @@ GetPriceToHealMons:
 	farcall IncreasePriceByBadgesObtained2
 	ld a, d
 	ld [wStringBuffer2 + 1], a
-	ld [wPokemonCenterPrice], a
+	ld [wScaledPrice], a
 	ld a, e
 	ld [wStringBuffer2 + 2], a
-	ld [wPokemonCenterPrice + 1], a
+	ld [wScaledPrice + 1], a
 	ret
 	
 TakeMoneyBeforeHeal:

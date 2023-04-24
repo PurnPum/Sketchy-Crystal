@@ -1084,4 +1084,22 @@ MACRO farwritetextcheckdialogue
 	dba \2
 ENDM
 
+	const getscaledprice_command ; $ad
+MACRO getscaledprice
+	db getscaledprice_command
+	dw \1 ; Base price, writes result into wScaledPrice
+ENDM
+
+	const checkscaledmoney_command ; $ae
+MACRO checkscaledmoney
+	db checkscaledmoney_command
+	db \1 ; account, the amount will always be in wScaledPrice, so getscaledprice must be called before
+ENDM
+
+	const takescaledmoney_command ; $af
+MACRO takescaledmoney
+	db takescaledmoney_command
+	db \1 ; account, the amount will always be in wScaledPrice, so getscaledprice must be called before
+ENDM
+
 DEF NUM_EVENT_COMMANDS EQU const_value

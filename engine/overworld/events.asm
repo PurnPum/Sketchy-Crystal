@@ -97,15 +97,15 @@ EnterMap:
 	ld [wMapStatus], a
 	ret
 
-UnusedWait30Frames: ; unreferenced
-	ld c, 30
-	call DelayFrames
-	ret
+; UnusedWait30Frames: ; unreferenced
+	; ld c, 30
+	; call DelayFrames
+	; ret
 
 HandleMap:
 	call ResetOverworldDelay
 	call HandleMapTimeAndJoypad
-	farcall HandleCmdQueue ; no need to farcall
+	call HandleCmdQueue
 	call MapEvents
 
 ; Not immediately entering a connected map will cause problems.
@@ -210,7 +210,7 @@ PlayerEvents:
 	and a
 	ret nz
 
-	call Dummy_CheckScriptFlags2Bit5 ; This is a waste of time
+	; call Dummy_CheckScriptFlags2Bit5 ; This is a waste of time
 
 	call CheckTrainerBattle_GetPlayerEvent
 	jr c, .ok
@@ -299,7 +299,7 @@ CheckTileEvent:
 
 	call RandomEncounter
 	ret c
-	jr .ok ; pointless
+	; jr .ok ; pointless
 
 .ok
 	xor a
@@ -350,18 +350,18 @@ SetUpFiveStepWildEncounterCooldown:
 SetMinTwoStepWildEncounterCooldown:
 ; dummied out
 	ret
-	ld a, [wWildEncounterCooldown]
-	cp 2
-	ret nc
-	ld a, 2
-	ld [wWildEncounterCooldown], a
-	ret
+	; ld a, [wWildEncounterCooldown]
+	; cp 2
+	; ret nc
+	; ld a, 2
+	; ld [wWildEncounterCooldown], a
+	; ret
 
-Dummy_CheckScriptFlags2Bit5:
-	call CheckBit5_ScriptFlags2
-	ret z
-	call SetXYCompareFlags
-	ret
+; Dummy_CheckScriptFlags2Bit5:
+	; call CheckBit5_ScriptFlags2
+	; ret z
+	; call SetXYCompareFlags
+	; ret
 
 RunSceneScript:
 	ld a, [wCurMapSceneScriptCount]
