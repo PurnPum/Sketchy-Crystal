@@ -417,8 +417,8 @@ IlexForestHiddenParlyzHeal:
 IlexForestHiddenSodaPop:
 	hiddenitem SUPER_POTION, EVENT_ILEX_FOREST_HIDDEN_SODA_POP
 
-IlexForestHiddenFullHeal:
-	hiddenitem FULL_HEAL, EVENT_ILEX_FOREST_HIDDEN_FULL_HEAL
+IlexForestHiddenLightBall:
+	hiddenitem LIGHT_BALL, EVENT_ILEX_FOREST_HIDDEN_LIGHT_BALL
 
 IlexForestBoulder: ; unreferenced
 	jumpstd StrengthBoulderScript
@@ -952,8 +952,8 @@ IlexForest_MapEvents:
 	def_bg_events
 	bg_event  3, 23, BGEVENT_READ, IlexForestSignpost
 	bg_event 13, 14, BGEVENT_ITEM, IlexForestHiddenParlyzHeal
-	bg_event 17, 13, BGEVENT_ITEM, IlexForestHiddenSodaPop
-	bg_event  1, 23, BGEVENT_ITEM, IlexForestHiddenFullHeal
+	bg_event  1, 23, BGEVENT_ITEM, IlexForestHiddenSodaPop
+	bg_event 17, 13, BGEVENT_ITEM, IlexForestHiddenLightBall
 	bg_event  8, 28, BGEVENT_UP, IlexForestShrineScript
 
 	def_object_events
@@ -964,7 +964,7 @@ IlexForest_MapEvents:
 	object_event 20, 38, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestGreatBalls, EVENT_ILEX_FOREST_GREAT_BALLS
 	object_event  8, 35, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ILEX_FOREST_KURT
 	object_event  3, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestLassScript, EVENT_ILEX_FOREST_LASS
-	object_event 12,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerBugCatcherWayne, -1
+	object_event 10, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerBugCatcherWayne, -1
 	object_event  9, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestSuperPotions, EVENT_ILEX_FOREST_SUPER_POTIONS
 	object_event 19, 47, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_ITEMBALL, 0, IlexForestNugget, EVENT_ILEX_FOREST_NUGGET
 	object_event 27,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestElixers, EVENT_ILEX_FOREST_ELIXERS

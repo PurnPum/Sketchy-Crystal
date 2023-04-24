@@ -458,8 +458,8 @@ Route32ChallengeSign:
 Route32PokecenterSign:
 	jumpstd PokecenterSignScript
 
-Route32HiddenLightBall:
-	hiddenitem LIGHT_BALL, EVENT_ROUTE_32_HIDDEN_LIGHT_BALL
+Route32HiddenElixer:
+	hiddenitem ELIXER, EVENT_ROUTE_32_HIDDEN_ELIXER
 
 Route32HiddenRevive:
 	hiddenitem REVIVE, EVENT_ROUTE_32_HIDDEN_REVIVE
@@ -884,7 +884,7 @@ Route32_MapEvents:
 	bg_event 10, 84, BGEVENT_READ, Route32UnionCaveSign
 	bg_event  5, 63, BGEVENT_READ, Route32ChallengeSign
 	bg_event 12, 73, BGEVENT_READ, Route32PokecenterSign
-	bg_event 12, 67, BGEVENT_ITEM, Route32HiddenLightBall
+	bg_event 12, 67, BGEVENT_ITEM, Route32HiddenElixer
 	bg_event  6, 53, BGEVENT_ITEM, Route32HiddenRevive
 
 	def_object_events
