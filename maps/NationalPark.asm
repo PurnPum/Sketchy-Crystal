@@ -1,3 +1,5 @@
+DEF NATIONALPARK_TEACHER_QUICKCLAW_BASE_PRICE	EQU	1000
+
 	object_const_def
 	const NATIONALPARK_LASS1
 	const NATIONALPARK_POKEFAN_F1
@@ -25,22 +27,37 @@ NationalParkLassScript:
 NationalParkPokefanFScript:
 	jumptextfaceplayer NationalParkPokefanFText
 
+
 NationalParkTeacher1Script:
 	faceplayer
 	opentext
 	checkevent EVENT_GOT_QUICK_CLAW
 	iftrue .GotQuickClaw
-	writetext NationalParkTeacher1Text
-	promptbutton
+	getscaledprice NATIONALPARK_TEACHER_QUICKCLAW_BASE_PRICE
+	writetextcheckdialogue NationalParkTeacher1Text, NationalParkTeacher1TextMin
+	special PlaceMoneyTopRight
+	yesorno
+	iffalse .Refused
+	checkscaledmoney YOUR_MONEY
+	ifequal HAVE_LESS, .NotEnoughMoney
 	verbosegiveitem QUICK_CLAW
 	iffalse .NoRoom
+	takescaledmoney YOUR_MONEY
+	playsound SFX_TRANSACTION
 	setevent EVENT_GOT_QUICK_CLAW
 .GotQuickClaw:
-	writetext NationalParkTeacher1Text_GotQuickClaw
+	writetextcheckdialogue NationalParkTeacher1Text_GotQuickClaw, NationalParkTeacher1Text_GotQuickClawMin
+.done:
 	waitbutton
-.NoRoom:
+.Refused:
 	closetext
 	end
+.NoRoom:
+	writetext NationalParkTeacher1Text_NoRoom
+	sjump .done
+.NotEnoughMoney:
+	writetextcheckdialogue NationalParkTeacher1Text_Brokeaf, NationalParkTeacher1Text_BrokeafMin
+	sjump .done
 
 NationalParkYoungster1Script:
 	jumptextfaceplayer NationalParkYoungster1Text
@@ -335,11 +352,36 @@ NationalParkTeacher1Text:
 	para "You must be a"
 	line "#MON trainer."
 
-	para "Since you're work-"
-	line "ing so hard, I"
+	para "You could make use"
+	line "of a QUICK CLAW."
 
-	para "want you to have"
-	line "this."
+	para "I'll sell you mine"
+	line "for ¥@"
+	
+	text_decimal wScaledPrice, 2, 5
+	text "."
+	done
+	
+NationalParkTeacher1TextMin:
+	text "¥@"
+	text_decimal wScaledPrice, 2, 5
+	text " for a"
+	line "QUICK CLAW."
+	done
+	
+NationalParkTeacher1Text_NoRoom:
+	text "You have no room"
+	line "for this!"
+	done
+
+NationalParkTeacher1Text_Brokeaf:
+	text "Oh dear, it seems"
+	line "like you cannot"
+	cont "afford this…"
+	done
+	
+NationalParkTeacher1Text_BrokeafMin:
+	text "lol go get a job"
 	done
 
 NationalParkTeacher1Text_GotQuickClaw:
@@ -349,6 +391,11 @@ NationalParkTeacher1Text_GotQuickClaw:
 	para "Sometimes it will"
 	line "strike first"
 	cont "during battle."
+	done
+
+NationalParkTeacher1Text_GotQuickClawMin:
+	text "Now just pray to"
+	line "RNGesus."
 	done
 
 NationalParkYoungster1Text:
@@ -501,6 +548,8 @@ NationalParkBattleNoticeText:
 
 	para "NATIONAL PARK"
 	line "WARDEN'S OFFICE"
+	
+	para "But nobody cared…"
 	done
 
 NationalParkTrainerTipsText:
@@ -540,15 +589,15 @@ NationalPark_MapEvents:
 	bg_event 12,  4, BGEVENT_READ, NationalParkTrainerTipsSign
 
 	def_object_events
-	object_event 15, 24, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NationalParkLassScript, -1
-	object_event 14,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkPokefanFScript, -1
+	object_event 17, 13, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NationalParkLassScript, -1
+	object_event 18, 28, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkPokefanFScript, -1
 	object_event 27, 40, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NationalParkTeacher1Script, -1
 	object_event 11, 41, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkYoungster1Script, -1
 	object_event 10, 41, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, NationalParkYoungster2Script, -1
 	object_event 17, 41, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkTeacher2Script, -1
 	object_event 26, 40, SPRITE_GROWLITHE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NationalParkPersian, -1
 	object_event 27, 23, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyJack1, -1
-	object_event 18, 29, SPRITE_POKEFAN_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanfBeverly1, -1
+	object_event 19, 33, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerPokefanfBeverly1, -1
 	object_event 16,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, TrainerPokefanmWilliam, -1
 	object_event  8, 14, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassKrise, -1
 	object_event 37, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, NationalParkParlyzHeal, EVENT_NATIONAL_PARK_PARLYZ_HEAL
