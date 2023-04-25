@@ -2992,7 +2992,7 @@ wMomSavingMoney::
 ; bit 7: active
 	db
 
-wPokemonCenterPrice:: dw
+wScaledPrice:: dw
 
 wCoins:: dw
 
