@@ -320,8 +320,8 @@ NationalParkGiftSack:
 NationalParkTMDig:
 	itemball TM_SKETCH
 
-NationalParkHiddenFullHeal:
-	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
+NationalParkHiddenBigMushroom:
+	hiddenitem BIG_MUSHROOM, EVENT_NATIONAL_PARK_HIDDEN_BIG_MUSHROOM
 
 NationalParkLassText:
 	text "Look! Check out my"
@@ -586,7 +586,7 @@ NationalPark_MapEvents:
 	def_bg_events
 	bg_event 14, 44, BGEVENT_READ, NationalParkRelaxationSquareSign
 	bg_event 27, 31, BGEVENT_READ, NationalParkBattleNoticeSign
-	bg_event 15, 47, BGEVENT_ITEM, NationalParkHiddenFullHeal
+	bg_event 15, 47, BGEVENT_ITEM, NationalParkHiddenBigMushroom
 	bg_event 12,  4, BGEVENT_READ, NationalParkTrainerTipsSign
 
 	def_object_events
