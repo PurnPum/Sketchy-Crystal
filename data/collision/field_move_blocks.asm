@@ -85,6 +85,13 @@ CutTreeBlockPointers:
 ; facing block, replacement block, animation
 	db $13, $03, 1 ; grass
 	db $03, $04, 1 ; grass
+	db $40, $04, 1 ; grass
+	db $41, $04, 1 ; grass
+	db $42, $04, 1 ; grass
+	db $43, $04, 1 ; grass
+	db $49, $7C, 1 ; grass
+	db $4A, $7D, 1 ; grass
+	db $4B, $7E, 1 ; grass
 	db -1 ; end
 
 .forest:
