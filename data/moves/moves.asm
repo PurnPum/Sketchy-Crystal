@@ -45,7 +45,7 @@ Moves:
 	move HEADBUTT,     EFFECT_FLINCH_HIT,         70, NORMAL,       100, 15,  30
 	move HORN_ATTACK,  EFFECT_NORMAL_HIT,         65, NORMAL,       100, 25,   0
 	move FURY_ATTACK,  EFFECT_TRIPLE_KICK,        15, NORMAL,       100, 20,   0
-	move UTURN,   	   EFFECT_UTURN,		      70, BUG,        	100, 20,   0
+	move UTURN,   	   EFFECT_UTURN,		      55, BUG,        	100, 20,   0
 	move TACKLE,       EFFECT_NORMAL_HIT,         40, NORMAL,       100, 35,   0
 	move BODY_SLAM,    EFFECT_PARALYZE_HIT,       75, NORMAL,       100, 10,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        35, NORMAL,       100, 20,   0
