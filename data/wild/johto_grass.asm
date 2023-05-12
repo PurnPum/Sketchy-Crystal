@@ -341,29 +341,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons NATIONAL_PARK
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, NIDORAN_M
-	db 12, NIDORAN_F
-	db 14, LEDYBA
-	db 13, PIDGEY
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
+	db 17, NIDORINO
+	db 17, NIDORINA
+	db 17, PIDGEOTTO
+	db 18, PIKACHU
+	db 18, FLAAFFY
+	db 18, FLAAFFY
+	db 18, FLAAFFY
 	; day
-	db 12, NIDORAN_F
-	db 12, NIDORAN_M
-	db 14, SUNKERN
-	db 13, PIDGEY
-	db 10, CATERPIE
-	db 10, WEEDLE
-	db 10, WEEDLE
+	db 17, NIDORINO
+	db 17, NIDORINA
+	db 17, PIDGEOTTO
+	db 18, PIKACHU
+	db 18, FLAAFFY
+	db 18, FLAAFFY
+	db 18, FLAAFFY
 	; nite
-	db 12, PSYDUCK
-	db 13, HOOTHOOT
-	db 14, SPINARAK
-	db 15, HOOTHOOT
-	db 10, VENONAT
-	db 12, VENONAT
-	db 12, VENONAT
+	db 17, NIDORINO
+	db 17, NIDORINA
+	db 17, PIDGEOTTO
+	db 18, PIKACHU
+	db 18, FLAAFFY
+	db 18, FLAAFFY
+	db 18, FLAAFFY
 	end_grass_wildmons
 
 	def_grass_wildmons RUINS_OF_ALPH_OUTSIDE
@@ -1405,29 +1405,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_35
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, SNUBBULL
-	db 14, PIDGEY
-	db 13, GROWLITHE
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 12, YANMA
+	db 17, PONYTA
+	db 18, SKARMORY
+	db 18, PORYGON
+	db 17, SNEASEL
+	db 17, VOLTORB
+	db 17, VOLTORB
+	db 17, VOLTORB
 	; day
-	db 12, SNUBBULL
-	db 14, PIDGEY
-	db 13, GROWLITHE
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 12, YANMA
+	db 17, PONYTA
+	db 18, SKARMORY
+	db 18, PORYGON
+	db 17, SNEASEL
+	db 17, VOLTORB
+	db 17, VOLTORB
+	db 17, VOLTORB
 	; nite
-	db 12, DROWZEE
-	db 14, HOOTHOOT
-	db 13, PSYDUCK
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 12, YANMA
+	db 17, PONYTA
+	db 18, SKARMORY
+	db 18, PORYGON
+	db 17, SNEASEL
+	db 17, VOLTORB
+	db 17, VOLTORB
+	db 17, VOLTORB
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_36

@@ -27,7 +27,6 @@ FishGroups:
 	fishgroup 95 percent + 1, .ROUTE34_Old,				.ROUTE34_Good,				.ROUTE34_Super
 	fishgroup 95 percent + 1, .GOLDENROD_Old,			.GOLDENROD_Good,			.GOLDENROD_Super
 	fishgroup 95 percent + 1, .ROUTE35_Old,				.ROUTE35_Good,				.ROUTE35_Super
-	fishgroup 95 percent + 1, .NATIONALPARK_Old,		.NATIONALPARK_Good,			.NATIONALPARK_Super
 	fishgroup 95 percent + 1, .ECRUTEAK_Old,			.ECRUTEAK_Good,				.ECRUTEAK_Super
 	fishgroup 95 percent + 1, .ROUTE38_Old,				.ROUTE38_Good,				.ROUTE38_Super
 	fishgroup 95 percent + 1, .OLIVINE_Old,				.OLIVINE_Good,				.OLIVINE_Super
@@ -228,22 +227,13 @@ FishGroups:
 	db 100 percent,	STARMIE,	16
 
 .ROUTE35_Old:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	TENTACOOL,	17
 
 .ROUTE35_Good:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	TENTACRUEL,	17
 
 .ROUTE35_Super:
-	db 100 percent,	KRABBY,	10
-
-.NATIONALPARK_Old:
-	db 100 percent,	KRABBY,	10
-
-.NATIONALPARK_Good:
-	db 100 percent,	KRABBY,	10
-
-.NATIONALPARK_Super:
-	db 100 percent,	KRABBY,	10
+	db 100 percent,	TENTACRUEL,	17
 
 .ECRUTEAK_Old:
 	db 100 percent,	KRABBY,	10
