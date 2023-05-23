@@ -13,6 +13,26 @@ SimpleMultiply::
 	pop bc
 	ret
 
+HLMultiply::
+; Returns hl + a * c
+	and a
+	ret z
+	
+	push bc
+	ld b, a
+	xor a
+.loop
+	add c
+	jr nc, .nocarry
+	inc h
+.nocarry
+	dec b
+	jr nz, .loop
+	ld c, a
+	add hl, bc
+	pop bc
+	ret
+
 SimpleDivide::
 ; Divide a by c. Return quotient b and remainder a.
 	ld b, 0

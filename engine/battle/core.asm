@@ -3767,7 +3767,7 @@ TryToRunAwayFromBattle:
 
 	ld a, [wBattleMode]
 	dec a
-	jp nz, .cant_run_from_trainer
+	jp nz, .trainer_battle_info
 
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
@@ -3866,9 +3866,10 @@ TryToRunAwayFromBattle:
 	ld hl, BattleText_CantEscape
 	jr .print_inescapable_text
 
-.cant_run_from_trainer
-	ld hl, BattleText_TheresNoEscapeFromTrainerBattle
-
+.trainer_battle_info
+	call TrainerBattleInfo
+	ret
+	
 .print_inescapable_text
 	call StdBattleTextbox
 	ld a, TRUE
@@ -3932,6 +3933,8 @@ TryToRunAwayFromBattle:
 	call LoadTilemapToTempTilemap
 	scf
 	ret
+
+INCLUDE "engine/battle/trainer_battle_info.asm"
 
 InitBattleMon:
 	ld a, MON_SPECIES

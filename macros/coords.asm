@@ -13,6 +13,26 @@ MACRO coord
 	endc
 ENDM
 
+MACRO coordHL
+;x(register), y(register)[, origin]
+	if _NARG < 3
+		ld hl, wTilemap
+	else
+		ld hl, \3
+	endc
+	ld a, \2
+	push bc
+	ld c, SCREEN_WIDTH
+	call HLMultiply
+	pop bc
+	ld a, \1
+	add l
+	ld l, a
+	jr nc, .next
+	inc h
+	.next
+ENDM
+
 DEF hlbgcoord EQUS "bgcoord hl,"
 DEF bcbgcoord EQUS "bgcoord bc,"
 DEF debgcoord EQUS "bgcoord de,"

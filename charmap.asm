@@ -52,8 +52,8 @@
 	charmap "<BOLD_L>",  $6b ; unused
 	charmap "<BOLD_M>",  $6c ; unused
 	charmap "<COLON>",   $6d ; colon with tinier dots than ":"
-	charmap "ぃ",         $6e ; hiragana small i, unused
-	charmap "ぅ",         $6f ; hiragana small u, unused
+	charmap "<PLUS>",    $6e ; plus sign
+	charmap "<MINUS>",   $6f ; minus sign
 	charmap "<PO>",      $70
 	charmap "<KE>",      $71
 	charmap "“",         $72 ; opening quote
@@ -76,9 +76,9 @@
 
 	charmap "<LV>",      $6e
 
-	charmap "<DO>",      $70 ; hiragana small do, unused
+	charmap "<PLUS>",    $70 ; plus sign
 	charmap "◀",         $71
-	charmap "『",         $72 ; Japanese opening quote, unused
+	charmap "<MINUS>",   $72 ; minus sign
 	charmap "<ID>",      $73
 	charmap "№",         $74
 
