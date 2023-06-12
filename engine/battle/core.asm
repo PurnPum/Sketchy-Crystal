@@ -3867,7 +3867,7 @@ TryToRunAwayFromBattle:
 	jr .print_inescapable_text
 
 .trainer_battle_info
-	call TrainerBattleInfo
+	farcall TrainerBattleInfo
 	ret
 	
 .print_inescapable_text
@@ -3933,8 +3933,6 @@ TryToRunAwayFromBattle:
 	call LoadTilemapToTempTilemap
 	scf
 	ret
-
-INCLUDE "engine/battle/trainer_battle_info.asm"
 
 InitBattleMon:
 	ld a, MON_SPECIES
