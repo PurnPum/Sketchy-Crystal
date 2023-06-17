@@ -6225,7 +6225,7 @@ LoadEnemyMon:
 	cp BATTLETYPE_SHINY
 	jr nz, .GenerateDVs
 
-	ld b, ATKDEFDV_SHINY ; $dd
+	ld b, ATKDEFDV_SHINY ; $ff
 	ld c, SPDSPCDV_SHINY ; $fe
 	jr .UpdateDVs
 

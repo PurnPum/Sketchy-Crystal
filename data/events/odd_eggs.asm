@@ -61,7 +61,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 13, 13, 15, 14 ; DVs (Shiny, Hidden Power Bug)
+	dn 15, 15, 15, 14 ; DVs, Shiny
 	db 1, 0, 0, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -113,7 +113,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 13, 13, 15, 14 ; DVs (Shiny, Hidden Power Bug)
+	dn 15, 15, 15, 14 ; DVs, Shiny
 	db 1, 0, 0, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
@@ -165,7 +165,7 @@ OddEggs:
 	bigdw 0
 	bigdw 0
 	bigdw 0
-	dn 13, 13, 15, 14 ; DVs (Shiny, Hidden Power Bug)
+	dn 15, 15, 15, 14 ; DVs, Shiny
 	db 1, 0, 0, 0 ; PP
 	db 20 ; Step cycles to hatch
 	db 0, 0, 0 ; Pokerus, Caught data
