@@ -98,7 +98,7 @@ PrintStatChangeValue: ; Input is hl (either wPlayerStatX or wEnemyStatX) and bc 
 	ld a, 7
 	sub c
 .insert
-	add $F6 		; F6 = 0 in the charmap
+	add "0"
 	ld [de], a
 	ld a, TX_END
 	inc de
@@ -186,17 +186,261 @@ StatsInfoBoxLoop:
 	ret
 
 FieldInfoBox:
+	hlcoord 0, 0
+	ld b, 2
+	ld c, 18
+	call Textbox
+	ld b, 10
+	ld c, 8
+	hlcoord 0, 4
+	call Textbox
+	ld b, 10
+	ld c, 8
+	hlcoord 10, 4
+	call Textbox
+.weather
+	hlcoord 6, 0
+	ld de, FieldTexts.weather
+	call PlaceString
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	ld de, FieldTexts.hail
+	jr z, .done
+	cp WEATHER_SUN
+	ld de, FieldTexts.sun
+	jr z, .done
+	cp WEATHER_RAIN
+	ld de, FieldTexts.rain
+	jr z, .done
+	cp WEATHER_SANDSTORM
+	ld de, FieldTexts.sand
+	jr z, .done
+	ld de, FieldTexts.none
+.done
+	hlcoord 1, 1
+	call PlaceString
+	ld a, [wBattleWeather]
+	cp WEATHER_NONE
+	jr z, .skip_weather_turns
+	ld de, wStringBuffer5
+	ld a, [wWeatherCount]
+	add "0"
+	ld [de], a
+	ld a, TX_END
+	inc de
+	ld [de], a
+	ld de, wStringBuffer5
+	hlcoord 1, 2
+	call PlaceString
+	ld a, [wWeatherCount]
+	cp 1
+	ld de, FieldTexts.turnsleft
+	jr nz, .not_1_turn
+	ld de, FieldTexts.turnleft
+.not_1_turn
+	hlcoord 2, 2
+	call PlaceString
+.skip_weather_turns
+	hlcoord 1, 4
+	ld de, MainText.player
+	call PlaceString	
+	hlcoord 11, 4
+	ld de, MainText.enemy
+	call PlaceString
+	lb bc, 1, 5
+	call FieldInfoBoxReflect
+	lb bc, 1, 7
+	call FieldInfoBoxLScreen
+	lb bc, 1, 9
+	ld de, FieldTexts.spikes
+	call FieldInfoBoxSpikes
+.player_confuse
+	ld de, FieldTexts.confused
+	ld a, [wPlayerSubStatus3]
+	bit SUBSTATUS_CONFUSED, a
+	jr z, .enemy_confuse
+	lb bc, 1, 10
+	call FieldInfoBoxStatus
+.enemy_confuse
+	ld a, [wEnemySubStatus3]
+	bit SUBSTATUS_CONFUSED, a
+	jr z, .player_encore
+	lb bc, 11, 10
+	call FieldInfoBoxStatus
+.player_encore
+	ld de, FieldTexts.encored
+	ld a, [wPlayerSubStatus5]
+	bit SUBSTATUS_ENCORED, a
+	jr z, .enemy_encore
+	lb bc, 1, 11
+	call FieldInfoBoxStatus
+.enemy_encore
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_ENCORED, a
+	jr z, .player_disable
+	lb bc, 11, 11
+	call FieldInfoBoxStatus
+.player_disable
+	ld de, FieldTexts.disabled
+	ld a, [wDisabledMove]
+	and a
+	jr z, .enemy_disable
+	lb bc, 1, 14
+	call FieldInfoBoxStatus
+.enemy_disable
+	ld a, [wEnemyDisabledMove]
+	and a
+	jr z, .player_toxic
+	lb bc, 11, 14
+	call FieldInfoBoxStatus
+.player_toxic
+	ld a, [wPlayerSubStatus5]
+	bit SUBSTATUS_TOXIC, a
+	jr z, .enemy_toxic
+	lb bc, 1, 12
+	ld de, wPlayerToxicCount
+	call FieldInfoBoxToxic
+.enemy_toxic
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_TOXIC, a
+	ret z
+	lb bc, 11, 12
+	ld de, wEnemyToxicCount
+	call FieldInfoBoxToxic
+	ret
+
+FieldInfoBoxReflect: ; input: bc -> coords
+	ld hl, wPlayerScreens
+	ld de, wPlayerReflectCount
+	bit 4, [hl]
+	jr z, .enemy
+	ld hl, FieldTexts.reflect
+	push bc
+	call FieldInfoBoxPlaceElement
+	pop bc
+.enemy
+	ld hl, wEnemyScreens
+	ld de, wEnemyReflectCount
+	bit 4, [hl]
+	ret z
+	ld a, b
+	add 10
+	ld b, a
+	ld hl, FieldTexts.reflect
+	call FieldInfoBoxPlaceElement
+	ret
+	
+FieldInfoBoxLScreen: ; input: bc -> coords
+	ld hl, wPlayerScreens
+	ld de, wPlayerLightScreenCount
+	bit 3, [hl]
+	jr z, .enemy
+	ld hl, FieldTexts.lightScreen
+	push bc
+	call FieldInfoBoxPlaceElement
+	pop bc
+.enemy
+	ld hl, wEnemyScreens
+	ld de, wEnemyLightScreenCount
+	bit 3, [hl]
+	ret z
+	ld a, b
+	add 10
+	ld b, a
+	ld hl, FieldTexts.lightScreen
+	call FieldInfoBoxPlaceElement
+	ret
+
+FieldInfoBoxSpikes: ; input: bc -> coords
+	ld hl, wPlayerScreens
+	bit 0, [hl]
+	jr z, .enemy
+	push de
+	call CoordsBCtoHL
+	push bc
+	call PlaceString
+	pop bc
+	pop de
+.enemy
+	ld hl, wEnemyScreens
+	bit 0, [hl]
+	ret z
+	ld a, b
+	add 10
+	ld b, a
+	call CoordsBCtoHL
+	call PlaceString
+	ret
+	
+FieldInfoBoxStatus: ; input: bc -> coords, de -> text
+	push de
+	call CoordsBCtoHL
+	call PlaceString
+	pop de
+	ret
+	
+FieldInfoBoxToxic: ; input: bc -> coords , de -> count
+	ld hl, FieldTexts.toxic
+	push hl
+	push bc
+	call FieldInfoBoxPlaceElement
+	pop bc
+	pop hl
+	ret
+	
+FieldInfoBoxPlaceElement: ; input: bc -> coords, hl -> Field text, de -> Count
+	push de
+	ld d, h
+	ld e, l
+	call CoordsBCtoHL
+	push bc
+	call PlaceString
+	pop bc
+	inc c
+	call CoordsBCtoHL
+	pop de
+	push de
+	ld a, [de]
+	ld de, wStringBuffer5
+	add "0"
+	ld [de], a
+	ld a, TX_END
+	inc de
+	ld [de], a
+	dec de
+	push bc
+	call PlaceString
+	pop bc
+	pop de
+	ld a, [de]
+	cp 1
+	ld de, FieldTexts.turns
+	jr nz, .not_1_turn
+	ld de, FieldTexts.turn
+.not_1_turn
+	inc b
+	call CoordsBCtoHL
+	call PlaceString
 	ret
 
 MainText:
 .page1:
 	db "  PAGE 1/3 ▶@"
 
+.page1_content:
+	db "STAT CHANGES@"
+
 .page2:
 	db "◀ PAGE 2/3 ▶@"
+
+.page2_content:
+	db "ACTUAL STATS@"
 	
 .page3:
 	db "◀ PAGE 3/3  @"
+
+.page3_content:
+	db "FIELD/STATUS@"
 
 .player:
 	db " PLAYER @"
@@ -228,6 +472,58 @@ StatTexts:
 	
 .evasiveness:
 	db "EVA:@"
+
+FieldTexts:
+.weather:
+	db " WEATHER @"
+	
+.none:
+	db "NORMAL@"
+	
+.sun:
+	db "SUNNY@"
+
+.rain:
+	db "RAIN@"
+	
+.sand:
+	db "SANDSTORM@"
+	
+.hail:
+	db "HAIL@"
+	
+.reflect:
+	db "REFLECT@"
+	
+.lightScreen:
+	db "L.SCREEN@"
+	
+.spikes:
+	db "SPIKES@"
+	
+.confused:
+	db "CONFUSED@"
+	
+.encored:
+	db "ENCORED@"
+	
+.toxic:
+	db "TOXIC@"
+	
+.disabled:
+	db "DISABLED@"
+	
+.turnsleft:
+	db " turns left@"
+
+.turnleft:
+	db " turn left@"
+	
+.turns:
+	db " turns@"
+
+.turn:
+	db " turn@"
 
 JoyWaitAorBorDPADInfoTrainer:
 .loop
@@ -301,13 +597,20 @@ UpdatePageText:
 	cp 1
 	jr z, .page_2
 	jr nc, .page_3
+	call PlaceString
+	ld de, MainText.page1_content
 	jr .done
 .page_2
 	ld de, MainText.page2
+	call PlaceString
+	ld de, MainText.page2_content
 	jr .done
 .page_3
 	ld de, MainText.page3
+	call PlaceString
+	ld de, MainText.page3_content
 .done
+	hlcoord 4, 16
 	call PlaceString
 	ret
 
