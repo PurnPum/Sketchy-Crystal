@@ -815,6 +815,10 @@ DisplayTypeIcons:
 	ld a, [wCurrentBattleWindow]
 	and a
 	ret nz ; Only do this on the main menu of a battle
+	call PlayClickSFX
+	xor a
+	inc a
+	ld [wDisplayingTypeIcons], a
 	ld a, [wEnemyMonType1]
 	ld b, $80
 	ld de, wBGPals1 palette 5 ; D028

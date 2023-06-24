@@ -5025,6 +5025,15 @@ BattleMenu:
 	ret c
 
 .next
+	ld a, [wDisplayingTypeIcons]
+	and a
+	jr z, .no_icons
+	xor a
+	ld [wDisplayingTypeIcons], a
+	call EmptyBattleTextbox
+	call UpdateBattleHuds
+	call EmptyBattleTextbox
+.no_icons
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld a, [wBattleMenuCursorPosition]

@@ -558,7 +558,12 @@ wBattleWeather::
 ; 06 sunliight faded
 ; 07 sandstorm subsided
 ; 08 hail ended
-	ds 9
+
+wDisplayingTypeIcons::
+; 0 No
+; 1 Yes
+
+	ds 8
 
 wWeatherCount::
 ; # turns remaining
