@@ -1,0 +1,8 @@
+; white
+	RGB 31, 31, 31
+; light green
+	RGB 6, 24, 6
+; dark green
+	RGB 00, 10, 00
+; black
+	RGB 00, 00, 00

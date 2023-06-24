@@ -4985,6 +4985,7 @@ Battle_DummyFunction:
 
 BattleMenu:
 	xor a
+	ld [wCurrentBattleWindow], a
 	ldh [hBGMapMode], a
 	call LoadTempTilemapToTilemap
 
@@ -4993,6 +4994,7 @@ BattleMenu:
 	jr z, .ok
 	cp BATTLETYPE_TUTORIAL
 	jr z, .ok
+	call _LoadBattleFontsHPBar
 	call EmptyBattleTextbox
 	call UpdateBattleHuds
 	call EmptyBattleTextbox
@@ -5013,6 +5015,7 @@ BattleMenu:
 	jr z, .skip_dude_pack_select
 	farcall _DudeAutoInput_DownA
 .skip_dude_pack_select
+	call DrawSelectIcon
 	call LoadBattleMenu2
 	ret c
 
@@ -5031,11 +5034,50 @@ BattleMenu:
 	jr .loop
 
 BattleMenu_Fight:
+	ld a, 1
+	ld [wCurrentBattleWindow], a
 	xor a
 	ld [wNumFleeAttempts], a
 	call SafeLoadTempTilemapToTilemap
 	and a
 	ret
+
+DrawSelectIcon:
+	ld hl, $BA ; Position right next to the 'z' in vTiles0
+	push hl
+	
+.geticon:
+
+rept 4
+	add hl, hl
+endr
+
+	ld de, vTiles0
+	add hl, de
+	ld de, .select_button
+	lb bc, BANK(.select_button), 2
+	call Request2bpp
+	
+.draw
+
+	pop hl
+	ld a, l
+	ld hl, wStringBuffer5
+	ld [hli], a
+	inc a
+	ld [hli], a
+	ld a, TX_END
+	ld [hli], a
+	ld de, wStringBuffer5
+	hlcoord 1, 1
+	call PlaceString
+	hlcoord 10, 8
+	ld de, wStringBuffer5
+	call PlaceString
+	ret
+	
+.select_button:
+	INCBIN "gfx/types/select.2bpp"
 
 LoadBattleMenu2:
 	call IsMobileBattle
@@ -5079,6 +5121,8 @@ BattleMenu_Pack:
 	cp BATTLETYPE_CONTEST
 	jr z, .contest
 
+	ld a, 2
+	ld [wCurrentBattleWindow], a
 	farcall BattlePack
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
@@ -5163,6 +5207,8 @@ BattleMenu_Pack:
 	ret
 
 BattleMenu_PKMN:
+	ld a, 3
+	ld [wCurrentBattleWindow], a
 	call LoadStandardMenuHeader
 BattleMenuPKMN_ReturnFromStats:
 	call ExitMenu
@@ -5412,6 +5458,8 @@ BattleMenu_Run:
 	call SafeLoadTempTilemapToTilemap
 	ld a, $3
 	ld [wMenuCursorY], a
+	inc a
+	ld [wCurrentBattleWindow], a
 	ld hl, wBattleMonSpeed
 	ld de, wEnemyMonSpeed
 	call TryToRunAwayFromBattle

@@ -614,7 +614,7 @@ UpdatePageText:
 	call PlaceString
 	ret
 
-CoordsBCtoHL:
+CoordsBCtoHL::
 	ld hl, wTilemap
 	ld a, c
 	push bc

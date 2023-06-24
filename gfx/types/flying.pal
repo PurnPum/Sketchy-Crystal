@@ -1,0 +1,8 @@
+; white
+	RGB 31, 31, 31
+; light blue
+	RGB 17, 29, 27
+; blue
+	RGB 07, 10, 19
+; black
+	RGB 00, 00, 00

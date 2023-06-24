@@ -1,0 +1,8 @@
+; white
+	RGB 31, 31, 31
+; purple
+	RGB 22, 06, 22
+; dark purple
+	RGB 12, 01, 12
+; black
+	RGB 00, 00, 00

@@ -497,7 +497,12 @@ wPayDayMoney:: ds 3
 
 wTrainerInfoPage:: db
 
-wSafariMonEating:: db
+wCurrentBattleWindow:: db
+; 0 - Main menu
+; 1 - Selecting move
+; 2 - BackPack
+; 3 - Party
+; 4 - Info (Trainer battles only)
 	ds 1
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db

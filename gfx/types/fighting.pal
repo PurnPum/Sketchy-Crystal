@@ -1,0 +1,8 @@
+; white
+	RGB 31, 31, 31
+; orange
+	RGB 26, 14, 05
+; dark orange
+	RGB 17, 08, 03
+; black
+	RGB 00, 00, 00

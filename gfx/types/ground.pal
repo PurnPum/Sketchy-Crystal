@@ -1,0 +1,8 @@
+; white
+	RGB 31, 31, 31
+; brown
+	RGB 16, 08, 04
+; dark brown
+	RGB 10, 05, 02
+; black
+	RGB 00, 00, 00

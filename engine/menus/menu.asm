@@ -358,6 +358,10 @@ Menu_WasButtonPressed:
 	callfar PlaySpriteAnimationsAndDelayFrame
 
 .skip_to_joypad
+	;call GetJoypad
+	ldh a, [hJoyPressed]
+	cp SELECT
+	call z, DisplayTypeIcons
 	call JoyTextDelay
 	call GetMenuJoypad
 	and a
@@ -803,3 +807,66 @@ _InitVerticalMenuCursor::
 	ld [hli], a
 	ld [hli], a
 	ret
+
+DisplayTypeIcons:
+	ld a, [wBattleMode]
+	and a
+	ret z
+	ld a, [wCurrentBattleWindow]
+	and a
+	ret nz ; Only do this on the main menu of a battle
+	ld a, [wEnemyMonType1]
+	ld b, $80
+	ld de, wBGPals1 palette 5 ; D028
+	call .aux
+	ld a, [wEnemyMonType1]
+	ld b, a
+	ld a, [wEnemyMonType2]
+	cp b
+	jr z, .monotype
+	ld b, $81
+	ld de, wBGPals1 palette 6 ; D030
+	call .aux
+	ld a, [wBattleMonType1]
+	ld b, $82
+	ld de, wBGPals1 palette 7 ; D038
+	call .aux
+	ld a, [wBattleMonType1]
+	ld b, a
+	ld a, [wBattleMonType2]
+	cp b
+	ret z
+	ld b, $83
+	ld de, wBGPals1 palette 4
+	call .aux
+	ret
+.monotype
+	ld a, [wBattleMonType1]
+	ld b, $82
+	ld de, wBGPals1 palette 6 ; D030
+	call .aux
+	ld a, [wBattleMonType1]
+	ld b, a
+	ld a, [wBattleMonType2]
+	cp b
+	ret z
+	ld b, $83
+	ld de, wBGPals1 palette 7 ; D038
+	call .aux
+	ret
+	
+.aux
+	ld hl, TypeIDs
+	push bc
+	push de
+	ld de, 2
+	call IsInArray
+	pop de
+	pop bc
+	ret nc
+	inc hl
+	ld c, [hl]
+	farcall LoadTypeIcon
+	ret
+	
+INCLUDE "data/type_ids.asm" 
