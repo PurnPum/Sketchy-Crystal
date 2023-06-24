@@ -4994,7 +4994,10 @@ BattleMenu:
 	jr z, .ok
 	cp BATTLETYPE_TUTORIAL
 	jr z, .ok
-	call _LoadBattleFontsHPBar
+	push hl
+	ld hl, wPlayerHPPal
+	call SetHPPal	; Do this to reset the EXP Bar palette in case select was pressed
+	pop hl
 	call EmptyBattleTextbox
 	call UpdateBattleHuds
 	call EmptyBattleTextbox
