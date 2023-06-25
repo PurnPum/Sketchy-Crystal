@@ -377,7 +377,7 @@ PlaceStatusString:
 	ld a, [de]
 	or b
 	pop de
-	ld bc, $00FF ; Should always be a 0
+	ld bc, 0
 	jr nz, PlaceNonFaintStatus
 	push de
 	ld de, FntString
@@ -430,6 +430,13 @@ PlaceNonFaintStatus:
 	ret
 
 .placepsn
+	ld a, b
+	cp c			; If b=c
+	jr nz, .different
+	xor a
+	cp c			; If c=b=0
+	jr z, .place	; Dont even check for toxic
+.different
 	ld a, [bc]
 	bit SUBSTATUS_TOXIC, a
 	jr z, .place
