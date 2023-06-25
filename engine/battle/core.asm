@@ -5056,25 +5056,38 @@ BattleMenu_Fight:
 	and a
 	ret
 
+DrawStartIcon:
+	ld hl, $BC ; Position 3 tiles to the right of the 'z' in vTiles0
+	call GetHLvTilesPosition
+	ld de, Start_button
+	lb bc, BANK(Start_button), 2
+	call Request2bpp
+	ld hl, $BC
+	call DrawIcon
+	call PlaceStartIcon
+	ret
+
 DrawSelectIcon:
 	ld hl, $BA ; Position right next to the 'z' in vTiles0
-	push hl
+	call GetHLvTilesPosition
+	ld de, Select_button
+	lb bc, BANK(Select_button), 2
+	call Request2bpp
+	ld hl, $BA
+	call DrawIcon
+	call PlaceSelectIcon
+	ret
 	
-.geticon:
-
+GetHLvTilesPosition:
 rept 4
 	add hl, hl
 endr
 
 	ld de, vTiles0
 	add hl, de
-	ld de, .select_button
-	lb bc, BANK(.select_button), 2
-	call Request2bpp
+	ret
 	
-.draw
-
-	pop hl
+DrawIcon:
 	ld a, l
 	ld hl, wStringBuffer5
 	ld [hli], a
@@ -5082,6 +5095,9 @@ endr
 	ld [hli], a
 	ld a, TX_END
 	ld [hli], a
+	ret
+	
+PlaceSelectIcon:
 	ld de, wStringBuffer5
 	hlcoord 1, 1
 	call PlaceString
@@ -5090,8 +5106,17 @@ endr
 	call PlaceString
 	ret
 	
-.select_button:
-	INCBIN "gfx/types/select.2bpp"
+PlaceStartIcon:
+	ld de, wStringBuffer5
+	hlcoord 2, 11
+	call PlaceString
+	ret
+	
+Select_button:
+	INCBIN "gfx/buttons/select.2bpp"
+	
+Start_button:
+	INCBIN "gfx/buttons/start.2bpp"
 
 LoadBattleMenu2:
 	call IsMobileBattle
@@ -5577,15 +5602,15 @@ MoveSelectionScreen:
 	ld c, STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP
 	ld a, [wMoveSelectionMenuType]
 	dec a
-	ld b, D_DOWN | D_UP | A_BUTTON
+	ld b, D_DOWN | D_UP | A_BUTTON | START
 	jr z, .okay
 	dec a
-	ld b, D_DOWN | D_UP | A_BUTTON | B_BUTTON
+	ld b, D_DOWN | D_UP | A_BUTTON | B_BUTTON | START
 	jr z, .okay
 	ld a, [wLinkMode]
 	and a
 	jr nz, .okay
-	ld b, D_DOWN | D_UP | A_BUTTON | B_BUTTON | SELECT
+	ld b, D_DOWN | D_UP | A_BUTTON | B_BUTTON | SELECT | START
 
 .okay
 	ld a, b
@@ -5621,6 +5646,7 @@ MoveSelectionScreen:
 .interpret_joypad
 	ld a, $1
 	ldh [hBGMapMode], a
+	call DrawStartIcon
 	call ScrollingMenuJoypad
 	bit D_UP_F, a
 	jp nz, .pressed_up
@@ -5628,6 +5654,8 @@ MoveSelectionScreen:
 	jp nz, .pressed_down
 	bit SELECT_F, a
 	jp nz, .pressed_select
+	bit START_F, a
+	jp nz, .pressed_start	; TODO
 	bit B_BUTTON_F, a
 	; A button
 	push af
@@ -5748,6 +5776,9 @@ MoveSelectionScreen:
 	ld [hl], a
 	jr .swap_moves_in_party_struct
 
+.pressed_start ;TODO
+	jp .menu_loop
+
 .not_swapping_disabled_move
 	ld a, [wSwappingMove]
 	cp b
@@ -5806,6 +5837,8 @@ MoveSelectionScreen:
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
 	jp MoveSelectionScreen
+	
+
 
 MoveInfoBox:
 	xor a
