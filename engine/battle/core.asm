@@ -5020,7 +5020,7 @@ BattleMenu:
 	jr z, .skip_dude_pack_select
 	farcall _DudeAutoInput_DownA
 .skip_dude_pack_select
-	call DrawSelectIcon
+	call PlaceSelectIcon
 	call LoadBattleMenu2
 	ret c
 
@@ -5056,67 +5056,23 @@ BattleMenu_Fight:
 	and a
 	ret
 
-DrawStartIcon:
-	ld hl, $BC ; Position 3 tiles to the right of the 'z' in vTiles0
-	call GetHLvTilesPosition
-	ld de, Start_button
-	lb bc, BANK(Start_button), 2
-	call Request2bpp
-	ld hl, $BC
-	call DrawIcon
-	call PlaceStartIcon
-	ret
-
-DrawSelectIcon:
-	ld hl, $BA ; Position right next to the 'z' in vTiles0
-	call GetHLvTilesPosition
-	ld de, Select_button
-	lb bc, BANK(Select_button), 2
-	call Request2bpp
-	ld hl, $BA
-	call DrawIcon
-	call PlaceSelectIcon
-	ret
-	
-GetHLvTilesPosition:
-rept 4
-	add hl, hl
-endr
-
-	ld de, vTiles0
-	add hl, de
-	ret
-	
-DrawIcon:
-	ld a, l
-	ld hl, wStringBuffer5
-	ld [hli], a
-	inc a
-	ld [hli], a
-	ld a, TX_END
-	ld [hli], a
-	ret
-	
 PlaceSelectIcon:
-	ld de, wStringBuffer5
 	hlcoord 1, 1
-	call PlaceString
+	ld [hl], "<SEL_1>"
+	hlcoord 2, 1
+	ld [hl], "<SEL_2>"
 	hlcoord 10, 8
-	ld de, wStringBuffer5
-	call PlaceString
+	ld [hl], "<SEL_1>"
+	hlcoord 11, 8
+	ld [hl], "<SEL_2>"
 	ret
 	
 PlaceStartIcon:
-	ld de, wStringBuffer5
+	hlcoord 1, 11
+	ld [hl], "<STR_1>"
 	hlcoord 2, 11
-	call PlaceString
+	ld [hl], "<STR_2>"
 	ret
-	
-Select_button:
-	INCBIN "gfx/buttons/select.2bpp"
-	
-Start_button:
-	INCBIN "gfx/buttons/start.2bpp"
 
 LoadBattleMenu2:
 	call IsMobileBattle
@@ -5646,7 +5602,7 @@ MoveSelectionScreen:
 .interpret_joypad
 	ld a, $1
 	ldh [hBGMapMode], a
-	call DrawStartIcon
+	call PlaceStartIcon
 	call ScrollingMenuJoypad
 	bit D_UP_F, a
 	jp nz, .pressed_up
@@ -5837,8 +5793,6 @@ MoveSelectionScreen:
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
 	jp MoveSelectionScreen
-	
-
 
 MoveInfoBox:
 	xor a

@@ -158,6 +158,10 @@
 	charmap "x",         $b7
 	charmap "y",         $b8
 	charmap "z",         $b9
+	charmap "<SEL_1>",   $ba
+	charmap "<SEL_2>",   $bb
+	charmap "<STR_1>",   $bc
+	charmap "<STR_2>",   $bd
 
 	charmap "Ä",         $c0
 	charmap "Ö",         $c1
@@ -179,6 +183,7 @@
 	charmap "<PK>",      $e1
 	charmap "<MN>",      $e2
 	charmap "-",         $e3
+	charmap "%",		 $e4
 
 	charmap "?",         $e6
 	charmap "!",         $e7
