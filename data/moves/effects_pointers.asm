@@ -124,7 +124,7 @@ MoveEffectsPointers:
 	dw Poltergeist
 	dw ShoreUp
 	dw Safeguard
-	dw SacredFire
+	dw FlareBlitz
 	dw BatonPass
 	dw Pursuit
 	dw RapidSpin

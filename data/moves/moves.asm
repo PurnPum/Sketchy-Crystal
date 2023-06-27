@@ -172,7 +172,7 @@ Moves:
 	move REST,         EFFECT_HEAL,                0, PSYCHIC_TYPE, 100,  5,   0
 	move ROCK_SLIDE,   EFFECT_FLINCH_HIT,         70, ROCK,         100, 10,  30
 	move HYPER_FANG,   EFFECT_FLINCH_HIT,         80, NORMAL,       100, 10,  10
-	move FLARE_BLITZ,  EFFECT_RECOIL_HIT_4TH,    100, FIRE,         100, 10,   0
+	move FLARE_BLITZ,  EFFECT_FLARE_BLITZ,	     100, FIRE,         100, 10,   0
 	move CONVERSION,   EFFECT_CONVERSION,          0, ELECTRIC,     100, 30,   0
 	move TRI_ATTACK,   EFFECT_TRI_ATTACK,         30, CURSE_TYPE,   100, 10,   0
 	move SUPER_FANG,   EFFECT_SUPER_FANG,          1, NORMAL,       100, 10,   0
@@ -234,7 +234,7 @@ Moves:
 	move CROSS_POISON, EFFECT_RECOIL_HIT_4TH,    100, POISON,       100, 10,   0
 	move SAFEGUARD,    EFFECT_SAFEGUARD,           0, PSYCHIC_TYPE, 100, 25,   0
 	move PAIN_SPLIT,   EFFECT_PAIN_SPLIT,          0, GHOST,        100, 20,   0
-	move SACRED_FIRE,  EFFECT_SACRED_FIRE,       100, FIRE,         100,  5,  50
+	move SACRED_FIRE,  EFFECT_FLAME_WHEEL,       100, FIRE,         100,  5,  50
 	move DISCHARGE,    EFFECT_PARALYZE_HIT,       80, ELECTRIC,     100, 15,  30
 	move DYNAMICPUNCH, EFFECT_CONFUSE_HIT,        85, FIGHTING,      75,  5, 100
 	move MEGAHORN,     EFFECT_SELF_ATTACK_DOWN,  115, BUG,          100,  5, 100

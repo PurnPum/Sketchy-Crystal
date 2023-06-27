@@ -1609,7 +1609,7 @@ Safeguard:
 	safeguard
 	endmove
 
-SacredFire:
+FlareBlitz:
 	checkobedience
 	usedmovetext
 	doturn
@@ -1620,16 +1620,15 @@ SacredFire:
 	damagevariation
 	checkhit
 	resistberry
-	effectchance
 	moveanim
 	failuretext
 	applydamage
 	criticaltext
 	supereffectivetext
 	defrost
+	recoil
 	checkfaint
 	buildopponentrage
-	burntarget
 	endmove
 
 BatonPass:
