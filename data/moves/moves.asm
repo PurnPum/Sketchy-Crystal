@@ -142,7 +142,7 @@ Moves:
 	move FIRE_BLAST,   EFFECT_BURN_HIT,          110, FIRE,          85,  5,  10
 	move WATERFALL,    EFFECT_FLINCH_HIT,	      80, WATER,        100, 15,  20
 	move CLAMP,        EFFECT_TRAP_TARGET,        35, WATER,        100, 15,   0
-	move SWIFT,        EFFECT_BYPASS_PROTECT,     65, NORMAL,       100, 20,   0
+	move SWIFT,        EFFECT_BYPASS_PROTECT,     60, NORMAL,       100, 20,   0
 	move CRYOGENICE,   EFFECT_CRYOGENICE,          0, ICE,          100,  5,   0
 	move SPIKE_CANNON, EFFECT_MULTI_HIT,          18, ROCK,         100, 15,   0
 	move CONSTRICT,    EFFECT_SPEED_DOWN_HIT,     20, NORMAL,       100, 30, 100
