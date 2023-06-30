@@ -26,17 +26,9 @@ TypeIconMatches:
 	type_icon_pal 16, IceTypeIcon, IceTypeIconPal
 	assert_table_length NUM_TYPE_ICONS + 1
 	
-MACRO type_icon_pos
-; # index, X coord, Y coord, Tile ID
-	db \1
-	db \2
-	db \3
-	db \4
-ENDM
-	
 TypeIconPositions:
 	table_width 4, TypeIconPositions
-	type_icon_pos $80, 1, 0, $C7   ; Enemy mon, first type
-	type_icon_pos $81, 3, 0, $CB   ; Enemy mon, second type
-	type_icon_pos $82, 10, 7, $D7  ; Your mon, first type
-	type_icon_pos $83, 12, 7, $DB  ; Your mon, second type
+	db $80, 1, 0, $C7   ; Enemy mon, first type
+	db $81, 3, 0, $CB   ; Enemy mon, second type
+	db $82, 10, 7, $D7  ; Your mon, first type
+	db $83, 12, 7, $DB  ; Your mon, second type
