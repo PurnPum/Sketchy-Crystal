@@ -5710,7 +5710,7 @@ MoveSelectionScreen:
 .pressed_select
 	ld a, [wSwappingMove]
 	and a
-	jr z, .start_swap
+	jp z, .start_swap
 	ld hl, wBattleMonMoves
 	call .swap_bytes
 	ld hl, wBattleMonPP
@@ -5732,7 +5732,10 @@ MoveSelectionScreen:
 	ld [hl], a
 	jr .swap_moves_in_party_struct
 
-.pressed_start ;TODO
+.pressed_start
+	ld a, [wMoveInfoState]
+	xor 1
+	ld [wMoveInfoState], a
 	jp .menu_loop
 
 .not_swapping_disabled_move
@@ -5793,8 +5796,15 @@ MoveSelectionScreen:
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
 	jp MoveSelectionScreen
+	
 
 MoveInfoBox:
+	ld a, [wMoveInfoState]
+	and a
+	jr z, .small_infobox	; If wMoveInfoState is 0 then proceed, otherwise let our custom function draw the info box.
+	farcall MoveBattleInfo
+	ret
+.small_infobox
 	xor a
 	ldh [hBGMapMode], a
 

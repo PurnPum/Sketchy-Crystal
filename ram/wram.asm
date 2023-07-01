@@ -503,7 +503,11 @@ wCurrentBattleWindow:: db
 ; 2 - BackPack
 ; 3 - Party
 ; 4 - Info (Trainer battles only)
-	ds 1
+
+wMoveInfoState:: db
+; 0 - Normal size
+; 1 - Large size
+
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db
 
@@ -559,11 +563,12 @@ wBattleWeather::
 ; 07 sandstorm subsided
 ; 08 hail ended
 
-wDisplayingTypeIcons::
+	ds 8
+
+wDisplayingTypeIcons:: db
 ; 0 No
 ; 1 Yes
 
-	ds 8
 
 wWeatherCount::
 ; # turns remaining
