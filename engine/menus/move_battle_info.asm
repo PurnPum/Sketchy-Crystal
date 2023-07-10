@@ -13,6 +13,227 @@ MoveExtraInfoBox:
 	ld b, 11
 	ld c, 18
 	call Textbox
+	call PrintMoveData
+	ret
+
+PrintMoveData:
+	call PlaceMoveDisabled
+	lb bc, 1, 1
+	call PlaceMovePP
+	call PlaceMoveBasePower
+	call PlaceMoveAccuracy
+	call PlaceMoveType
+	call PlaceMovePriority
+	; fallthrough
+PrintExtraTexts:
+	push bc
+	ld a, [wCurPlayerMove]
+	ld hl, MoveTextMatches
+	ld bc, 12
+.loop1
+	dec a
+	jr z, .done
+	add hl, bc
+	jr .loop1
+.done
+	pop bc
+rept 6
+	call AuxPrintMoveData
+endr
+	ret
+
+AuxPrintMoveData:
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	inc hl
+	push hl
+	push bc
+	ld hl, MoveMainTexts.effect_chance
+	call PlaceChanceText
+	farcall CoordsBCtoHL
+	call PlaceString
+	pop bc
+	inc c
+	pop hl
+	ret
+	
+PlaceChanceText:	 ; Input: HL -> Effect Chance Address, DE -> Current text address.
+	ld a, h
+	cp d
+	ret nz
+	ld a, l
+	cp e
+	ret nz			; Only proceed if hl = de
+	push de
+	push bc
+	ld a, [wCurPlayerMove]
+	call GetExtraEffectChance
+	ld a, b
+	inc a
+	jr nz, .not_100p
+	pop bc
+	push bc
+	ld b, 9
+	farcall CoordsBCtoHL
+	ld de, MoveMainTexts.a_hundred_percent
+	call PlaceString
+	pop bc
+	ld b, 1
+	pop de
+	ret
+	
+.not_100p
+	pop bc
+	push bc
+	ld b, 9
+	farcall CoordsBCtoHL
+	call GetExtraEffectChance
+	call AuxPlaceNot100p
+	pop bc
+	pop de
+	ret
+	
+GetBasePower: ; Move ID is in wCurPlayerMove, Power returned in B
+	ld a, [wPlayerMoveStruct + MOVE_POWER]
+	ld b, a
+	ret
+	
+GetAccuracy: ; Move ID is in wCurPlayerMove, Accuracy returned in B (0xFF means 100%)
+	ld a, [wPlayerMoveStruct + MOVE_ACC]
+	ld b, a
+	ret
+	
+GetExtraEffectChance: ; Move ID is in wCurPlayerMove, Effect chance returned in B, same as accuracy
+	ld a, [wPlayerMoveStruct + MOVE_CHANCE]
+	ld b, a
+	ret
+	
+CalculateChanceNumber: ; Takes a number in B, multiplies it by 100 and then divides it by 255; this returns the % chance from an accuracy/effect chance input
+	xor a				; Returns the result in B and the remainder in C
+	ldh [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
+	ld a, b
+	ldh [hMultiplicand + 2], a
+	ld a, 100
+	ldh [hMultiplier], a
+	call Multiply
+	ldh a, [hProduct + 2]
+	ldh [hDividend + 0], a
+	ldh a, [hProduct + 3]
+	ldh [hDividend + 1], a
+	xor a
+	dec a ;FF
+	ld [hDivisor], a
+	ld b, 2
+	call Divide
+	ld a, [hQuotient+3]
+	ld b, a
+	ld a, [hRemainder]
+	ld c, a
+	ret
+	
+PlaceMoveBasePower:		; Input: bc -> coords to place text
+	push bc
+	call GetBasePower
+	and a
+	jr z, .nope					; If the power is 0, dont print the base power and dont increase bc
+	pop bc
+	farcall CoordsBCtoHL
+	ld de, MoveMainTexts.base_power
+	push bc
+	call PlaceString
+	pop bc
+	push bc
+	ld b, 8
+	farcall CoordsBCtoHL
+	call GetBasePower
+	cp 1
+	jr nz, .not_1	; If base power is 1, print --- instead
+	ld [hl], "-"
+	inc hl
+	ld [hl], "-"
+	inc hl
+	ld [hl], "-"
+	pop bc
+	inc c
+	ret
+.not_1
+	ld de, wStringBuffer5
+	ld [de], a
+	lb bc, 1, 2
+	cp 100
+	jr c, .less_than_100
+	inc c
+.less_than_100
+	call PrintNum
+	pop bc
+	inc c	; next row
+	ret
+
+.nope
+	pop bc
+	ret
+	
+PlaceMoveAccuracy:
+	push bc
+	ld de, MoveMainTexts.accuracy
+	farcall CoordsBCtoHL
+	call PlaceString
+	call GetAccuracy
+	inc a
+	jr nz, .not_100p
+	pop bc
+	push bc
+	ld b, 11
+	farcall CoordsBCtoHL
+	ld de, MoveMainTexts.a_hundred_percent
+	call PlaceString
+	pop bc
+	inc c
+	ret
+
+.not_100p
+	pop bc
+	push bc
+	ld b, 11
+	farcall CoordsBCtoHL
+	call GetAccuracy
+	call AuxPlaceNot100p
+	pop bc
+	inc c
+	ret
+
+AuxPlaceNot100p:	;input -> hl : coords
+	call CalculateChanceNumber
+	push bc
+	ld de, wStringBuffer5
+	ld a, b
+	ld [de], a
+	lb bc, 1, 2
+	call PrintNum
+	pop bc
+	ld a, c
+	and a
+	jr z, .no_decimals
+	ld b, c
+	ld [hl], "."
+	call CalculateChanceNumber
+	ld de, wStringBuffer5
+	ld a, b
+	ld [de], a
+	inc hl
+	lb bc, 1, 2
+	call PrintNum
+.no_decimals
+	ld [hl], "<%>"
+	ret
+
+PlaceMovePP:
+	push bc
+	farcall CoordsBCtoHL
+	ld de, MoveMainTexts.pp
+	call PlaceString
 	
 	ld hl, wMenuCursorY
 	dec [hl]
@@ -24,71 +245,122 @@ MoveExtraInfoBox:
 	add hl, bc
 	ld a, [hl]
 	ld [wCurPlayerMove], a
-	
-	ld hl, MoveTextMatches
-	ld bc, 18
-.loop1
-	dec a
-	jr z, .done
+
+	ld a, [wCurBattleMon]
+	ld [wCurPartyMon], a
+	ld a, WILDMON
+	ld [wMonType], a
+	callfar GetMaxPPOfMove
+
+	ld hl, wMenuCursorY
+	ld c, [hl]
+	inc [hl]
+	ld b, 0
+	ld hl, wBattleMonPP
 	add hl, bc
-	jr .loop1
-.done
-	lb bc, 1, 1
-rept 9
-	ld e, [hl]
-	inc hl
-	ld d, [hl]
-	inc hl
-	push hl
+	ld a, [hl]
+	and PP_MASK
+	ld [wStringBuffer5], a
+	
+	pop bc
 	push bc
+	farcall CoordsBCtoHL
+rept 4
+	inc hl
+endr
+	push hl
+	ld de, wStringBuffer5
+	lb bc, 1, 2
+	call PrintNum
+	pop hl
+	inc hl
+	inc hl
+	ld [hl], "/"
+	inc hl
+	ld de, wNamedObjectIndex
+	lb bc, 1, 2
+	call PrintNum
+	callfar UpdateMoveData
+	pop bc
+	inc c
+	ret
+
+PlaceMoveType:
+	push bc
+	ld de, MoveMainTexts.move_type
 	farcall CoordsBCtoHL
 	call PlaceString
 	pop bc
+	push bc
+	ld b, 7
+	farcall CoordsBCtoHL
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
+	ld b, a
+	predef PrintMoveType
+	pop bc
 	inc c
-	pop hl
-endr
-
-	call GetBasePower
-	call GetMaxPP
-	call GetAccuracy
-	call GetExtraEffectChance
 	ret
 	
-GetMaxPP:
-	callfar UpdateMoveData
-	ld a, [wPlayerMoveStruct + MOVE_PP]
+PlaceMovePriority:
+	push bc
+	ld a, [wCurPlayerMove]
 	ld b, a
-	ret
+	farcall FarGetMovePriority
+	ld a, b
+	inc b
+	inc b
+	ld e, "<MINUS>"
+	cp 1
+	jr c, .minus_1_prio
+	jr z, .no_prio
+	ld e, "<PLUS>"
+	dec b
+	dec b
+.minus_1_prio
+	ld d, b
+	pop bc
+	push de
+	farcall CoordsBCtoHL
+	ld de, MoveMainTexts.priority
+	push bc
+	call PlaceString
+	pop bc
+	push bc
+	ld b, 11
+	farcall CoordsBCtoHL
+	pop bc
+	pop de
+	ld [hl], e	; <PLUS> or <MINUS>
+	ld a, d
+	dec a
+	add "0"
+	inc hl
+	ld [hl], a
+	inc c
+	ret	
 	
-GetBasePower: ; Move ID is in wCurPlayerMove, Power returned in B
-	callfar UpdateMoveData
-	ld a, [wPlayerMoveStruct + MOVE_POWER]
+.no_prio
+	pop bc
+	ret
+
+PlaceMoveDisabled:
+	ld a, [wPlayerDisableCount]
+	and a
+	ret z
+	
+	swap a
+	and $f
 	ld b, a
+	ld a, [wMenuCursorY]
+	cp b
+	ret nz
+	
+	lb bc, 3, 11
+	farcall CoordsBCtoHL
+	ld de, MoveMainTexts.disabled
+	call PlaceString
 	ret
 	
-GetAccuracy: ; Move ID is in wCurPlayerMove, Accuracy returned in B (0xFF means 100%)
-	callfar UpdateMoveData
-	ld a, [wPlayerMoveStruct + MOVE_ACC]
-	ld b, a
-	ret
-	
-GetExtraEffectChance: ; Move ID is in wCurPlayerMove, Power returned in B
-	callfar UpdateMoveData
-	ld a, [wPlayerMoveStruct + MOVE_CHANCE]
-	ld b, a
-	ret
-	
-PrintBasicMove:	; Base power + Accuracy + PP + Type + Extra Info (7 lines)
-
-PrintExtraEffectMove: ; Base Power + Accuracy + Secondary Effect + Effect Chance + PP + Type + Extra Info (10 lines)
-
-PrintPriorityMove: ; Base Power + Accuracy + Priority + PP + Type + Extra Info (8 lines)
-
-PrintStatusMove: ; Accuracy + Main Effect + PP + Type + Extra Info (10 lines)
-
-PrintPriorityStatusMove: ; Accuracy + Main Effect + Priority + PP + Type (8 lines)
-
-
 MoveMainTexts:
 
 .base_power:
@@ -98,13 +370,13 @@ MoveMainTexts:
 	db "ACCURACY:@"
 	
 .main_effect:
-	db "   MAIN EFFECT@"
+	db " --MAIN EFFECT--@"
 	
 .effect:
-	db " SECONDARY EFFECT@"
+	db "-SECONDARY EFFECT-@"
 
 .effect_chance:
-	db "<%> CHANCE@"
+	db "CHANCE:@"
 	
 .pp:
 	db "PP:@"
@@ -118,6 +390,11 @@ MoveMainTexts:
 .disabled:
 	db "MOVE IS DISABLED@"
 
+.a_hundred_percent:
+	db "100<%>@"
+
+.extra_info:
+	db "  --EXTRA INFO--@"
 
 MoveExtraEffectsTexts:
 
@@ -180,7 +457,6 @@ MoveExtraEffectsTexts:
 	
 .poison_gas:
 	db "DROPS STATS IF PSN@"
-
 
 MoveMainEffectsTexts:
 
@@ -269,7 +545,13 @@ MoveMainEffectsTexts:
 .protect1:
 	db "PROTECTS THE USER@"
 .protect2
-	db "VS MOST ATTACKS@"
+	db "VS MOST ATTACKS.@"
+.protect3:
+	db "FAILS IF BEHIND A@"
+.protect4:
+	db "SUBSTITUTE OR IF@"
+.protect5:
+	db "USED CONSECUTIVELY@"
 	
 .endure1:
 	db "ALLOWS THE USER TO@"
@@ -291,8 +573,10 @@ MoveMainEffectsTexts:
 .force_switch1:
 	db "FORCES THE TARGET@"
 .force_switch2:
-	db "TO SWITCH OUT@"
-	
+	db "TO SWITCH OUT TO@"
+.force_switch3:
+	db "A RANDOM TEAMMATE@"
+
 .dbond1:
 	db "FOE FAINTS IF USER@"
 .dbond2:
@@ -368,11 +652,15 @@ MoveMainEffectsTexts:
 	db "BY THE TARGET@"
 
 .substitute1:
-	db "USER MAKES A DECOY@"
+	db "EVADES DRAINING@"
 .substitute2:
-	db "WITH 25<%> OF ITS@"
+	db "MOVES, STAT DROPS@"
 .substitute3:
-	db "MAX HP@"
+	db "AND STATUS COND.@"
+.substitute4:
+	db "TAKES 25<%> FROM@"
+.substitute5:
+	db "THE USER'S MAX HP@"
 
 .bide1:
 	db "AFTER 2-3 TURNS@"
@@ -392,10 +680,12 @@ MoveMainEffectsTexts:
 .toxic1:
 	db "BUILDS UP AS TURNS@"
 .toxic2:
-	db "PASS. TURNS TO PSN@"
+	db "GO BY. BECOMES@"
 .toxic3:
+	db "REGULAR POISON@"
+.toxic4:
 	db "AFTER SWITCHING@"
-
+	
 .heal_bell1:
 	db "HEALS ALL STATUS@"
 .heal_bell2:
@@ -409,7 +699,7 @@ MoveMainEffectsTexts:
 	db "BY THE TARGET@"
 
 .safeguard1:
-	db "SHIELDS THE USER@"
+	db "SHIELDS THE TEAM@"
 .safeguard2:
 	db "FOR 5 TURNS FROM@"
 .safeguard3:
@@ -468,14 +758,16 @@ MoveExtraInfoTexts:
 	db "12.5<%> CRIT CHANCE@"
 	
 .multi_hit1:
-	db "2/5 HITS: 12.5<%>@"
+	db "2 OR 5 HITS: 12.5<%>@"
 .multi_hit2:
-	db "3/4 HITS: 37.5<%>@"
+	db "3 OR 4 HITS: 37.5<%>@"
 	
 .fury_cutter1:
 	db "X2 DMG EACH TURN@"
 .fury_cutter2:
-	db "UNLESS IT MISSES@"
+	db "UNLESS IT MISSES.@"
+.fury_cutter3:
+	db "MAX POWER IS 240.@"
 
 .twineedle1:
 	db "2 HITS, CAN POISON@"
@@ -529,7 +821,7 @@ MoveExtraInfoTexts:
 .twistergust2:
 	db "IF FOE'S USING FLY@"
 .twistergust3:
-	db "SUN: HALF DAMAGE@"
+	db "SUN: 1/2 DAMAGE@"
 
 .reversalflail1:
 	db "POWER INCREASES AS@"
@@ -546,9 +838,11 @@ MoveExtraInfoTexts:
 .triplekick1:
 	db "80<%> CHANCE TO HIT@"
 .triplekick2:
-	db "3 TIMES. EACH HIT@"
+	db "3 TIMES. 2ND HIT@"
 .triplekick3:
-	db "BUILDS POWER@"
+	db "DOES 2X DMG, 3RD@"
+.triplekick4:
+	db "HIT DOES 3X DMG.@"
 	
 .double_hit:
 	db "HITS TWICE@"
@@ -572,8 +866,10 @@ MoveExtraInfoTexts:
 	db "THE FIRST TURN@"
 	
 .razor_wind1:
-	db "RAIN: 1 TURN MOVE@"
+	db "A 2-TURN ATTACK@"
 .razor_wind2:
+	db "RAIN: 1 TURN MOVE@"
+.razor_wind3:
 	db "SUN: <MINUS>50<%> DAMAGE@"
 
 .poltergeist1:
@@ -582,8 +878,10 @@ MoveExtraInfoTexts:
 	db "TARGET HAS AN ITEM@"
 	
 .solar_beam1:
-	db "SUN: 1 TURN MOVE@"
+	db "A 2-TURN ATTACK@"
 .solar_beam2:
+	db "SUN: 1 TURN MOVE@"
+.solar_beam3:
 	db "RAIN: <MINUS>50<%> DAMAGE@"
 	
 .earthquake1:
@@ -594,12 +892,18 @@ MoveExtraInfoTexts:
 .hidden_power1:
 	db "TYPE AND POWER@"
 .hidden_power2:
-	db "DEPEND ON THE DVS@"
-	
+	db "DEPEND ON THE DVs@"
+.hidden_power3:
+	db "OF THE USER.@"
+
 .rage1:
 	db "POWER INCREASES@"
 .rage2:
 	db "FOR EACH HIT TAKEN@"
+.rage3:
+	db "IN A ROW WHILE@"
+.rage4:
+	db "USING THIS MOVE@"
 	
 .false_swipe1:
 	db "LEAVES THE TARGET@"
@@ -624,7 +928,9 @@ MoveExtraInfoTexts:
 .self_destruct1:
 	db "USER LOSES 3/4TH@"
 .self_destruct2:
-	db "OF THEIR MAX HP@"
+	db "OF THEIR MAX HP.@"
+.self_destruct3:
+	db "ALWAYS DOES X2 DMG@"
 
 .hyper_beam1:
 	db "NO RECHARGE TURN@"
@@ -632,7 +938,7 @@ MoveExtraInfoTexts:
 	db "IF TARGET FAINTS@"
 	
 .explosion:
-	db "USER FAINTS@"
+	db "USER FAINTS.@"
 	
 .poison_gas1:
 	db "LOWERS S.ATTACK,@"
@@ -653,8 +959,6 @@ MoveExtraInfoTexts:
 	db "ONLY WORKS IF THE@"
 .dream_eater2:
 	db "TARGET IS ASLEEP.@"
-.dream_eater3:
-	db "LEECHES DAMAGE@"
 
 .rollout1:
 	db "USER GETS LOCKED,@"
@@ -685,6 +989,9 @@ MoveExtraInfoTexts:
 	
 .blizzard:
 	db "HAIL: DOESN'T MISS@"
+	
+.force_switch_fail:
+	db "FAILS IF GOING 1ST@"
 	
 AuxEmptyString:
 	db "@"

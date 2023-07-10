@@ -828,7 +828,8 @@ GetMovePriority:
 ; Return the priority (0-3) of move a.
 
 	ld b, a
-
+	
+FarGetMovePriority:: ; To farcall this func and pass the move in 'b'
 	; Vital Throw goes last.
 	cp VITAL_THROW
 	ld a, 0
@@ -845,10 +846,12 @@ GetMovePriority:
 	jr nz, .loop
 
 	ld a, BASE_PRIORITY
+	ld b, BASE_PRIORITY
 	ret
 
 .done
 	ld a, [hl]
+	ld b, [hl]	; For the farcall
 	ret
 
 INCLUDE "data/moves/effects_priorities.asm"
@@ -5611,7 +5614,7 @@ MoveSelectionScreen:
 	bit SELECT_F, a
 	jp nz, .pressed_select
 	bit START_F, a
-	jp nz, .pressed_start	; TODO
+	jp nz, .pressed_start
 	bit B_BUTTON_F, a
 	; A button
 	push af
@@ -5736,7 +5739,11 @@ MoveSelectionScreen:
 	ld a, [wMoveInfoState]
 	xor 1
 	ld [wMoveInfoState], a
-	jp .menu_loop
+	and a
+	jp nz, .menu_loop 					; If we go from small to large then just proceed.
+	call SafeLoadTempTilemapToTilemap
+	call UpdateBattleHuds
+	jp .menu_loop						; If we go from large to small, reload the battle elements.
 
 .not_swapping_disabled_move
 	ld a, [wSwappingMove]
@@ -5799,14 +5806,14 @@ MoveSelectionScreen:
 	
 
 MoveInfoBox:
+	xor a
+	ldh [hBGMapMode], a
 	ld a, [wMoveInfoState]
 	and a
 	jr z, .small_infobox	; If wMoveInfoState is 0 then proceed, otherwise let our custom function draw the info box.
 	farcall MoveBattleInfo
 	ret
 .small_infobox
-	xor a
-	ldh [hBGMapMode], a
 
 	hlcoord 0, 8
 	ld b, 3
