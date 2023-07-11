@@ -5550,7 +5550,18 @@ MoveSelectionScreen:
 	inc a
 
 .skip_inc
+	push af
+	ld hl, wMoveInfoState
+	ld a, [hl]
+	bit 7, [hl]
+	jr nz, .keep_cursor_y
+	pop af
 	ld [wMenuCursorY], a
+	jr .proceed_so
+.keep_cursor_y
+	res 7, [hl]
+	pop af
+.proceed_so
 	ld a, 1
 	ld [wMenuCursorX], a
 	ld a, [wNumMoves]
@@ -5736,11 +5747,14 @@ MoveSelectionScreen:
 	jr .swap_moves_in_party_struct
 
 .pressed_start
-	ld a, [wMoveInfoState]
+	ld hl, wMoveInfoState
+	ld a, [hl]
 	xor 1
-	ld [wMoveInfoState], a
+	ld [hl], a
+	res 7, [hl]
 	and a
 	jp nz, .menu_loop 					; If we go from small to large then just proceed.
+	set 7, [hl]
 	call SafeLoadTempTilemapToTilemap	; If we go from large to small, reload the battle elements.
 	jp MoveSelectionScreen				; And reload the move selection screen (erased by the previous call)
 

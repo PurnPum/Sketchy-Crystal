@@ -507,6 +507,7 @@ wCurrentBattleWindow:: db
 wMoveInfoState:: db
 ; 0 - Normal size
 ; 1 - Large size
+; Bit 7 - Used to indicate the game not to set wMenuCursorY
 
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db
