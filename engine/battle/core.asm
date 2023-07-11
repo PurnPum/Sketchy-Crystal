@@ -5741,9 +5741,8 @@ MoveSelectionScreen:
 	ld [wMoveInfoState], a
 	and a
 	jp nz, .menu_loop 					; If we go from small to large then just proceed.
-	call SafeLoadTempTilemapToTilemap
-	call UpdateBattleHuds
-	jp .menu_loop						; If we go from large to small, reload the battle elements.
+	call SafeLoadTempTilemapToTilemap	; If we go from large to small, reload the battle elements.
+	jp MoveSelectionScreen				; And reload the move selection screen (erased by the previous call)
 
 .not_swapping_disabled_move
 	ld a, [wSwappingMove]
