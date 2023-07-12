@@ -296,10 +296,17 @@ PlaceMoveType:
 	farcall CoordsBCtoHL
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
+	push bc
+	push hl
+	call PlaceMoveCategory
+	pop hl
+	pop bc
 	predef PrintMoveType
 	pop bc
 	inc c
 	ret
+	
+INCLUDE "engine/gfx/place_move_category_icon.asm"
 	
 PlaceMovePriority:
 	push bc
