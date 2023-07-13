@@ -6,16 +6,53 @@ PlaceMoveCategory:	; Input -> b : Move type
 	pop bc
 	ld de, StatusIcon
 	ld hl, StatusIconPal
-	jr z, LoadCategory
+	jr z, LoadCategoryStatus
 	ld a, b
 	cp SPECIAL
 	ld de, SpecialIcon
 	ld hl, SpecialIconPal
-	jr nc, LoadCategory
+	jr nc, LoadCategorySpecial
 .physical_move
 	ld de, PhysicalIcon
 	ld hl, PhysicalIconPal
-	; Fallthrough
+	;Fallthrough
+
+; These functions prevent the loading of the Category Icon and Palettes if they are already loaded.
+; Instead they jump directly to the part of the main function that places the icon on the screen, saving time.
+; It uses the bits 1 through 3 to store which icon is loaded.
+
+LoadCategoryPhysical:	
+	ld bc, wMoveInfoState
+	ld a, [bc]
+	bit 1, a
+	jr nz, LoadCategory.optimization_point
+	set 1, a
+	res 2, a
+	res 3, a
+	ld [bc], a
+	jr LoadCategory
+	
+LoadCategorySpecial:
+	ld bc, wMoveInfoState
+	ld a, [bc]
+	bit 2, a
+	jr nz, LoadCategory.optimization_point
+	res 1, a
+	set 2, a
+	res 3, a
+	ld [bc], a
+	jr LoadCategory
+	
+LoadCategoryStatus:
+	ld bc, wMoveInfoState
+	ld a, [bc]
+	bit 3, a
+	jr nz, LoadCategory.optimization_point
+	res 1, a
+	res 2, a
+	set 3, a
+	ld [bc], a
+	;Fallthrough
 LoadCategory:	; Input -> DE : Icon address, HL : Palette address
 	push hl
 	ld a, $C7
@@ -27,14 +64,16 @@ LoadCategory:	; Input -> DE : Icon address, HL : Palette address
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 	farcall ApplyPals
+	ld d, 5
 	call LoadCategoryIconPals
 	
+.optimization_point
 	ld a, $C7
 	call PlaceCategoryIcon
 	call WaitBGMap
 	ret
 
-LoadCategoryIconPals:
+LoadCategoryIconPals:	; Input -> d : Palette number
 	hlbgcoord 17, 1
 	xor a
 	ldh [hBGMapMode], a
@@ -43,20 +82,24 @@ LoadCategoryIconPals:
 	ld a, $1
 	ldh [rVBK], a		; Swap VRAM bank to edit the palette
 .loop1					; This loop makes sure the palette is properly updated
+	ld a, d
 	call LoadAndCheckCategoryPal
 	jr nz, .loop1
 	inc hl
 .loop2
+	ld a, d
 	call LoadAndCheckCategoryPal
 	jr nz, .loop2
 	dec hl
 	ld bc, $20
 	add hl, bc
 .loop3
+	ld a, d
 	call LoadAndCheckCategoryPal
 	jr nz, .loop3
 	inc hl
 .loop4
+	ld a, d
 	call LoadAndCheckCategoryPal
 	jr nz, .loop4
 	pop af
@@ -66,11 +109,11 @@ LoadCategoryIconPals:
 	ldh [hBGMapMode], a
 	ret
 	
-LoadAndCheckCategoryPal:
-	ld a, 5
+LoadAndCheckCategoryPal: ; Input: -> a : palette number
+	ld e, a
 	ld [hl], a
 	ld a, [hl]
-	cp 5
+	cp e
 	ret
 	
 PlaceCategoryIcon: ; Input -> A : Tile

@@ -5553,6 +5553,9 @@ MoveSelectionScreen:
 	push af
 	ld hl, wMoveInfoState
 	ld a, [hl]
+	res 1, [hl]
+	res 2, [hl]
+	res 3, [hl]
 	bit 7, [hl]
 	jr nz, .keep_cursor_y
 	pop af
@@ -5628,8 +5631,17 @@ MoveSelectionScreen:
 	jp nz, .pressed_start
 	bit B_BUTTON_F, a
 	; A button
+.a_button
 	push af
-
+	ld hl, wMoveInfoState
+	ld a, [hl]
+	bit 0, a
+	jr z, .no_need 					; If move info box is large, then clean the palettes from the category icons
+	call CleanCategoryIcon
+	call WaitBGMap
+	ld d, 1
+	farcall LoadCategoryIconPals
+.no_need
 	xor a
 	ld [wSwappingMove], a
 	ld a, [wMenuCursorY]
@@ -5752,9 +5764,16 @@ MoveSelectionScreen:
 	xor 1
 	ld [hl], a
 	res 7, [hl]
-	and a
+	res 1, [hl]
+	res 2, [hl]
+	res 3, [hl]
+	bit 0, a
 	jp nz, .menu_loop 					; If we go from small to large then just proceed.
 	set 7, [hl]
+	call CleanCategoryIcon
+	call WaitBGMap
+	ld d, 1
+	farcall LoadCategoryIconPals		; By calling this we set the palette changed by the category icon back to its original value (1)
 	call SafeLoadTempTilemapToTilemap	; If we go from large to small, reload the battle elements.
 	jp MoveSelectionScreen				; And reload the move selection screen (erased by the previous call)
 
@@ -5816,14 +5835,25 @@ MoveSelectionScreen:
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
 	jp MoveSelectionScreen
-	
+
+CleanCategoryIcon:
+	ld a, $7F
+	hlcoord 17, 1
+	ld [hl], a
+	hlcoord 18, 1
+	ld [hl], a
+	hlcoord 17, 2
+	ld [hl], a
+	hlcoord 18, 2
+	ld [hl], a
+	ret
 
 MoveInfoBox:
 	xor a
 	ldh [hBGMapMode], a
 	ld a, [wMoveInfoState]
-	and a
-	jr z, .small_infobox	; If wMoveInfoState is 0 then proceed, otherwise let our custom function draw the info box.
+	bit 0, a
+	jr z, .small_infobox	; If Bit 0 of wMoveInfoState is 0 then proceed, otherwise let our custom function draw the info box.
 	farcall MoveBattleInfo
 	ret
 .small_infobox

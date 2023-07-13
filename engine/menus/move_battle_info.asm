@@ -294,13 +294,13 @@ PlaceMoveType:
 	push bc
 	ld b, 7
 	farcall CoordsBCtoHL
-	ld a, [wPlayerMoveStruct + MOVE_ANIM]
+	ld a, [wPlayerMoveStruct + MOVE_TYPE]
 	ld b, a
-	push bc
 	push hl
 	call PlaceMoveCategory
 	pop hl
-	pop bc
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
+	ld b, a
 	predef PrintMoveType
 	pop bc
 	inc c

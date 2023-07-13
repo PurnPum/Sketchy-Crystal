@@ -1,8 +1,8 @@
 ; white
 	RGB 31, 31, 31
-; light grey
-	RGB 09, 11, 15
-; dark purple
-	RGB 05, 04, 10
+; blue
+	RGB 00, 00, 22
+; dark blue
+	RGB 00, 00, 08
 ; black
 	RGB 00, 00, 00

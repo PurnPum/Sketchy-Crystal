@@ -505,9 +505,9 @@ wCurrentBattleWindow:: db
 ; 4 - Info (Trainer battles only)
 
 wMoveInfoState:: db
-; 0 - Normal size
-; 1 - Large size
-; Bit 7 - Used to indicate the game not to set wMenuCursorY
+; Bit 0 - Used to store the Window Size -> Normal size (0) , Large size (1)
+; Bits 1-3 - Used to indicate the current loaded move category (Physical, Special or Status)
+; Bit 7 - Used to indicate the game not to set wMenuCursorY (Prevents cursor reset)
 
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db
