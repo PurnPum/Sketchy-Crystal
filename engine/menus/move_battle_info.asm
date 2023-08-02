@@ -65,6 +65,7 @@ PrintMoveData:
 	call PlaceMoveAccuracy
 	call PlaceMoveType
 	call PlaceMovePriority
+	ret
 	; fallthrough
 PrintExtraTexts:
 	push bc

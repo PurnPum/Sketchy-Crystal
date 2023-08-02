@@ -824,6 +824,7 @@ DisplayTypeIcons:
 	farcall CleanSelectIcon
 	ld a, [wDisplayingExtraStuff]
 	set 0, a
+	ld [wDisplayingExtraStuff], a
 	ld a, [wEnemyMonType1]
 	ld b, $80
 	ld de, wBGPals1 palette 5 ; D028
