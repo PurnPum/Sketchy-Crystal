@@ -323,7 +323,7 @@ LoadTypeIcon:			; input: b -> Position Index, c -> Type, de -> wBGPals1 palette 
 	ld [de], a
 	ld de, wStringBuffer5
 	push de
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	push bc
 	call PlaceString
 	pop bc
@@ -338,7 +338,7 @@ LoadTypeIcon:			; input: b -> Position Index, c -> Type, de -> wBGPals1 palette 
 	ld [de], a
 	ld de, wStringBuffer5
 	inc c
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	call PlaceString
 	call WaitBGMap
 	ret
@@ -357,7 +357,7 @@ LoadTypeIcon:			; input: b -> Position Index, c -> Type, de -> wBGPals1 palette 
 SearchPosition:
 	ld hl, TypeIconPositions
 	ld de, 4
-	ld a, b		; b has the position index (0x80, 0x82, 0x83 or 0x84)
+	ld a, b		; b has the position index (0x80, 0x81, 0x82, 0x83 or 0x84)
 	call IsInArray
 	ret
 	

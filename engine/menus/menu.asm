@@ -358,10 +358,12 @@ Menu_WasButtonPressed:
 	callfar PlaySpriteAnimationsAndDelayFrame
 
 .skip_to_joypad
-	;call GetJoypad
 	ldh a, [hJoyPressed]
 	cp SELECT
 	call z, DisplayTypeIcons
+	ldh a, [hJoyPressed]
+	cp START
+	call z, DisplayLastEnemyUsedMoveInfo
 	call JoyTextDelay
 	call GetMenuJoypad
 	and a
@@ -815,10 +817,13 @@ DisplayTypeIcons:
 	ld a, [wCurrentBattleWindow]
 	and a
 	ret nz ; Only do this on the main menu of a battle
+	ld a, [wDisplayingExtraStuff]
+	and a
+	ret nz ; Dont display the icons if they are already there or the Enemy move info box is up
 	call PlayClickSFX
-	xor a
-	inc a
-	ld [wDisplayingTypeIcons], a
+	farcall CleanSelectIcon
+	ld a, [wDisplayingExtraStuff]
+	set 0, a
 	ld a, [wEnemyMonType1]
 	ld b, $80
 	ld de, wBGPals1 palette 5 ; D028
@@ -858,7 +863,9 @@ DisplayTypeIcons:
 	ld de, wBGPals1 palette 7 ; D038
 	call .aux
 	ret
-	
+
+.faraux
+	ld a, c 
 .aux
 	ld hl, TypeIDs
 	push bc
@@ -873,4 +880,30 @@ DisplayTypeIcons:
 	farcall LoadTypeIcon
 	ret
 	
+; EmptyNickname:
+	; db "          @"
+	
 INCLUDE "data/type_ids.asm" 
+
+DisplayLastEnemyUsedMoveInfo:
+	ld a, [wLastEnemyMove]
+	and a
+	ret z
+	ld a, [wCurrentBattleWindow]
+	and a
+	ret nz ; Only do this on the main menu of a battle
+	ld a, [wDisplayingExtraStuff]
+	bit 1, a
+	ret nz ; Dont do this again if we're already displaying the info
+	set 1, a
+	ld [wDisplayingExtraStuff], a
+	ld a, [wMoveInfoState]
+	bit 4, a
+	res 4, a
+	ret nz
+	farcall MoveBattleInfoEnemy
+	ld a, [wMoveInfoState]
+	set 4, a
+	farcall CleanSelectIcon
+	farcall CleanStartIcon
+	ret

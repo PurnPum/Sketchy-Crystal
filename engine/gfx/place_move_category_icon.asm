@@ -1,7 +1,9 @@
 PlaceMoveCategory:	; Input -> b : Move type
 	push bc
-	call GetBasePower
-	ld a, b
+	ld a, [wCurPlayerMove]
+	ld b, a
+	farcall GetMoveBasePower
+	ld a, c
 	and a
 	pop bc
 	ld de, StatusIcon
@@ -57,8 +59,9 @@ LoadCategory:	; Input -> DE : Icon address, HL : Palette address
 	push hl
 	ld a, $C7
 	call GetCategoryIcon
-	
 	pop hl
+	
+.optimization_point
 	ld de, wBGPals1 palette 5
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
@@ -67,14 +70,18 @@ LoadCategory:	; Input -> DE : Icon address, HL : Palette address
 	ld d, 5
 	call LoadCategoryIconPals
 	
-.optimization_point
 	ld a, $C7
 	call PlaceCategoryIcon
 	call WaitBGMap
 	ret
 
+LoadCategoryMoveIconPals:	; Input -> d : Palette number
+	hlbgcoord 17, 3
+	jr LoadCategoryIconPals.got_coord
+	
 LoadCategoryIconPals:	; Input -> d : Palette number
 	hlbgcoord 17, 1
+.got_coord
 	xor a
 	ldh [hBGMapMode], a
 	ldh a, [rVBK]

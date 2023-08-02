@@ -457,3 +457,17 @@ AnimateTileset::
 	pop af
 	rst Bankswitch
 	ret
+
+CoordsBCtoHL::
+	ld hl, wTilemap
+	ld a, c
+	push bc
+	ld c, SCREEN_WIDTH
+	call HLMultiply
+	pop bc
+	ld a, b
+	add l
+	ld l, a
+	ret nc
+	inc h
+	ret

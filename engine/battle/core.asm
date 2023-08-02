@@ -5023,20 +5023,43 @@ BattleMenu:
 	jr z, .skip_dude_pack_select
 	farcall _DudeAutoInput_DownA
 .skip_dude_pack_select
+	ld a, [wDisplayingExtraStuff]
+	and a	; If either bit 0 and/or bit 1 are 1, dont place the select icon
+	jr nz, .no_select_button
 	call PlaceSelectIcon
+.no_select_button
+	ld a, [wLastEnemyMove]
+	and a
+	jr z, .no_start_button
+	call PlaceStartIcon
+.no_start_button
 	call LoadBattleMenu2
 	ret c
 
 .next
-	ld a, [wDisplayingTypeIcons]
-	and a
-	jr z, .no_icons
-	xor a
-	ld [wDisplayingTypeIcons], a
+	ld a, [wDisplayingExtraStuff]
+	bit 0, a
+	jr nz, .clean
+	bit 1, a
+	jr z, .nothing
+	res 1, a
+	jr .clean2
+.clean
+	res 0, a
+	ld [wDisplayingExtraStuff], a
 	call EmptyBattleTextbox
 	call UpdateBattleHuds
 	call EmptyBattleTextbox
-.no_icons
+	jr .nothing
+.clean2
+	ld [wDisplayingExtraStuff], a
+	call SafeLoadTempTilemapToTilemap	; This prevents the tileset with the text from being saved.
+	call WaitBGMap
+	ld d, 1
+	farcall LoadCategoryIconPals
+	ld d, 1
+	farcall LoadCategoryMoveIconPals
+.nothing
 	ld a, $1
 	ldh [hBGMapMode], a
 	ld a, [wBattleMenuCursorPosition]
@@ -5048,7 +5071,7 @@ BattleMenu:
 	jp z, BattleMenu_PKMN
 	cp $4
 	jp z, BattleMenu_Run
-	jr .loop
+	jp .loop
 
 BattleMenu_Fight:
 	ld a, 1
@@ -5060,21 +5083,39 @@ BattleMenu_Fight:
 	ret
 
 PlaceSelectIcon:
-	hlcoord 1, 1
+	hlcoord 1, 14
 	ld [hl], "<SEL_1>"
-	hlcoord 2, 1
+	hlcoord 2, 14
 	ld [hl], "<SEL_2>"
-	hlcoord 10, 8
-	ld [hl], "<SEL_1>"
-	hlcoord 11, 8
-	ld [hl], "<SEL_2>"
+	hlcoord 3, 14
+	ld [hl], "<SEL_3>"
 	ret
 	
 PlaceStartIcon:
-	hlcoord 1, 11
+	hlcoord 1, 15
 	ld [hl], "<STR_1>"
-	hlcoord 2, 11
+	hlcoord 2, 15
 	ld [hl], "<STR_2>"
+	hlcoord 3, 15
+	ld [hl], "<STR_3>"
+	ret
+	
+CleanSelectIcon:
+	hlcoord 1, 14
+	ld [hl], $7F
+	hlcoord 2, 14
+	ld [hl], $7F
+	hlcoord 3, 14
+	ld [hl], $7F
+	ret
+	
+CleanStartIcon:
+	hlcoord 1, 15
+	ld [hl], $7F
+	hlcoord 2, 15
+	ld [hl], $7F
+	hlcoord 3, 15
+	ld [hl], $7F
 	ret
 
 LoadBattleMenu2:
@@ -5634,13 +5675,15 @@ MoveSelectionScreen:
 .a_button
 	push af
 	ld hl, wMoveInfoState
-	ld a, [hl]
-	bit 0, a
+	bit 0, [hl]
 	jr z, .no_need 					; If move info box is large, then clean the palettes from the category icons
 	call CleanCategoryIcon
+	call CleanMoveTypeIcon
 	call WaitBGMap
 	ld d, 1
 	farcall LoadCategoryIconPals
+	ld d, 1
+	farcall LoadCategoryMoveIconPals
 .no_need
 	xor a
 	ld [wSwappingMove], a
@@ -5771,9 +5814,12 @@ MoveSelectionScreen:
 	jp nz, .menu_loop 					; If we go from small to large then just proceed.
 	set 7, [hl]
 	call CleanCategoryIcon
+	call CleanMoveTypeIcon
 	call WaitBGMap
 	ld d, 1
 	farcall LoadCategoryIconPals		; By calling this we set the palette changed by the category icon back to its original value (1)
+	ld d, 1
+	farcall LoadCategoryMoveIconPals
 	call SafeLoadTempTilemapToTilemap	; If we go from large to small, reload the battle elements.
 	jp MoveSelectionScreen				; And reload the move selection screen (erased by the previous call)
 
@@ -5847,7 +5893,19 @@ CleanCategoryIcon:
 	hlcoord 18, 2
 	ld [hl], a
 	ret
-
+	
+CleanMoveTypeIcon:
+	ld a, $7F
+	hlcoord 17, 3
+	ld [hl], a
+	hlcoord 18, 3
+	ld [hl], a
+	hlcoord 17, 4
+	ld [hl], a
+	hlcoord 18, 4
+	ld [hl], a
+	ret
+	
 MoveInfoBox:
 	xor a
 	ldh [hBGMapMode], a

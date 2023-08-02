@@ -507,6 +507,7 @@ wCurrentBattleWindow:: db
 wMoveInfoState:: db
 ; Bit 0 - Used to store the Window Size -> Normal size (0) , Large size (1)
 ; Bits 1-3 - Used to indicate the current loaded move category (Physical, Special or Status)
+; Bit 4 - Used to prevent a loop in the enemy Move InfoBox when pressing Start
 ; Bit 7 - Used to indicate the game not to set wMenuCursorY (Prevents cursor reset)
 
 wEnemyBackupDVs:: dw ; used when enemy is transformed
@@ -566,10 +567,9 @@ wBattleWeather::
 
 	ds 8
 
-wDisplayingTypeIcons:: db
-; 0 No
-; 1 Yes
-
+wDisplayingExtraStuff:: db
+; Bit 0 : Displaying type icons (Yes/No)
+; Bit 1 : Displaying last move used by enemy (Yes/No)
 
 wWeatherCount::
 ; # turns remaining

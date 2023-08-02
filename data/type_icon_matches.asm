@@ -32,3 +32,4 @@ TypeIconPositions:
 	db $81, 3, 0, $CB   ; Enemy mon, second type
 	db $82, 10, 7, $D7  ; Your mon, first type
 	db $83, 12, 7, $DB  ; Your mon, second type
+	db $84, 17, 3, $CB	; Move type

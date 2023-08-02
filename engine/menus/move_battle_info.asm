@@ -16,10 +16,51 @@ MoveExtraInfoBox:
 	call PrintMoveData
 	ret
 
+MoveBattleInfoEnemy::
+	push hl
+	push de
+	push bc
+	call MoveExtraInfoBoxEnemy
+	pop bc
+	pop de
+	pop hl
+	ret
+	
+MoveExtraInfoBoxEnemy:
+	hlcoord 0, 0
+	ld b, 11
+	ld c, 18
+	call Textbox
+	lb bc, 1, 1
+	call PlaceMoveName
+	call PlaceEnemyPP
+	call PrintMoveData.enemy
+	hlcoord 1, 0
+	ld de, .enemy_move_title
+	call PlaceString
+	ret
+
+.enemy_move_title:
+	db " MOVE USED BY FOE @"
+
+PlaceMoveName:
+	push bc
+	ld a, [wLastEnemyMove]
+	ld [wNamedObjectIndex], a
+	call GetMoveName
+	inc b
+	inc b
+	call CoordsBCtoHL
+	call PlaceString
+	pop bc
+	inc c
+	ret
+	
 PrintMoveData:
 	call PlaceMoveDisabled
 	lb bc, 1, 1
 	call PlaceMovePP
+.enemy
 	call PlaceMoveBasePower
 	call PlaceMoveAccuracy
 	call PlaceMoveType
@@ -51,7 +92,7 @@ AuxPrintMoveData:
 	push bc
 	ld hl, MoveMainTexts.effect_chance
 	call PlaceChanceText
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	call PlaceString
 	pop bc
 	inc c
@@ -68,14 +109,16 @@ PlaceChanceText:	 ; Input: HL -> Effect Chance Address, DE -> Current text addre
 	push de
 	push bc
 	ld a, [wCurPlayerMove]
-	call GetExtraEffectChance
-	ld a, b
+	ld b, a
+	farcall GetMoveEffectChance
+	ld a, c
+	ld d, c
 	inc a
 	jr nz, .not_100p
 	pop bc
 	push bc
 	ld b, 9
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	ld de, MoveMainTexts.a_hundred_percent
 	call PlaceString
 	pop bc
@@ -87,8 +130,8 @@ PlaceChanceText:	 ; Input: HL -> Effect Chance Address, DE -> Current text addre
 	pop bc
 	push bc
 	ld b, 9
-	farcall CoordsBCtoHL
-	call GetExtraEffectChance
+	call CoordsBCtoHL
+	ld b, d
 	call AuxPlaceNot100p
 	pop bc
 	pop de
@@ -135,19 +178,25 @@ CalculateChanceNumber: ; Takes a number in B, multiplies it by 100 and then divi
 	
 PlaceMoveBasePower:		; Input: bc -> coords to place text
 	push bc
-	call GetBasePower
+	ld a, [wCurPlayerMove]
+	ld b, a
+	farcall GetMoveBasePower
+	ld a, c
+	ld d, c
 	and a
 	jr z, .nope					; If the power is 0, dont print the base power and dont increase bc
 	pop bc
-	farcall CoordsBCtoHL
+	push de
+	call CoordsBCtoHL
 	ld de, MoveMainTexts.base_power
 	push bc
 	call PlaceString
 	pop bc
+	pop de
 	push bc
 	ld b, 8
-	farcall CoordsBCtoHL
-	call GetBasePower
+	call CoordsBCtoHL
+	ld a, d
 	cp 1
 	jr nz, .not_1	; If base power is 1, print --- instead
 	ld [hl], "-"
@@ -178,15 +227,20 @@ PlaceMoveBasePower:		; Input: bc -> coords to place text
 PlaceMoveAccuracy:
 	push bc
 	ld de, MoveMainTexts.accuracy
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	call PlaceString
-	call GetAccuracy
+
+	ld a, [wCurPlayerMove]
+	ld b, a
+	farcall GetMoveAccuracy
+	ld a, c
+	ld d, c
 	inc a
 	jr nz, .not_100p
 	pop bc
 	push bc
 	ld b, 11
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	ld de, MoveMainTexts.a_hundred_percent
 	call PlaceString
 	pop bc
@@ -197,8 +251,8 @@ PlaceMoveAccuracy:
 	pop bc
 	push bc
 	ld b, 11
-	farcall CoordsBCtoHL
-	call GetAccuracy
+	call CoordsBCtoHL
+	ld b, d
 	call AuxPlaceNot100p
 	pop bc
 	inc c
@@ -231,7 +285,7 @@ AuxPlaceNot100p:	;input -> hl : coords
 
 PlaceMovePP:
 	push bc
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	ld de, MoveMainTexts.pp
 	call PlaceString
 	
@@ -264,7 +318,7 @@ PlaceMovePP:
 	
 	pop bc
 	push bc
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 rept 4
 	inc hl
 endr
@@ -285,22 +339,77 @@ endr
 	inc c
 	ret
 
+PlaceEnemyPP: ; Move ID : wLastEnemyMove
+	push bc
+	call CoordsBCtoHL
+	ld de, MoveMainTexts.pp
+	call PlaceString
+	
+	ld e, -1
+	ld hl, wEnemyMonMoves
+.loop
+	inc e
+	ld b, [hl]
+	inc hl
+	ld a, [wLastEnemyMove]
+	ld [wCurPlayerMove], a
+	cp b
+	jr nz, .loop
+	
+	ld d, 0
+	ld hl, wEnemyMonPP
+	add hl, de
+	ld a, [hl]
+	and PP_MASK
+	ld [wStringBuffer5], a
+	pop bc
+	push bc
+	call CoordsBCtoHL
+rept 4
+	inc hl
+endr
+	ld de, wStringBuffer5
+	lb bc, 1, 2
+	call PrintNum
+	ld [hl], "/"
+	inc hl
+	push hl
+	ld a, [wLastEnemyMove]
+	ld b, a
+	farcall GetMoveMaxPP
+	ld de, wStringBuffer5
+	ld a, c
+	ld [de], a
+	lb bc, 1, 2
+	pop hl
+	call PrintNum
+	pop bc
+	inc c
+	ret
+	
 PlaceMoveType:
 	push bc
 	ld de, MoveMainTexts.move_type
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	call PlaceString
 	pop bc
 	push bc
 	ld b, 7
-	farcall CoordsBCtoHL
-	ld a, [wPlayerMoveStruct + MOVE_TYPE]
+	call CoordsBCtoHL
+	ld a, [wCurPlayerMove]
 	ld b, a
+	push bc
 	push hl
+	farcall GetMoveType
+	push bc
+	ld b, c
 	call PlaceMoveCategory
+	pop bc
+	ld b, $84
+	ld de, wBGPals1 palette 6
+	farcall DisplayTypeIcons.faraux
 	pop hl
-	ld a, [wPlayerMoveStruct + MOVE_ANIM]
-	ld b, a
+	pop bc
 	predef PrintMoveType
 	pop bc
 	inc c
@@ -327,14 +436,14 @@ PlaceMovePriority:
 	ld d, b
 	pop bc
 	push de
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	ld de, MoveMainTexts.priority
 	push bc
 	call PlaceString
 	pop bc
 	push bc
 	ld b, 11
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	pop bc
 	pop de
 	ld [hl], e	; <PLUS> or <MINUS>
@@ -363,7 +472,7 @@ PlaceMoveDisabled:
 	ret nz
 	
 	lb bc, 3, 11
-	farcall CoordsBCtoHL
+	call CoordsBCtoHL
 	ld de, MoveMainTexts.disabled
 	call PlaceString
 	ret

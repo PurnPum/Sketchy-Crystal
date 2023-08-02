@@ -160,8 +160,10 @@
 	charmap "z",         $b9
 	charmap "<SEL_1>",   $ba
 	charmap "<SEL_2>",   $bb
-	charmap "<STR_1>",   $bc
-	charmap "<STR_2>",   $bd
+	charmap "<SEL_3>",   $bc
+	charmap "<STR_1>",   $bd
+	charmap "<STR_2>",   $be
+	charmap "<STR_3>",   $bf
 
 	charmap "Ä",         $c0
 	charmap "Ö",         $c1
