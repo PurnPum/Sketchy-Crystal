@@ -5077,6 +5077,15 @@ CleanTypeIcons:
 	res 0, a
 	ld [wDisplayingExtraStuff], a
 CleanTypeIconsNoWRAM:
+	ld a, $7F
+	hlcoord 0, 0
+	ld [hl], a
+	hlcoord 0, 1
+	ld [hl], a
+	hlcoord 0, 2
+	ld [hl], a
+	hlcoord 0, 3
+	ld [hl], a
 	call EmptyBattleTextbox
 	call UpdateBattleHuds
 	call EmptyBattleTextbox

@@ -820,6 +820,9 @@ DisplayTypeIcons:
 	ld a, [wDisplayingExtraStuff]
 	and a
 	ret nz ; Dont display the icons if they are already there or the Enemy move info box is up
+	ld de, wEnemyMonNickname
+	hlcoord 2, 0
+	call PlaceString
 	call PlayClickSFX
 	farcall CleanSelectIcon
 	ld a, [wDisplayingExtraStuff]

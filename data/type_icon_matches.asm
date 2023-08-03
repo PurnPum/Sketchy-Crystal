@@ -28,8 +28,8 @@ TypeIconMatches:
 	
 TypeIconPositions:
 	table_width 4, TypeIconPositions
-	db $80, 1, 0, $C7   ; Enemy mon, first type
-	db $81, 3, 0, $CB   ; Enemy mon, second type
-	db $82, 10, 7, $D7  ; Your mon, first type
-	db $83, 12, 7, $DB  ; Your mon, second type
-	db $84, 17, 3, $CB	; Move type
+	db $80, 0, 0, $C7 ; Enemy mon, first type
+	db $81, 0, 2, $CB ; Enemy mon, second type
+	db $82, 18, 8, $D7  ; Your mon, first type
+	db $83, 18, 10, $DB ; Your mon, second type
+	db $84, 17, 3, $CB ; Move type
