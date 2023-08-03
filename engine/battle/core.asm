@@ -4808,7 +4808,7 @@ PrintPlayerHUD:
 .got_gender_char
 	hlcoord 17, 8
 	ld [hl], a
-	hlcoord 14, 8
+	hlcoord 11, 8
 	push af ; back up gender
 	push hl
 	ld bc, wPlayerSubStatus5 ; To check for Toxic
@@ -4816,7 +4816,10 @@ PrintPlayerHUD:
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	ret nz
+	;ret nz		This return prevented the game from printing the level if the mon had a status
+	inc hl
+	inc hl
+	inc hl	; hlcoord 14, 8
 	ld a, b
 	cp " "
 	jr nz, .copy_level ; male or female
@@ -4886,7 +4889,7 @@ DrawEnemyHUD:
 	hlcoord 9, 1
 	ld [hl], a
 
-	hlcoord 6, 1
+	hlcoord 3, 1
 	push af
 	push hl
 	ld bc, wEnemySubStatus5 ; To check for Toxic
@@ -4894,7 +4897,10 @@ DrawEnemyHUD:
 	predef PlaceNonFaintStatus
 	pop hl
 	pop bc
-	jr nz, .skip_level
+	;jr nz, .skip_level
+	inc hl
+	inc hl
+	inc hl
 	ld a, b
 	cp " "
 	jr nz, .print_level
@@ -4903,7 +4909,7 @@ DrawEnemyHUD:
 	ld a, [wEnemyMonLevel]
 	ld [wTempMonLevel], a
 	call PrintLevel
-.skip_level
+;.skip_level
 
 	ld hl, wEnemyMonHP
 	ld a, [hli]
