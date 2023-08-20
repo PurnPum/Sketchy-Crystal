@@ -6,8 +6,8 @@ TileCollisionTable::
 	db LAND_TILE         ; 02
 	db LAND_TILE         ; COLL_03
 	db LAND_TILE         ; COLL_04
-	db LAND_TILE         ; 05
-	db LAND_TILE         ; 06
+	db LAND_TILE         ; CRACKING_ICE_1
+	db LAND_TILE         ; CRACKING_ICE_2
 	db WALL_TILE         ; COLL_WALL
 	db LAND_TILE         ; COLL_CUT_08
 	db LAND_TILE         ; 09

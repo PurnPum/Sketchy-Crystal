@@ -155,6 +155,8 @@ ENDM
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
 	map_const SHUCKLE_CAVE,									5,  5 ; 92
+	map_const DARK_CAVE_MELTING_CAVE_CONNECTOR,				5,  5 ; 93
+	map_const MELTING_CAVE,								   18, 11 ; 94
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4

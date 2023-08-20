@@ -69,6 +69,7 @@ ROMX $10
 	"Evolutions and Attacks"
 ROMX $11
 	"bank11"
+	"Events"
 ROMX $12
 	"Crystal Features 1"
 ROMX $13
@@ -112,7 +113,6 @@ ROMX $24
 	"bank24"
 ROMX $25
 	"Maps"
-	"Events"
 ROMX $26
 	"Map Scripts 11"
 ROMX $27

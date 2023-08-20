@@ -15,6 +15,7 @@ FishGroups:
 	fishgroup 95 percent + 1, .ROUTE31_Old,				.ROUTE31_Good,				.ROUTE31_Super
 	fishgroup 95 percent + 1, .DARKCAVEVIOLET_Old,		.DARKCAVEVIOLET_Good,		.DARKCAVEVIOLET_Super
 	fishgroup 95 percent + 1, .DARKCAVEROUTE46_Old,		.DARKCAVEROUTE46_Good,		.DARKCAVEROUTE46_Super
+	fishgroup 95 percent + 1, .MELTINGCAVE_Old,			.MELTINGCAVE_Good,			.MELTINGCAVE_Super
 	fishgroup 95 percent + 1, .VIOLET_Old,				.VIOLET_Good,				.VIOLET_Super
 	fishgroup 95 percent + 1, .RUINSALPH_Old,			.RUINSALPH_Good,			.RUINSALPH_Super
 	fishgroup 95 percent + 1, .ROUTE32_Old,				.ROUTE32_Good,				.ROUTE32_Super
@@ -126,6 +127,15 @@ FishGroups:
 
 .DARKCAVEROUTE46_Super:
 	db 100 percent,	QUAGSIRE,	6
+	
+.MELTINGCAVE_Old:
+	db 100 percent,	SEEL,		6
+
+.MELTINGCAVE_Good:
+	db 100 percent,	SEEL,		6
+
+.MELTINGCAVE_Super:
+	db 100 percent,	DEWGONG,	6
 
 .VIOLET_Old:
 	db 100 percent,	SHELLDER,	6

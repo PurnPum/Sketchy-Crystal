@@ -1241,25 +1241,25 @@ JohtoGrassWildMons:
 	db 2, SENTRET
 	db 3, SUNKERN
 	db 2, HOPPIP
-	db 3, DELIBIRD
-	db 3, DELIBIRD
-	db 3, DELIBIRD
+	db 3, GRIMER
+	db 3, GRIMER
+	db 3, GRIMER
 	; day
 	db 2, RATTATA
 	db 2, SENTRET
 	db 3, SUNKERN
 	db 2, HOPPIP
-	db 3, DELIBIRD
-	db 3, DELIBIRD
-	db 3, DELIBIRD
+	db 3, GRIMER
+	db 3, GRIMER
+	db 3, GRIMER
 	; nite
 	db 2, RATTATA
 	db 2, SENTRET
 	db 3, SUNKERN
 	db 2, HOPPIP
-	db 3, DELIBIRD
-	db 3, DELIBIRD
-	db 3, DELIBIRD
+	db 3, GRIMER
+	db 3, GRIMER
+	db 3, GRIMER
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_30
@@ -1268,26 +1268,26 @@ JohtoGrassWildMons:
 	db 3, PIDGEY
 	db 3, LEDYBA
 	db 3, SPINARAK
-	db 4, SWINUB
-	db 4, SLUGMA
-	db 4, SLUGMA
-	db 4, SLUGMA
+	db 4, RATTATA
+	db 4, SENTRET
+	db 4, SENTRET
+	db 4, SENTRET
 	; day
 	db 3, PIDGEY
 	db 3, LEDYBA
 	db 3, SPINARAK
-	db 4, SWINUB
-	db 4, SLUGMA
-	db 4, SLUGMA
-	db 4, SLUGMA
+	db 4, RATTATA
+	db 4, SENTRET
+	db 4, SENTRET
+	db 4, SENTRET
 	; nite
 	db 3, PIDGEY
 	db 3, LEDYBA
 	db 3, SPINARAK
-	db 4, SWINUB
-	db 4, SLUGMA
-	db 4, SLUGMA
-	db 4, SLUGMA
+	db 4, RATTATA
+	db 4, SENTRET
+	db 4, SENTRET
+	db 4, SENTRET
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_31
@@ -1713,7 +1713,7 @@ JohtoGrassWildMons:
 	def_grass_wildmons CHERRYGROVE_CITY
 	db 25 percent, 25 percent, 25 percent ; encounter rates: morn/day/nite
 	; morn
-	db 3, SWINUB
+	db 3, TEDDIURSA
 	db 3, EKANS
 	db 2, AIPOM
 	db 2, DIGLETT
@@ -1721,7 +1721,7 @@ JohtoGrassWildMons:
 	db 2, PINECO
 	db 2, PINECO
 	; day
-	db 3, SWINUB
+	db 3, TEDDIURSA
 	db 3, EKANS
 	db 2, AIPOM
 	db 2, DIGLETT
@@ -1729,7 +1729,7 @@ JohtoGrassWildMons:
 	db 2, PINECO
 	db 2, PINECO
 	; nite
-	db 3, SWINUB
+	db 3, TEDDIURSA
 	db 3, EKANS
 	db 2, AIPOM
 	db 2, DIGLETT
@@ -1820,6 +1820,34 @@ JohtoGrassWildMons:
 	db 17, VOLTORB
 	db 17, VOLTORB
 	db 17, VOLTORB
+	end_grass_wildmons
+
+	def_grass_wildmons MELTING_CAVE
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 5, SWINUB
+	db 5, DELIBIRD
+	db 6, SNEASEL
+	db 5, SWINUB
+	db 5, DELIBIRD
+	db 5, DELIBIRD
+	db 5, DELIBIRD
+	; day
+	db 5, SWINUB
+	db 5, DELIBIRD
+	db 6, SNEASEL
+	db 5, SWINUB
+	db 5, DELIBIRD
+	db 5, DELIBIRD
+	db 5, DELIBIRD
+	; nite
+	db 5, SWINUB
+	db 5, DELIBIRD
+	db 6, SNEASEL
+	db 5, SWINUB
+	db 5, DELIBIRD
+	db 5, DELIBIRD
+	db 5, DELIBIRD
 	end_grass_wildmons
 
 	db -1 ; end

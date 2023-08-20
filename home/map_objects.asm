@@ -170,6 +170,10 @@ CheckIceTile::
 	ret z
 	cp COLL_ICE_2B
 	ret z
+	cp COLL_CRACKING_ICE_1
+	ret z
+	cp COLL_CRACKING_ICE_2
+	ret z
 	scf
 	ret
 

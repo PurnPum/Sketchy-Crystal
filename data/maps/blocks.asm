@@ -229,6 +229,11 @@ Route22_Blocks:
 ShuckleCave_Blocks:
 	INCBIN "maps/ShuckleCave.blk"
 
+DarkCaveMeltingCaveConnector_Blocks:
+	INCBIN "maps/DarkCaveMeltingCaveConnector.blk"
+	
+MeltingCave_Blocks:
+	INCBIN "maps/MeltingCave.blk"
 
 SECTION "Map Blocks 2", ROMX
 

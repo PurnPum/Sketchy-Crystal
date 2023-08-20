@@ -10,6 +10,8 @@ DEF COLL_FLOOR             EQU $00
 DEF COLL_01                EQU $01 ; garbage
 DEF COLL_03                EQU $03 ; garbage
 DEF COLL_04                EQU $04 ; garbage
+DEF COLL_CRACKING_ICE_1    EQU $05
+DEF COLL_CRACKING_ICE_2    EQU $06
 DEF COLL_WALL              EQU $07
 DEF COLL_CUT_08            EQU $08 ; unused
 DEF COLL_TALL_GRASS_10     EQU $10 ; unused

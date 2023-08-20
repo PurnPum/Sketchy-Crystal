@@ -28,6 +28,7 @@ DarkCaveRoute46Entrance_MapEvents:
 	def_warp_events
 	warp_event 23,  3, ROUTE_46, 4
 	warp_event  3, 25, ROUTE_31, 4
+	warp_event 27, 15, DARK_CAVE_MELTING_CAVE_CONNECTOR, 1
 
 	def_coord_events
 

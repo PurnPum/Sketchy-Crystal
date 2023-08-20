@@ -699,4 +699,6 @@ ENDM
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
 	map_attributes ShuckleCave, SHUCKLE_CAVE, $00, 0
 	map_attributes VioletRoute36Gate, VIOLET_ROUTE_36_GATE, $00, 0
+	map_attributes DarkCaveMeltingCaveConnector, DARK_CAVE_MELTING_CAVE_CONNECTOR, $00, 0
+	map_attributes MeltingCave, MELTING_CAVE, $00, 0
 

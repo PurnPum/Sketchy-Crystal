@@ -86,6 +86,8 @@ INCLUDE "maps/Route35NationalParkGate.asm"
 INCLUDE "maps/Route36RuinsOfAlphGate.asm"
 INCLUDE "maps/Route36NationalParkGate.asm"
 INCLUDE "maps/ShuckleCave.asm"
+INCLUDE "maps/MeltingCave.asm"
+INCLUDE "maps/DarkCaveMeltingCaveConnector.asm"
 
 
 SECTION "Map Scripts 6", ROMX
