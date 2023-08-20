@@ -1,4 +1,4 @@
-SHUCKLE_BERRYJUICE_PRICE EQU 50
+SHUCKLE_BERRYJUICE_PRICE EQU 175
 	object_const_def
 	const SHUCKLECAVE_SHUCKLE
 
@@ -51,11 +51,11 @@ ShuckleCaveSellJuiceText:
 	
 	para "There are lines"
 	line "drawn on the floor"
-	cont "that say '¥50'…"
+	cont "that say '¥175'…"
 	done
 
 ShuckleCaveSellJuiceSimpleText:
-	text "BERRY JUICE x ¥50"
+	text "BERRY JUICE x ¥175"
 	done
 
 ShuckleCaveNoMoneyText:
