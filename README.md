@@ -2,6 +2,8 @@
 
 # Completion progress: ~ 25%
 
+## Current Status: Paused (Development will resume around August 2026)
+
 A public beta will be released with all the documentation and info once the Johto portion of the game is totally completed (aprox 70% completion).
 
 If you stumbled upon this repo and want to do some playtesting, hit me up on the pret server in discord (my name is pumpurn)
